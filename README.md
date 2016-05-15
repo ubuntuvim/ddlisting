@@ -12,6 +12,18 @@ A short introduction of this app could easily go here.
 5. [ember-bootstrap-sass](https://github.com/MiracleBlue/ember-bootstrap-sass)
 
 
+## 界面原型
+
+### PC版界面原型
+
+#### 首页
+
+![首页](http://blog.ddlisting.com/content/images/2016/05/index.png)
+
+#### 编辑页面
+
+![编辑页面](http://blog.ddlisting.com/content/images/2016/05/index-edit.png)
+
 ## 版本历史
 
 #### 2016年5月16日

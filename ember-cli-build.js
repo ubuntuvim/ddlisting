@@ -21,9 +21,9 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   // 引入textarea根据内容自适应插件
-  app.import('bower_components/jquery-flextext/dis/flextext.min.js');
+  app.import('bower_components/jquery-flextext/dist/flextext.min.js');
   // 增加checkbox插件
-  app.import('bower_components/bootstrap-checkbox/dis/bootstrap-checkbox.js');
+  app.import('bower_components/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js');
 
   return app.toTree();
 };

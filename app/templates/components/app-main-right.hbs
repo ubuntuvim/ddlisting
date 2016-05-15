@@ -1,20 +1,30 @@
 {{! 首页右侧主要内容显示区}}
 {{!yield}}
-<div class="form-group">
-    <input type="text" value="请输入任务项" class="form-control">
+<form>
+<!-- <div class="form-group">
+    <input type="text" class="form-control opacity09" placeholder="请输入任务项">
+</div> -->
+<div class="form-group has-feedback">
+  <input type="text" class="form-control opacity09" id="newTodoId" aria-describedby="newTodo" placeholder="请输入任务项">
+  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 </div>
-<div class="list-group">
-    <p class="bg-info list-group-item">任务1</p>
+
+<div class="list-group my-list-group">
+    {{#link-to 'todoItem'}}
+        <p class="bg-info list-group-item">完成界面设计</p>
+    {{/link-to}}
 </div>
-<div class="list-group">
-    <p class="bg-info list-group-item">任务1</p>
+<div class="list-group my-list-group">
+    <p class="bg-info list-group-item">MongoDB入门</p>
 </div>
-<div class="list-group">
-    <p class="bg-info list-group-item">任务1</p>
+<div class="list-group my-list-group">
+    <p class="bg-info list-group-item">今天完成序列化器这个小结的整理。</p>
 </div>
-<div class="list-group">
-    <p class="bg-info list-group-item">任务1</p>
+<div class="list-group my-list-group">
+    <p class="bg-info list-group-item">Javaweb发展史</p>
 </div>
-<div class="list-group">
-    <p class="bg-info list-group-item">任务1</p>
+<div class="list-group my-list-group">
+    <p class="bg-info list-group-item">ember如何上传图片</p>
 </div>
+</form>

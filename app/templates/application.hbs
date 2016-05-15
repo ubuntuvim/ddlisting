@@ -1,16 +1,27 @@
 {{! 首页}}
+
+
+<!-- 背景图片 -->
+<!-- https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg -->
+<!-- http://list.ddlisting.com/assets/images/backgrounds/1-e0995a94a34699e4bbc73a73fe05e0df.jpg -->
+<div id="Layer1" style="position:absolute; left:0px; top:0px; width:100%; height:100%">
+    <img src="https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg"
+        width="100%" height="100%" id="bgImg"/>
+</div>
+
+
 {{#app-main}}
-{{app-main-header}}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3 col-sm-3">
-            {{app-main-left}}
-        </div>
-        <div class="col-md-9 col-sm-9">
-            {{app-main-right}}
+    {{app-main-header}}
+    <div class="container-fluid my-container-fluid" style="z-index:1;">
+        <div class="my-row">
+            <div class="app-main-left-width padding-lr" id="appMainLeftId">
+                {{app-main-left}}
+            </div>
+            <div class="app-main-right-width" id="appMainRightId">
+                {{app-main-right}}
+            </div>
         </div>
     </div>
-</div>
 {{/app-main}}
 
 {{outlet}}

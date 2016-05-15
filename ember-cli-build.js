@@ -22,6 +22,8 @@ module.exports = function(defaults) {
 
   // 引入textarea根据内容自适应插件
   app.import('bower_components/jquery-flextext/dis/flextext.min.js');
+  // 增加checkbox插件
+  app.import('bower_components/bootstrap-checkbox/dis/bootstrap-checkbox.js');
 
   return app.toTree();
 };

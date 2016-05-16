@@ -88,12 +88,21 @@ body {
 #appMainLeftId .panel {
     border-radius: 0;
 }
+#appMainLeftId .panel .panel-heading {
+    position: fixed;
+    top: 51px;
+    z-index: 1100;
+    width: 219px;
+}
 #appMainLeftId .panel .panel-heading span {
     top: 13px;
     position: absolute;
     right: 20px;
     font-size: 16px;
     cursor: pointer;
+}
+#appMainLeftId .panel .panel-body .list-group a {
+
 }
 #appMainLeftId .my-list-group-item {
     border-radius: 0 !important;
@@ -119,6 +128,7 @@ body {
     overflow: auto !important;
     /*===========================*/
     // width: 300px;
+    padding-right: 10px;
 }
 #appMainRightId .list-group {
     margin-bottom: 1px;

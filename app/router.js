@@ -10,8 +10,8 @@ Router.map(function() {
     // this.route('/', { path: '/category/todos' });
 
     this.route('category', function() {
-      this.route('todos', function() {
-        this.route('todoitem');
+      this.route('todos', { path: '/:category_id' }, function() {
+        this.route('todoitem', { path: '/:todo_id' });
       });
     });
 });

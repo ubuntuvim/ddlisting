@@ -11,26 +11,14 @@
               </div>
               <div class="panel-body padding0">
                   <ul class="list-group">
-                    <li class="list-group-item active my-list-group-item">
-                        <span class="badge">14</span>
-                        收件箱2
-                    </li>
-                    <li class="list-group-item my-list-group-item">
-                        <span class="badge">44</span>
-                        技术学习2
-                    </li>
-                    <li class="list-group-item my-list-group-item">
-                        <span class="badge">1</span>
-                        工作事项
-                    </li>
-                    <li class="list-group-item my-list-group-item">
-                        <span class="badge">32</span>
-                        想看电影
-                    </li>
-                    <li class="list-group-item my-list-group-item">
-                        <span class="badge">3</span>
-                        旅游
-                    </li>
+                      {{#each model.categorys as |category|}}
+                          {{#link-to 'category.todos' category.projCode}}
+                            <li class="list-group-item active my-list-group-item">
+                                <span class="badge">14</span>
+                                {{category.projName}}
+                            </li>
+                          {{/link-to}}
+                      {{/each}}
                   </ul>
               </div>
             </div>
@@ -38,130 +26,8 @@
         </div>
         <div class="app-main-right-width" id="appMainRightId">
 
-
-            {{! 首页右侧主要内容显示区}}
-            {{!yield}}
-            <form>
-            <!-- <div class="form-group">
-                <input type="text" class="form-control opacity09" placeholder="请输入任务项">
-            </div> -->
-            <div class="form-group has-feedback">
-              <input type="text" class="form-control opacity09" id="newTodoId" aria-describedby="newTodo" placeholder="请输入任务项">
-              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-            </div>
-
-            <div class="todo-list">
-              <div class="list-group my-list-group">
-                  <div style="position: relative;">
-                      <div class="todo-checkbox">
-                          <!-- <input type="checkbox" class="form-control" checked> -->
-                          <span class="glyphicon glyphicon-unchecked"></span>
-                      </div>
-
-                      {{#link-to 'category.todos.todoitem'}}
-                          <p class="bg-info list-group-item">完成界面设计 2 </p>
-                      {{/link-to}}
-
-                      <div class="todo-create-date">
-                          <span>2016年05月16日</span>
-                      </div>
-
-                      <div class="star-bookmark-minus">
-                           <span class="glyphicon glyphicon-star todo-star"></span>
-                          <img src="/assets/images/bookmark/bookmark1.png" />
-                      </div>
-                  </div>
-              </div>
-              <div class="list-group my-list-group">
-                  <div style="position: relative;">
-                      <div class="todo-checkbox">
-                          <!-- <input type="checkbox" class="form-control" checked> -->
-                          <span class="glyphicon glyphicon-unchecked"></span>
-                      </div>
-
-                      {{#link-to 'category.todos.todoitem'}}
-                        <p class="bg-info list-group-item">MongoDB入门 2 </p>
-                      {{/link-to}}
-
-                      <div class="todo-create-date">
-                          <span>2016年05月16日</span>
-                      </div>
-
-                      <div class="star-bookmark-minus">
-                           <span class="glyphicon glyphicon-star todo-star"></span>
-                          <img src="/assets/images/bookmark/bookmark1.png" />
-                      </div>
-                </div>
-
-              </div>
-              <div class="list-group my-list-group">
-                  <div style="position: relative;">
-                      <div class="todo-checkbox">
-                          <!-- <input type="checkbox" class="form-control" checked> -->
-                          <span class="glyphicon glyphicon-unchecked"></span>
-                      </div>
-                      {{#link-to 'category.todos.todoitem'}}
-                        <p class="bg-info list-group-item">今天完成序列化器这个小结的整理。 2 </p>
-                      {{/link-to}}
-
-                      <div class="todo-create-date">
-                          <span>2016年05月16日</span>
-                      </div>
-
-                      <div class="star-bookmark-minus">
-                           <span class="glyphicon glyphicon-star todo-star"></span>
-                          <img src="/assets/images/bookmark/bookmark1.png" />
-                      </div>
-                  </div>
-              </div>
-              <div class="list-group my-list-group">
-                  <div style="position: relative;">
-                      <div class="todo-checkbox">
-                          <!-- <input type="checkbox" class="form-control" checked> -->
-                          <span class="glyphicon glyphicon-unchecked"></span>
-                      </div>
-                      {{#link-to 'category.todos.todoitem'}}
-                        <p class="bg-info list-group-item">Javaweb发展史</p>
-                      {{/link-to}}
-
-                      <div class="todo-create-date">
-                          <span>2016年05月16日</span>
-                      </div>
-
-                      <div class="star-bookmark-minus">
-                           <span class="glyphicon glyphicon-star todo-star"></span>
-                          <img src="/assets/images/bookmark/bookmark1.png" />
-                      </div>
-                  </div>
-              </div>
-              <div class="list-group my-list-group">
-                  <div style="position: relative;">
-                      <div class="todo-checkbox">
-                          <!-- <input type="checkbox" class="form-control" checked> -->
-                          <span class="glyphicon glyphicon-unchecked"></span>
-                      </div>
-                      {{#link-to 'category.todos.todoitem'}}
-                        <p class="bg-info list-group-item">ember如何上传图片</p>
-                      {{/link-to}}
-
-                      <div class="todo-create-date">
-                          <span>2016年05月16日</span>
-                      </div>
-
-                      <div class="star-bookmark-minus">
-                           <span class="glyphicon glyphicon-star todo-star"></span>
-                          <img src="/assets/images/bookmark/bookmark1.png" />
-                      </div>
-                  </div>
-              </div>
-            </div>
-            </form>
-
-
+            {{outlet}}
 
         </div>
     </div>
 </div>
-
-{{outlet}}

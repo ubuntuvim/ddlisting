@@ -436,3 +436,12 @@ body {
     position: absolute;
     right: 20px;
 }
+/* =========================== 新增、编辑分类 =============================== */
+#newOrEditClassifyModal .modal-dialog .modal-footer {
+    border-top:0;
+}
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1110 !important;
+}

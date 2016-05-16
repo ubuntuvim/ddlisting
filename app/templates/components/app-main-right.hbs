@@ -10,21 +10,111 @@
   <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 </div>
 
-<div class="list-group my-list-group">
-    {{#link-to 'todoItem'}}
-        <p class="bg-info list-group-item">完成界面设计</p>
-    {{/link-to}}
-</div>
-<div class="list-group my-list-group">
-    <p class="bg-info list-group-item">MongoDB入门</p>
-</div>
-<div class="list-group my-list-group">
-    <p class="bg-info list-group-item">今天完成序列化器这个小结的整理。</p>
-</div>
-<div class="list-group my-list-group">
-    <p class="bg-info list-group-item">Javaweb发展史</p>
-</div>
-<div class="list-group my-list-group">
-    <p class="bg-info list-group-item">ember如何上传图片</p>
+<div class="todo-list">
+  <div class="list-group my-list-group">
+      <div style="position: relative;">
+          <div class="todo-checkbox">
+              <input type="checkbox" class="form-control" checked>
+          </div>
+
+          {{#link-to 'todoItem'}}
+              <p class="bg-info list-group-item">完成界面设计</p>
+          {{/link-to}}
+
+          <div class="todo-create-date">
+              <span>2016年05月16日</span>
+          </div>
+
+          <div class="star-bookmark-minus">
+               <span class="glyphicon glyphicon-star todo-star"></span>
+              <img src="/assets/images/bookmark/bookmark1.png" />
+          </div>
+      </div>
+  </div>
+  <div class="list-group my-list-group">
+      <div style="position: relative;">
+          <div class="todo-checkbox">
+              <input type="checkbox" class="form-control" checked>
+          </div>
+
+          {{#link-to 'todoItem'}}
+            <p class="bg-info list-group-item">MongoDB入门</p>
+          {{/link-to}}
+
+          <div class="todo-create-date">
+              <span>2016年05月16日</span>
+          </div>
+
+          <div class="star-bookmark-minus">
+               <span class="glyphicon glyphicon-star todo-star"></span>
+              <img src="/assets/images/bookmark/bookmark1.png" />
+          </div>
+    </div>
+
+  </div>
+  <div class="list-group my-list-group">
+      <div style="position: relative;">
+          <div class="todo-checkbox">
+              <input type="checkbox" class="form-control" checked>
+          </div>
+          {{#link-to 'todoItem'}}
+            <p class="bg-info list-group-item">今天完成序列化器这个小结的整理。</p>
+          {{/link-to}}
+
+          <div class="todo-create-date">
+              <span>2016年05月16日</span>
+          </div>
+
+          <div class="star-bookmark-minus">
+               <span class="glyphicon glyphicon-star todo-star"></span>
+              <img src="/assets/images/bookmark/bookmark1.png" />
+          </div>
+      </div>
+  </div>
+  <div class="list-group my-list-group">
+      <div style="position: relative;">
+          <div class="todo-checkbox">
+              <input type="checkbox" class="form-control" checked>
+          </div>
+          {{#link-to 'todoItem'}}
+            <p class="bg-info list-group-item">Javaweb发展史</p>
+          {{/link-to}}
+
+          <div class="todo-create-date">
+              <span>2016年05月16日</span>
+          </div>
+
+          <div class="star-bookmark-minus">
+               <span class="glyphicon glyphicon-star todo-star"></span>
+              <img src="/assets/images/bookmark/bookmark1.png" />
+          </div>
+      </div>
+  </div>
+  <div class="list-group my-list-group">
+      <div style="position: relative;">
+          <div class="todo-checkbox">
+              <input type="checkbox" class="form-control" checked>
+          </div>
+          {{#link-to 'todoItem'}}
+            <p class="bg-info list-group-item">ember如何上传图片</p>
+          {{/link-to}}
+
+          <div class="todo-create-date">
+              <span>2016年05月16日</span>
+          </div>
+
+          <div class="star-bookmark-minus">
+               <span class="glyphicon glyphicon-star todo-star"></span>
+              <img src="/assets/images/bookmark/bookmark1.png" />
+          </div>
+      </div>
+  </div>
 </div>
 </form>
+<!-- 由于Ember2.0后模板中不支持使用script标签，提取成组件的方式插入 -->
+{{#script-tag}}
+// 如果是放在index.html并不能在进入到此模板的时候触发，
+// 需要把JavaScript代码放在本页面当点击link-to进入此模板的时候才能触发
+$(function() {
+});
+{{/script-tag}}

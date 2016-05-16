@@ -50,7 +50,7 @@
                 </div>
 
 
-                <div>
+                <div class="subtodo-list">
                     <div class="form-group has-feedback">
                       <input type="text" class="form-control opacity09" id="newSubTodoId" placeholder="请输入子任务项">
                     </div>
@@ -94,9 +94,9 @@
         </div>  <!-- //auto-overflow-x-->
 
         <div class="todo-item-bottom">
-            <button type="button" class="btn btn-default btn-xs">
+            <a href="#" class="btn btn-default btn-xs">
                 关闭面板<span class="glyphicon glyphicon-menu-right"></span>
-            </button>
+            </a>
             <span class="create-date">
                 创建于：2016-05-16
             </span>
@@ -108,3 +108,28 @@
     </div>
 
 </div>
+
+<!-- 由于Ember2.0后模板中不支持使用script标签，提取成组件的方式插入 -->
+{{#script-tag}}
+// 如果是放在index.html并不能在进入到此模板的时候触发，
+// 需要把JavaScript代码放在本页面当点击link-to进入此模板的时候才能触发
+$(function() {
+    // 引入textarea根据内容自适应插件
+    $('#updateTodItemId').flexText();
+
+    // 复选框样式
+    $('input').iCheck({
+       checkboxClass: 'icheckbox_polaris',
+       radioClass: 'iradio_polaris',
+       increaseArea: '20%' // optional
+     });
+    //  todoitem详细页面，点击右上角的星号标注好改变透明度
+    $("#todoItemId .todo-item-gy").click(function() {
+        if ($(this).css("opacity") === '1') {
+            $(this).css("opacity", 0.4);
+        } else {
+            $(this).css("opacity", 1);
+        }
+    });
+});
+{{/script-tag}}

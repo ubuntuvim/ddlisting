@@ -1,0 +1,30 @@
+{{! 新增、修改TODO分类}}
+{{!yield}}
+<div class="modal fade" id="newOrEditClassifyModal" tabindex="9999"
+    role="dialog" aria-labelledby="newOrEditClassifyLabel">
+
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="newOrEditClassifyLabel" style="text-align: center; font-weight: bold;">编辑分类</h4>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            {{input type="text" class="form-control" id="projName1"
+                value=projName placeholder="分类名称"}}
+
+            {{input type="hidden" value=id id="projId1"}}
+
+          </div>
+      </div>
+      <div class="modal-footer" style="padding: 10px 15px;">
+          {{! button-with-confirmation type="button" class="btn btn-sm btn-red pull-left"
+           text="删除此分类会把所属的所有TODO也删除，请确认？" onConfirm=(action 'delClassify')}}
+
+        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-sm btn-info" >保存</button>
+      </div>
+    </div>
+  </div>
+
+</div>

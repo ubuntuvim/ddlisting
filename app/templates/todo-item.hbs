@@ -6,7 +6,8 @@
         <div class="todo-item-top">
             <form class="form-inline">
                 <div class="todo-checkbox form-group">
-                    <input type="checkbox" class="form-control" checked>
+                    <!-- <input type="checkbox" class="form-control" checked> -->
+                    <span class="glyphicon glyphicon-unchecked"></span>
                 </div>
 
                 <div class="form-group form-textarea">
@@ -117,18 +118,23 @@ $(function() {
     // 引入textarea根据内容自适应插件
     $('#updateTodItemId').flexText();
 
-    // 复选框样式
-    $('input').iCheck({
-       checkboxClass: 'icheckbox_polaris',
-       radioClass: 'iradio_polaris',
-       increaseArea: '20%' // optional
-     });
     //  todoitem详细页面，点击右上角的星号标注好改变透明度
     $("#todoItemId .todo-item-gy").click(function() {
         if ($(this).css("opacity") === '1') {
             $(this).css("opacity", 0.4);
         } else {
             $(this).css("opacity", 1);
+        }
+    });
+    // 设置复选框点击事件
+    $("#todoItemId .inner .todo-item-top .form-inline .todo-checkbox .glyphicon").click(function() {
+       //  console.log($(this).hasClass("glyphicon-check"));
+        if ($(this).hasClass("glyphicon-check")) {
+            $(this).removeClass('glyphicon-check');
+            $(this).addClass('glyphicon-unchecked')
+        } else {
+            $(this).addClass('glyphicon-check');
+            $(this).removeClass('glyphicon-unchecked')
         }
     });
 });

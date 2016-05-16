@@ -27,9 +27,20 @@ $(function() {
     });
 
     // 初始化中间TODO列表复选框样式
-    $('input').iCheck({
-       checkboxClass: 'icheckbox_polaris',
-       radioClass: 'iradio_polaris',
-       increaseArea: '20%' // optional
+    // $('input').iCheck({
+    //    checkboxClass: 'icheckbox_polaris',
+    //    radioClass: 'iradio_polaris',
+    //    increaseArea: '20%' // optional
+    //  });
+    // 中间TODO列表前的复选框
+     $("#appMainRightId .todo-list .todo-checkbox .glyphicon").click(function() {
+        //  console.log($(this).hasClass("glyphicon-check"));
+         if ($(this).hasClass("glyphicon-check")) {
+             $(this).removeClass('glyphicon-check');
+             $(this).addClass('glyphicon-unchecked')
+         } else {
+             $(this).addClass('glyphicon-check');
+             $(this).removeClass('glyphicon-unchecked')
+         }
      });
 });

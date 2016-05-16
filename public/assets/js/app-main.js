@@ -14,21 +14,5 @@ $(function() {
             $(this).css("opacity", 1);
         }
     });
-    // 引入textarea根据内容自适应插件
-    $('#updateTodItemId').flexText();
-
-    // 复选框样式
-    $('input').iCheck({
-       checkboxClass: 'icheckbox_polaris',
-       radioClass: 'iradio_polaris',
-       increaseArea: '20%' // optional
-     });
-    //  todoitem详细页面，点击右上角的星号标注好改变透明度
-    $("#todoItemId .todo-item-gy").click(function() {
-        if ($(this).css("opacity") === '1') {
-            $(this).css("opacity", 0.4);
-        } else {
-            $(this).css("opacity", 1);
-        }
-    });
+    
 });

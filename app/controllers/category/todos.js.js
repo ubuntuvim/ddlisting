@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
     todoListByProjCode: Ember.computed('todos.@each.project', function() {
         var project = this.get('todo_id');
         console.log('project = ' + project);
-        return _this.get('todos').filterBy('project', project);
+        return this.get('todos').filterBy('project', project);
     })
 
 });

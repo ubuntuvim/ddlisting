@@ -6,24 +6,31 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('todoItem');
-  // this.route('/', { path: '/category/todos' });
-
-  this.route('category', function() {  // #/category
-      //  #/category/todos  --> #/category/lvyou
+  // pc端
+  this.route('pc', function() {
+    this.route('category', function() {
+        // pc.category.todos
       this.route('todos', { path: '/:category_id' }, function() {
-          //   #/category/todos/todoitem  --> #/category/luyou/-xxxsdf
           this.route('todoitem', { path: '/:todo_id' });
       });
+    });
+    // this.route('todoitem', { path: '/:todo_id' });
   });
 
-  this.route('mobile', function() {
+  // this.route('m', function() {
+  //   this.route('category');
+  //   this.route('todos.category', { path: '/todos/:category_id' });
+  //   this.route('todoitem', { path: '/todos/:category_id/:todo_id' });
+  // });
+
+  this.route('m', function() {
     this.route('category', function() {
-      this.route('toods', function() {
-        this.route('todoitem');
+        // pc.category.todos
+      this.route('todos', { path: '/:category_id' }, function() {
+          this.route('todoitem', { path: '/:todo_id' });
       });
     });
+    // this.route('todoitem', { path: '/:todo_id' });
   });
-
 });
 export default Router;

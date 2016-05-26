@@ -6,6 +6,9 @@ export default Ember.Route.extend({
     model: function(params) {
 
         var project = params.category_id;
+
+        Ember.Logger.info("project ===> " + project);
+
         if (!Ember.computed.empty(project)) {
             project = "myTodos";
         }

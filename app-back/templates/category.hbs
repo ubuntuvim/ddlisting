@@ -1,0 +1,40 @@
+<!-- 顶部菜单 -->
+{{app-main-header}}
+
+<div class="container-fluid my-container-fluid" style="z-index:1;">
+    <div class="my-row">
+        <div class="app-main-left-width padding-lr" id="appMainLeftId">
+            {{! 首页左侧分类栏}}
+            {{!yield}}
+            <div class="panel panel-default h100ps opacity09">
+              <div class="panel-heading">
+                <h3 class="panel-title">清单类别</h3>
+                <span class="glyphicon glyphicon-plus" data-whatever="@新增分类" title="新增分类">
+                </span>
+              </div>
+              <div class="panel-body padding0">
+                  <ul class="list-group">
+                      {{#each model.categorys as |category|}}
+                          {{#link-to 'category.todos' category.projCode}}
+                            <li class="list-group-item active my-list-group-item">
+                                <span class="badge">14</span>
+                                {{category.projName}}
+                            </li>
+                          {{/link-to}}
+                      {{/each}}
+                  </ul>
+              </div>
+            </div>
+
+        </div>
+        <div class="app-main-right-width" id="appMainRightId">
+
+            {{outlet}}
+
+        </div>
+    </div>
+</div>
+
+
+<!-- 新增分类 -->
+{{categoray-modal}}

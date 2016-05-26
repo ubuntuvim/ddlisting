@@ -6,12 +6,15 @@ export default Ember.Route.extend({
     model: function(params) {
 
         var project = params.category_id;
+
+        Ember.Logger.info("m category ==> project ===> todos ==>" + project);
+
         if (!Ember.computed.empty(project)) {
             project = "myTodos";
         }
 
         var retArr = [];
-        this.store.query('todo-item', {}).then(function(td) {
+        this.store.query('todo-item', { project: project }).then(function(td) {
         	//debugger;
 		  	td.forEach(function(item) {
 		  		if (item.get('project') === project) {
@@ -21,6 +24,13 @@ export default Ember.Route.extend({
 		});
 
 		return retArr;
+    },
+    renderTemplate: function(){
+        this._super(this, arguments); // Run the default renderTemplate logic
+        this.render({
+            into: 'todos',
+            outlet: 'category'
+        });
     }
 
 });

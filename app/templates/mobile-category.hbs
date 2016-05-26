@@ -1,0 +1,32 @@
+{{! 渲染到application模板上 }}
+<div class="container-fluid" style="z-index:1;" id="mobile-category">
+    <div class="row">
+        <div class="app-main-left-width">
+            {{! 首页左侧分类栏}}
+            {{!yield}}
+            <div class="panel panel-default opacity09">
+              <div class="panel-heading">
+                  <img src="http://list.ddlisting.com/assets/images/profile-photo-bd164e6840de7dcf3fb823c789237075.jpg"
+                      alt="头像" width="45px" height="45px" class="img-circle" />
+
+                  <span class="glyphicon glyphicon-bell"></span>
+                  <span class="glyphicon glyphicon-search"></span>
+              </div>
+              <div class="panel-body padding0">
+                  <ul class="list-group">
+                      {{#each model as |category|}}
+                          {{#link-to 'mobile-todos' category.projCode}}
+                            <li class="list-group-item my-list-group-item">
+                                <span class="badge">14</span>
+                                {{category.projName}}
+                            </li>
+                          {{/link-to}}
+                      {{/each}}
+                  </ul>
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{{outlet}}

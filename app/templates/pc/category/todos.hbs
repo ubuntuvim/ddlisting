@@ -1,0 +1,43 @@
+
+{{! 首页右侧主要内容显示区}}
+{{!yield}}
+<form>
+<!-- <div class="form-group">
+    <input type="text" class="form-control opacity09" placeholder="请输入任务项">
+</div> -->
+<div class="form-group has-feedback">
+  <input type="text" class="form-control opacity09" id="newTodoId" aria-describedby="newTodo" placeholder="请输入任务项">
+  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+</div>
+
+<div class="todo-list">
+
+    {{#each model as |todoItem|}}
+
+      <div class="list-group my-list-group">
+          <div style="position: relative;">
+              <div class="todo-checkbox">
+                  <!-- <input type="checkbox" class="form-control" checked> -->
+                  <span class="glyphicon glyphicon-unchecked"></span>
+              </div>
+              {{#link-to 'pc.category.todos.todoitem' todoItem.id}}
+                  <p class="bg-info list-group-item">{{todoItem.title}}</p>
+              {{/link-to}}
+
+              <div class="todo-create-date">
+                  <span>{{todoItem.timestamp}}</span>
+              </div>
+
+              <div class="star-bookmark-minus">
+                   <span class="glyphicon glyphicon-star todo-star"></span>
+                  <img src="/assets/images/bookmark/bookmark1.png" />
+              </div>
+          </div>
+      </div>
+  {{/each}}
+
+</div>
+</form>
+
+{{outlet}}

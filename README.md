@@ -5,11 +5,11 @@ A short introduction of this app could easily go here.
 
 # 使用到的资源、插件
 
-1. [icheck](http://www.bootcss.com/p/icheck/#skin-futurico)
-2. [jquery-flextext](https://github.com/alexdunphy/flexText)
-3. [My97DatePicker](http://www.my97.net/)
-4. [bootstrap-sass](https://github.com/twbs/bootstrap-sass)
-5. [ember-bootstrap-sass](https://github.com/MiracleBlue/ember-bootstrap-sass)
+1. [jquery-flextext](https://github.com/alexdunphy/flexText)
+2. [My97DatePicker](http://www.my97.net/)
+3. [bootstrap-sass](https://github.com/twbs/bootstrap-sass)
+4. [ember-bootstrap-sass](https://github.com/MiracleBlue/ember-bootstrap-sass)
+5. [emberfire](https://www.firebase.com/docs/web/libraries/ember/guide.html)
 
 
 ## 界面原型
@@ -29,6 +29,17 @@ A short introduction of this app could easily go here.
 #### 2016年5月16日
 
 完成PC版的界面设计：主要包括首页布局，编辑页面布局。
+
+##### 晚18时
+
+新建分支，备份未使用模板重构主页前的代码。
+
+#### 2016年5月17日 晚24时
+
+使用模板重构各个页面的设计，并且引入firebase数据库。
+其中主要代码目录如下图所示：
+
+![主要代码结构]()
 
 
 ## Prerequisites

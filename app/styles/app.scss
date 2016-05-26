@@ -55,9 +55,7 @@ body {
     border-radius: 0;
     background-color: transparent;
 }
-#app-main-header-collapse .navbar-left {
-    margin-left: 100px;
-}
+
 #app-main-header-collapse img {
     margin-top: 2px;
 }
@@ -69,6 +67,7 @@ body {
     position:absolute;
     width: 220px !important;
     height: 100%;
+    overflow: auto;
 }
 // 当字数超过匡杜时使用省略号替代
 #appMainLeftId .list-group-item {
@@ -88,12 +87,21 @@ body {
 #appMainLeftId .panel {
     border-radius: 0;
 }
+#appMainLeftId .panel .panel-heading {
+    //position: fixed;
+    //top: 51px;
+    //z-index: 1100;
+    width: 219px;
+}
 #appMainLeftId .panel .panel-heading span {
     top: 13px;
     position: absolute;
     right: 20px;
     font-size: 16px;
     cursor: pointer;
+}
+#appMainLeftId .panel .panel-body .list-group a {
+
 }
 #appMainLeftId .my-list-group-item {
     border-radius: 0 !important;
@@ -119,6 +127,7 @@ body {
     overflow: auto !important;
     /*===========================*/
     // width: 300px;
+    padding-right: 10px;
 }
 #appMainRightId .list-group {
     margin-bottom: 1px;
@@ -248,7 +257,7 @@ body {
 #todoItemId {
     position: absolute;
     right: 10px;
-    top: 62px;
+    //top: 62px;
     // border: 1px solid red;
     width: 400px;
     overflow: hidden;
@@ -444,4 +453,91 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 1110 !important;
+}
+
+/*****************************************************************************************/
+#appMainHeaderId .max-width-768-menu {
+    display: none;
+}
+
+// ---  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 屏幕小于768px
+@media screen and (max-width: 768px) {
+
+    #appMainHeaderId .navbar-form {
+        border: 0;
+    }
+    #appMainHeaderId .search-input {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+    #app-main-header-collapse .navbar-left {
+        margin-left: 0;
+    }
+
+    #appMainHeaderId .max-width-768-menu {
+        text-align: center;
+    }
+    #appMainHeaderId .navbar-default .max-width-768-menu li:hover {
+        background-color: lightgray;
+    }
+
+    #appMainHeaderId .max-width-768-menu {
+        display: block ;
+        text-align: center;
+    }
+
+    #appMainHeaderId .min-width-768 {
+        display: none ;
+    }
+}
+
+// ---  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 屏幕大于 480px
+@media screen and (min-width: 480px) {
+    #appMainHeaderId .max-width-480-show {
+        display: none;
+    }
+    #appMainHeaderId .max-width-480-hidden {
+        display: block;
+    }
+}
+// ---  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 屏幕小于 480px
+@media screen and (max-width: 480px) {
+    // 头部菜单
+    #appMainHeaderId {
+        display: block;
+    }
+    // 左侧分类列表
+    #appMainLeftId {
+        position: relative;
+        width: 100% !important;
+        height: 100%
+    }
+    #appMainLeftId .panel .panel-heading {
+        width: 100%;
+    }
+
+    // 右侧列表
+    #appMainRightId {
+        display: none;
+    }
+    .app-main-right-show {
+        margin: 0;
+        padding-left: 10px;
+    }
+    #appMainRightId .list-group p {
+        padding-right: 40px;
+    }
+}
+
+// ********************************* 手机端样式 ****************************************
+#mobile-category .panel-heading .glyphicon-bell {
+    right: 40px;
+    position: absolute;
+    top: 24px;
+    font-size: 22px;
+}
+#mobile-category .panel-heading .glyphicon-search {
+    right: 20px;
+    position: absolute;
+    top: 24px;
+    font-size: 22px;
 }

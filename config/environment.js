@@ -2,11 +2,16 @@
 
 module.exports = function(environment) {
 
+<<<<<<< HEAD
     var firebaseAppUrl = 'https://luminous-heat-9079.firebaseio.com/';
+=======
+    // var firebaseAppUrl = 'https://luminous-heat-9079.firebaseio.com/';
+>>>>>>> b9e7347ab8469f935fae0e357f4e970655a0837d
 
   var ENV = {
     modulePrefix: 'ddlisting',
     environment: environment,
+<<<<<<< HEAD
     contentSecurityPolicy: {
           'default-src': "'none'",
           'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *",
@@ -18,6 +23,23 @@ module.exports = function(environment) {
       },
     // contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
     firebase: firebaseAppUrl,
+=======
+    contentSecurityPolicyHeader: 'Content-Security-Policy',
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *",
+      'font-src': "'self' *",
+      'connect-src': "'self' http://localhost:8080",
+      'img-src': "'self' *",
+      'style-src': "'self' 'unsafe-inline' *",
+      'frame-src': "*",
+      "Access-Control-Allow-Origin": "'self' *",
+      'Origin': 'http://localhost:8080'
+
+    },
+    // contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    // firebase: firebaseAppUrl,
+>>>>>>> b9e7347ab8469f935fae0e357f4e970655a0837d
     baseURL: '/',
     locationType: 'hash',
     EmberENV: {
@@ -30,6 +52,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      API_HOST: 'http://localhost:8080'
     }
   };
 

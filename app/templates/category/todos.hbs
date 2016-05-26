@@ -13,23 +13,16 @@
 
 <div class="todo-list">
 
-<<<<<<< HEAD
     {{#each model as |todoItem|}}
-=======
-    {{#each todoListByProjCode as |todoItem|}}
->>>>>>> b9e7347ab8469f935fae0e357f4e970655a0837d
+
       <div class="list-group my-list-group">
           <div style="position: relative;">
               <div class="todo-checkbox">
                   <!-- <input type="checkbox" class="form-control" checked> -->
                   <span class="glyphicon glyphicon-unchecked"></span>
               </div>
-
-<<<<<<< HEAD
               {{#link-to 'category.todos.todoitem' todoItem.id}}
-=======
-              {{#link-to 'category.todos.todoitem'}}
->>>>>>> b9e7347ab8469f935fae0e357f4e970655a0837d
+
                   <p class="bg-info list-group-item">{{todoItem.title}}</p>
               {{/link-to}}
 

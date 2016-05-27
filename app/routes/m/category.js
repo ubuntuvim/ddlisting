@@ -1,4 +1,4 @@
-// app/routes/category.js
+// app/routes/m/category.js
 
 import Ember from 'ember';
 

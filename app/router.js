@@ -6,7 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  // pc端
+  // pc端路由
   this.route('pc', function() {
     this.route('category', function() {
         // pc.category.todos
@@ -22,7 +22,7 @@ Router.map(function() {
   //   this.route('todos.category', { path: '/todos/:category_id' });
   //   this.route('todoitem', { path: '/todos/:category_id/:todo_id' });
   // });
-
+  // 手机端路由
   this.route('m', function() {
     this.route('category');
     this.route('todos', { path: '/category/:category_id/todos' });

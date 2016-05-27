@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 /**
- * todo项
+ * todo项:项目入口model，路由m.todoitem，pc.todoitem
  */
 export default DS.Model.extend({
   title: DS.attr('string'),

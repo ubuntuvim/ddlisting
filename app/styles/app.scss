@@ -537,7 +537,7 @@ body {
     height: 100%;
 
     // 测试手机端详细页面
-    display: none;
+    // display: none;
 }
 #mobile-category .panel-heading {
     position: absolute;
@@ -940,6 +940,10 @@ body {
     /* text-align: center; */
 }
 #mobileTodoitemWin .todo-item-bottom .btn-default {
+    position: absolute;
+    left: 20px;
+}
+#mobileTodoitemWin .todo-item-bottom .btn-info {
     position: absolute;
     left: 20px;
 }

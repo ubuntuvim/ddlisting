@@ -13,7 +13,7 @@
               <div class="panel-body padding0">
                   <ul class="list-group">
                       {{#each model as |category|}}
-                          {{#link-to 'm.category.todos' category.projCode}}
+                          {{#link-to 'm.todos' category.projCode}}
                             <li class="list-group-item my-list-group-item">
                                 <span class="badge">14</span>
                                 {{category.projName}}
@@ -25,11 +25,9 @@
             </div>
 
         </div>
-
-
     </div>
 </div>
 {{! 点击Category页面进入。手机端todo列表页面 }}
-<div class="" id="mobileTodoListId">
+<!-- <div class="" id="mobileTodoListId">
     {{outlet}}
-</div>
+</div> -->

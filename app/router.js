@@ -24,15 +24,11 @@ Router.map(function() {
   // });
 
   this.route('m', function() {
-    this.route('category', function() {
-        // pc.category.todos
-      this.route('todos', { path: '/:category_id' }, function() {
-        //   this.route('todoitem', { path: '/:todo_id' });
-      });
-    });
-    this.route('todoitem', { path: '/:todo_id' });
+    this.route('category');
+    this.route('todos', { path: '/category/:category_id/todos' });
+    this.route('todoitem', { path: '/category/:category_id/todos/:todo_id' });
     this.route('search');
   });
-  this.route('search');
+
 });
 export default Router;

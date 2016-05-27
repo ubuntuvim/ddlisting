@@ -24,6 +24,20 @@ A short introduction of this app could easily go here.
 
 ![编辑页面](http://blog.ddlisting.com/content/images/2016/05/index-edit.png)
 
+## 项目文件结构
+
+#### 模型结构
+
+![models](http://blog.ddlisting.com/content/images/2016/05/model.png)
+
+#### 路由结构
+
+![routes](http://blog.ddlisting.com/content/images/2016/05/route.png)
+
+#### 模板结构
+
+![templates](http://blog.ddlisting.com/content/images/2016/05/template.png)
+
 ## 版本历史
 
 #### 2016年5月16日  `0.0.0`

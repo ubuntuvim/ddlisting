@@ -82,6 +82,10 @@ A short introduction of this app could easily go here.
 PC版的路由、模型、模板都放在`app/pc`目录下；
 手机版版的路由、模型、模板都放在`app/m`目录下；
 
+#### 2016年5月27日 00：13 `1.0.0`
+
+完成PC版、手机版基本功能页面。可以撒花了~~~ =^=
+
 
 ## 软件依赖
 

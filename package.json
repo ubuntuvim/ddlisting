@@ -1,7 +1,7 @@
 {
   "name": "ddlisting",
-  "version": "0.3.0",
-  "description": "Small description for ddlisting goes here",
+  "version": "1.0.0",
+  "description": "天天清单重新设计、开发，网站：http://list.ddlisting.com",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -12,7 +12,10 @@
     "start": "ember server",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ubuntuvim/ddlisting.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },

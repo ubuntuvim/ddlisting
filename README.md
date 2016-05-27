@@ -24,6 +24,29 @@ A short introduction of this app could easily go here.
 
 ![编辑页面](http://blog.ddlisting.com/content/images/2016/05/index-edit.png)
 
+### 手机版界面原型
+
+#### 分类列表页面
+
+![分类列表页面](http://blog.ddlisting.com/content/images/2016/05/m-category.png)
+
+#### 任务列表页面
+
+![任务列表页面](http://blog.ddlisting.com/content/images/2016/05/m-todos.png)
+
+#### 任务详细页面
+
+![任务详细页面](http://blog.ddlisting.com/content/images/2016/05/m-todoitem.png)
+
+
+#### 首页
+
+![首页](http://blog.ddlisting.com/content/images/2016/05/index.png)
+
+#### 编辑页面
+
+![编辑页面](http://blog.ddlisting.com/content/images/2016/05/index-edit.png)
+
 ## 项目文件结构
 
 #### 模型结构

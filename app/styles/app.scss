@@ -749,3 +749,201 @@ body {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+// ------------ ------------------------------- 手机端，详细设置页面
+/* ===================== todo详细设置页面 ==================== */
+#mobileTodoitemWin {
+    position: absolute;
+    // right: 10px;
+    //top: 62px;
+    // border: 1px solid red;
+    width: 100%;
+    overflow: hidden;
+    // bottom: 10px;
+}
+#mobileTodoitemWin.animated {
+    -webkit-transition: 100ms width ease;
+    -moz-transition: 100ms width ease;
+    -o-transition: 100ms width ease;
+    -ms-transition: 100ms width ease;
+    transition: 100ms width ease;
+}
+#mobileTodoitemWin .inner {
+    // border: 1px solid green;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+#mobileTodoitemWin .todo-item-top {
+    // border: 1px solid red;
+    height: auto;
+    background: #fff;
+    // padding-top: 10px;
+    padding: 10px;
+}
+#mobileTodoitemWin .inner .todo-item-top .form-inline .todo-checkbox .glyphicon {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+#mobileTodoitemWin .todo-item-middle {
+    -webkit-transition: margin 150ms !important;
+    -moz-transition: margin 150ms !important;
+    -o-transition: margin 150ms !important;
+    -ms-transition: margin 150ms !important;
+    transition: margin 150ms !important;
+    background: #fff;
+    overflow: auto;
+    padding-bottom: 16px;
+    right: 0;
+    left: 0;
+    // overflow-x: hidden;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    // border: 1px solid blue;
+    padding: 10px;
+}
+#mobileTodoitemWin .todo-item-middle textarea {
+    // padding: 0;
+}
+#mobileTodoitemWin .form-textarea {
+    margin-left: 40px;
+    margin-right: 35px;
+}
+#mobileTodoitemWin .glyphicon-minus,
+#mobileTodoitemWin .glyphicon-star,
+#mobileTodoitemWin .glyphicon-bookmark {
+    font-size: 30px;
+    right: 3px;
+    color: red;
+    margin-right: 5px;
+}
+#mobileTodoitemWin .todo-checkbox {
+    // margin-top: 35px;
+    position: absolute;
+}
+#mobileTodoitemWin .todo-star {
+    // margin-top: 35px;
+    position: absolute;
+    font-size: 18px;
+    color: white;
+    top: 10px;
+    right: 7px;
+}
+
+#mobileTodoitemWin .todo-item-gy {
+    cursor: pointer;
+    opacity: 0.4;
+}
+#updateTodItemId_mobile {
+    min-height: 80px;
+    max-height: 80px;
+    min-width: 100%;
+    max-width: 100;
+    // border: 0;
+    overflow-y: hidden;
+    line-height: 1em;
+    height: auto;
+    // padding-top: 0;
+    // padding-bottom: 2px;
+    margin-left: -10px;
+    padding: 0;
+}
+// 中部区块的时间设置输入框
+#mobileTodoitemWin .todo-item-middle .panel-body {
+    padding: 0;
+    background: #f2f2f2;
+}
+#mobileTodoitemWin .todo-item-middle .panel-body .mgbt0 {
+    margin-bottom: 0;
+}
+#mobileTodoitemWin .todo-item-middle .panel-body input {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+// 子任务输入框
+#mobileTodoitemWin .list-group {
+    margin-bottom: 2px;
+    padding-left: 0;
+    opacity: 0.8;
+    cursor: pointer;
+}
+#mobileTodoitemWin .list-group .list-group-item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+#mobileTodoitemWin .list-group p {
+    // font-size: 16px;
+}
+#mobileTodoitemWin .todo-item-middle .todo-remark {
+    margin-top: 10px;
+    padding: 10px;
+}
+// 底部区块
+#mobileTodoitemWin .todo-item-bottom {
+    // border: 1px solid black;
+    position: relative;
+    height: 30px;
+    // margin-bottom: 10px;
+    background: #f2f2f2;
+    text-align: center;
+}
+#mobileTodoitemWin .todo-item-bottom button,
+#mobileTodoitemWin .todo-item-bottom a {
+    margin-top: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    // font-size: 15px;
+    // font-weight: 500;
+    color: #262626;
+    cursor: default;
+    position: relative;
+    top: -1px;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+#mobileTodoitemWin .todo-item-bottom .create-date {
+    position: relative;
+    /* margin-left: 50px; */
+    top: 7px;
+    color: #aaa;
+    /* text-align: center; */
+}
+#mobileTodoitemWin .todo-item-bottom .btn-default {
+    position: absolute;
+    left: 20px;
+}
+#mobileTodoitemWin .todo-item-bottom .btn-danger {
+    position: absolute;
+    right: 20px;
+}

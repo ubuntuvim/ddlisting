@@ -1,5 +1,5 @@
 {{! app/templates/todo-item.hbs}}
-<div id="todoItemId">
+<div id="mobileTodoitemWin">
 
     <div class="inner">
 
@@ -11,7 +11,11 @@
                 </div>
 
                 <div class="form-group form-textarea">
-                    <textarea id="updateTodItemId" name="title" class="form-control"></textarea>
+
+                    <div contentEditable="true" name="title">todo标题，点击可编辑！！</div>
+
+                    <!-- <textarea id="updateTodItemId_mobile" name="title" class="form-control"></textarea> -->
+
                     <div class="todo-item-gy">
                         <span class="glyphicon glyphicon-minus" style="position: absolute;top: -10px;"></span>
                         <span class="glyphicon glyphicon-minus" style="position: absolute;top: -5px;"></span>
@@ -95,8 +99,8 @@
         </div>  <!-- //auto-overflow-x-->
 
         <div class="todo-item-bottom">
-            {{#link-to 'pc' class="btn btn-default btn-xs"}}
-                关闭面板2<span class="glyphicon glyphicon-menu-right"></span>
+            {{#link-to 'm.category.todos' 'myTodos' class="btn btn-default btn-xs"}}
+                <span class="glyphicon glyphicon-menu-left"></span>返回
             {{/link-to}}
             <span class="create-date">
                 创建于：2016-05-16

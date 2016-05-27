@@ -31,6 +31,8 @@ Router.map(function() {
       });
     });
     this.route('todoitem', { path: '/:todo_id' });
+    this.route('search');
   });
+  this.route('search');
 });
 export default Router;

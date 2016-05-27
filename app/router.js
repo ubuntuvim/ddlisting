@@ -27,10 +27,10 @@ Router.map(function() {
     this.route('category', function() {
         // pc.category.todos
       this.route('todos', { path: '/:category_id' }, function() {
-          this.route('todoitem', { path: '/:todo_id' });
+        //   this.route('todoitem', { path: '/:todo_id' });
       });
     });
-    // this.route('todoitem', { path: '/:todo_id' });
+    this.route('todoitem', { path: '/:todo_id' });
   });
 });
 export default Router;

@@ -2,8 +2,6 @@
 <div class="container-fluid" style="z-index:1;" id="mobile-category">
     <div class="row">
         <div class="app-main-left-width">
-            {{! 首页左侧分类栏}}
-            {{!yield}}
             <div class="panel panel-default opacity09">
               <div class="panel-heading">
                   <img src="http://list.ddlisting.com/assets/images/profile-photo-bd164e6840de7dcf3fb823c789237075.jpg"
@@ -31,4 +29,7 @@
 
     </div>
 </div>
-{{outlet 'category'}}
+{{! 点击Category页面进入。手机端todo列表页面 }}
+<div class="" id="mobileTodoListId">
+    {{outlet}}
+</div>

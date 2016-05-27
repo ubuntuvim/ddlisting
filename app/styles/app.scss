@@ -535,6 +535,9 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+
+    // 测试手机端详细页面
+    display: none;
 }
 #mobile-category .panel-heading {
     position: absolute;
@@ -581,4 +584,168 @@ body {
 #mobile-category .list-group-item {
     border: 0;
     border-radius:0;
+}
+
+/* ========================= 手机端todo列表页面 =========================  */
+#mobileTodoListId {
+    POSITION: ABSOLUTE;
+    WIDTH: 100%;
+    overflow: auto;
+    height: 100%;
+}
+#mobileTodoListId .list-group {
+    margin-bottom: 1px;
+    padding-left: 0;
+    opacity: 0.8;
+    cursor: pointer;
+}
+#mobileTodoListId .list-group p {
+    font-size: 16px;
+    padding-left: 45px;
+    /* 内容溢出省略号替代 */
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    overflow: hidden;
+    padding-right: 40px;
+}
+#mobileTodoListId .list-group a {
+    color: #333;
+}
+// 鼠标点击后、鼠标移动到目标上样式设置
+#mobileTodoListId .list-group a:hover,
+#mobileTodoListId .list-group a:visited,
+#mobileTodoListId .list-group a:focus {
+    text-decoration: none;
+}
+
+#mobileTodoListId input {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    height: 40px;
+    font-size: 17px;
+    opacity: 0.9;
+    padding-top: 2px;
+}
+/* 设置输入框的placeholder属性颜色 */
+#mobileTodoListId input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #fff;
+    font-size: 13px;
+    padding-top: 4px;
+}
+
+#mobileTodoListId input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #fff;
+    font-size: 13px;
+    padding-top: 4px;
+}
+
+#mobileTodoListId input:-ms-input-placeholder {
+    color: #fff;
+    font-size: 13px;
+    padding-top: 4px;
+}
+
+#mobileTodoListId input::-webkit-input-placeholder {
+    color: #fff;
+    font-size: 13px;
+    padding-top: 4px;
+}
+/* 设置输入框内右侧的图标样式 */
+#mobileTodoListId .form-group .glyphicon {
+    color: white;
+    font-size: 15px;
+    opacity: 0.4;
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    cursor: pointer;
+}
+#mobileTodoListId .form-group .glyphicon-calendar {
+    margin-right: 25px;
+}
+#mobileTodoListId .form-group .glyphicon-star {
+    font-size: 17px;
+    top:13px;
+}
+.pdr10 {
+    padding-right: 10px;
+}
+#mobileTodoListId .todo-list {
+
+}
+#mobileTodoListId .todo-list .todo-create-date {
+    position: absolute;
+    right: 40px;
+    z-index: 110;
+    top: 28px;
+    font-size: 10px;
+    color: #aaa;
+}
+#mobileTodoListId .todo-list .todo-checkbox {
+    position: absolute;
+    top: 10px;
+    z-index: 1100;
+    left: 15px;
+}
+#mobileTodoListId .todo-list .todo-checkbox .glyphicon {
+    font-size: 20px;
+    margin-top: 2px;
+}
+#mobileTodoListId .todo-list .star-bookmark-minus {
+
+}
+#mobileTodoListId .todo-list .star-bookmark-minus .glyphicon {
+
+}
+#mobileTodoListId .todo-list .star-bookmark-minus .todo-star {
+    position: absolute;
+    font-size: 15px;
+    top: 13px;
+    color: white;
+    z-index: 1100;
+    right: 15px;
+    // opacity: 0.6;
+}
+.color-black {
+    color: black !important;
+}
+#mobileTodoListId .todo-list .star-bookmark-minus img {
+    position: absolute;
+    top: 0;
+    margin-top: -5px;
+    right: 10px;
+    height: 45px;
+    width: 25px;
+    opacity: 0.4;
+}
+// 列表页面顶部菜单
+#mobileTodoListId .navbar-header {
+    background-color: #ddd;
+}
+#mobileTodoListId .navbar-header > a {
+    margin-left: 40px;
+}
+#mobileTodoListId .mobile-todo-list-header .header-tools .glyphicon {
+    font-size: 20px;
+    top: 15px;
+    /* right: 20px; */
+    position: absolute;
+}
+#mobileTodoListId .mobile-todo-list-header .header-tools .glyphicon-arrow-left {
+    left: 15px;
+}
+#mobileTodoListId .mobile-todo-list-header .header-tools .glyphicon-bell {
+    right: 65px;
+}
+#mobileTodoListId .mobile-todo-list-header .header-tools .glyphicon-search {
+    right: 25px;
+}
+// 列表页面主列表样式
+#mobileTodoListId .mobile-todo-list-body {
+    top: 60px;
+    position: absolute;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
 }

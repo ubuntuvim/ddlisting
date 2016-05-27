@@ -1,41 +1,71 @@
 {{! app/templates/mobile/category/todos.hbs}}
-{{! 首页右侧主要内容显示区}}
-<form>
-<!-- <div class="form-group">
-    <input type="text" class="form-control opacity09" placeholder="请输入任务项">
-</div> -->
-<div class="form-group has-feedback">
-  <input type="text" class="form-control opacity09" id="newTodoId" aria-describedby="newTodo" placeholder="请输入任务项">
-  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+<!-- 手机端,todo列表页面 -->
+
+<div class="mobile-todo-list-header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="header-tools">
+                {{#link-to 'm.category'}}
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                {{/link-to}}
+            </div>
+
+          <a class="navbar-brand">
+            分类名称
+          </a>
+
+          <div class="header-tools">
+              <span class="glyphicon glyphicon-bell"></span>
+              <span class="glyphicon glyphicon-search"></span>
+          </div>
+        </div>
+      </div>
+    </nav>
 </div>
 
-<div class="todo-list">
+<div class="mobile-todo-list-body">
 
-    {{#each model as |todoItem|}}
+    <form>
+    <!-- <div class="form-group">
+        <input type="text" class="form-control opacity09" placeholder="请输入任务项">
+    </div> -->
+    <div class="form-group has-feedback">
+      <input type="text" class="form-control opacity09" id="newTodoId" aria-describedby="newTodo" placeholder="请输入任务项">
+      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+    </div>
 
-      <div class="list-group my-list-group">
-          <div style="position: relative;">
-              <div class="todo-checkbox">
-                  <!-- <input type="checkbox" class="form-control" checked> -->
-                  <span class="glyphicon glyphicon-unchecked"></span>
-              </div>
-              {{#link-to 'm.category.todos.todoitem' todoItem.id}}
+    <div class="todo-list">
 
-                  <p class="bg-info list-group-item">{{todoItem.title}}</p>
-              {{/link-to}}
+        {{#each model as |todoItem|}}
 
-              <div class="todo-create-date">
-                  <span>{{todoItem.timestamp}}</span>
-              </div>
+          <div class="list-group my-list-group">
+              <div style="position: relative;">
+                  <div class="todo-checkbox">
+                      <!-- <input type="checkbox" class="form-control" checked> -->
+                      <span class="glyphicon glyphicon-unchecked"></span>
+                  </div>
+                  {{#link-to 'm.todoitem' todoItem.id}}
+                      <p class="bg-info list-group-item">{{todoItem.title}}</p>
+                  {{/link-to}}
 
-              <div class="star-bookmark-minus">
-                   <span class="glyphicon glyphicon-star todo-star"></span>
-                  <img src="/assets/images/bookmark/bookmark1.png" />
+                  <div class="todo-create-date">
+                      <span>{{todoItem.timestamp}}</span>
+                  </div>
+
+                  <div class="star-bookmark-minus">
+                       <span class="glyphicon glyphicon-star todo-star"></span>
+                      <img src="/assets/images/bookmark/bookmark1.png" />
+                  </div>
               </div>
           </div>
-      </div>
-  {{/each}}
+      {{/each}}
+
+    </div>
+    </form>
+</div>
+
+<div class="mobile-todoitem">
 
 </div>
-</form>

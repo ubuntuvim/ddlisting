@@ -24,13 +24,14 @@ export default Ember.Route.extend({
 		});
 
 		return retArr;
-    },
-    renderTemplate: function(){
-        this._super(this, arguments); // Run the default renderTemplate logic
-        this.render({
-            into: 'todos',
-            outlet: 'category'
-        });
     }
+    // ,
+    // renderTemplate: function(){
+        // this._super(this, arguments); // Run the default renderTemplate logic
+        // this.render({
+        //     into: 'm',  //必须是父模板
+        //     outlet: 'category'
+        // });
+    // }
 
 });

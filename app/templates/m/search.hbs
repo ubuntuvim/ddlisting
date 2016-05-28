@@ -1,3 +1,58 @@
 {{! app/templates/m/search.hbs}}
 
-{{outlet}}
+<!-- 手机端,搜索列表页面 -->
+<div class="" id="mobileTodoListId">
+    <div class="mobile-todo-list-header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="mobile-search-navbar-header">
+                <div class="header-tools">
+                    {{#link-to 'm.category'}}
+                        <span class="glyphicon glyphicon-arrow-left"></span>
+                    {{/link-to}}
+                </div>
+
+              <div class="header-tools">
+                  <div class="mobile-search" id="mobileSearchInputId">
+                      <input type="text" class="form-control opacity09" placeholder="搜索……">
+                  </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </div>
+
+    <div class="mobile-todo-list-body">
+
+        <form>
+
+        <div class="todo-list">
+
+            {{#each model as |todoItem|}}
+
+              <div class="list-group my-list-group">
+                  <div style="position: relative;">
+                      <div class="todo-checkbox">
+                          <!-- <input type="checkbox" class="form-control" checked> -->
+                          <span class="glyphicon glyphicon-unchecked"></span>
+                      </div>
+                      {{#link-to 'm.todoitem' 'myTodos' todoItem.id}}
+                          <p class="bg-info list-group-item">{{todoItem.title}}</p>
+                      {{/link-to}}
+
+                      <div class="todo-create-date">
+                          <span>{{todoItem.timestamp}}</span>
+                      </div>
+
+                      <div class="star-bookmark-minus">
+                           <span class="glyphicon glyphicon-star todo-star"></span>
+                          <img src="/assets/images/bookmark/bookmark1.png" />
+                      </div>
+                  </div>
+              </div>
+          {{/each}}
+
+        </div>
+        </form>
+    </div>
+</div>

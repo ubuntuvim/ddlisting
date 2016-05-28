@@ -721,7 +721,7 @@ body {
 }
 // 列表页面顶部菜单
 #mobileTodoListId .navbar-header {
-    background-color: #ddd;
+    // background-color: #ddd;
 }
 #mobileTodoListId .navbar-header > a {
     margin-left: 40px;
@@ -950,4 +950,23 @@ body {
 #mobileTodoitemWin .todo-item-bottom .btn-danger {
     position: absolute;
     right: 20px;
+}
+// ===================================== 手机端，搜索界面
+.mobile-search-navbar-header .navbar-header {
+    margin: 0;
+}
+.mobile-search-navbar-header .navbar-brand {
+    margin-left: 25px !important;
+}
+.mobile-search-navbar-header .header-tools {
+    margin-left: 50px;
+    margin-top: 5px;
+}
+.mobile-search-navbar-header .header-tools .mobile-search input {
+    //opacity: 0.1 !important;
+}
+/* 设置输入框的placeholder属性颜色 */
+#mobileSearchInputId input {
+    color: white;
+    padding-top: 0px;
 }

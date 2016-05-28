@@ -9,7 +9,9 @@
                       alt="头像" width="45px" height="45px" class="img-circle" />
 
                   <span class="glyphicon glyphicon-bell"></span>
-                  <span class="glyphicon glyphicon-search"></span>
+                  {{#link-to 'm.search' 'myTodos'}}
+                      <span class="glyphicon glyphicon-search"></span>
+                  {{/link-to}}
               </div>
               <div class="panel-body padding0">
                   <ul class="list-group">

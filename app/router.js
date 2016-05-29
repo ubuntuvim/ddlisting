@@ -28,6 +28,7 @@ Router.map(function() {
     this.route('todos', { path: '/category/:category_id/todos' });
     this.route('todoitem', { path: '/category/:category_id/todos/:todo_id' });
     this.route('search', { path: '/category/:category_id' });
+    this.route('profile');
   });
 
 });

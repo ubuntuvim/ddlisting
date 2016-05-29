@@ -1,0 +1,84 @@
+{{! app/templates/m/profile.hbs}}
+<div class="container-fluid mobile-container-fluid">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+          <div class="return-tools">
+              <!-- <span class="glyphicon glyphicon-arrow-left"></span> -->
+              <span class="glyphicon glyphicon-menu-left"></span>
+          </div>
+          <div class="profile-img">
+              <img src="assets/images/profile/profile.jpg" alt="" class="img-circle" />
+          </div>
+          <div class="profile-name">
+              ubuntuvim
+          </div>
+      </div>
+      <div class="panel-body">
+          <div class="">
+            <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#account" aria-controls="account" role="tab" data-toggle="tab">
+                        账户
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">设置</a>
+                </li>
+                <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="account">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-user"></span>
+                            账号详细
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-eye-close"></span>
+                            修改密码
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                            退出
+                        </li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="settings">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-picture"></span>
+                            背景图片
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-bell"></span>
+                            通知
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-volume-up"></span>提示音
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-globe"></span>天天清单网站
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-info-sign"></span>关于
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-comment"></span>意见反馈
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-question-sign"></span>联系我们
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div role="tabpanel" class="tab-pane" id="messages">...</div>
+                <div role="tabpanel" class="tab-pane" id="settings">...</div> -->
+              </div>
+
+        </div>
+      </div>
+    </div>
+</div>

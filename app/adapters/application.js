@@ -1,11 +1,17 @@
-// app/adapters/application.js
-import Ember from 'ember';
+// // app/adapters/application.js
+// import Ember from 'ember';
+//
+// import FirebaseAdapter from 'emberfire/adapters/firebase';
+//
+// const { inject } = Ember;
+//
+// // 使用firebase实时数据库
+// export default FirebaseAdapter.extend({
+//   firebase: inject.service()
+// });
 
-import FirebaseAdapter from 'emberfire/adapters/firebase';
+import JSONAPIAdapter from 'ember-data/adapters/json-api';
 
-const { inject } = Ember;
-
-// 使用firebase实时数据库
-export default FirebaseAdapter.extend({
-  firebase: inject.service()
+export default JSONAPIAdapter.extend({
+  // Application specific overrides go here
 });

@@ -982,3 +982,86 @@ body {
     color: white;
     padding-top: 0px;
 }
+/////////////////////// 手机端个人中心页面 ////////////////////////
+.mobile-container-fluid {
+    position: absolute;
+    z-index: 1100;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+.mobile-container-fluid .panel {
+    border-radius: 0;
+    height: 100%;
+}
+.mobile-container-fluid .panel .panel-heading {
+    height: 200px;
+    border-radius: 0;
+}
+.mobile-container-fluid .panel .panel-heading .return-tools {
+    font-size: 20px;
+    color: white;
+}
+.mobile-container-fluid .panel .panel-heading .profile-img {
+    text-align: center;
+    margin-top: -15px;
+}
+.mobile-container-fluid .panel .panel-heading .profile-img img {
+    height: 120px;
+    width: 120px;
+}
+.mobile-container-fluid .panel .panel-heading .profile-name {
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    margin-top: 5px;
+}
+.mobile-container-fluid .panel .panel-body {
+    padding: 0;
+}
+.mobile-container-fluid .panel .panel-body .nav-tabs > li > a {
+    border-radius: 0;
+}
+.mobile-container-fluid .panel .panel-body .tab-content .list-group,
+.mobile-container-fluid .panel .panel-body .tab-content .list-group-item {
+    border-radius: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+}
+.mobile-container-fluid .panel .panel-body .tab-content .list-group-item {
+    // border-bottom: 1px solid #ddd !important;
+    padding: 15px 15px;
+    font-size: 16px;
+}
+.mobile-container-fluid .panel .panel-body .tab-content .list-group-item .glyphicon {
+    margin-right: 10px;
+}
+.mobile-container-fluid .panel .panel-body .nav-tabs > li {
+    width: 50%;
+}
+.mobile-container-fluid .panel .panel-body .nav-tabs {
+    background-color: #337ab7;
+    border-radius: 0;
+    border: 0;
+}
+.mobile-container-fluid .panel .panel-body .nav-tabs > li > a {
+    color: white;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    font-size: 18px;
+}
+.mobile-container-fluid .panel .panel-body .nav-tabs > li > a:hover {
+    background-color: #337ab7;
+    border: 0;
+    border-radius: 0;
+}
+.mobile-container-fluid .panel .panel-body .nav-tabs > li.active > a,
+.mobile-container-fluid .panel .panel-body .nav-tabs > li.active > a:focus {
+    border: 0;
+    background-color: #fff;
+    color: #333;
+    border-radius: 0;
+    margin-right: 0px;
+}

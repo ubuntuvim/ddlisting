@@ -1060,8 +1060,9 @@ body {
 .mobile-container-fluid .panel .panel-body .nav-tabs > li.active > a,
 .mobile-container-fluid .panel .panel-body .nav-tabs > li.active > a:focus {
     border: 0;
-    background-color: #fff;
-    color: #333;
+    background-color: #337ab7;
+    color: #white;
     border-radius: 0;
     margin-right: 0px;
+    border-bottom: 10px solid #FFF;
 }

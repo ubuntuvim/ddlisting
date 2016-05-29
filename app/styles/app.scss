@@ -1029,6 +1029,10 @@ body {
     border-bottom: 0;
     border-left: 0;
 }
+//  设置第一个元素的上边框为0
+.mobile-container-fluid .panel .panel-body .tab-content .list-group-item:first-child {
+    border-top: 0;
+}
 .mobile-container-fluid .panel .panel-body .tab-content .list-group-item {
     // border-bottom: 1px solid #ddd !important;
     padding: 15px 15px;
@@ -1061,7 +1065,7 @@ body {
 .mobile-container-fluid .panel .panel-body .nav-tabs > li.active > a:focus {
     border: 0;
     background-color: #337ab7;
-    color: #white;
+    color: white;
     border-radius: 0;
     margin-right: 0px;
     border-bottom: 10px solid #FFF;

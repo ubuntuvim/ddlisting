@@ -29,6 +29,10 @@ Router.map(function() {
     this.route('todoitem', { path: '/category/:category_id/todos/:todo_id' });
     this.route('search', { path: '/category/:category_id' });
     this.route('profile');
+    this.route('accountDetail');
+    this.route('passwordSetting');
+    this.route('profileBgSetting');
+    this.route('profileFeedback');
   });
 
 });

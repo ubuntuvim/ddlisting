@@ -1,0 +1,42 @@
+{{! profile页面的二级页面：意见反馈}}
+{{! app/templates/m/profile-feedback.hbs}}
+{{! 渲染到模板m.hbs上 }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="mobile-profile-detail-info mobile-profile-pwd opacity09">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <div class="return-profile">
+                      {{#link-to 'm.profile'}}
+                      <span class="glyphicon glyphicon-menu-left"></span>
+                      {{/link-to}}
+                  </div>
+                  <!-- <div class="profile-header-title">
+                      意见反馈
+                  </div> -->
+                  <div class="profile-header-submit">
+                      <span class="glyphicon glyphicon-ok"></span>
+                  </div>
+              </div>
+              <div class="panel-body">
+
+                  <div class="jumbotron" style="padding-top: 0;">
+                      <div class="container-fluid">
+                          <h2>意见反馈</h2>
+                          <p>欢迎在下方的留言区给我们留言，您的建议是我们不断改进的动力！</p>
+                      </div>
+                    </div>
+
+
+                      <!-- 多说评论框 start -->
+                      <div class="ds-thread" data-thread-key="3298cba4-d645-422d-bb7e-0e97feadbae6-mobile-ddlisting"
+                        data-title="天天清单 - 意见反馈" data-url="http://feedback.ddlisting.com"></div>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{! 多说评论插件}}
+<!-- {{#duoshuo-comment-area}}
+{{/duoshuo-comment-area}} -->

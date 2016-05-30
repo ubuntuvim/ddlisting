@@ -17,12 +17,12 @@
           <div class="">
             <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
+                <li role="presentation" class="{{if tabsActive1 'active'}}">
                     <a href="#account" aria-controls="account" role="tab" data-toggle="tab">
                         账户
                     </a>
                 </li>
-                <li role="presentation">
+                <li role="presentation" class="{{if tabsActive2 'active'}}">
                     <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">设置</a>
                 </li>
                 <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
@@ -31,47 +31,68 @@
 
               <!-- Tab panes -->
               <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="account">
+                <div role="tabpanel" class="tab-pane {{if tabsActive1 'active'}}" id="account">
                     <ul class="list-group">
+                        {{#link-to 'm.accountDetail'}}
                         <li class="list-group-item">
                             <span class="glyphicon glyphicon-user"></span>
                             账号详细
                         </li>
+                        {{/link-to}}
+                        {{#link-to 'm.passwordSetting'}}
                         <li class="list-group-item">
-                            <span class="glyphicon glyphicon-eye-close"></span>
+                            <span class="glyphicon glyphicon-lock"></span>
                             修改密码
                         </li>
+                        {{/link-to}}
+                        {{#link-to 'm.profile'}}
                         <li class="list-group-item">
                             <span class="glyphicon glyphicon-log-out"></span>
                             退出
                         </li>
+                        {{/link-to}}
                     </ul>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="settings">
+                <div role="tabpanel" class="tab-pane {{if tabsActive2 'active'}}" id="settings">
                     <ul class="list-group">
+                        {{#link-to 'm.profileBgSetting'}}
                         <li class="list-group-item">
                             <span class="glyphicon glyphicon-picture"></span>
                             背景图片
                         </li>
-                        <li class="list-group-item">
-                            <span class="glyphicon glyphicon-bell"></span>
-                            通知
-                        </li>
-                        <li class="list-group-item">
-                            <span class="glyphicon glyphicon-volume-up"></span>提示音
-                        </li>
-                        <li class="list-group-item">
-                            <span class="glyphicon glyphicon-globe"></span>天天清单网站
-                        </li>
-                        <li class="list-group-item">
-                            <span class="glyphicon glyphicon-info-sign"></span>关于
-                        </li>
-                        <li class="list-group-item">
-                            <span class="glyphicon glyphicon-comment"></span>意见反馈
-                        </li>
-                        <li class="list-group-item">
-                            <span class="glyphicon glyphicon-question-sign"></span>联系我们
-                        </li>
+                        {{/link-to}}
+                        <a>
+                            <li class="list-group-item">
+                                <span class="glyphicon glyphicon-bell"></span>
+                                消息邮箱通知
+                                <div class="volume-checkbox">
+                                    {{input type="checkbox" }}
+                                </div>
+                            </li>
+                        </a>
+                        <a>
+                            <li class="list-group-item">
+                                <span class="glyphicon glyphicon-volume-up"></span>提示音
+                                <div class="volume-checkbox">
+                                    {{input type="checkbox" }}
+                                </div>
+                            </li>
+                        </a>
+                        <a href="http://www.ddlisting.com/">
+                            <li class="list-group-item">
+                                <span class="glyphicon glyphicon-globe"></span>天天清单网站
+                            </li>
+                        </a>
+                        <a href="http://www.ddlisting.com/#ddfeedback">
+                            <li class="list-group-item">
+                                <span class="glyphicon glyphicon-comment"></span>意见反馈
+                            </li>
+                        </a>
+                        <a href="http://www.ddlisting.com/#aboutLeanote">
+                            <li class="list-group-item">
+                                <span class="glyphicon glyphicon-question-sign"></span>联系我们
+                            </li>
+                        </a>
                     </ul>
                 </div>
                 <!-- <div role="tabpanel" class="tab-pane" id="messages">...</div>

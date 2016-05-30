@@ -1,0 +1,50 @@
+{{! profile页面的二级页面：背景图片修改}}
+{{! app/templates/m/profile-bg-setting.hbs}}
+{{! 渲染到模板m.hbs上 }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="mobile-profile-detail-info mobile-profile-bg-setting opacity09">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <div class="return-profile">
+                      {{#link-to 'm.profile' (query-params tabType='2')}}
+                      <span class="glyphicon glyphicon-menu-left"></span>
+                      {{/link-to}}
+                  </div>
+                  <div class="profile-header-title">
+                      修改背景图片
+                  </div>
+                  <!-- <div class="profile-header-submit">
+                      <span class="glyphicon glyphicon-ok"></span>
+                  </div> -->
+              </div>
+              <div class="panel-body">
+                  <div class="row">
+                      <div class="col-xs-3 col-md-3 col-md-3">
+                        <a href="#/m/profileBgSetting" class="thumbnail">
+                          <img src="https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg" alt="...">
+                        </a>
+                        <span class="glyphicon glyphicon-ok"></span>
+                      </div>
+                      <div class="col-xs-3 col-md-3 col-md-3">
+                        <a href="#/m/profileBgSetting" class="thumbnail">
+                          <img src="https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg" alt="...">
+                        </a>
+                        <span class="glyphicon glyphicon-ok"></span>
+                      </div>
+                      <div class="col-xs-3 col-md-3 col-md-3">
+                        <a href="#/m/profileBgSetting" class="thumbnail">
+                          <img src="https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg" alt="...">
+                        </a>
+                      </div>
+                      <div class="col-xs-3 col-md-3 col-md-3">
+                        <a href="#/m/profileBgSetting" class="thumbnail">
+                          <img src="https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg" alt="...">
+                        </a>
+                      </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

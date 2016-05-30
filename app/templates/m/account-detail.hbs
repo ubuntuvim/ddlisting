@@ -1,0 +1,43 @@
+{{! profile页面的二级页面：账户详细信息}}
+{{! app/templates/m/category.hbs}}
+{{! 渲染到模板m.hbs上 }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="mobile-profile-detail-info opacity09">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <div class="return-profile">
+                      {{#link-to 'm.profile' (query-params tabType='1')}}
+                      <span class="glyphicon glyphicon-menu-left"></span>
+                      {{/link-to}}
+                  </div>
+                  <div class="profile-header-title">
+                      账户详细信息
+                  </div>
+              </div>
+              <div class="panel-body">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-envelope"></span>邮箱：
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-magnet"></span>用户名：
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-calendar"></span>注册时间：
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-home"></span>我的主页：
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-yen"></span>我的积分：
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-th"></span>我的TODO数：
+                    </li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

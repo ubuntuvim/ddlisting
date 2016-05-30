@@ -1023,20 +1023,37 @@ body {
     border-radius: 0;
 }
 .mobile-container-fluid .panel .panel-body .tab-content .list-group,
-.mobile-container-fluid .panel .panel-body .tab-content .list-group-item {
+.mobile-container-fluid .panel .panel-body .tab-content a .list-group-item {
     border-radius: 0;
     border-right: 0;
     border-bottom: 0;
     border-left: 0;
 }
+.mobile-container-fluid .panel .panel-body .tab-content .list-group a,
+.mobile-container-fluid .panel .panel-body .tab-content .list-group a:hover {
+    color: #333;
+    text-decoration: none;
+}
 //  设置第一个元素的上边框为0
-.mobile-container-fluid .panel .panel-body .tab-content .list-group-item:first-child {
+.mobile-container-fluid .panel .panel-body .tab-content a .list-group-item:first-child {
     border-top: 0;
 }
-.mobile-container-fluid .panel .panel-body .tab-content .list-group-item {
+.mobile-container-fluid .panel .panel-body .tab-content a .list-group-item {
     // border-bottom: 1px solid #ddd !important;
-    padding: 15px 15px;
+    // padding: 15px 15px;
     font-size: 16px;
+    border: 1px solid #ddd;
+}
+.mobile-container-fluid .panel .panel-body .tab-content a .list-group-item .volume-checkbox {
+    position: absolute;
+    right: 40px;
+    top: 10px;
+}
+.mobile-container-fluid .panel .panel-body .tab-content a .list-group-item .volume-checkbox input {
+    cursor: pointer;
+}
+.mobile-container-fluid .panel .panel-body .tab-content a .list-group-item:hover {
+    background-color: #eee;
 }
 .mobile-container-fluid .panel .panel-body .tab-content .list-group-item .glyphicon {
     margin-right: 10px;
@@ -1069,4 +1086,91 @@ body {
     border-radius: 0;
     margin-right: 0px;
     border-bottom: 10px solid #FFF;
+}
+///////////////////////////// profile详细信息页面  ----------
+.mobile-profile-detail-info {
+    position: absolute;
+    width: 100%;
+    border-radius: 0;
+    height: 100%;
+}
+.mobile-profile-detail-info .panel {
+    border-radius: 0;
+    height: 100%;
+}
+.mobile-profile-detail-info .panel .panel-heading {
+    background-color: #337ab7;
+    border-radius: 0;
+    margin-top: -1px;
+}
+.mobile-profile-detail-info .panel .panel-heading .return-profile a {
+    color: white;
+}
+.mobile-profile-detail-info .panel .panel-heading .return-profile {
+    font-size: 20px;
+}
+.mobile-profile-detail-info .panel .profile-header-title {
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 11px;
+    left: 62px;
+}
+.mobile-profile-detail-info .panel .panel-body {
+    padding: 0;
+}
+.mobile-profile-detail-info .panel .panel-body .list-group {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+}
+.mobile-profile-detail-info .panel .panel-body .list-group .list-group-item {
+    border-top: 1px solid #ddd;
+    // padding: 20px;
+    margin-top: -1px;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    font-size: 16px;
+}
+.mobile-profile-detail-info .panel .panel-body .list-group .list-group-item .glyphicon {
+    margin-right: 15px;
+}
+////// --------------  修改密码 -------
+.mobile-profile-pwd .panel .panel-body {
+    padding: 15px;
+}
+.mobile-profile-detail-info .panel .panel-heading .profile-header-submit {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    font-size: 22px;
+    color: white;
+    font-weight: normal;
+    cursor: pointer;
+    opacity: 0.6;
+}
+///////////////////////  背景图片修改 。。。。。。。
+.mobile-profile-bg-setting .panel-body {
+    margin-top: 10px;
+}
+.mobile-profile-bg-setting .panel-body .row .col-xs-3 {
+    padding-left: 0;
+    padding-right: 5px;
+}
+.mobile-profile-bg-setting .panel-body .row {
+    margin: 0;
+    padding-left: 5px;
+}
+.mobile-profile-bg-setting .panel-body .thumbnail {
+    padding: 0;
+}
+.mobile-profile-bg-setting .panel-body .row .col-xs-3 span {
+    font-size: 27px;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 41%;
+    transform: translate(-50%, -50%);
 }

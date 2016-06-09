@@ -1,0 +1,28 @@
+{{! app/templates/components/edit-category.hbs 编辑分类}}
+
+<div class="modal fade" id="editCategoryId" tabindex="9999" role="dialog" aria-labelledby="editModalLabel">
+
+  <div class="modal-dialog modal-sm pc-neworedie-category-form" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="editModalLabel" style="text-align: center; font-weight: bold;">编辑分类</h4>
+      </div>
+      <div class="modal-body" style="padding: 0 15px;">
+          <div class="form-group">
+            {{input type="text" class="form-control" id="catgName1"
+                value=catgName placeholder="分类名称"}}
+
+            {{input type="hidden" value=id id="catgId1"}}
+          </div>
+      </div>
+      <div class="modal-footer" style="padding: 10px 15px;">
+          {{button-with-confirmation type="button" class="btn btn-sm btn-danger pull-left"
+           text="删除此分类会把所属的所有TODO也删除，请确认？" onConfirm=(action 'delCategory')}}
+
+        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-sm btn-success" {{action 'editCategory'}}>保存</button>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -15,6 +15,7 @@ Router.map(function() {
       });
     });
     // this.route('todoitem', { path: '/:todo_id' });
+    // this.route('newCategory');
   });
 
   // this.route('m', function() {

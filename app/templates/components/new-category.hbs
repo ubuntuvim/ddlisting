@@ -1,0 +1,23 @@
+{{! app/templates/components/new-category.hbs 新增分类}}
+
+<div class="modal fade" id="newCategoryId" tabindex="9999" role="dialog" aria-labelledby="addModalLabel">
+  <form id="addCategoryForm">
+  <div class="modal-dialog modal-sm pc-neworedie-category-form" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="addModalLabel" style="text-align: center; font-weight: bold;">新增分类</h4>
+      </div>
+      <div class="modal-body" style="padding: 0 15px;">
+          <div class="form-group {{if catgNameValidate '' 'has-error'}}">
+            {{input type="text" class="form-control" id="classifyName"
+                value=catgName placeholder="分类名称"}}
+          </div>
+      </div>
+      <div class="modal-footer" style="padding: 10px 15px;">
+        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-sm btn-success" {{action 'saveCategory'}}>保存</button>
+      </div>
+    </div>
+  </div>
+</form>
+</div>

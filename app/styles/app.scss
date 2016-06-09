@@ -90,10 +90,14 @@ body {
     -o-text-overflow:ellipsis;
     overflow: hidden;
 }
+#appMainLeftId .list-group-item .badge {
+    color: #999;
+    background-color: white;
+}
 #appMainLeftId .list-group-item:hover {
-    background-color: #e1e1e1;
-    border-color: #e1e1e1;
-    color: #333;
+    // background-color: #e1e1e1;
+    // border-color: #e1e1e1;
+    // color: #333;
     cursor: pointer;
 }
 #appMainLeftId .panel {
@@ -114,22 +118,31 @@ body {
     cursor: pointer;
 }
 #appMainLeftId .panel .panel-body .list-group a {
-
+    text-decoration: none;
 }
 #appMainLeftId .my-list-group-item {
     border-radius: 0 !important;
     border-right: 0 !important;
-
-}
-#appMainLeftId .list-group-item.active {
-    background-color: #e7e7e7;
-    border-color: #e7e7e7;
     color: #333;
 }
-#appMainLeftId .list-group-item.active:focus,.list-group-item.active:hover {
-    background-color: #e1e1e1;
-    border-color: #e1e1e1;
-    color: #333;
+// #appMainLeftId .list-group-item.active {
+//     background-color: #e7e7e7;
+//     border-color: #e7e7e7;
+//     color: #333;
+// }
+// #appMainLeftId .list-group-item.active:focus,
+// #appMainLeftId .list-group-item.active:hover {
+//     background-color: #e1e1e1;
+//     border-color: #e1e1e1;
+//     color: #333;
+// }
+#appMainLeftId .my-list-group-item .glyphicon-list {
+    margin-right: 5px;
+}
+// 设置选中的li状态
+.pc-category-list-item-active {
+    background-color: #337ab7;
+    color: white !important;
 }
 
 /* ========================= 右侧面板 =========================  */
@@ -1173,4 +1186,11 @@ body {
     left: 50%;
     top: 41%;
     transform: translate(-50%, -50%);
+}
+// ====================== 新增分类 ===========================
+.pc-neworedie-category-form .modal-content .modal-header {
+    border-bottom: 0;
+}
+.pc-neworedie-category-form .modal-content .modal-footer {
+    border-top: 0;
 }

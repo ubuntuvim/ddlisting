@@ -56,7 +56,9 @@ export default Ember.Component.extend({
                         status: 1,  //用户状态，1-正常；0-删除；
                         userGrade: 1  //暂时还没有用到
                     }).save().then((user) => {
-                        sessionStorage.setItem("__LOGIN_USER__",user);
+                        sessionStorage.setItem("__LOGIN_USER_NICKNAME__",user.get('nickname'));
+                        sessionStorage.setItem("__LOGIN_USER_EMAIL__",user.get('email'));
+                        sessionStorage.setItem("__LOGIN_USER_ID__",user.get('id'));
                         // 强制刷新页面
                         location.reload();
                     });

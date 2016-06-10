@@ -41,7 +41,8 @@ export default Ember.Component.extend({
             }).then((user) => {
                 if (user) {
                     // 保存登录用户到session中
-                    sessionStorage.setItem("__LOGIN_USER__",user);
+                    sessionStorage.setItem("__LOGIN_USER_NICKNAME__",user.get('nickname'));
+                    sessionStorage.setItem("__LOGIN_USER_EMAIL__",user.get('email'));
                     sessionStorage.setItem("__LOGIN_USER_ID__",user.get('id'));
                     // Ember.$("#login-modal-win").modal('toggle');
                     // location.href = "/#/pc";

@@ -1,0 +1,185 @@
+{{! todo广场，显示所有的公开的todo}}
+
+<nav class="navbar navbar-default opacity09" style="border-radius: 0; z-index: 1100;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-main-header-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'pc' class="navbar-brand"}}DDLISTING{{/link-to}}
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="app-main-header-collapse">
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-grouphas-feedback">
+          <div class="input-group">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-search"></span>
+            </span>
+            <input type="text" class="form-control search-input" placeholder="Search……"
+                id="" aria-describedby="inputGroupSuccess4Status">
+          </div>
+        </div>
+        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+      </form>
+
+    <ul class="nav navbar-nav">
+        <li>
+            {{#link-to 'pc.category'}}开放列表{{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'pc.category'}}清单用户{{/link-to}}
+        </li>
+    </ul>
+
+      <!-- 分辨率小于768px不显示 -->
+      <ul class="nav navbar-nav navbar-right">
+          {{#if model.loginUser}}
+            <li>
+              {{#link-to 'pc.category.todos' 'myTodos'}}
+                  我的列表
+              {{/link-to}}
+            </li>
+            <li>
+              <a href ="#" {{action 'logout'}}>退出</a>
+            </li>
+        {{else}}
+            <li>
+              <a href="#" data-toggle="modal" data-target="#register-modal-win">
+                  注册{{model.loginUser}}
+              </a>
+            </li>
+            <li>
+              <a href="#" data-toggle="modal" data-target="#login-modal-win">
+                  登录
+              </a>
+            </li>
+        {{/if}}
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container pc-todo-list-square">
+
+    <div class="row">
+
+        <div class="col-md-8 col-xs-8">
+            <div>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#latest" aria-controls="latest" role="tab" data-toggle="tab">
+                        最新的
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#mostPopular" aria-controls="mostPopular" role="tab" data-toggle="tab">
+                        最热门的
+                    </a>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="latest">
+                    <div class="todo-list">
+
+                        {{#each model as |todoItem|}}
+
+                          <div class="list-group my-list-group">
+                              <div style="position: relative;">
+                                  <div class="todo-checkbox">
+                                      <!-- <input type="checkbox" class="form-control" checked> -->
+                                      <span class="glyphicon glyphicon-unchecked"></span>
+                                  </div>
+                                  {{#link-to 'pc.category.todos.todoitem' todoItem.id}}
+                                      <p class="bg-info list-group-item">{{todoItem.title}}</p>
+                                  {{/link-to}}
+
+                                  <div class="todo-create-date">
+                                      <span>{{todoItem.timestamp}}</span>
+                                  </div>
+
+                                  <div class="star-bookmark-minus">
+                                       <span class="glyphicon glyphicon-star todo-star"></span>
+                                      <img src="/assets/images/bookmark/bookmark1.png" />
+                                  </div>
+                              </div>
+                          </div>
+                      {{/each}}
+
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="mostPopular">
+                    <div class="todo-list">
+
+                        {{#each model as |todoItem|}}
+
+                          <div class="list-group my-list-group">
+                              <div style="position: relative;">
+                                  <div class="todo-checkbox">
+                                      <!-- <input type="checkbox" class="form-control" checked> -->
+                                      <span class="glyphicon glyphicon-unchecked"></span>
+                                  </div>
+                                  {{#link-to 'pc.category.todos.todoitem' todoItem.id}}
+                                      <p class="bg-info list-group-item">{{todoItem.title}}</p>
+                                  {{/link-to}}
+
+                                  <div class="todo-create-date">
+                                      <span>{{todoItem.timestamp}}</span>
+                                  </div>
+
+                                  <div class="star-bookmark-minus">
+                                       <span class="glyphicon glyphicon-star todo-star"></span>
+                                      <img src="/assets/images/bookmark/bookmark1.png" />
+                                  </div>
+                              </div>
+                          </div>
+                      {{/each}}
+
+                    </div>
+                </div>
+              </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4 col-xs-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">排行榜</div>
+              <div class="panel-body">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <span class="badge">14</span>
+                      Cras justo odio
+                    </li>
+                    <li class="list-group-item">
+                      <span class="badge">2</span>
+                      Dapibus ac facilisis in
+                    </li>
+                    <li class="list-group-item">
+                      <span class="badge">1</span>
+                      Morbi leo risus
+                    </li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- container-fluid -->
+
+
+<!-- 登录 -->
+{{login-modal store=store}}
+
+<!-- 注册 -->
+{{register-modal store=store}}

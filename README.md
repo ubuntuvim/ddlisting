@@ -5,11 +5,13 @@ A short introduction of this app could easily go here.
 
 # 使用到的资源、插件
 
-1. [jquery-flextext](https://github.com/alexdunphy/flexText)
-2. [My97DatePicker](http://www.my97.net/)
+1. [jquery-flextext](https://github.com/alexdunphy/flexText)  div点击可编辑
+2. [My97DatePicker](http://www.my97.net/)  日期控件
 3. [bootstrap-sass](https://github.com/twbs/bootstrap-sass)
 4. [ember-bootstrap-sass](https://github.com/MiracleBlue/ember-bootstrap-sass)
 5. [emberfire](https://www.firebase.com/docs/web/libraries/ember/guide.html)
+6. [jsonapi-serializer](https://github.com/SeyZ/jsonapi-serializer) 自定义返回jsonapi
+7. [jquery-validation](https://github.com/ikajou/jquery-validation.git) 表单校验
 
 
 ## 界面原型

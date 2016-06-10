@@ -24,6 +24,8 @@ module.exports = function(defaults) {
   app.import('bower_components/jquery-flextext/dist/flextext.min.js');
   // 增加checkbox插件
   // app.import('bower_components/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js');
+  // 表单校验
+  app.import("bower_components/jquery-validation/dist/jquery.validate.js");
 
   return app.toTree();
 };

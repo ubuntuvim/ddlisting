@@ -1,0 +1,302 @@
+.widget-login {
+    text-align: center;
+}
+[class*=btn-sn-], [class*=btn-sn-]:active, [class*=btn-sn-]:focus, [class*=btn-sn-]:hover {
+    border: none;
+    color: #fff;
+}
+.btn-sn-google {
+    background: #4285F4;
+}
+.pr-5, .pr5 {
+    padding-right: 5px;
+}
+.pl-5, .pl5 {
+    padding-left: 5px;
+}
+.mb-5, .mb5 {
+    margin-bottom: 5px;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.btn, .btn-group, .btn-group-vertical, .caret, .checkbox-inline, .fa-stack, .radio-inline, img {
+    vertical-align: middle;
+}
+
+[class*=btn-sn-] [class*=icon-sn-] {
+    background-color: transparent;
+}
+[class*=icon-sn-] {
+    display: inline-block;
+    background-image: url(/assets/images/login/icon-sn.png);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-background-size: auto 20px;
+    -o-background-size: auto 20px;
+    -webkit-background-size: auto 20px;
+    background-size: auto 20px;
+}
+.icon-sn-google {
+    background-color: #4285F4;
+    background-position: 0 0;
+}
+@charset "UTF-8";
+.btn {
+   display:inline-block;
+   margin-bottom:0;
+   font-weight:400;
+   text-align:center;
+   cursor:pointer;
+   background-image:none;
+   border:1px solid transparent;
+   white-space:nowrap;
+   padding:6px 12px;
+   font-size:14px;
+   line-height:1.5;
+   border-radius:3px;
+   -webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none
+ }
+
+.btn-group-lg>.btn,.btn-lg {
+  padding:10px 16px;
+  font-size:18px;
+  line-height:1.33;
+  border-radius:3px
+}
+.btn-group-sm>.btn,.btn-sm {
+  padding: 8px 10px;
+  font-size: 15px;
+  line-height:1.5;
+  border-radius:3px
+}
+.btn-group-xs>.btn,.btn-xs {
+  padding:1px 5px;
+  font-size:12px;
+  line-height:1.5;
+  border-radius:3px
+}
+
+.pull-right {
+  float:right!important
+}
+.pull-left {
+  float:left!important
+}
+
+.hidden,.visible-lg,.visible-lg-block,.visible-lg-inline,.visible-lg-inline-block,.visible-md,.visible-md-block,.visible-md-inline,.visible-md-inline-block,.visible-sm,.visible-sm-block,.visible-sm-inline,.visible-sm-inline-block,.visible-xs,.visible-xs-block,.visible-xs-inline,.visible-xs-inline-block {
+  display:none!important
+}
+
+.mt--5,.mt-5 {
+  margin-top:-5px
+}
+.mt-5,.mt5 {
+  margin-top:5px
+}
+
+.mt-30,.mt30 {
+  /*margin-top:30px*/
+}
+
+.mb-5,.mb5 {
+  /*margin-bottom:5px*/
+}
+.mb-50,.mb50 {
+  margin-bottom:50px
+}
+.mr-5,.mr5 {
+  margin-right:5px
+}
+
+.ml-5,.ml5 {
+  margin-left:5px
+}
+
+.ml-15,.ml15 {
+  margin-left:15px
+}
+
+.pt-5,.pt5 {
+  padding-top:5px
+}
+
+.pl-5,.pl5 {
+  /*padding-left:5px*/
+}
+
+.pl-15,.pl15 {
+  padding-left:15px
+}
+
+.pr-5,.pr5 {
+  /*padding-right:5px*/
+}
+.icon-sn-google {
+  background-color:#4285F4;
+  background-position:0 0
+}
+.icon-sn-github {
+  background-color:#333;
+  background-position:-20px 0
+}
+.icon-sn-weibo {
+  background-color:#E90D24;
+  background-position:-40px 0
+}
+.icon-sn-qq {
+  background-color:#0098E6;
+  background-position:-60px 0
+}
+.icon-sn-twitter {
+  background-color:#50ABF1;
+  background-position:-80px 0
+}
+.icon-sn-facebook {
+  background-color:#4862A3;
+  background-position:-100px 0
+}
+.icon-sn-renren {
+  background-color:#197BC8;
+  background-position:-120px 0
+}
+.icon-sn-tqq {
+  background-color:#1F9ED2;
+  background-position:-140px 0
+}
+.icon-sn-douban {
+  background-color:#279738;
+  background-position:-160px 0
+}
+.icon-sn-wechat,.icon-sn-weixin {
+  background-color:#00B500;
+  background-position:-180px 0
+}
+[class*=icon-sn-] {
+  display:inline-block;
+  background-image:url(/assets/images/login/icon-sn.png);
+  background-repeat:no-repeat;
+  width:20px;
+  height:20px;
+  vertical-align:middle;
+  -moz-border-radius:2px;
+  -webkit-border-radius:2px;
+  border-radius:2px;
+  -moz-background-size:auto 20px;
+  -o-background-size:auto 20px;
+  -webkit-background-size:auto 20px;
+  background-size:auto 20px
+}
+.btn-sn-google {
+  background:#4285F4
+}
+.btn-sn-google:active,.btn-sn-google:focus,.btn-sn-google:hover {
+  background:#2a75f3
+}
+.btn-sn-github {
+  background:#333
+}
+.btn-sn-github:active,.btn-sn-github:focus,.btn-sn-github:hover {
+  background:#262626
+}
+.btn-sn-weibo {
+  background:#E90D24
+}
+.btn-sn-weibo:active,.btn-sn-weibo:focus,.btn-sn-weibo:hover {
+  background:#d10c20
+}
+.btn-sn-qq {
+  background:#0098E6
+}
+.btn-sn-qq:active,.btn-sn-qq:focus,.btn-sn-qq:hover {
+  background:#0087cd
+}
+.btn-sn-twitter {
+  background:#50ABF1
+}
+.btn-sn-twitter:active,.btn-sn-twitter:focus,.btn-sn-twitter:hover {
+  background:#38a0ef
+}
+.btn-sn-facebook {
+  background:#4862A3
+}
+.btn-sn-facebook:active,.btn-sn-facebook:focus,.btn-sn-facebook:hover {
+  background:#405791
+}
+.btn-sn-renren {
+  background:#197BC8
+}
+.btn-sn-renren:active,.btn-sn-renren:focus,.btn-sn-renren:hover {
+  background:#166db1
+}
+.btn-sn-tqq {
+  background:#1F9ED2
+}
+.btn-sn-tqq:active,.btn-sn-tqq:focus,.btn-sn-tqq:hover {
+  background:#1c8dbc
+}
+.btn-sn-douban {
+  background:#279738
+}
+.btn-sn-douban:active,.btn-sn-douban:focus,.btn-sn-douban:hover {
+  background:#228330
+}
+.btn-sn-weixin {
+  background:#00B500
+}
+.btn-sn-weixin:active,.btn-sn-weixin:focus,.btn-sn-weixin:hover {
+  background:#009c00
+}
+.btn-sn-wechat {
+  background:#00B500
+}
+.btn-sn-wechat:active,.btn-sn-wechat:focus,.btn-sn-wechat:hover {
+  background:#009c00
+}
+[class*=btn-sn-],[class*=btn-sn-]:active,[class*=btn-sn-]:focus,[class*=btn-sn-]:hover {
+  border:none;
+  color:#fff
+}
+.btn-sn-more {
+  background:#eee;
+  color:#999!important
+}
+.btn-sn-more:active,.btn-sn-more:hover {
+  background:#e1e1e1
+}
+[class*=btn-sn-] [class*=icon-sn-] {
+  background-color:transparent
+}
+#login-modal-win .modal-content .modal-footer a {
+    margin-top: 7px;"
+}

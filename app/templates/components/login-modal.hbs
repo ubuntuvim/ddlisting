@@ -1,0 +1,68 @@
+{{! app/templates/components/login-modal.hbs 登录}}
+<form id="login-modal-form" {{action 'login' on='submit'}}>
+<div class="modal fade" id="login-modal-win" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-sm modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">登录</h4>
+        {{#each session.session as |item|}}
+        <li>
+          {{item}}
+        </li>
+      {{/each}}
+      </div>
+      <div class="modal-body">
+          <div class="pc-login-error">
+              {{#if errorMsg}}
+              {{errorMsg}}
+              {{/if}}
+          </div>
+          <div class="form-group">
+            <label for="loginEmail">邮箱</label>
+            {{input type="text" class="form-control" id="loginEmail" name="loginEmail" placeholder="1527254027@qq.com" value=email}}
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">密码</label>
+            {{input type="password" class="form-control" name="loginPassword" id="loginPassword" placeholder="登录密码" value=password}}
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> 7天内记住我
+            </label>
+          </div>
+
+          {{! 第三方登录}}
+          <div class="form-group">
+              <div class="widget-login mt30">
+
+                  <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-google" style="width:100px;">
+                    <span class="icon-sn-google"></span>
+                    <strong class="visible-xs-inline">Google 账号</strong>
+                  </a>
+                  <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-github" style="width:100px;">
+                    <span class="icon-sn-github"></span>
+                    <strong class="visible-xs-inline">Github 账号</strong>
+                  </a>
+
+                  <!-- <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weibo"><span class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+                  <a class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq" id="qqLoginBtn" onclick="toQQLogin()"><span class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+                  <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-wechat" onclick="return tip()"><span class="icon-sn-wechat"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+                  <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-twitter btn-sm" onclick="return tip()"><span class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+                  <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-facebook btn-sm" onclick="return tip()"><span class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+                  <a href="#" class="btn pl5 pr5 mb5 btn-default btn-sn-douban btn-sm" onclick="return tip()"><span class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a> -->
+
+              </div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+          {{#link-to 'pc' class="pull-left"}}忘记密码{{/link-to}}
+          <button type="submit" class="btn btn-success">登录</button>
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">取消</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+</form>

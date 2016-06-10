@@ -4,6 +4,7 @@ body {
   overflow: hidden;
   font-family: "Lato","Microsoft Yahei","微软雅黑","STXihei","Meiryo UI","Meiryo","メイリオ","ＭＳ Ｐゴシック","MS PGothic","Hiragino Kaku Gothic Pro","Arial Unicode MS","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
+
 // app的背景图片
 .app-bg-img {
     position:absolute;
@@ -17,6 +18,23 @@ body {
     text-align: center;
     margin-top: 40%;
 }
+
+// ---------------------------- 表单验证错误提示信息 ------------
+.validate-error {
+    color: red;
+    font-size: 10px;
+}
+// ---------------- 登录、注册 -----------------
+.pc-login-error {
+    color: red;
+    font-size: 12px;
+}
+
+// ------------------------ pctodo广场 pc/index.hbs ----------------------
+.pc-todo-list-square {
+    // position: absolute;
+}
+
 /* ========================== 共同样式 ==========================  */
 .opacity09 {
     opacity: 0.9;

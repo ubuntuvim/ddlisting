@@ -17,12 +17,9 @@
               <div class="panel-body padding0">
                   <ul class="list-group">
                       {{#each model.categorys as |category|}}
-                      {{! 只显示状态为1的数据}}
-                      {{#if (filter-category-item-by-status category.catgStatus)}}
                           {{#link-to 'pc.category.todos' category.id}}
                             {{category-list-item category=category}}
                           {{/link-to}}
-                      {{/if}}
                       {{/each}}
                   </ul>
               </div>

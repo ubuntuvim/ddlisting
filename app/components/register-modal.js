@@ -52,15 +52,27 @@ export default Ember.Component.extend({
                     var user = this.store.createRecord('user', {
                         email: email,
                         password: hex_sha1(this.get('password')),// 密码加密
-                        createDate: new Date().getTime(),
+                        createdate: new Date(),
                         status: 1,  //用户状态，1-正常；0-删除；
-                        userGrade: 1  //暂时还没有用到
+                        usergrade: 1  //暂时还没有用到
                     }).save().then((user) => {
                         sessionStorage.setItem("__LOGIN_USER_NICKNAME__",user.get('nickname'));
                         sessionStorage.setItem("__LOGIN_USER_EMAIL__",user.get('email'));
-                        sessionStorage.setItem("__LOGIN_USER_ID__",user.get('id'));
-                        // 强制刷新页面
-                        location.reload();
+                        let userid = user.get('id');
+                        sessionStorage.setItem("__LOGIN_USER_ID__", userid);
+
+                        // 给每个注册的用户初始化一个收件箱
+                        // this.store.createRecord("category", {
+                        //     userid: userid,
+                        //     id: 'myTodos',
+                        //     catgname: '收件箱',  //默认名称为
+                        //     user: this.store.peekRecord('user', userid),
+                        //     timestamp: new Date().getTime(),  //项目创建时间
+                        //     catgstatus: 1  // 项目状态：1-正常；2-删除；3-过期
+                        // }).save().then(() => {  //保存
+                        //     // 强制刷新页面
+                        //     location.reload();
+                        // });
                     });
                 }
             });

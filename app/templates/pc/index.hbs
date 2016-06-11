@@ -92,15 +92,14 @@
                 <div role="tabpanel" class="tab-pane active" id="latest">
                     <div class="todo-list">
 
-                        {{#each model as |todoItem|}}
+                        {{#each model.todos as |todoItem|}}
 
                           <div class="list-group my-list-group">
                               <div style="position: relative;">
                                   <div class="todo-checkbox">
-                                      <!-- <input type="checkbox" class="form-control" checked> -->
                                       <span class="glyphicon glyphicon-unchecked"></span>
                                   </div>
-                                  {{#link-to 'pc.category.todos.todoitem' todoItem.id}}
+                                  {{#link-to 'pc'}}
                                       <p class="bg-info list-group-item">{{todoItem.title}}</p>
                                   {{/link-to}}
 
@@ -121,12 +120,11 @@
                 <div role="tabpanel" class="tab-pane" id="mostPopular">
                     <div class="todo-list">
 
-                        {{#each model as |todoItem|}}
+                        <!-- {{#each model.todos as |todoItem|}}
 
                           <div class="list-group my-list-group">
                               <div style="position: relative;">
                                   <div class="todo-checkbox">
-                                      <!-- <input type="checkbox" class="form-control" checked> -->
                                       <span class="glyphicon glyphicon-unchecked"></span>
                                   </div>
                                   {{#link-to 'pc.category.todos.todoitem' todoItem.id}}
@@ -143,7 +141,7 @@
                                   </div>
                               </div>
                           </div>
-                      {{/each}}
+                      {{/each}} -->
 
                     </div>
                 </div>
@@ -157,18 +155,12 @@
               <div class="panel-heading">排行榜</div>
               <div class="panel-body">
                   <ul class="list-group">
-                    <li class="list-group-item">
-                      <span class="badge">14</span>
-                      Cras justo odio
-                    </li>
-                    <li class="list-group-item">
-                      <span class="badge">2</span>
-                      Dapibus ac facilisis in
-                    </li>
-                    <li class="list-group-item">
-                      <span class="badge">1</span>
-                      Morbi leo risus
-                    </li>
+                      {{#each model.users as |user|}}
+                        <li class="list-group-item">
+                          <span class="badge">14</span>
+                          {{user.email}}
+                        </li>
+                      {{/each}}
                   </ul>
               </div>
             </div>

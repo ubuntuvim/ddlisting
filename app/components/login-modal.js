@@ -39,10 +39,13 @@ export default Ember.Component.extend({
             this.store.queryRecord('user', { email: this.get('email'), password: pwd }).then(function(users) {
                 return users.get('firstObject');  //返回第一个记录（正常情况查询只返回一个）
             }).then((user) => {
+
                 if (user) {
+                    let email = user.get('email');
+                    Ember.Logger.debug("登录用户：" + email);
                     // 保存登录用户到session中
                     sessionStorage.setItem("__LOGIN_USER_NICKNAME__",user.get('nickname'));
-                    sessionStorage.setItem("__LOGIN_USER_EMAIL__",user.get('email'));
+                    sessionStorage.setItem("__LOGIN_USER_EMAIL__", email);
                     sessionStorage.setItem("__LOGIN_USER_ID__",user.get('id'));
                     // Ember.$("#login-modal-win").modal('toggle');
                     // location.href = "/#/pc";
@@ -52,6 +55,11 @@ export default Ember.Component.extend({
                     this.set('errorMsg', "登录失败，请确认用户名和密码后再登录。");
                 }
             });
+            // console.log('pwd === ' + pwd);
+            // // $.post(URL,data,callback);
+            // $.post('http://localhost:3000/login', { email: this.get('email'), password: pwd}, function(data) {
+            //     console.log('data= ... ' + data);
+            // });
 
         }
     }

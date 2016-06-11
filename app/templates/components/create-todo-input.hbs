@@ -1,0 +1,8 @@
+{{! app/templates/components/create-todo-input.hbs 新增todo输入框}}
+
+  {{input type="text" class="form-control opacity09" id="newTodoId"
+    aria-describedby="newTodo" placeholder="请输入任务项" value=title enter="saveTodoItem"}}
+  <!-- <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> -->
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  {{! 点击star时候设置它的值，后台用于判断是否是star状态}}
+  {{input type="hidden" name="star" id="star" value="0"}}

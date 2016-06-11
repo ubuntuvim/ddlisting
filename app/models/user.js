@@ -7,9 +7,10 @@ export default Model.extend({
     nickname: DS.attr('string'),
     email: DS.attr('string'),
     password: DS.attr('string'),
-    createDate: DS.attr('date'),
+    createdate: DS.attr('date'),
     status: DS.attr('number'),  //1-正常；0-删除
-    userGrade: DS.attr('number'), //用户等级，暂时用不上预留
-    userProfile: DS.attr('string'),  //用户头像
-    todos: DS.hasMany('todo-item')
+    usergrade: DS.attr('number'), //用户等级，暂时用不上预留
+    userprofile: DS.attr('string'),  //用户头像
+    todos: DS.hasMany('todo-item'),
+    categorys: DS.hasMany('category')
 });

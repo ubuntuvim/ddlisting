@@ -25,7 +25,11 @@ export default Ember.Component.extend({
 
             var title = this.get('title');
             if (title) {
-                var star = Ember.$('#star').val();
+                var star = false;
+                if (Ember.$('#star').val() === '1') {
+                    star = true;
+                }
+                Ember.Logger.debug("保存todo star: " + star);
                 var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
                 Ember.Logger.debug("保存todo userId: " + userId);
                 if (!userId) {

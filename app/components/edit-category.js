@@ -7,7 +7,7 @@ export default Ember.Component.extend({
             var catgName = Ember.$("#catgName1").val();
             if (catgId) {
                 this.store.findRecord('category', catgId).then(function(catg) {
-                  catg.set('catgName', catgName);
+                  catg.set('catgname', catgName);
                   catg.save();
                 });
                 Ember.$("#editCategoryId").modal('toggle');
@@ -25,10 +25,10 @@ export default Ember.Component.extend({
 
                 var todos = this.store.peekAll("todo-item").filter(function(td) {
                     // td.get('user') === userId &&
-                    if ((td.get('recordStatus') === 1
-                            || td.get('recordStatus') === 2)) {
+                    if ((td.get('recordstatus') === 1
+                            || td.get('recordstatus') === 2)) {
                         //  设置为删除状态
-                        td.set('recordStatus', 3);
+                        td.set('recordstatus', 3);
                         td.save();
                     }
                 });
@@ -38,7 +38,7 @@ export default Ember.Component.extend({
                 // catg.get('isDeleted'); // => true
                 // catg.save(); // => DELETE to /posts/1
                 // 修改状态，并不直接删除
-                catg.set('catgStatus', 2);
+                catg.set('catgstatus', 2);
                 catg.save();
             });
 

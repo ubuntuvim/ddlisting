@@ -17,9 +17,9 @@ export default Ember.Route.extend({
             categorys: this.store.queryRecord('category', { userid: userId, catgstatus: 1 }).then(function(categorys) {
                 return categorys;
             }),
-            todos: this.store.queryRecord('todo-item', { userid: userId, recordstatus: 1 }).then(function(todos) {
-                return todos;
-            }),
+            // todos: this.store.queryRecord('todo-item', { userid: userId}).then(function(todos) {
+            //     return todos;
+            // }),
             userEmail: sessionStorage.getItem("__LOGIN_USER_EMAIL__")
         });
     }

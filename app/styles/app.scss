@@ -39,7 +39,14 @@ body {
 .opacity09 {
     opacity: 0.9;
 }
-
+.opacity1 {
+    opacity: 1 !important;
+}
+// todo完成状态样式
+.complete-todo-item {
+    text-decoration: line-through;
+    color: #777;
+}
 .h100ps {
     height: 100%;
 }
@@ -55,6 +62,7 @@ body {
     padding: 0;
     overflow: auto !important;
 }
+
 /* ========================== 左右面板分隔样式 ==========================  */
 .my-row {
     margin-left: -15px;

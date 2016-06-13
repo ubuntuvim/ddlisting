@@ -26,7 +26,7 @@ export default Ember.Component.extend({
         showEditWin(category) {
             Ember.$("#editCategoryId").modal('toggle');
             // this.set('category', category);
-            Ember.$("#catgName1").val(category.get('catgName'));
+            Ember.$("#catgName1").val(category.get('catgname'));
             Ember.$("#catgId1").val(category.get('id'));
         }
     }

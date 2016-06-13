@@ -7,6 +7,7 @@
     "ember-qunit-notifications": "0.1.0",
     "bootstrap-sass": "^3.3.6",
     "jquery-flextext": "~1.1.6",
-    "firebase": "^2.1.0"
+    "firebase": "^2.1.0",
+    "jquery-validation": "^1.15.0"
   }
 }

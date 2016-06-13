@@ -12,21 +12,27 @@
 
       <div class="list-group my-list-group">
           <div style="position: relative;">
-              <div class="todo-checkbox">
-                  <!-- <input type="checkbox" class="form-control" checked> -->
-                  <span class="glyphicon glyphicon-unchecked"></span>
+              <div class="todo-checkbox" {{action 'doChecked' todoItem.id todoItem.checked}}>
+                  <!-- <input type="checkbox" class="form-control" checked>
+                  <span class="glyphicon {{if todoItem.checked 'glyphicon-check' 'glyphicon-unchecked'}}"></span>
+                   -->
+                   {{#if todoItem.checked}}
+                  <i class="iconfont" style="font-size:18px;">&#xe62f;</i>
+                  {{else}}
+                   <i class="iconfont">&#xe626;</i>
+                  {{/if}}
               </div>
               {{#link-to 'pc.category.todos.todoitem' todoItem.id}}
-                  <p class="bg-info list-group-item">{{todoItem.title}}</p>
+                  <p class="bg-info list-group-item {{if todoItem.checked 'complete-todo-item'}}">{{todoItem.title}}</p>
               {{/link-to}}
 
               <div class="todo-create-date">
-                  <span>{{todoItem.timestamp}}</span>
+                  <span>{{format-date todoItem.timestamp}}</span>
               </div>
 
-              <div class="star-bookmark-minus">
+              <div class="star-bookmark-minus" {{action 'doStar' todoItem.id todoItem.star}}>
                    <span class="glyphicon glyphicon-star todo-star"></span>
-                  <img src="/assets/images/bookmark/bookmark1.png" />
+                  <img src="/assets/images/bookmark/bookmark1.png" class="{{if todoItem.star 'opacity1'}}" />
               </div>
           </div>
       </div>

@@ -10,8 +10,8 @@ export default DS.Model.extend({
     timestamp: DS.attr('number'),
     star: DS.attr('boolean'),
     recordstatus: DS.attr('number'),  //todo项状态：1-未完成（新增）；2-完成；3-删除（放到回收站可恢复）；4-完全删除（不可恢复）
-    startdate: DS.attr('string'),  //任务开始时间
-    enddate: DS.attr('string'),  //任务结束时间
+    startdate: DS.attr('number'),  //任务开始时间
+    enddate: DS.attr('number'),  //任务结束时间
     ispublish: DS.attr('number'),  //是否公开：1-公开(任何人都可以看到)；0-不公开(自己看)
     ischildorparent: DS.attr('number'),  //标记本todo是作为父todo还是子todo：1-子todo；2-父todo；3-本身（没有任何关联）
     // 关系放在多的一方，当时model类还需要使用这个属性关联

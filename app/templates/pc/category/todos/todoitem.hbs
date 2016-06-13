@@ -5,20 +5,20 @@
 
         <div class="todo-item-top">
             <form class="form-inline">
-                <div class="todo-checkbox form-group">
+                <div class="todo-checkbox form-group" {{action 'doChecked' model.id model.checked}}>
                     <!-- <input type="checkbox" class="form-control" checked> -->
-                    <span class="glyphicon glyphicon-unchecked"></span>
+                    <!-- <span class="glyphicon glyphicon-unchecked"></span> -->
+                    {{#if model.checked}}
+                   <i class="iconfont check-icon-25">&#xe62f;</i>
+                   {{else}}
+                    <i class="iconfont check-icon-23">&#xe626;</i>
+                   {{/if}}
                 </div>
 
                 <div class="form-group form-textarea">
-                    <textarea id="updateTodItemId" name="title" class="form-control"></textarea>
-                    <div class="todo-item-gy">
-                        <span class="glyphicon glyphicon-minus" style="position: absolute;top: -10px;"></span>
-                        <span class="glyphicon glyphicon-minus" style="position: absolute;top: -5px;"></span>
-                        <span class="glyphicon glyphicon-minus" style="position: absolute;top: 0px;"></span>
-                        <span class="glyphicon glyphicon-minus" style="position: absolute;top: 3px;"></span>
-                        <span class="glyphicon glyphicon-bookmark todo-bookmark" style="position: absolute;top: 17px;"></span>
-                        <span class="glyphicon glyphicon-star todo-star"></span>
+                    <textarea id="updateTodItemId" name="title" class="form-control">{{model.title}}</textarea>
+                    <div class="todo-item-gy" {{action 'doStar' model.id model.star}}>
+                        <i class="iconfont {{if model.star 'opacity1'}}">&#xe6bc;</i>
                     </div>
                 </div>
 
@@ -32,17 +32,16 @@
 
                 <div class="due-time">
                     <div class="panel panel-default">
-
                       <div class="panel-body">
                           <div class="form-group has-feedback mgbt0">
                               <input type="text" class="form-control" id="inputSuccess2" aria-describedby="DueTime1"
-                               placeholder="到期时间" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',highLineWeekDay:true})">
+                               placeholder="到期时间" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true,highLineWeekDay:true})">
                               <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
                               <span id="DueTime1" class="sr-only">(success)</span>
                           </div>
                           <div class="form-group has-feedback mgbt0">
                               <input type="text" class="form-control" id="inputSuccess3" aria-describedby="DueTime2"
-                               placeholder="提醒我" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})">
+                               placeholder="提醒我" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true})">
                               <span class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
                               <span id="DueTime2" class="sr-only">(success)</span>
                           </div>
@@ -57,34 +56,43 @@
                     </div>
 
                     <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
+                        <p class="bg-info list-group-item">
+                            {{#if model.checked}}
+                           <i class="iconfont" {{action 'completeSubTodo' subTodo.id}}>&#xe62f;</i>
+                           {{else}}
+                            <i class="iconfont" {{action 'completeSubTodo' subTodo.id}}>&#xe626;</i>
+                           {{/if}}
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
                     </div>
                     <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
+                        <p class="bg-info list-group-item">
+                            <i class="iconfont">&#xe62f;</i>
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
                     </div>
                     <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
+                        <p class="bg-info list-group-item">
+                            <i class="iconfont">&#xe62f;</i>
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
                     </div>
                     <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
+                        <p class="bg-info list-group-item">
+                            <i class="iconfont">&#xe62f;</i>
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
                     </div>
                     <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
-                    </div>
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
-                    </div>
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
-                    </div>
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
-                    </div>
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
-                    </div>
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">任务1</p>
+                        <p class="bg-info list-group-item">
+                            <i class="iconfont">&#xe62f;</i>
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
                     </div>
                 </div> <!-- 子任务列表 -->
 
@@ -99,7 +107,7 @@
                 关闭面板2<span class="glyphicon glyphicon-menu-right"></span>
             {{/link-to}}
             <span class="create-date">
-                创建于：2016-05-16
+                创建于：{{format-date model.startdate}}
             </span>
             <button type="button" class="btn btn-danger btn-xs">
                 <span class="glyphicon glyphicon-trash"></span>
@@ -117,25 +125,13 @@
 $(function() {
     // 引入textarea根据内容自适应插件
     $('#updateTodItemId').flexText();
-
-    //  todoitem详细页面，点击右上角的星号标注好改变透明度
-    $("#todoItemId .todo-item-gy").click(function() {
-        if ($(this).css("opacity") === '1') {
-            $(this).css("opacity", 0.4);
-        } else {
-            $(this).css("opacity", 1);
-        }
+    //鼠标移动到子任务列表显示右侧的删除按钮
+    $("#todoItemId .inner .todo-item-middle .subtodo-list .list-group").mousemove(function() {
+        $(this).children("p").children('.glyphicon').show();
     });
-    // 设置复选框点击事件
-    $("#todoItemId .inner .todo-item-top .form-inline .todo-checkbox .glyphicon").click(function() {
-       //  console.log($(this).hasClass("glyphicon-check"));
-        if ($(this).hasClass("glyphicon-check")) {
-            $(this).removeClass('glyphicon-check');
-            $(this).addClass('glyphicon-unchecked')
-        } else {
-            $(this).addClass('glyphicon-check');
-            $(this).removeClass('glyphicon-unchecked')
-        }
+    //鼠标移开不显示
+    $("#todoItemId .inner .todo-item-middle .subtodo-list .list-group").mouseout(function() {
+        $(this).children("p").children('.glyphicon').hide();
     });
 });
 {{/script-tag}}

@@ -30,9 +30,10 @@
                   <span>{{format-date todoItem.timestamp}}</span>
               </div>
 
-              <div class="star-bookmark-minus" {{action 'doStar' todoItem.id todoItem.star}}>
-                   <span class="glyphicon glyphicon-star todo-star"></span>
-                  <img src="/assets/images/bookmark/bookmark1.png" class="{{if todoItem.star 'opacity1'}}" />
+              <div class="star-bookmark" {{action 'doStar' todoItem.id todoItem.star}}>
+                   <!-- <span class="glyphicon glyphicon-star todo-star"></span>
+                  <img src="/assets/images/bookmark/bookmark1.png" class="{{if todoItem.star 'opacity1'}}" /> -->
+                  <i class="iconfont {{if todoItem.star 'opacity1'}}">&#xe6bc;</i>
               </div>
           </div>
       </div>

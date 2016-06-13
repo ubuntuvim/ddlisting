@@ -1,0 +1,8 @@
+
+@font-face {font-family: "iconfont";
+  src: url('bookmark.eot?t=1465833031'); /* IE9*/
+  src: url('bookmark.eot?t=1465833031#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('bookmark.woff?t=1465833031') format('woff'), /* chrome, firefox */
+  url('bookmark.ttf?t=1465833031') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('bookmark.svg?t=1465833031#bookmark') format('svg'); /* iOS 4.1- */
+}

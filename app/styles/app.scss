@@ -255,6 +255,74 @@ body {
     font-size: 17px;
     top:13px;
 }
+// ---------------------
+#todoItemId .inner .todo-item-middle .subtodo-list input {
+    background-color: white !important;
+    color: #555555;
+    padding-top: 6px;
+}
+#todoItemId .inner .todo-item-middle .subtodo-list .list-group {
+    // padding-left: 5px !important;
+    cursor: inherit;
+}
+#todoItemId .inner .todo-item-middle .subtodo-list .list-group p {
+    padding-left: 5px !important;
+}
+#todoItemId .inner .todo-item-middle .subtodo-list .list-group p .glyphicon {
+    right: 5px;
+    position: absolute;
+    top: 15px;
+    cursor: pointer;
+    display: none;
+}
+#todoItemId .inner .todo-item-middle .subtodo-list .list-group p .iconfont {
+    cursor: pointer;
+}
+#todoItemId .inner .todo-item-middle .subtodo-list input,
+#todoItemId .inner .todo-item-middle .due-time .panel .panel-body input {
+    background-color: white !important;
+    color: #555555;
+}
+/* 设置输入框的placeholder属性颜色 */
+#todoItemId .inner .todo-item-middle .subtodo-list input:-moz-placeholder,
+#todoItemId .inner .todo-item-middle .due-time .panel .panel-body input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #555;
+    font-size: 15px !important;
+}
+
+#todoItemId .inner .todo-item-middle .subtodo-list input::-moz-placeholder ,
+#todoItemId .inner .todo-item-middle .due-time .panel .panel-body input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #555;
+    font-size: 15px !important;
+}
+#todoItemId .inner .todo-item-middle .subtodo-list input:-ms-input-placeholder,
+#todoItemId .inner .todo-item-middle .due-time .panel .panel-body input:-ms-input-placeholder {
+    color: #555;
+    font-size: 15px !important;
+}
+#todoItemId .inner .todo-item-middle .subtodo-list input::-webkit-input-placeholder ,
+#todoItemId .inner .todo-item-middle .due-time .panel .panel-body input::-webkit-input-placeholder {
+    color: #555;
+    font-size: 15px !important;
+}
+/* 设置输入框内右侧的图标样式 */
+#todoItemId .inner .todo-item-middle .due-time .panel .panel-body .form-group .glyphicon {
+    color: #111111 !important;
+    font-size: 18px;
+    // opacity: 0.4;
+    // position: absolute;
+    top: 3px !important;
+    right: 0 !important;
+    cursor: pointer;
+}
+#todoItemId .inner .todo-item-middle .due-time .panel .panel-body .form-group .glyphicon-calendar {
+    margin-right: 0 !important;
+}
+#todoItemId .inner .todo-item-middle .due-time .panel .panel-body .form-group .glyphicon-star {
+    // font-size: 17px;
+    // top:13px;
+}
+// ==============================
 .pdr10 {
     padding-right: 10px;
 }
@@ -278,21 +346,29 @@ body {
     font-size: 20px;
     margin-top: 2px;
 }
-#appMainRightId .todo-list .star-bookmark-minus {
-
-}
-#appMainRightId .todo-list .star-bookmark-minus .glyphicon {
-
-}
-#appMainRightId .todo-list .star-bookmark-minus .todo-star {
+#appMainRightId .todo-list .star-bookmark {
     position: absolute;
-    font-size: 15px;
-    top: 13px;
-    color: white;
-    z-index: 1100;
-    right: 15px;
-    // opacity: 0.6;
+    right: 5px;
+    top: -6px;
 }
+#appMainRightId .todo-list .star-bookmark i {
+    opacity: 0.3;
+    cursor: pointer;
+    font-size: 25px;
+    color: red;
+}
+// #appMainRightId .todo-list .star-bookmark-minus .glyphicon {
+//
+// }
+// #appMainRightId .todo-list .star-bookmark-minus .todo-star {
+//     position: absolute;
+//     font-size: 15px;
+//     top: 13px;
+//     color: white;
+//     z-index: 1100;
+//     right: 15px;
+//     // opacity: 0.6;
+// }
 .color-black {
     color: black !important;
 }
@@ -311,7 +387,7 @@ body {
     right: 10px;
     //top: 62px;
     // border: 1px solid red;
-    width: 400px;
+    width: 450px;
     overflow: hidden;
     bottom: 10px;
 }
@@ -349,8 +425,16 @@ body {
     // padding-top: 10px;
     padding: 10px;
 }
-#todoItemId .inner .todo-item-top .form-inline .todo-checkbox .glyphicon {
-    font-size: 20px;
+// #todoItemId .inner .todo-item-top .form-inline .todo-checkbox .glyphicon {
+//     font-size: 20px;
+//     cursor: pointer;
+// }
+#todoItemId .inner .todo-item-top .form-inline .todo-checkbox .check-icon-23 {
+    font-size: 23px !important;
+    cursor: pointer;
+}
+#todoItemId .inner .todo-item-top .form-inline .todo-checkbox .check-icon-25 {
+    font-size: 25px !important;
     cursor: pointer;
 }
 #todoItemId .todo-item-middle {
@@ -379,38 +463,25 @@ body {
     // padding: 0;
 }
 #todoItemId .form-textarea {
-    margin-left: 40px;
+    margin-left: 20px;
 }
-#todoItemId .glyphicon-minus,
-#todoItemId .glyphicon-star,
-#todoItemId .glyphicon-bookmark {
-    font-size: 30px;
-    right: 3px;
-    color: red;
-    margin-right: 5px;
-}
-#todoItemId .todo-checkbox {
-    margin-top: 35px;
-    position: absolute;
-}
-#todoItemId .todo-star {
-    // margin-top: 35px;
-    position: absolute;
-    font-size: 18px;
-    color: white;
-    top: 10px;
-    right: 7px;
-}
-
 #todoItemId .todo-item-gy {
     cursor: pointer;
-    opacity: 0.4;
+    position: absolute;
+    top: -10px;
+    right: 5px;
+}
+#todoItemId .todo-item-gy i {
+    font-size: 40px;
+    color: red;
+    opacity: 0.3;
+    cursor: pointer;
 }
 #updateTodItemId {
     min-height: 80px;
     max-height: 80px;
-    min-width: 320px;
-    max-width: 320px;
+    min-width: 360px;
+    max-width: 360px;
     // border: 0;
     overflow-y: hidden;
     line-height: 1em;
@@ -485,7 +556,7 @@ body {
 }
 #todoItemId .todo-item-bottom .create-date {
     position: absolute;
-    left: 130px;
+    left: 120px;
     top: 7px;
     color: #aaa;
 }

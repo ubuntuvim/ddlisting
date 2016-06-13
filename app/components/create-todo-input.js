@@ -56,7 +56,7 @@ export default Ember.Component.extend({
                         timestamp: new Date().getTime(),
                         star: star,
                         recordstatus: 1,
-                        startdate: new Date(),
+                        startdate: new Date().getTime(),
                         ispublish: 0,
                         ischildorparent: 3,
                         user: this.store.peekRecord('user', userId),

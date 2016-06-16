@@ -1,0 +1,278 @@
+/* ===================== todo详细设置页面 ==================== */
+#pcTodoItemId {
+    position: absolute;
+    right: 10px;
+    //top: 62px;
+    // border: 1px solid red;
+    width: 550px;
+    overflow: hidden;
+    bottom: 10px;
+}
+#pcTodoItemId.animated {
+    -webkit-transition: 100ms width ease;
+    -moz-transition: 100ms width ease;
+    -o-transition: 100ms width ease;
+    -ms-transition: 100ms width ease;
+    transition: 100ms width ease;
+}
+#pcTodoItemId .inner {
+    // border: 1px solid green;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+#pcTodoItemId .todo-item-top {
+    // border: 1px solid red;
+    height: auto;
+    background: #fff;
+    // padding-top: 10px;
+    padding: 10px;
+}
+// #pcTodoItemId .inner .todo-item-top .form-inline .todo-checkbox .glyphicon {
+//     font-size: 20px;
+//     cursor: pointer;
+// }
+#pcTodoItemId .inner .todo-item-top .form-inline .form-textarea .pc-todo-item-title {
+    min-height: 50px;
+    // max-height: 50px;
+    min-width: 460px;
+    max-width: 460px;
+    margin-left: 5px;
+}
+#pcTodoItemId .inner .todo-item-top .form-inline .form-textarea {
+}
+
+#pcTodoItemId .inner .todo-item-top .form-inline .form-textarea textarea {
+    width: 460px;
+    // border: 0;
+    border-radius: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#pcTodoItemId .inner .todo-item-top .form-inline .todo-checkbox .check-icon-23 {
+    font-size: 23px !important;
+    cursor: pointer;
+}
+#pcTodoItemId .inner .todo-item-top .form-inline .todo-checkbox .check-icon-25 {
+    font-size: 25px !important;
+    cursor: pointer;
+}
+#pcTodoItemId .todo-item-middle {
+    -webkit-transition: margin 150ms !important;
+    -moz-transition: margin 150ms !important;
+    -o-transition: margin 150ms !important;
+    -ms-transition: margin 150ms !important;
+    transition: margin 150ms !important;
+    background: #fff;
+    overflow: auto;
+    padding-bottom: 16px;
+    right: 0;
+    left: 0;
+    // overflow-x: hidden;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    // border: 1px solid blue;
+    padding: 10px;
+}
+#pcTodoItemId .todo-item-middle textarea {
+    // padding: 0;
+}
+// #pcTodoItemId .form-textarea {
+//     margin-left: 20px;
+// }
+#pcTodoItemId .todo-item-gy {
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    right: 5px;
+}
+#pcTodoItemId .todo-item-gy i {
+    font-size: 40px;
+    color: red;
+    opacity: 0.3;
+    cursor: pointer;
+}
+#updateTodItemId {
+    min-height: 80px;
+    max-height: 80px;
+    min-width: 360px;
+    max-width: 360px;
+    // border: 0;
+    overflow-y: hidden;
+    line-height: 1em;
+    height: auto;
+    // padding-top: 0;
+    // padding-bottom: 2px;
+    margin-left: -10px;
+    padding: 0;
+}
+// 中部区块的时间设置输入框
+#pcTodoItemId .todo-item-middle .panel-body {
+    padding: 0;
+    background: #f2f2f2;
+}
+#pcTodoItemId .todo-item-middle .panel-body .mgbt0 {
+    margin-bottom: 0;
+}
+#pcTodoItemId .todo-item-middle .panel-body input {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+// 子任务输入框
+#pcTodoItemId .list-group {
+    margin-bottom: 2px;
+    padding-left: 0;
+    opacity: 0.8;
+    cursor: pointer;
+}
+#pcTodoItemId .list-group .list-group-item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+#pcTodoItemId .list-group p {
+    // font-size: 16px;
+}
+#pcTodoItemId .todo-item-middle .todo-remark {
+    margin-top: 10px;
+    padding: 10px;
+}
+// 底部区块
+#pcTodoItemId .todo-item-bottom {
+    // border: 1px solid black;
+    position: relative;
+    height: 93px;
+    // margin-bottom: 10px;
+    background: #f2f2f2;
+}
+#pcTodoItemId .todo-item-bottom button,
+#pcTodoItemId .todo-item-bottom a {
+    margin-top: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    // font-size: 15px;
+    // font-weight: 500;
+    color: #262626;
+    cursor: default;
+    position: relative;
+    top: -1px;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+#pcTodoItemId .todo-item-bottom .create-date {
+    position: absolute;
+    left: 120px;
+    top: 7px;
+    color: #aaa;
+}
+#pcTodoItemId .todo-item-bottom .btn-default {
+    position: absolute;
+    left: 20px;
+}
+#pcTodoItemId .todo-item-bottom .btn-danger {
+    position: absolute;
+    right: 20px;
+}
+
+// ---------------------
+#pcTodoItemId .inner .todo-item-middle .subtodo-list input {
+    background-color: white !important;
+    color: #555555;
+    padding-top: 6px;
+}
+#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group {
+    // padding-left: 5px !important;
+    cursor: inherit;
+}
+#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group p {
+    padding-left: 5px !important;
+}
+#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group p .glyphicon {
+    right: 5px;
+    position: absolute;
+    top: 15px;
+    cursor: pointer;
+    display: none;
+}
+#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group p .iconfont {
+    cursor: pointer;
+}
+#pcTodoItemId .inner .todo-item-middle .subtodo-list input,
+#pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body input {
+    background-color: white !important;
+    color: #555555;
+}
+/* 设置输入框的placeholder属性颜色 */
+#pcTodoItemId .inner .todo-item-middle .subtodo-list input:-moz-placeholder,
+#pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #555;
+    font-size: 15px !important;
+}
+
+#pcTodoItemId .inner .todo-item-middle .subtodo-list input::-moz-placeholder ,
+#pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #555;
+    font-size: 15px !important;
+}
+#pcTodoItemId .inner .todo-item-middle .subtodo-list input:-ms-input-placeholder,
+#pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body input:-ms-input-placeholder {
+    color: #555;
+    font-size: 15px !important;
+}
+#pcTodoItemId .inner .todo-item-middle .subtodo-list input::-webkit-input-placeholder ,
+#pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body input::-webkit-input-placeholder {
+    color: #555;
+    font-size: 15px !important;
+}
+/* 设置输入框内右侧的图标样式 */
+#pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body .form-group .glyphicon {
+    color: #111111 !important;
+    font-size: 18px;
+    // opacity: 0.4;
+    // position: absolute;
+    top: 3px !important;
+    right: 0 !important;
+    cursor: pointer;
+}
+#pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body .form-group .glyphicon-calendar {
+    margin-right: 0 !important;
+}
+#pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body .form-group .glyphicon-star {
+    // font-size: 17px;
+    // top:13px;
+}
+#pcTodoItemId .inner .todo-item-top .form-group .pc-todo-item-title {
+
+}
+
+
+/* =====================  ==================== */

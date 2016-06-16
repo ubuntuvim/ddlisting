@@ -1,0 +1,123 @@
+{{! app/templates/components/todo-item-detail-page.hbs 详细设置页面}}
+
+<div id="pcTodoItemId">
+
+    <div class="inner">
+
+        <div class="todo-item-top">
+            <form class="form-inline">
+                <div class="todo-checkbox form-group" {{action 'doChecked' model.id model.checked}}>
+                    <!-- <input type="checkbox" class="form-control" checked> -->
+                    <!-- <span class="glyphicon glyphicon-unchecked"></span> -->
+                    {{#if model.checked}}
+                   <i class="iconfont check-icon-25">&#xe62f;</i>
+                   {{else}}
+                    <i class="iconfont check-icon-23">&#xe626;</i>
+                   {{/if}}
+                </div>
+
+                <div class="form-group form-textarea">
+                    <div contentEditable="true" id="" class="pc-todo-item-title"
+                        title="{{model.title}}">{{model.title}}</div>
+
+                    <!-- <textarea id="" name="title" class="form-control">{{model.title}}</textarea> -->
+                    <div class="todo-item-gy" {{action 'doStar' model.id model.star}}>
+                        <i class="iconfont {{if model.star 'opacity1'}}">&#xe6bc;</i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                </div>
+            </form>
+        </div>
+
+        <div class="todo-item-middle">
+            <div style="overflow: visible;">
+
+                <div class="due-time">
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                          <div class="form-group has-feedback mgbt0">
+                              <input type="text" class="form-control" id="inputSuccess2" aria-describedby="DueTime1"
+                               placeholder="到期时间" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true,highLineWeekDay:true})">
+                              <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+                              <span id="DueTime1" class="sr-only">(success)</span>
+                          </div>
+                          <div class="form-group has-feedback mgbt0">
+                              <input type="text" class="form-control" id="inputSuccess3" aria-describedby="DueTime2"
+                               placeholder="提醒我" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true})">
+                              <span class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
+                              <span id="DueTime2" class="sr-only">(success)</span>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+
+
+                <div class="subtodo-list">
+                    <div class="form-group has-feedback">
+                      <input type="text" class="form-control opacity09" id="newSubTodoId" placeholder="请输入子任务项">
+                    </div>
+
+                    <div class="list-group my-list-group">
+                        <p class="bg-info list-group-item">
+                            {{#if model.checked}}
+                           <i class="iconfont" {{action 'completeSubTodo' subTodo.id}}>&#xe62f;</i>
+                           {{else}}
+                            <i class="iconfont" {{action 'completeSubTodo' subTodo.id}}>&#xe626;</i>
+                           {{/if}}
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
+                    </div>
+                    <div class="list-group my-list-group">
+                        <p class="bg-info list-group-item">
+                            <i class="iconfont">&#xe62f;</i>
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
+                    </div>
+                    <div class="list-group my-list-group">
+                        <p class="bg-info list-group-item">
+                            <i class="iconfont">&#xe62f;</i>
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
+                    </div>
+                    <div class="list-group my-list-group">
+                        <p class="bg-info list-group-item">
+                            <i class="iconfont">&#xe62f;</i>
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
+                    </div>
+                    <div class="list-group my-list-group">
+                        <p class="bg-info list-group-item">
+                            <i class="iconfont">&#xe62f;</i>
+                            任务1
+                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                        </p>
+                    </div>
+                </div> <!-- 子任务列表 -->
+
+                <div class="form-group">
+                    <textarea name="" class="form-control todo-remark" placeholder="添加备注……"></textarea>
+                </div>
+            </div>
+        </div>  <!-- //auto-overflow-x-->
+
+        <div class="todo-item-bottom">
+            {{#link-to 'pc.category.todos' class="btn btn-default btn-xs"}}
+                关闭面板2<span class="glyphicon glyphicon-menu-right"></span>
+            {{/link-to}}
+            <span class="create-date">
+                创建于：{{format-date model.startdate}}
+            </span>
+            <button type="button" class="btn btn-danger btn-xs">
+                <span class="glyphicon glyphicon-trash"></span>
+                删除本任务</button>
+        </div>
+
+    </div>
+
+</div>

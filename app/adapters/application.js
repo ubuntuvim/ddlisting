@@ -13,7 +13,7 @@
 import JSONAPIAdapter from 'ember-data/adapters/json-api';
 
 export default JSONAPIAdapter.extend({
-    host: 'http://localhost:3000'
+    host: 'http://172.26.145.2:3000'
     // host: 'https://ddlisting.wilddogio.com',
   //   ajaxOptions: function(url, type, options) {
   //       var hash = this._super(url, type, options);

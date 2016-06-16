@@ -107,11 +107,17 @@
         </div>  <!-- //auto-overflow-x-->
 
         <div class="todo-item-bottom">
-            {{#link-to 'pc.category.todos' class="btn btn-default btn-xs"}}
-                关闭面板2<span class="glyphicon glyphicon-menu-right"></span>
-            {{/link-to}}
+            <!-- {{#link-to 'pc.category.todos' class="btn btn-default btn-xs"}} -->
+            <!-- <button type="button" name="button" {{action 'closeDetailWin'}} class="btn btn-default btn-xs"> -->
+                <!-- 关闭面板<span class="glyphicon glyphicon-menu-right"></span> -->
+                <!-- </button> -->
+            <!-- {{/link-to}} -->
+            <a class="btn btn-default btn-xs" href="/#/pc/category/todos"
+                onclick="javascript: $('#appMainRightId').css('marginRight', '0');">
+                关闭面板<span class="glyphicon glyphicon-menu-right"></span>
+            </a>
             <span class="create-date">
-                创建于：{{format-date model.startdate}}
+                {{format-date model.startdate}}
             </span>
             <button type="button" class="btn btn-danger btn-xs">
                 <span class="glyphicon glyphicon-trash"></span>

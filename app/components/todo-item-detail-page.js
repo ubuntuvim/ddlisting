@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    subTodoList: Ember.computed(function() {
+
+    }),
     didInsertElement() {
         // 展开右侧详细设置页面的同时缩小中间部分
         Ember.$('#appMainRightId').css("marginRight", '390px');
@@ -16,6 +19,40 @@ export default Ember.Component.extend({
         });
     },
     actions: {
+        // 保存子任务
+        saveSubTodo() {
+            var title = this.get('subTodoTitle');
+            if (title) {
+                var star = false;
+                if (Ember.$('#star').val() === '1') {
+                    star = true;
+                }
+                Ember.Logger.debug("保存todo star: " + star);
+                var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
+                Ember.Logger.debug("保存todo userId: " + userId);
+                if (!userId) {
+                    location.reload(); //获取不到userid退出，让用户再次登录
+                }
+                var categoryId = this.get('model').categoryType; //分类id
+                Ember.Logger.debug("保存todo userId: " + userId);
+                Ember.Logger.debug("保存todo 分类id: " + categoryId);
+                let todo = this.store.createRecord('todo-item', {
+                    userid: userId,
+                    title: title,
+                    checked: false,
+                    timestamp: new Date().getTime(),
+                    star: star,
+                    recordstatus: 1,
+                    startdate: new Date().getTime(),
+                    ispublish: 0,
+                    ischildorparent: 1,
+                    user: this.store.peekRecord('user', userId),
+                    category: this.store.peekRecord('category', categoryId)
+                }).save().then(() => {
+                    this.set('subTodoTitle', '');
+                });
+            }
+        },
         // 设置star状态
         doStar(id, star) {
             this.store.findRecord('todo-item', id).then((td) => {

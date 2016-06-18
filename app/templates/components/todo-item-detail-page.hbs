@@ -56,48 +56,24 @@
 
                 <div class="subtodo-list">
                     <div class="form-group has-feedback">
-                      <input type="text" class="form-control opacity09" id="newSubTodoId" placeholder="请输入子任务项">
+                      {{input type="text" class="form-control opacity09"
+                        id="newSubTodoId" placeholder="请输入子任务项" value=subTodoTitle enter="saveSubTodo"}}
                     </div>
 
+                    {{#each subTodoList as |subTodo|}}
                     <div class="list-group my-list-group">
                         <p class="bg-info list-group-item">
-                            {{#if model.checked}}
+                            {{#if subTodo.checked}}
                            <i class="iconfont" {{action 'completeSubTodo' subTodo.id}}>&#xe62f;</i>
                            {{else}}
                             <i class="iconfont" {{action 'completeSubTodo' subTodo.id}}>&#xe626;</i>
                            {{/if}}
-                            任务1
+                            {{subTodo.title}}
                             <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
                         </p>
                     </div>
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">
-                            <i class="iconfont">&#xe62f;</i>
-                            任务1
-                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
-                        </p>
-                    </div>
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">
-                            <i class="iconfont">&#xe62f;</i>
-                            任务1
-                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
-                        </p>
-                    </div>
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">
-                            <i class="iconfont">&#xe62f;</i>
-                            任务1
-                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
-                        </p>
-                    </div>
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">
-                            <i class="iconfont">&#xe62f;</i>
-                            任务1
-                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
-                        </p>
-                    </div>
+                    {{/each}}
+
                 </div> <!-- 子任务列表 -->
 
                 <div class="form-group">

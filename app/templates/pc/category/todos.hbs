@@ -9,35 +9,8 @@
 <div class="todo-list">
 
     {{#each model.todos as |todoItem|}}
-
-      <div class="list-group my-list-group">
-          <div style="position: relative;">
-              <div class="todo-checkbox" {{action 'doChecked' todoItem.id todoItem.checked}}>
-                  <!-- <input type="checkbox" class="form-control" checked>
-                  <span class="glyphicon {{if todoItem.checked 'glyphicon-check' 'glyphicon-unchecked'}}"></span>
-                   -->
-                   {{#if todoItem.checked}}
-                  <i class="iconfont" style="font-size:18px;">&#xe62f;</i>
-                  {{else}}
-                   <i class="iconfont">&#xe626;</i>
-                  {{/if}}
-              </div>
-              {{#link-to 'pc.category.todos.todoitem' todoItem.id}}
-                  <p class="bg-info list-group-item {{if todoItem.checked 'complete-todo-item'}}">{{todoItem.title}}</p>
-              {{/link-to}}
-
-              <div class="todo-create-date">
-                  <span>{{format-date todoItem.timestamp}}</span>
-              </div>
-
-              <div class="star-bookmark" {{action 'doStar' todoItem.id todoItem.star}}>
-                   <!-- <span class="glyphicon glyphicon-star todo-star"></span>
-                  <img src="/assets/images/bookmark/bookmark1.png" class="{{if todoItem.star 'opacity1'}}" /> -->
-                  <i class="iconfont {{if todoItem.star 'opacity1'}}">&#xe6bc;</i>
-              </div>
-          </div>
-      </div>
-  {{/each}}
+        {{todo-page todoItem=todoItem model=model store=store}}
+    {{/each}}
 
 </div>
 

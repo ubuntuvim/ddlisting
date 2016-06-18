@@ -20,6 +20,13 @@ export default Ember.Component.extend({
         //     console.log('----------');
         //     Ember.$("#editCategoryId").modal('toggle');
         // });
+
+        //如果todo详细设置页面是打开状态则关闭，并且展开中间的todo列表
+        Ember.$("#appMainLeftId .panel-body .list-group a").click(function() {
+            Ember.$('#appMainRightId').css('marginRight', '0');
+            Ember.$("#pcTodoItemId").hide();
+        });
+
     },
     actions: {
         // 显示分类修改页面

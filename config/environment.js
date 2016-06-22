@@ -2,22 +2,36 @@
 
 module.exports = function(environment) {
 
-    var firebaseAppUrl = 'https://luminous-heat-9079.firebaseio.com/';
+    // var firebaseAppUrl = 'https://luminous-heat-9079.firebaseio.com/';
 
   var ENV = {
     modulePrefix: 'ddlisting',
     environment: environment,
     contentSecurityPolicy: {
-          'default-src': "'none'",
-          'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *",
-          'font-src': "'self' *",
-          'connect-src': "'self' *",
-          'img-src': "'self' *",
-          'style-src': "'self' 'unsafe-inline' *",
-          'frame-src': "*"
-      },
+        'default-src': "'none'",
+        'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *",
+        'font-src': "'self' *",
+        'connect-src': "'self' *",
+        'img-src': "'self' *",
+        'style-src': "'self' 'unsafe-inline' *",
+        'frame-src': "*"
+
+        // 'script-src': "'self' 'unsafe-eval' apis.google.com'",
+        // 'frame-src': ''self' https://*.firebaseapp.com',
+        // 'connect-src': ''self' wss://*.firebaseio.com https://*.googleapis.com'
+    },
+    firebase: {
+        apiKey: "AIzaSyDqkMj_1Z6XKeUSZngy30bLVZvhrL7qBh8",
+        authDomain: "luminous-heat-9079.firebaseapp.com",
+        databaseURL: "https://luminous-heat-9079.firebaseio.com",
+        storageBucket: "luminous-heat-9079.appspot.com"
+    },
+    // 权限控制
+    torii: {
+        sessionServiceName: 'session'
+    },
     // contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
-    firebase: firebaseAppUrl,
+    // firebase: firebaseAppUrl,
     baseURL: '/',
     locationType: 'hash',
     EmberENV: {

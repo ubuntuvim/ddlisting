@@ -13,8 +13,11 @@ export default Ember.Route.extend({
         var category = params.category_id;
         var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
         return Ember.RSVP.hash({
-            todos: this.store.queryRecord('todo-item', { userid: userId }).then(function(todos) {
-                return todos;
+            todos: this.store.query('todo-item', { userid: userId }).then(function(todos) {
+                return todos.filter((td) => {
+                    return (td.get('userId') === '8d52fcf1-f489-47ab-a503-2f787f9c83c2')
+                        && (td.get('project') === projectObj.get('projCode'));
+                });
             }),
             categoryType: category
         });

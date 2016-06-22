@@ -7,13 +7,13 @@ export default Ember.Component.extend({
         Ember.$(".pc-category-list-item-selector").click(function() {
             //先重置所有的选中状态，并设置列表前的图标为列表
             Ember.$(".pc-category-list-item-selector").each(function() {
-                $(this).removeClass('pc-category-list-item-active');
-                $($(this).children('span')[0]).removeClass('glyphicon-edit');
+                Ember.$(this).removeClass('pc-category-list-item-active');
+                Ember.$(Ember.$(this).children('span')[0]).removeClass('glyphicon-edit');
             });
             // 设置选中者的状态，并设置列表前的图标为编辑
-            $(this).addClass("pc-category-list-item-active");
+            Ember.$(this).addClass("pc-category-list-item-active");
             // $($(this).children('span')[0]).removeClass('glyphicon-list');
-            $($(this).children('span')[0]).addClass('glyphicon-edit');
+            Ember.$(Ember.$(this).children('span')[0]).addClass('glyphicon-edit');
         });
         // 弹出编辑分类框
         // Ember.$(".pc-category-list-item-selector .glyphicon-edit").click(function() {

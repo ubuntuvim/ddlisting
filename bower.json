@@ -1,12 +1,12 @@
 {
   "name": "ddlisting",
   "dependencies": {
-    "ember": "~2.4.3",
+    "ember": "~2.5.0",
     "ember-cli-shims": "0.1.1",
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
     "bootstrap-sass": "^3.3.6",
-    "firebase": "^2.1.0",
+    "firebase": "^3.0.0",
     "jquery-validation": "^1.15.0"
   }
 }

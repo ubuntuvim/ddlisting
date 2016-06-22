@@ -18,7 +18,9 @@
 
                 <div class="form-group form-textarea">
                     <div contentEditable="true" id="" class="pc-todo-item-title"
-                        title="{{model.title}}">{{model.title}}</div>
+                        title="{{model.title}}" onblur={{action "updateTitle" model.id}}>{{model.title}}</div>
+                    {{! action通过隐藏域获取数据}}
+                    {{input type="hidden" value=model.title id="todoTitleId"}}
 
                     <!-- <textarea id="" name="title" class="form-control">{{model.title}}</textarea> -->
                     <div class="todo-item-gy" {{action 'doStar' model.id model.star}}>

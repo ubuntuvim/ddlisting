@@ -40,7 +40,7 @@ export default Ember.Component.extend({
                 console.log('categoryId ==== ' + categoryId);
                 if (!categoryId || categoryId === 'myTodos') {
                     // 提示用户先新增分类
-                    Messenger().post({
+                    new Messenger().post({
                         extraClasses: 'messenger-fixed messenger-on-top',
                         theme: 'flat',
                         type: 'info',

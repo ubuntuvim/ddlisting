@@ -25,8 +25,7 @@ export default Ember.Component.extend({
 
                 var todos = this.store.peekAll("todo-item").filter(function(td) {
                     // td.get('user') === userId &&
-                    if ((td.get('recordstatus') === 1
-                            || td.get('recordstatus') === 2)) {
+                    if (td.get('recordstatus') === 1 || td.get('recordstatus') === 2) {
                         //  设置为删除状态
                         td.set('recordstatus', 3);
                         td.save();

@@ -11,11 +11,11 @@ export default Ember.Component.extend({
         Ember.$('textarea').flexText();
         //鼠标移动到子任务列表显示右侧的删除按钮
         Ember.$("#todoItemId .inner .todo-item-middle .subtodo-list .list-group").mousemove(function() {
-            $(this).children("p").children('.glyphicon').show();
+            Ember.$(this).children("p").children('.glyphicon').show();
         });
         //鼠标移开不显示
         Ember.$("#todoItemId .inner .todo-item-middle .subtodo-list .list-group").mouseout(function() {
-            $(this).children("p").children('.glyphicon').hide();
+            Ember.$(this).children("p").children('.glyphicon').hide();
         });
     },
     actions: {
@@ -89,6 +89,14 @@ export default Ember.Component.extend({
         completeSubTodo(id) {
             this.store.findRecord('todo-item', id).then((td) => {
                 td.set('recordstatus', 2);
+                td.save();
+            });
+        },
+        // 更新title
+        updateTitle(id) {
+            console.log("model.title == " + this.get('model.title'));
+            this.store.findRecord('todo-item', id).then((td) => {
+                td.set('title', this.get('model.title'))
                 td.save();
             });
         }

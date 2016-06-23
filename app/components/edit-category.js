@@ -1,14 +1,16 @@
+// app/components/edit-category.js
 import Ember from 'ember';
 
 export default Ember.Component.extend({
     actions: {
+        // 编辑分类
         editCategory() {
-            var catgId = Ember.$("#catgId1").val();
-            var catgName = Ember.$("#catgName1").val();
-            if (catgId) {
-                this.store.findRecord('category', catgId).then(function(catg) {
-                  catg.set('catgname', catgName);
-                  catg.save();
+            var projId = Ember.$("#projId1").val();
+            var projName = Ember.$("#projNameId1").val();
+            if (projId) {
+                this.store.findRecord('project', projId).then(function(proj) {
+                  proj.set('projName', projName);
+                  proj.save();
                 });
                 Ember.$("#editCategoryId").modal('toggle');
             }
@@ -16,14 +18,14 @@ export default Ember.Component.extend({
         // TODO 还没加上权限
         delCategory() {
             // 获取删除数据的id
-            var id = Ember.$("#catgId1").val();
+            var id = Ember.$("#projId1").val();
             //  首先删除与此项目关联的所有TODO
-            this.store.findRecord('category', id).then((catg) => {
+            this.store.findRecord('project', id).then((proj) => {
                 // var userId = this.getUserIdFromSession();
                 //
                 // console.log('userId = ', userId);
 
-                var todos = this.store.peekAll("todo-item").filter(function(td) {
+                this.store.peekAll("todo-item").filter(function(td) {
                     // td.get('user') === userId &&
                     if (td.get('recordstatus') === 1 || td.get('recordstatus') === 2) {
                         //  设置为删除状态
@@ -32,12 +34,12 @@ export default Ember.Component.extend({
                     }
                 });
                 // 删除分类
-                // catg.destroyRecord();
-                // catg.deleteRecord();
-                // catg.get('isDeleted'); // => true
-                // catg.save(); // => DELETE to /posts/1
+                // proj.destroyRecord();
+                // proj.deleteRecord();
+                // proj.get('isDeleted'); // => true
+                // proj.save(); // => DELETE to /posts/1
                 // 修改状态，并不直接删除
-                catg.set('catgstatus', 2);
+                catg.set('projStatus', 2);
                 catg.save();
             });
 

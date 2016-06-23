@@ -30,11 +30,12 @@ export default Ember.Component.extend({
     },
     actions: {
         // 显示分类修改页面
-        showEditWin(category) {
+        showEditWin(proj) {
             Ember.$("#editCategoryId").modal('toggle');
             // this.set('category', category);
-            Ember.$("#catgName1").val(category.get('catgname'));
-            Ember.$("#catgId1").val(category.get('id'));
+            console.log('projName = ' + proj.get('id'))
+            Ember.$("#projNameId1").val(proj.get('projName'));
+            Ember.$("#projId1").val(proj.get('id'));
         }
     }
 });

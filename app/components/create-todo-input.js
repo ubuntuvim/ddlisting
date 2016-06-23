@@ -60,7 +60,7 @@ export default Ember.Component.extend({
                         ispublish: 0,
                         ischildorparent: 3,
                         user: this.store.peekRecord('user', userId),
-                        category: this.store.peekRecord('category', categoryId)
+                        category: this.store.peekRecord('project', categoryId)
                     }).save().then(() => {
 
                         // user.get('todos').pushObject(todo);

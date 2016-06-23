@@ -4,7 +4,7 @@ import DS from 'ember-data';
  * todo项:项目入口model，路由m.todoitem，pc.todoitem
  */
 export default DS.Model.extend({
-    userid: DS.attr('string'),  //方便查询冗余一个属性
+    userid: DS.attr('string'),  // 登录用户id
     title: DS.attr('string'),
     checked: DS.attr('boolean'),  // 是否勾选了todo列表前面的完成按钮
     timestamp: DS.attr('number'),
@@ -18,9 +18,6 @@ export default DS.Model.extend({
     childtodos: DS.hasMany('todo-item', { inverse: 'parenttodo' }),  //如果当前todo有子todo则这个属性指向子todo
     parenttodo: DS.belongsTo('todo-item', { inverse: 'childtodos' }),  //如果当前todo是子todo则这个属性指向自己的父todo
     remark: DS.attr('string'),
-    // user: DS.attr('string'),  // 登录用户id
-    user: DS.belongsTo('user'),
     // comments: DS.hasMany('comment'),  // 关系放在多的一方
-    // category: DS.attr('string')  //所属项目编号
-    category: DS.belongsTo('category')  //所属项目编号
+    project: DS.belongsTo('project')  //所属项目编号
 });

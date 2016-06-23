@@ -22,7 +22,7 @@ export default Ember.Route.extend({
             //     // return td.get('userId') === 'f237b280-cf13-4061-b6af-32339262145f';
             //
             // }),
-            categorys: this.store.query('project', { userId: userId, projStatus: 1 }).then(function(categorys) {
+            projects: this.store.query('project', { userId: userId, projStatus: 1 }).then(function(categorys) {
                 return categorys.filter((c) => {
                     return (c.get('userId') === '8d52fcf1-f489-47ab-a503-2f787f9c83c2')
                         && (c.get('projStatus') === 1)

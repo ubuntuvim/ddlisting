@@ -8,9 +8,9 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   // pc端路由
   this.route('pc', function() {
-    this.route('category', function() {
+    this.route('projects', function() {
         // pc.category.todos
-      this.route('todos', { path: '/:category_id' }, function() {
+      this.route('todos', { path: '/:project_id' }, function() {
           this.route('todoitem', { path: '/:todo_id' });
       });
     });
@@ -37,5 +37,6 @@ Router.map(function() {
     this.route('profileFeedback');
   });
 
+  this.route('updateFirebaseData');
 });
 export default Router;

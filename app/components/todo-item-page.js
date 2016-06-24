@@ -21,11 +21,11 @@ export default Ember.Component.extend({
         doChecked(id, check) {
             this.store.findRecord('todo-item', id).then((td) => {
                 if (check) {
-                    td.set('recordstatus', 1);
+                    td.set('recordStatus', 1);
                     td.set('checked', false);
                 } else {  //完成状态
                     td.set('checked', true);
-                    td.set('recordstatus', 2);
+                    td.set('recordStatus', 2);
                 }
                 td.save();
             });

@@ -1,0 +1,9 @@
+{{! app/templates/components/todo-list-page.hbs 中间主题部分todo列表}}
+<div class="todo-list">
+{{input type="hidden" value=model.project id="projecId"}}
+
+{{#each todos as |todoItem|}}
+    {{todo-item-page todoItem=todoItem model=model store=store}}
+{{/each}}
+
+</div>

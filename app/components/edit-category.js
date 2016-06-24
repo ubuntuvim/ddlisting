@@ -8,7 +8,7 @@ export default Ember.Component.extend({
             var projId = Ember.$("#projId1").val();
             var projName = Ember.$("#projNameId1").val();
             if (projId) {
-                this.store.findRecord('project', projId).then(function(proj) {
+                this.store.findRecord('project', projId).then((proj) => {
                   proj.set('projName', projName);
                   proj.save();
                 });
@@ -21,13 +21,10 @@ export default Ember.Component.extend({
             var id = Ember.$("#projId1").val();
             //  首先删除与此项目关联的所有TODO
             this.store.findRecord('project', id).then((proj) => {
-                // var userId = this.getUserIdFromSession();
-                //
-                // console.log('userId = ', userId);
-
-                this.store.peekAll("todo-item").filter(function(td) {
-                    // td.get('user') === userId &&
-                    if (td.get('recordstatus') === 1 || td.get('recordstatus') === 2) {
+                var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
+                this.store.peekAll("todo-item").filter((td) => {
+                    // 
+                    if (td.get('userid') === userId && (td.get('recordstatus') === 1 || td.get('recordstatus') === 2)) {
                         //  设置为删除状态
                         td.set('recordstatus', 3);
                         td.save();
@@ -39,8 +36,8 @@ export default Ember.Component.extend({
                 // proj.get('isDeleted'); // => true
                 // proj.save(); // => DELETE to /posts/1
                 // 修改状态，并不直接删除
-                catg.set('projStatus', 2);
-                catg.save();
+                proj.set('projStatus', 2);
+                proj.save();
             });
 
             //  关闭modal弹出窗口

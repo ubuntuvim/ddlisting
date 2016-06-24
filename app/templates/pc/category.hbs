@@ -17,7 +17,7 @@
               <div class="panel-body padding0">
                   <ul class="list-group">
                       {{#each model.projects as |proj|}}
-                          {{#link-to 'pc.category.todos' proj.id}}
+                          {{#link-to 'pc.projects.todos' proj.id}}
                             {{category-list-item project=proj}}
                           {{/link-to}}
                       {{/each}}

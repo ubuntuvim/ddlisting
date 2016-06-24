@@ -6,12 +6,6 @@
 </div> -->
 {{create-todo-input store=store model=model}}
 
-<div class="todo-list">
-
-    {{#each model.todos as |todoItem|}}
-        {{todo-page todoItem=todoItem model=model store=store}}
-    {{/each}}
-
-</div>
+{{todo-list-page store=store model=model}}
 
 {{outlet}}

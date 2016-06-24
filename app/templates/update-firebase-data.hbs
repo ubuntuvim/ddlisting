@@ -1,0 +1,13 @@
+{{outlet}}
+
+<div style="position: absolute;">
+
+<button {{action 'update'}}>update</button>
+
+{{#each model as |item|}}
+	{{#if item.title}}
+	{{else}}
+	<li>{{item.id}} == {{item.project}} == {{item.userId}} == {{item.user}}</li>
+	{{/if}}
+{{/each}}
+</div>

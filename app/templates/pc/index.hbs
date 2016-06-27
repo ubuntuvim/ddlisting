@@ -30,10 +30,10 @@
 
     <ul class="nav navbar-nav">
         <li>
-            {{#link-to 'pc.category'}}开放列表{{/link-to}}
+            {{#link-to 'pc.projects'}}开放列表{{/link-to}}
         </li>
         <li>
-            {{#link-to 'pc.category'}}清单用户{{/link-to}}
+            {{#link-to 'pc.projects'}}清单用户{{/link-to}}
         </li>
     </ul>
 
@@ -41,7 +41,7 @@
       <ul class="nav navbar-nav navbar-right">
           {{#if model.loginUser}}
             <li>
-              {{#link-to 'pc.category.todos' 'myTodos'}}
+              {{#link-to 'pc.projects.todos' model.defaultProjectId}}
                   我的列表
               {{/link-to}}
             </li>
@@ -127,7 +127,7 @@
                                   <div class="todo-checkbox">
                                       <span class="glyphicon glyphicon-unchecked"></span>
                                   </div>
-                                  {{#link-to 'pc.category.todos.todoitem' todoItem.id}}
+                                  {{#link-to 'pc.projects.todos.todoitem' todoItem.id}}
                                       <p class="bg-info list-group-item">{{todoItem.title}}</p>
                                   {{/link-to}}
 

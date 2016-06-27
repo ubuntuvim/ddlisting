@@ -7,7 +7,7 @@ export default Ember.Route.extend({
         return Ember.RSVP.hash({
             loginUser: sessionStorage.getItem("__LOGIN_USER_ID__"),
             todos: this.store.findAll('todo-item'),
-            users: this.store.findAll('user')
+            defaultProjectId: sessionStorage.getItem('__DEFAULT_PROJECT_ID__')
         });
     }
 });

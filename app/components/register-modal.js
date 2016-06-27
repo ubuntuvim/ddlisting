@@ -59,18 +59,34 @@ export default Ember.Component.extend({
             var email = this.get('email');
             var password = md5(this.get('password')); //加密
             firebase.auth().createUserWithEmailAndPassword(email, password).then((data) => {
-                // console.log('data.currentUser == ' + data.currentUser);
-                // console.log('data.currentUser.uid == ' + data.currentUser.uid);
-                // console.log('data.currentUser.email == ' + data.currentUser.email);
-                // console.log('data.currentUser.photoUrl == ' + data.current.photoUrl);
-                // console.log('data.currentUser.displayName == ' + data.currentUser.displayName);
-                // sessionStorage.setItem("__LOGIN_USER_NICKNAME__", data.currentUser.displayName);
-                sessionStorage.setItem("__LOGIN_USER_EMAIL__", data.currentUser.email);
-                sessionStorage.setItem("__LOGIN_USER_ID__", data.currentUser.uid);
-                // 强制刷新页面
-                location.reload();
+                // console.log('data == ' + data);
+                // console.log('data.uid == ' + data.uid);
+                // console.log('data.email == ' + data.email);
+                // console.log('data.photoUrl == ' + data.current.photoUrl);
+                // console.log('data.displayName == ' + data.displayName);
+                // sessionStorage.setItem("__LOGIN_USER_NICKNAME__", data.displayName);
+                let userId = data.uid;
+                sessionStorage.setItem("__LOGIN_USER_EMAIL__", data.email);
+                sessionStorage.setItem("__LOGIN_USER_ID__", userId);
+                // 注册成功初始化一个分类，并设置分类id到session中
+                this.store.createRecord('project', {
+                    userId: userId,
+                    projName: '收件箱',
+                    timestamp: new Date().getTime(),
+                    projStatus: '1', // 项目状态：1-正常；2-删除；3-过期
+                    isDefaultProj: true, //true-默认分类（默认分类一个用户只有一个）
+                }).save().then((proj) => {
+                    let projId = proj.get('id');
+                    Ember.Logger.debug("默认分类ID：" + projId);
+                    sessionStorage.setItem("__DEFAULT_PROJECT_ID__", projId);
+                    // 强制刷新页面
+                    location.reload();
+                }, () => {
+                    Ember.Logger.debug("初始化默认分类失败！");
+                });
 
             }, (err) => {
+                Ember.Logger.debug("err.code = " + err.code);
                 // debugger;
                 if (err.code === "auth/email-already-in-use") {
                     this.set('errorMsg', "此邮箱已经注册，不需要重复注册！");
@@ -81,7 +97,7 @@ export default Ember.Component.extend({
                 } else if (err.code === "auth/weak-password") {
                     this.set('errorMsg', "注册密码太简单！");
                 } else {
-                    this.set('errorMsg', "服务器异常，正在维护中……！");
+                    this.set('errorMsg', "网络异常，请确认您的电脑是否联网正常……！");
                 }
 
             });

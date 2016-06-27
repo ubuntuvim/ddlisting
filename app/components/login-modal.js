@@ -43,12 +43,29 @@ export default Ember.Component.extend({
             let email = this.get('email');
             // let password = this.get('password');
             var password = md5(this.get('password')); //加密
-            firebase.auth().signInWithEmailAndPassword(email, password).then(function(data) {
-                sessionStorage.setItem("__LOGIN_USER_EMAIL__", data.email);
-                sessionStorage.setItem("__LOGIN_USER_ID__", data.uid);
+            firebase.auth().signInWithEmailAndPassword(email, password).then((data) => {
+                let userId = data.uid;
+                // sessionStorage.setItem("__LOGIN_USER_EMAIL__", data.email);
+                // sessionStorage.setItem("__LOGIN_USER_ID__", userId);
+                // 查询出当前用户的默认分类
+                let defaultProj = this.store.query('project', { userId: userId, projStatus: 1, isDefaultProj: true }).then((proj) => {
+                    return proj.filter((p) => {
+                        return p.get('userId') === userId
+                            && p.get('projStatus') === 1
+                            && !!p.get('isDefaultProj');
+                    });
+                });
+                console.log('defaultProj == ' + defaultProj);
+                let project = defaultProj.then((p) => {
+                    console.log("project " + p);
+                    console.log("defaultProj name " + p.get('projName'));
+                });
+
+                //设置默认分类id到session
+                sessionStorage.setItem("__DEFAULT_PROJECT_ID__", defaultProj.get('id'));
                 // 强制刷新页面
-                location.reload();
-            }, function(err) {
+                // location.reload();
+            }, (err) => {
                 if (err.code === "auth/user-disabled") {
                     this.set('errorMsg', "用户被禁用了，请联系管理员！");
                 } else if (err.code === "auth/invalid-email") {

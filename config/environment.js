@@ -31,9 +31,9 @@ module.exports = function(environment) {
         storageBucket: "ddlisting-49d6e.appspot.com"
     },
     // 权限控制
-    torii: {
-        sessionServiceName: 'session'
-    },
+    // torii: {
+    //     sessionServiceName: 'session'
+    // },
     // contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
     // firebase: firebaseAppUrl,
     baseURL: '/',

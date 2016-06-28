@@ -31,26 +31,26 @@ export default Ember.Component.extend({
 
     },
     // 统计每个分类未完成的todo数量
-    todosForTotla: Ember.computed(function() {
-      return this.store.findAll('todo-item');
-    }),
+   todosForTotla: Ember.computed(function() {
+     return this.store.findAll('todo-item');
+   }),
 
-    // 多重过滤：1，状态为1；2，登录用户id；3，所属分类；4，不显示子todo
-    notCompletedCount: Ember.computed('todosForTotla.@each.userId',
-                                        'todosForTotla.@each.recordStatus',
-                                        'todosForTotla.@each.project',
-                                        'todosForTotla.@each.isChildOrParent', function() {
+   // 多重过滤：1，状态为1；2，登录用户id；3，所属分类；4，不显示子todo
+   notCompletedCount: Ember.computed('todosForTotla.@each.userId',
+                                       'todosForTotla.@each.recordStatus',
+                                       'todosForTotla.@each.project',
+                                       'todosForTotla.@each.isChildOrParent', function() {
 
-        var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
-        var projectId = this.get('projectId');  //调用组件时候传递过来
+       var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
+       var projectId = this.get('projectId');  //调用组件时候传递过来
 
-        return this.get('todosForTotla').filter(function(td) {
-            return td.get('userId') === userId
-                    && td.get('recordStatus') === 1
-                    && td.get('project') === projectId
-                    && td.get('isChildOrParent') === 3;
-        }).get('length');
-    }),
+       return this.get('todosForTotla').filter(function(td) {
+           return td.get('userId') === userId
+                   && td.get('recordStatus') === 1
+                   && td.get('project').get('id') === projectId
+                   && td.get('isChildOrParent') === 3;
+       }).get('length');
+   }),
 
     actions: {
         // 显示分类修改页面

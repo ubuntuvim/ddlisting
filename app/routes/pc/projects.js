@@ -9,20 +9,19 @@ export default Ember.Route.extend({
     //     if (!sessionStorage.getItem("__LOGIN_USER_ID__")) {
     //         this.transitionTo('pc');
     //     }
-    // }, 
+    // },
     // beforeModel: function() {
     //     return this.get('session').fetch().catch(function() {});
     // },
     model() {
         let userId = sessionStorage.getItem("__LOGIN_USER_ID__");
         return Ember.RSVP.hash({
-            // 根据用户id过滤
-            // categorys: this.store.query('category').then(function(td) {
-            //     console.log("td ==> " + td);
-            //     console.log("td.get('userId') ==> " + td);
-            //     // return td.get('userId') === 'f237b280-cf13-4061-b6af-32339262145f';
-            //
-            // }),
+            //TODO 根据用户id过滤
+            projects: this.store.findAll('project'),
+
+            // this.store.query('person', { orderBy: 'name', equalTo: 'Peter' });
+            // projects: this.store.query('project', { orderBy: 'userId', equalTo: userId }),
+
             // projects: this.store.query('project', { userId: userId, projStatus: 1 }).then((proj) => {
             //     return proj.filter((c) => {
             //         return (c.get('userId') === userId)

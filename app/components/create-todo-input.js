@@ -47,22 +47,20 @@ export default Ember.Component.extend({
                     recordStatus: 1,
                     startDate: new Date().getTime(),
                     isPublish: 0,
-                    isChildOrParent: 3,
+                    isChildOrParent: 3
                     // user: this.store.peekRecord('user', userId),
                     // project: this.store.peekRecord('project', defaultProjectId)
                     // 为了兼容旧数据，撤销关联
-                    project: defaultProjectId
-                }).save().then(() => {
-
-                    // user.get('todos').pushObject(todo);
-                    // user.save();
-                    // let category = this.store.peekRecord('category', defaultProjectId);
-                    // category.get('categorys').pushObject(todo);
-                    // category.save();
-                    //清空title
-                    this.set('title', '');
+                    // project: defaultProjectId
                 });
-
+                // 设置model双向关联
+                let proj = this.store.peekRecord('project', defaultProjectId);
+                proj.get('todoItems').pushObject(todo);
+                todo.save().then(function () {
+                    proj.save();
+                });
+                //清空title
+                this.set('title', '');
             }  //if title
         }
     }

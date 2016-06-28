@@ -7,8 +7,6 @@ export default Ember.Component.extend({
     // firebase: Ember.inject.service('firebase'),
 
     didInsertElement() {
-        //  初始化firebase对象
-        firebase.initializeApp(config.firebase);
 
         //表单校验
         Ember.$("#login-modal-form").validate({
@@ -40,10 +38,13 @@ export default Ember.Component.extend({
 
     actions: {
         login() {
+            //  初始化firebase对象
+            var loginFirebase = firebase.initializeApp(config.firebase, "LoginFirebase");
+            
             let email = this.get('email');
             // let password = this.get('password');
             var password = md5(this.get('password')); //加密
-            firebase.auth().signInWithEmailAndPassword(email, password).then((data) => {
+            loginFirebase.auth().signInWithEmailAndPassword(email, password).then((data) => {
                 let userId = data.uid;
                 sessionStorage.setItem("__LOGIN_USER_EMAIL__", data.email);
                 sessionStorage.setItem("__LOGIN_USER_ID__", userId);
@@ -72,7 +73,7 @@ export default Ember.Component.extend({
                 } else if (err.code === "auth/wrong-password") {
                     this.set('errorMsg', "密码错误！");
                 } else {
-                    this.set('errorMsg', "服务器异常，正在维护中……！");
+                    this.set('errorMsg', "网络异常，请确认您的电脑是否联网正常……！");
                 }
 
             });

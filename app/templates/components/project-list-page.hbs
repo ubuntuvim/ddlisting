@@ -14,8 +14,8 @@
               </div>
               <div class="panel-body padding0">
                   <ul class="list-group">
-                      {{#each projects as |proj|}}
-                          {{#link-to 'pc.projects.todos' proj.id (query-params projectType="proj.id")}}
+                      {{#each model.projects as |proj|}}
+                          {{#link-to 'pc.projects.todos' proj.id}}
                             {{project-list-item project=proj store=store projectId=proj.id}}
                           {{/link-to}}
                       {{/each}}

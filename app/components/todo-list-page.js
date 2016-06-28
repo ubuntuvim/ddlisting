@@ -13,9 +13,9 @@ export default Ember.Component.extend({
     }),
     todos: Ember.computed('allTodos.@each.userId', 
         'allTodos.@each.recordStatus', 
-        'allTodos.@each.project', 'projecId', function() {
+        'allTodos.@each.project', function() {
         
-        console.log("projectType --- " + this.get('projectType'));
+        console.log("projectType --- " + this.get('projecId'));
         let userId = sessionStorage.getItem("__LOGIN_USER_ID__");
         let project = this.get('projecId');
         Ember.Logger.debug("选择的项目："+project);

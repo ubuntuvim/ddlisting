@@ -38,6 +38,14 @@ export default Ember.Component.extend({
                 // 获取默认分类id
                 let defaultProjectId = Ember.$("#projecId").val();
                 Ember.Logger.debug("保存todo 分类id: " + defaultProjectId);
+                //  格式化时间 2016-03-09 00:44
+                var date = new Date(new Date());
+                var currentDateStr = date.getFullYear() + '-'
+                                    + (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-'
+                                    + date.getDate() + ' '
+                                    + date.getHours() + ':'
+                                    + date.getMinutes();
+
                 let todo = this.store.createRecord('todo-item', {
                     userId: userId,
                     title: title,
@@ -45,7 +53,7 @@ export default Ember.Component.extend({
                     timestamp: new Date().getTime(),
                     star: star,
                     recordStatus: 1,
-                    startDate: new Date().getTime(),
+                    startDate: currentDateStr,
                     isPublish: 0,
                     isChildOrParent: 3
                     // user: this.store.peekRecord('user', userId),

@@ -16,7 +16,7 @@ export default Ember.Route.extend({
     model() {
         let userId = sessionStorage.getItem("__LOGIN_USER_ID__");
         return Ember.RSVP.hash({
-            //TODO 根据用户id过滤
+            // 不会在模板中获取这个数据，这里只是为了查询一次数据，是的后面再使用project的时候可以从缓存中获取
             projects: this.store.findAll('project'),
 
             // this.store.query('person', { orderBy: 'name', equalTo: 'Peter' });

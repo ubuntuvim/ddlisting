@@ -16,7 +16,7 @@ export default Ember.Component.extend({
             //退出，删除保存到sessionStorage里的信息
             sessionStorage.removeItem("__LOGIN_USER_ID__");
             //  初始化firebase对象
-            var logoutFirebase = firebase.initializeApp(config.firebase, "LogoutFirebase");
+            // var logoutFirebase = firebase.initializeApp(config.firebase, "LogoutFirebase");
             logoutFirebase.auth().signOut();
             // 强制刷新页面
             location.reload();

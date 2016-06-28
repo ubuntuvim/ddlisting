@@ -48,11 +48,12 @@
 //     cursor: pointer;
 // }
 #pcTodoItemId .inner .todo-item-top .form-inline .form-textarea .pc-todo-item-title {
-    min-height: 50px;
-    // max-height: 50px;
-    min-width: 300px;
-    max-width: 300px;
+    min-height: 90px;
+    min-width: 295px;
+    max-width: 295px;
     margin-left: 5px;
+    // margin-left: 32px;
+    margin-top: 0px;
 }
 #pcTodoItemId .inner .todo-item-top .form-inline .form-textarea {
 }
@@ -93,6 +94,7 @@
     flex: 1;
     // border: 1px solid blue;
     padding: 10px;
+    // margin-top: -40px;
 }
 #pcTodoItemId .todo-item-middle textarea {
     // padding: 0;

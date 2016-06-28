@@ -8,7 +8,7 @@ export default Ember.Component.extend({
         // 展开右侧详细设置页面的同时缩小中间部分
         Ember.$('#appMainRightId').css("marginRight", '390px');
         // 引入textarea根据内容自适应插件
-        Ember.$('textarea').flexText();
+        // Ember.$('textarea').flexText();
         //鼠标移动到子任务列表显示右侧的删除按钮
         Ember.$("#todoItemId .inner .todo-item-middle .subtodo-list .list-group").mousemove(function() {
             Ember.$(this).children("p").children('.glyphicon').show();
@@ -94,9 +94,28 @@ export default Ember.Component.extend({
         },
         // 更新title
         updateTitle(id) {
-            console.log("model.title == " + this.get('model.title'));
+            // console.log("id == " + id);
+            let title = Ember.$("#pc_update_todo_title_id").val();
+            // console.log("model.title == " + title);
             this.store.findRecord('todo-item', id).then((td) => {
-                td.set('title', this.get('model.title'))
+                td.set('title', title);
+                td.save();
+            });
+        },
+        // 设置开始时间，通常默认情况创建的日期就是开始时间
+        setStartTimeById(id) {
+            let startTime = Ember.$("#startTimeId").val();
+            this.store.findRecord('todo-item', id).then((td) => {
+                td.set('startDate', startTime);
+                td.save();
+            });
+        }
+        ,
+        // 设置到期时间
+        setEndTimeById(id) {
+            let endTime = Ember.$("#endTimeId").val();
+            this.store.findRecord('todo-item', id).then((td) => {
+                td.set('endDate', endTime);
                 td.save();
             });
         }

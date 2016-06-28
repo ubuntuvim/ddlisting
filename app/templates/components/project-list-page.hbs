@@ -14,7 +14,8 @@
               </div>
               <div class="panel-body padding0">
                   <ul class="list-group">
-                      {{#each model.projects as |proj|}}
+                      {{! projects是组件类中的计算属性，并不是路由的回调}}
+                      {{#each projects as |proj|}}
                           {{#link-to 'pc.projects.todos' proj.id}}
                             {{project-list-item project=proj store=store projectId=proj.id}}
                           {{/link-to}}

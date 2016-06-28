@@ -6,23 +6,24 @@
 
         <div class="todo-item-top">
             <form class="form-inline">
-                <div class="todo-checkbox form-group" {{action 'doChecked' model.id model.checked}}>
+                <div class="todo-checkbox form-group">
                     <!-- <input type="checkbox" class="form-control" checked> -->
                     <!-- <span class="glyphicon glyphicon-unchecked"></span> -->
                     {{#if model.checked}}
-                   <i class="iconfont check-icon-25">&#xe62f;</i>
+                   <i class="iconfont check-icon-25"  {{action 'doChecked' model.id model.checked}}>&#xe62f;</i>
                    {{else}}
-                    <i class="iconfont check-icon-23">&#xe626;</i>
+                    <i class="iconfont check-icon-23" {{action 'doChecked' model.id model.checked}}>&#xe626;</i>
                    {{/if}}
                 </div>
 
                 <div class="form-group form-textarea">
-                    <div contentEditable="true" id="" class="pc-todo-item-title"
-                        title="{{model.title}}" onblur={{action "updateTitle" model.id}}>{{model.title}}</div>
+                    <!-- <div contentEditable="true" id="pc_update_todo_title_id" class="pc-todo-item-title"
+                        title="{{model.title}}" onblur={{action "updateTitle" model.id}}>{{model.title}}</div> -->
                     {{! action通过隐藏域获取数据}}
-                    {{input type="hidden" value=model.title id="todoTitleId"}}
+                    <!-- {{input type="hidden" value=model.title id="todoTitleId"}} -->
+                    <textarea class="form-control pc-todo-item-title" id="pc_update_todo_title_id"
+                        onblur={{action 'updateTitle' model.id}}>{{model.title}}</textarea>
 
-                    <!-- <textarea id="" name="title" class="form-control">{{model.title}}</textarea> -->
                     <div class="todo-item-gy" {{action 'doStar' model.id model.star}}>
                         <i class="iconfont {{if model.star 'opacity1'}}">&#xe6bc;</i>
                     </div>
@@ -40,14 +41,18 @@
                     <div class="panel panel-default">
                       <div class="panel-body">
                           <div class="form-group has-feedback mgbt0">
-                              <input type="text" class="form-control" id="inputSuccess2" aria-describedby="DueTime1"
-                               placeholder="到期时间" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true,highLineWeekDay:true})">
+                              <input type="text" class="form-control" id="startTimeId" aria-describedby="startTimeId1"
+                               placeholder="开始时间" readonly value={{model.startDate}}
+                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true,highLineWeekDay:true})"
+                               onblur={{action 'setStartTimeById' model.id}}>
                               <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
-                              <span id="DueTime1" class="sr-only">(success)</span>
+                              <span id="startTimeId1" class="sr-only">(success)</span>
                           </div>
                           <div class="form-group has-feedback mgbt0">
-                              <input type="text" class="form-control" id="inputSuccess3" aria-describedby="DueTime2"
-                               placeholder="提醒我" readonly onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true})">
+                              <input type="text" class="form-control" id="endTimeId" aria-describedby="DueTime2"
+                               placeholder="结束时间" readonly value={{model.endDate}}
+                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true})"
+                               onblur={{action 'setEndTimeById' model.id}}>
                               <span class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
                               <span id="DueTime2" class="sr-only">(success)</span>
                           </div>
@@ -95,7 +100,7 @@
                 关闭面板<span class="glyphicon glyphicon-menu-right"></span>
             </a>
             <span class="create-date">
-                {{format-date model.startdate}}
+                {{model.startDate}}
             </span>
             <button type="button" class="btn btn-danger btn-xs">
                 <span class="glyphicon glyphicon-trash"></span>

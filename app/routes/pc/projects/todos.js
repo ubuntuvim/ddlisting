@@ -11,8 +11,7 @@ export default Ember.Route.extend({
     },
     //  根据左侧选择的类型过滤数据
     model: function(params) {
-        var project = params.project_id;
-        
+        let projectId = params.project_id;
         return Ember.RSVP.hash({
             // todos: this.store.query('todo-item', { userid: userId }).then(function(todos) {
             //     return todos.filter((td) => {
@@ -22,7 +21,7 @@ export default Ember.Route.extend({
             // todos: Ember.computed('allTodos.@each.', function() {
 
             // }),
-            project: project
+            project: projectId
         });
     }
 });

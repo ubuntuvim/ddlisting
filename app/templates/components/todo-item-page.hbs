@@ -11,7 +11,7 @@
              <i class="iconfont">&#xe626;</i>
             {{/if}}
         </div>
-        {{#link-to 'pc.category.todos.todoitem' todoItem.id class="a-selector"}}
+        {{#link-to 'pc.projects.todos.todoitem' todoItem.id class="a-selector"}}
             <p class="bg-info list-group-item {{if todoItem.checked 'complete-todo-item'}}" id="todoItemTagASelector">{{todoItem.title}}</p>
         {{/link-to}}
 

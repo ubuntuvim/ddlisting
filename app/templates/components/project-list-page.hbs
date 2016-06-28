@@ -1,6 +1,4 @@
-<!-- 顶部菜单 -->
-{{app-main-header model=model store=store}}
-
+{{! app/templates/components/project-list-page.hbs 分类列表}}
 <div class="container-fluid my-container-fluid" style="z-index:1;">
     <div class="my-row">
         <div class="app-main-left-width padding-lr" id="appMainLeftId">
@@ -16,9 +14,9 @@
               </div>
               <div class="panel-body padding0">
                   <ul class="list-group">
-                      {{#each model.projects as |proj|}}
-                          {{#link-to 'pc.projects.todos' proj.id}}
-                            {{category-list-item project=proj}}
+                      {{#each projects as |proj|}}
+                          {{#link-to 'pc.projects.todos' proj.id (query-params projectType="proj.id")}}
+                            {{project-list-item project=proj store=store projectId=proj.id}}
                           {{/link-to}}
                       {{/each}}
                   </ul>
@@ -34,7 +32,3 @@
         </div>
     </div>
 </div>
-
-
-<!-- 新增分类 -->
-<!-- {{categoray-modal}} -->

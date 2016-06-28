@@ -1,7 +1,8 @@
-{{! app/templates/components/category-list-item.hbs  左侧列表项}}
+{{! app/templates/components/project-list-item.hbs  左侧列表项}}
 {{! id选择器clickSelector不能修改或者删除，增加了监听事件}}
 <li class="list-group-item my-list-group-item pc-category-list-item-selector" id="clickSelector">
     <span class="glyphicon glyphicon-list" {{action 'showEditWin' project}}></span>
-    <span class="badge">14</span>
+    <span class="badge">{{notCompletedCount}}</span> 
+    {{! not-completed-count store=store model=model projectId=project.id}}
     {{project.projName}}
 </li>

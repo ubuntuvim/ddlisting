@@ -18,6 +18,16 @@ export default Ember.Route.extend({
 			todos.then((tds) => {
 				tds.forEach((item) => {
 					console.log("------------todos-------------");
+
+					if (item.get('project') === 'myTodos' 
+						|| item.get('project') === 'ZiRenWuCeShi'
+						|| item.get('project') === '-KHs2s4761rphE5wPfr2'
+						|| item.get('project') === 'CeShiShanChu') {
+						console.log(item.get('title') + ",  " + item.get('user'));
+						item.set('project', '-K7I7tTkqTQnxlr33w61');
+						item.save();
+					}
+
 					//更新project字段，把原来的Pro就Code改为project的id，并在todo-item对象中增加一个属性userId
 					// projects.then((projs) => {
 					// 	projs.forEach((proj) => {
@@ -36,8 +46,8 @@ export default Ember.Route.extend({
 					// });
 
 					// 全部todo增加一个userId
-					item.set('userId', item.get('user'));
-					item.save();
+					// item.set('userId', item.get('user'));
+					// item.save();
 
 
 					// 32da5e53-f8cb-4cc7-8da3-cad624f209a0  

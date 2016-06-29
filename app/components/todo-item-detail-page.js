@@ -32,7 +32,7 @@ export default Ember.Component.extend({
                     title: title,
                     checked: false,
                     timestamp: new Date().getTime(),
-                    star: star,
+                    // star: star,
                     recordStatus: 1,
                     startDate: dateUtil(),
                     isPublish: 0,

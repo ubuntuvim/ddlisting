@@ -1,54 +1,50 @@
 import Ember from 'ember';
+import dateUtil from '../utils/date-util';
 
 export default Ember.Component.extend({
-    subTodoList: Ember.computed(function() {
+    defaultProjectId: sessionStorage.getItem('__DEFAULT_PROJECT_ID__'),
 
-    }),
+    didUpdate() {
+        //鼠标移动到子任务列表显示右侧的删除按钮
+        Ember.$("#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group").mousemove(function() {
+            Ember.$(this).children("p").children('.glyphicon').show();
+        });
+        //鼠标移开不显示
+        Ember.$("#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group").mouseout(function() {
+            Ember.$(this).children("p").children('.glyphicon').hide();
+        });
+    },
     didInsertElement() {
         // 展开右侧详细设置页面的同时缩小中间部分
         Ember.$('#appMainRightId').css("marginRight", '390px');
         // 引入textarea根据内容自适应插件
         // Ember.$('textarea').flexText();
-        //鼠标移动到子任务列表显示右侧的删除按钮
-        Ember.$("#todoItemId .inner .todo-item-middle .subtodo-list .list-group").mousemove(function() {
-            Ember.$(this).children("p").children('.glyphicon').show();
-        });
-        //鼠标移开不显示
-        Ember.$("#todoItemId .inner .todo-item-middle .subtodo-list .list-group").mouseout(function() {
-            Ember.$(this).children("p").children('.glyphicon').hide();
-        });
     },
     actions: {
         // 保存子任务
         saveSubTodo() {
+            var parentTodoId = Ember.$("#parentTodoId").val();
             var title = this.get('subTodoTitle');
             if (title) {
-                var star = false;
-                if (Ember.$('#star').val() === '1') {
-                    star = true;
-                }
-                Ember.Logger.debug("保存todo star: " + star);
-                var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
-                Ember.Logger.debug("保存todo userId: " + userId);
-                if (!userId) {
-                    location.reload(); //获取不到userid退出，让用户再次登录
-                }
-                var categoryId = this.get('model').categoryType; //分类id
-                Ember.Logger.debug("保存todo userId: " + userId);
-                Ember.Logger.debug("保存todo 分类id: " + categoryId);
+                let parentTodo = this.store.peekRecord('todo-item', parentTodoId);
                 let todo = this.store.createRecord('todo-item', {
-                    userid: userId,
+                    userId: parentTodo.get('userId'),
                     title: title,
                     checked: false,
                     timestamp: new Date().getTime(),
                     star: star,
-                    recordstatus: 1,
-                    startdate: new Date().getTime(),
-                    ispublish: 0,
-                    ischildorparent: 1,
-                    user: this.store.peekRecord('user', userId),
-                    category: this.store.peekRecord('category', categoryId)
-                }).save().then(() => {
+                    recordStatus: 1,
+                    startDate: dateUtil(),
+                    isPublish: 0,
+                    isChildOrParent: 3,
+                    parentTodo: parentTodo
+                    // user: this.store.peekRecord('user', parentTodo.get('userId')),
+                    // project: this.store.peekRecord('project', parentTodo.get('project').get('id'))
+                });
+                // 设置model双向关联
+                parentTodo.get('childTodos').pushObject(todo);
+                todo.save().then(() => {
+                    parentTodo.save();
                     this.set('subTodoTitle', '');
                 });
             }
@@ -68,11 +64,11 @@ export default Ember.Component.extend({
         doChecked(id, check) {
             this.store.findRecord('todo-item', id).then((td) => {
                 if (check) {
-                    td.set('recordstatus', 1);
+                    td.set('recordStatus', 1);
                     td.set('checked', false);
                 } else {  //完成状态
                     td.set('checked', true);
-                    td.set('recordstatus', 2);
+                    td.set('recordStatus', 2);
                 }
                 td.save();
             });
@@ -81,17 +77,11 @@ export default Ember.Component.extend({
         delSubTodo(id) {
             //设置为删除状态
             this.store.findRecord('todo-item', id).then((td) => {
-                td.set('recordstatus', 3);
+                td.set('recordStatus', 3);
                 td.save();
             });
         },
-        // 完成子任务
-        completeSubTodo(id) {
-            this.store.findRecord('todo-item', id).then((td) => {
-                td.set('recordstatus', 2);
-                td.save();
-            });
-        },
+
         // 更新title
         updateTitle(id) {
             // console.log("id == " + id);
@@ -109,8 +99,7 @@ export default Ember.Component.extend({
                 td.set('startDate', startTime);
                 td.save();
             });
-        }
-        ,
+        },
         // 设置到期时间
         setEndTimeById(id) {
             let endTime = Ember.$("#endTimeId").val();
@@ -118,6 +107,41 @@ export default Ember.Component.extend({
                 td.set('endDate', endTime);
                 td.save();
             });
+        },
+        // 删除父todo，同时会删除关联的子todo
+        // TODO 暂时不删除，只是设置为删除状态
+        delParentTodo(id, projectId) {
+            location.href = "/#/pc/projects/"+projectId;
+            Ember.$('#appMainRightId').css('marginRight', '0');
+            // Ember.$("#pcTodoItemId").hide();
+            this.store.findRecord('todo-item', id).then((td) => {
+                //删除关联的子todo
+                td.get('childTodos').forEach(function(item) {
+                    // item.destroyRecord();
+                    item.set('recordStatus', 3);
+                    item.save();
+                });
+                // td.destroyRecord();
+                td.set('recordStatus', 3);
+                td.save();
+            });
+        },
+        // 更新备注信息
+        updateRemarkById(id) {
+            this.store.findRecord('todo-item', id).then((td) => {
+                td.set('remark', Ember.$("#todoRemarkId").val());
+                td.save();
+            });
+        },
+        // 更新子任务title
+        updateSubTodoTitle(id) {
+            let ids = "#"+id;
+            let title = Ember.$(ids).val();
+            this.store.findRecord('todo-item', id).then((td) => {
+                td.set('title', title);
+                td.save();
+            });
         }
+
     }
 });

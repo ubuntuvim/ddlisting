@@ -63,28 +63,35 @@
 
                 <div class="subtodo-list">
                     <div class="form-group has-feedback">
-                      {{input type="text" class="form-control opacity09"
-                        id="newSubTodoId" placeholder="请输入子任务项" value=subTodoTitle enter="saveSubTodo"}}
+                        {{input type="hidden" value=model.id id="parentTodoId"}}
+                        {{input type="text" class="form-control opacity09"
+                            id="newSubTodoId" placeholder="请输入子任务项" value=subTodoTitle enter="saveSubTodo"}}
                     </div>
 
-                    {{#each subTodoList as |subTodo|}}
-                    <div class="list-group my-list-group">
-                        <p class="bg-info list-group-item">
-                            {{#if subTodo.checked}}
-                           <i class="iconfont" {{action 'completeSubTodo' subTodo.id}}>&#xe62f;</i>
-                           {{else}}
-                            <i class="iconfont" {{action 'completeSubTodo' subTodo.id}}>&#xe626;</i>
-                           {{/if}}
-                            {{subTodo.title}}
-                            <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
-                        </p>
-                    </div>
+                    {{#each model.childTodos as |subTodo|}}
+                    {{#if (filter-del-status-todo subTodo.recordStatus)}}
+                        <div class="list-group my-list-group">
+                            <p class="bg-info list-group-item">
+                                {{#if subTodo.checked}}
+                               <i class="iconfont"  {{action 'doChecked' subTodo.id subTodo.checked}}>&#xe62f;</i>
+                               {{else}}
+                                <i class="iconfont" {{action 'doChecked' subTodo.id subTodo.checked}}>&#xe626;</i>
+                               {{/if}}
+                               <span class="{{if subTodo.checked 'complete-todo-item'}}">
+                                <input type="text" value={{subTodo.title}} name="subTitle" id="{{subTodo.id}}"
+                                    class="sub-todo-title" onblur={{action 'updateSubTodoTitle' subTodo.id}}>
+                               </span>
+                                <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
+                            </p>
+                        </div>
+                    {{/if}}
                     {{/each}}
 
                 </div> <!-- 子任务列表 -->
 
                 <div class="form-group">
-                    <textarea name="" class="form-control todo-remark" placeholder="添加备注……"></textarea>
+                    <textarea name="" class="form-control todo-remark" id="todoRemarkId"
+                        placeholder="添加备注……" value=remark onblur={{action 'updateRemarkById' model.id}}>{{model.remark}}</textarea>
                 </div>
             </div>
         </div>  <!-- //auto-overflow-x-->
@@ -95,16 +102,24 @@
                 <!-- 关闭面板<span class="glyphicon glyphicon-menu-right"></span> -->
                 <!-- </button> -->
             <!-- {{/link-to}} -->
-            <a class="btn btn-default btn-xs" href="/#/pc/category/todos"
+            <a class="btn btn-default btn-xs" href="/#/pc/projects/{{model.project.id}}"
                 onclick="javascript: $('#appMainRightId').css('marginRight', '0');">
                 关闭面板<span class="glyphicon glyphicon-menu-right"></span>
             </a>
             <span class="create-date">
                 {{model.startDate}}
             </span>
-            <button type="button" class="btn btn-danger btn-xs">
+
+            {{#button-with-confirmation type="button" class="btn btn-danger btn-xs"
+             text="删除此分类会把所属的所有TODO也删除，请确认？"
+             onConfirm=(action 'delParentTodo' model.id model.project.id)}}
+                 <span class="glyphicon glyphicon-trash"></span>
+                 删除本任务
+             {{/button-with-confirmation}}
+
+            <!-- <button type="button" class="btn btn-danger btn-xs" {{action 'delParentTodo' model.id model.project.id}}>
                 <span class="glyphicon glyphicon-trash"></span>
-                删除本任务</button>
+                删除本任务</button> -->
         </div>
 
     </div>

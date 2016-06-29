@@ -16,8 +16,10 @@
           </div>
       </div>
       <div class="modal-footer" style="padding: 10px 15px;">
-          {{button-with-confirmation type="button" class="btn btn-sm btn-danger pull-left"
+          {{#button-with-confirmation type="button" class="btn btn-sm btn-danger pull-left"
            text="删除此分类会把所属的所有TODO也删除，请确认？" onConfirm=(action 'delCategory')}}
+           删除
+           {{/button-with-confirmation}}
 
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
         <button type="submit" class="btn btn-sm btn-success" {{action 'editCategory'}}>保存</button>

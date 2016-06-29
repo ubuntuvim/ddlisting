@@ -15,21 +15,25 @@ export default Ember.Component.extend({
                 Ember.$("#editCategoryId").modal('toggle');
             }
         },
-        // TODO 还没加上权限
+        // TODO 暂时不直接删除，只是设置为删除状态
         delCategory() {
             // 获取删除数据的id
             var id = Ember.$("#projId1").val();
             //  首先删除与此项目关联的所有TODO
             this.store.findRecord('project', id).then((proj) => {
-                var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
-                this.store.peekAll("todo-item").filter((td) => {
-                    // 
-                    if (td.get('userid') === userId && (td.get('recordstatus') === 1 || td.get('recordstatus') === 2)) {
-                        //  设置为删除状态
-                        td.set('recordstatus', 3);
-                        td.save();
-                    }
+                // var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
+                proj.get('todoItems').forEach(function(item) {
+                    item.set('recordStatus', 3);
+                    item.save();
                 });
+                // this.store.peekAll("todo-item").filter((td) => {
+                //     //
+                //     if (td.get('userid') === userId && (td.get('recordstatus') === 1 || td.get('recordstatus') === 2)) {
+                //         //  设置为删除状态
+                //         td.set('recordstatus', 3);
+                //         td.save();
+                //     }
+                // });
                 // 删除分类
                 // proj.destroyRecord();
                 // proj.deleteRecord();

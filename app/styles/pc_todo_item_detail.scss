@@ -158,6 +158,17 @@
 #pcTodoItemId .list-group p {
     // font-size: 16px;
 }
+// 子任务列表样式
+#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group .list-group-item input {
+    border: 0;
+    width: 310px;
+    height: 30px;
+}
+#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group .list-group-item input:hover,
+#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group .list-group-item input:visited,
+#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group .list-group-item input:focus {
+    border: 0;
+}
 #pcTodoItemId .todo-item-middle .todo-remark {
     margin-top: 10px;
     padding: 10px;
@@ -202,7 +213,7 @@
 }
 #pcTodoItemId .todo-item-bottom .create-date {
     position: absolute;
-    left: 109px;
+    left: 122px;
     top: 7px;
     color: #aaa;
 }
@@ -213,6 +224,7 @@
 #pcTodoItemId .todo-item-bottom .btn-danger {
     position: absolute;
     right: 20px;
+    // width: 70px;
 }
 
 // ---------------------
@@ -231,7 +243,7 @@
 #pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group p .glyphicon {
     right: 5px;
     position: absolute;
-    top: 15px;
+    top: 12px;
     cursor: pointer;
     display: none;
 }

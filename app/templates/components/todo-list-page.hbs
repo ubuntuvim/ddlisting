@@ -3,7 +3,9 @@
 {{! input type="hidden" value=model.project id="projecId"}}
 
 {{#each model.todos as |todoItem|}}
-    {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+    {{#if (filter-del-status-todo todoItem.recordStatus)}}
+        {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+    {{/if}}
 {{/each}}
 
 </div>

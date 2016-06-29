@@ -11,7 +11,8 @@ addListener(document, "click", function(evt) {
     target = evt.srcElement || evt.target;
     // console.log('target.id == ' + target.id);
     if (target.id === "appMainRightId" ||  //点击中间空白地方
-        target.id === 'clickSelector') {  //点击左侧分类
+        target.id === 'clickSelector' ||
+        target.id === 'todoSearchInputId') {  //点击左侧分类
         $('#appMainRightId').css('marginRight', '0');
         $("#pcTodoItemId").hide();
     } else if (target.id === 'todoItemTagASelector') {  //点击中间todo列表

@@ -35,7 +35,7 @@
         </div>
 
         <div class="todo-item-middle">
-            <div style="overflow: visible;">
+            <div style="overflow: auto;" id="middleOverflowId">
 
                 <div class="due-time">
                     <div class="panel panel-default">
@@ -111,7 +111,7 @@
             </span>
 
             {{#button-with-confirmation type="button" class="btn btn-danger btn-xs"
-             text="删除此分类会把所属的所有TODO也删除，请确认？"
+             text="删除此分类会把所属的子任务也删除，请确认？"
              onConfirm=(action 'delParentTodo' model.id model.project.id)}}
                  <span class="glyphicon glyphicon-trash"></span>
                  删除本任务

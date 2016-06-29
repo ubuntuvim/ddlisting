@@ -3,7 +3,8 @@
 {{! input type="hidden" value=model.project id="projecId"}}
 
 {{#each model.todos as |todoItem|}}
-    {{#if (filter-del-status-todo todoItem.recordStatus)}}
+    {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
+    {{#if (filter-del-status-todo todoItem.recordStatus todoItem.title queryTodoValueCptVal)}}
         {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
     {{/if}}
 {{/each}}

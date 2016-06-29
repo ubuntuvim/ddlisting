@@ -1,6 +1,6 @@
 // app/components/app-main-header.js
 import Ember from 'ember';
-import config from '../config/environment';
+// import config from '../config/environment';
 
 // 顶部导航栏
 export default Ember.Component.extend({
@@ -11,6 +11,7 @@ export default Ember.Component.extend({
 
     didInsertElement() {
     },
+
     actions: {
         logout() {
             //退出，删除保存到sessionStorage里的信息

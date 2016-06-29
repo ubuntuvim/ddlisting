@@ -1,0 +1,39 @@
+// todos.hbs 页面样式
+#appMainRightId .form-grouphas-feedback {
+    position: absolute;
+    top: -65px;
+    z-index: 1100;
+    width: 250px;
+    margin-left: -10px;
+}
+#appMainRightId .form-grouphas-feedback .input-group-addon {
+    border: 0;
+}
+#appMainRightId .form-grouphas-feedback input {
+    background-color: #dedede;
+    color: #333;
+    height: 39px;
+    font-size: 17px;
+    opacity: 0.3;
+    /* padding-top: 2px; */
+    border: 0;
+}
+#appMainRightId .form-grouphas-feedback input:hover {
+    width: 350px;
+}
+/* 设置输入框的placeholder属性颜色 */
+#appMainRightId .form-grouphas-feedback input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #333;
+}
+
+#appMainRightId .form-grouphas-feedback input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #333;
+}
+
+#appMainRightId .form-grouphas-feedback input:-ms-input-placeholder {
+    color: #333;
+}
+
+#appMainRightId .form-grouphas-feedback input::-webkit-input-placeholder {
+    color: #333;
+}

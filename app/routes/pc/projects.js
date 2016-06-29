@@ -13,7 +13,12 @@ export default Ember.Route.extend({
     // beforeModel: function() {
     //     return this.get('session').fetch().catch(function() {});
     // },
+
     model() {
+
+        // console.log("\n\n---------------");
+        // console.log(this.get('queryValue'));
+
         let userId = sessionStorage.getItem("__LOGIN_USER_ID__");
         return Ember.RSVP.hash({
             // 不会在模板中获取这个数据，这里只是为了查询一次数据，是的后面再使用project的时候可以从缓存中获取

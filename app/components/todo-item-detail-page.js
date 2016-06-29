@@ -13,12 +13,14 @@ export default Ember.Component.extend({
         Ember.$("#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group").mouseout(function() {
             Ember.$(this).children("p").children('.glyphicon').hide();
         });
+        Ember.$("#middleOverflowId").attr('overflow', 'auto');
     },
     didInsertElement() {
         // 展开右侧详细设置页面的同时缩小中间部分
         Ember.$('#appMainRightId').css("marginRight", '390px');
         // 引入textarea根据内容自适应插件
         // Ember.$('textarea').flexText();
+        Ember.$("#middleOverflowId").attr('overflow', 'auto');
     },
     actions: {
         // 保存子任务

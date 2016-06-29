@@ -17,18 +17,19 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="app-main-header-collapse">
-      <form class="navbar-form navbar-left" role="search">
+      <!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-grouphas-feedback">
           <div class="input-group">
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-search"></span>
             </span>
-            <input type="text" class="form-control search-input" placeholder="Search……"
-                id="" aria-describedby="inputGroupSuccess4Status">
+            <input type="text" value={{favoriteBand}} onblur={{action "bandDidChange" value="target.value"}} />
+            {{!input type="text" class="form-control search-input" placeholder="Search……"
+                id="todoSearchInputId" aria-describedby="searchAriaDescribedby" value=queryValue}}
+                {{!input type="hidden" value=queryValue2}}
           </div>
         </div>
-        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-      </form>
+      </form> -->
 
       <!-- 分辨率小于768px不显示 -->
       <ul class="nav navbar-nav navbar-right min-width-768">

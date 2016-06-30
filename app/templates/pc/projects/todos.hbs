@@ -1,6 +1,6 @@
 
 {{! 首页右侧主要内容显示区}}
-{{!yield}}
+
 <div class="form-grouphas-feedback">
     <div class="input-group">
       <span class="input-group-addon">
@@ -20,7 +20,15 @@
 {{create-todo-input store=store model=model}}
 
 {{! 显示完成的任务列表}}
-{{todo-list-page store=store model=model queryTodoValueCptVal=queryTodoValueCpt}}
+{{todo-list-page store=store model=model
+    queryTodoValueCptVal=queryTodoValueCpt
+    sortKeyValue=sortKeyValue
+    sortedModelByStarList=sortedModelByStarList
+    sortedModelByTitleList=sortedModelByTitleList
+    sortedModelByTimestampList=sortedModelByTimestampList
+    sortedModelByEndDateList=sortedModelByEndDateList
+    isShowCompletedTodoList=isShowCompletedTodoList
+}}
 
 {{! 显示已经完成的任务列表}}
 {{!completed-todo-list-page store=store model=model queryTodoValueCptVal=queryTodoValueCpt}}
@@ -28,24 +36,26 @@
 {{! 右下角工具栏}}
 <div class="pc-main-page-tools">
     <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default">显示已经完成任务({{completedCount}})</button>
+      <button type="button" class="btn btn-default" id="pcMainTodoToolsId" {{action 'showCompletedTodoList'}}>显示已经完成任务({{completedCount}})</button>
       <!-- <button type="button" class="btn btn-default">排序</button> -->
       <div class="btn-group dropup">
           <button type="button" class="btn btn-default dropdown-toggle"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="pcMainTodoToolsSort">
             排序&nbsp;<span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="#"><span class="glyphicon glyphicon-dashboard"></span>&nbsp;按创建时间排序</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-star"></span>&nbsp;按星号标记排序</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-time"></span>&nbsp;按到期时间排序</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-sort-by-alphabet"></span>&nbsp;按标题</a></li>
+              <li {{action 'resetSortProperty' '__TIMESTAMP__'}} class="active" id="__TIMESTAMP__"><a><span class="glyphicon glyphicon-dashboard"></span>&nbsp;按创建时间排序</a></li>
+              <li {{action 'resetSortProperty' '__STAR__'}} id="__STAR__"><a><span class="glyphicon glyphicon-star"></span>&nbsp;按星号标记排序</a></li>
+              <li {{action 'resetSortProperty' '__END_DATE__'}} id="__END_DATE__"><a><span class="glyphicon glyphicon-time"></span>&nbsp;按到期时间排序</a></li>
+              <li {{action 'resetSortProperty' '__TITLE__'}} id="__TITLE__"><a><span class="glyphicon glyphicon-sort-by-alphabet"></span>&nbsp;按标题</a></li>
+
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
         </div>
     </div>
 </div>
+
 
 {{! todo详细设置页面渲染到此}}
 {{outlet}}

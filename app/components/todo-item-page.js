@@ -2,8 +2,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    didUpdate() {
+        // Ember.$("#appMainRightId .todo-list .list-group:last").css('marginBottom', '100px');
+    },
     didInsertElement() {
-        
+        // Ember.$("#appMainRightId .todo-list .pc-main-completed-todo-list-tip").css('marginBottom', '100px');
     },
     actions: {
         // 设置star状态

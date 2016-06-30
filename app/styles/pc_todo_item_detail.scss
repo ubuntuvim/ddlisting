@@ -1,12 +1,11 @@
 /* ===================== todo详细设置页面 ==================== */
 #pcTodoItemId {
-    position: absolute;
+    position: fixed;
     right: 10px;
-    //top: 62px;
-    // border: 1px solid red;
     width: 380px;
     overflow: hidden;
-    bottom: 10px;
+    /* bottom: 10px; */
+    top: 60px;
 }
 #pcTodoItemId.animated {
     -webkit-transition: 100ms width ease;

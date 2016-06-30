@@ -15,6 +15,12 @@
     opacity: 0.8;
     cursor: pointer;
 }
+#appMainRightId .hidden-todo-item {
+    display: none;
+}
+#appMainRightId .show-todo-item {
+    display: block;
+}
 #appMainRightId .list-group p {
     font-size: 16px;
     padding-left: 45px;
@@ -89,7 +95,7 @@
     padding-right: 10px;
 }
 #appMainRightId .todo-list {
-    margin-bottom: 130px;
+    // margin-bottom: 100px;
 }
 #appMainRightId .todo-list .todo-create-date {
     position: absolute;
@@ -217,4 +223,14 @@
     font-size: 10px;
     padding-left: 10px;
     padding-right: 10px !important;
+}
+
+#appMainRightId .todo-list .pc-main-completed-todo-list {
+    /* z-index: 1100; */
+    /* background: #dedede; */
+    opacity: 0.7;
+    /* border-radius: 4px; */
+    margin-top: 30px;
+    margin-bottom: 100px;
+    color: #666;
 }

@@ -69,7 +69,7 @@
                     </div>
 
                     {{#each model.childTodos as |subTodo|}}
-                    {{#if (filter-del-status-todo subTodo.recordStatus)}}
+                    {{#if (filter-todo-by-status subTodo.recordStatus '' '' '_NOT_DEL__')}}
                         <div class="list-group my-list-group">
                             <p class="bg-info list-group-item">
                                 {{#if subTodo.checked}}
@@ -77,9 +77,9 @@
                                {{else}}
                                 <i class="iconfont" {{action 'doChecked' subTodo.id subTodo.checked}}>&#xe626;</i>
                                {{/if}}
-                               <span class="{{if subTodo.checked 'complete-todo-item'}}">
+                               <span class="">
                                 <input type="text" value={{subTodo.title}} name="subTitle" id="{{subTodo.id}}"
-                                    class="sub-todo-title" onblur={{action 'updateSubTodoTitle' subTodo.id}}>
+                                    class="sub-todo-title {{if subTodo.checked 'complete-todo-item'}}" onblur={{action 'updateSubTodoTitle' subTodo.id}}>
                                </span>
                                 <span class="glyphicon glyphicon-remove" {{action 'delSubTodo' subTodo.id}}></span>
                             </p>

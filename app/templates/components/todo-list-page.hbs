@@ -1,12 +1,63 @@
 {{! app/templates/components/todo-list-page.hbs 中间主题部分todo列表}}
 <div class="todo-list">
-{{! input type="hidden" value=model.project id="projecId"}}
-
-{{#each model.todos as |todoItem|}}
-    {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
-    {{#if (filter-del-status-todo todoItem.recordStatus todoItem.title queryTodoValueCptVal)}}
-        {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+    {{! input type="hidden" value=model.project id="projecId"}}
+     {{! sortedModel model.todos }}
+     {{!
+     // 排序 由于无法再sort方法里使用计算属性只能是判断选择哪个排序就显示哪个排序的列表了！！
+     暂时没想到好的解决办法，可能需要重新实现each标签
+    }}
+    {{#if (sort-model-list sortKeyValue '__TITLE__')}}
+    {{#each sortedModelByTitleList as |todoItem|}}
+        {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
+        {{#if (filter-todo-by-status todoItem.recordStatus todoItem.title queryTodoValueCptVal '__NOT_COMPLETED_NOT_DEL__')}}
+            {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+        {{/if}}
+    {{/each}}
     {{/if}}
-{{/each}}
+    {{#if (sort-model-list sortKeyValue '__STAR__')}}
+    {{#each sortedModelByStarList as |todoItem|}}
+        {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
+        {{#if (filter-todo-by-status todoItem.recordStatus todoItem.title queryTodoValueCptVal '__NOT_COMPLETED_NOT_DEL__')}}
+            {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+        {{/if}}
+    {{/each}}
+    {{/if}}
+    {{#if (sort-model-list sortKeyValue '__END_DATE__')}}
+    {{#each sortedModelByEndDateList as |todoItem|}}
+        {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
+        {{#if (filter-todo-by-status todoItem.recordStatus todoItem.title queryTodoValueCptVal '__NOT_COMPLETED_NOT_DEL__')}}
+            {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+        {{/if}}
+    {{/each}}
+    {{/if}}
+    {{#if (sort-model-list sortKeyValue '__TIMESTAMP__')}}
+    {{#each sortedModelByTimestampList as |todoItem|}}
+        {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
+        {{#if (filter-todo-by-status todoItem.recordStatus todoItem.title queryTodoValueCptVal '__NOT_COMPLETED_NOT_DEL__')}}
+            {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+        {{/if}}
+    {{/each}}
+    {{/if}}
+    {{#if (sort-model-list sortKeyValue '')}}
+    {{#each model.todos as |todoItem|}}
+        {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
+        {{#if (filter-todo-by-status todoItem.recordStatus todoItem.title queryTodoValueCptVal '__NOT_COMPLETED_NOT_DEL__')}}
+            {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+        {{/if}}
+    {{/each}}
+    {{/if}}
 
-</div>
+    <div class="pc-main-completed-todo-list">
+        {{! 已经完成todo列表}}
+    {{#if isShowCompletedTodoList}}
+        {{#each model.todos as |todoItem|}}
+            {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
+            {{#if (filter-todo-by-status todoItem.recordStatus todoItem.title queryTodoValueCptVal '__COMPLETED_NOT_DEL__')}}
+                {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+
+    </div>
+
+</div> <!-- todo-list -->

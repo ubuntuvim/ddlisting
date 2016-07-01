@@ -9,7 +9,7 @@ function addListener(element, e, fn) {
 addListener(document, "click", function(evt) {
     var evt = window.event ? window.event: evt,
     target = evt.srcElement || evt.target;
-    console.log('target.id == ' + target.id);
+    // console.log('target.id == ' + target.id);
     if (target.id === "appMainRightId" ||  //点击中间空白地方
         target.id === 'clickSelector' || //点击左侧分类
         target.id === 'todoSearchInputId' //点击搜索框

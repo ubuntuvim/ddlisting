@@ -9,7 +9,7 @@
       <!-- <input type="text" value={{favoriteBand}} onblur={{action "bandDidChange" value="target.value"}} /> -->
       {{input type="text" class="form-control search-input" placeholder="任务搜索……"
           id="todoSearchInputId" aria-describedby="searchAriaDescribedby" value=queryTodoValue}}
-          {{!input type="hidden" value=queryTodoValueCpt}}
+          {{!input type="hidden" value=sortDefinition}}
     </div>
 </div>
 
@@ -20,13 +20,11 @@
 {{create-todo-input store=store model=model}}
 
 {{! 显示完成的任务列表}}
-{{todo-list-page store=store model=model
+{{todo-list-page store=store
+    model=model
     queryTodoValueCptVal=queryTodoValueCpt
     sortKeyValue=sortKeyValue
-    sortedModelByStarList=sortedModelByStarList
-    sortedModelByTitleList=sortedModelByTitleList
-    sortedModelByTimestampList=sortedModelByTimestampList
-    sortedModelByEndDateList=sortedModelByEndDateList
+    sortedModel=sortedModel
     isShowCompletedTodoList=isShowCompletedTodoList
 }}
 
@@ -45,10 +43,10 @@
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-right">
-              <li {{action 'resetSortProperty' '__TIMESTAMP__'}} class="active" id="__TIMESTAMP__"><a><span class="glyphicon glyphicon-dashboard"></span>&nbsp;按创建时间排序</a></li>
-              <li {{action 'resetSortProperty' '__STAR__'}} id="__STAR__"><a><span class="glyphicon glyphicon-star"></span>&nbsp;按星号标记排序</a></li>
-              <li {{action 'resetSortProperty' '__END_DATE__'}} id="__END_DATE__"><a><span class="glyphicon glyphicon-time"></span>&nbsp;按到期时间排序</a></li>
-              <li {{action 'resetSortProperty' '__TITLE__'}} id="__TITLE__"><a><span class="glyphicon glyphicon-sort-by-alphabet"></span>&nbsp;按标题</a></li>
+              <li {{action 'resetSortProperty' 'timestamp'}} class="active" id="timestamp"><a><span class="glyphicon glyphicon-dashboard"></span>&nbsp;按创建时间排序</a></li>
+              <li {{action 'resetSortProperty' 'star'}} id="star"><a><span class="glyphicon glyphicon-star"></span>&nbsp;按星号标记排序</a></li>
+              <li {{action 'resetSortProperty' 'endDate'}} id="endDate"><a><span class="glyphicon glyphicon-time"></span>&nbsp;按到期时间排序</a></li>
+              <li {{action 'resetSortProperty' 'title'}} id="title"><a><span class="glyphicon glyphicon-sort-by-alphabet"></span>&nbsp;按标题</a></li>
 
               <!-- <li role="separator" class="divider"></li> -->
             </ul>

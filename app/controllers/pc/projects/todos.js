@@ -16,15 +16,18 @@ export default Ember.Controller.extend({
         console.log("this.get('sortKey') = " + this.get('sortKey'));
         return this.get('sortKey');
     }),
-    // 排序 由于无法再sort方法里使用计算属性只能是判断选择哪个排序就显示哪个排序的列表了！！
-    sortByTitle: ['title:desc'],
-    sortedModelByTitleList: Ember.computed.sort('model.todos', 'sortByTitle'),
-    sortByTitmestamp: ['timestamp:asc'],
-    sortedModelByTimestampList: Ember.computed.sort('model.todos', 'sortByTitmestamp'),
-    sortByEndDate: ['endDate:desc'],
-    sortedModelByEndDateList: Ember.computed.sort('model.todos', 'sortByEndDate'),
-    sortByStar: ['star:desc'],
-    sortedModelByStarList: Ember.computed.sort('model.todos', 'sortByStar'),
+    // 排序  完美解决了动态排序问题
+    sortedModel: Ember.computed.sort('model.todos', 'sortDefinition'),
+    reverseSort: true, // 默认降序
+    sortDefinition: Ember.computed('sortKeyValue', 'reverseSort', function() {
+        let sortOrder = this.get('reverseSort') ? 'desc' : 'asc';
+        let sortField = this.get('sortKeyValue');
+        if (!sortField) {  //默认以id属性排序:升序
+            sortField = "id";
+            sortOrder = "asc";
+        }
+        return [ `${sortField}:${sortOrder}` ];
+    }),
 
     // 多重过滤：1，状态为1；4，不显示子todo
     // model.todos已经是根据用户id和project过滤了

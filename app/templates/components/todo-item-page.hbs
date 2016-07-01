@@ -9,7 +9,7 @@
             {{/if}}
         </div>
         {{#link-to 'pc.projects.todos.todoitem' todoItem.id class="a-selector"}}
-            <p class="bg-info list-group-item {{if todoItem.checked 'complete-todo-item'}}" id="todoItemTagASelector">{{todoItem.title}}</p>
+            <p class="bg-info list-group-item {{if todoItem.checked 'complete-todo-item'}}" id="{{todoItem.id}}">{{todoItem.title}}</p>
         {{/link-to}}
 
         <div class="todo-create-date">

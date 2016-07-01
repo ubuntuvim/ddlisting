@@ -1,5 +1,8 @@
 {{! app/templates/components/todo-item-detail-page.hbs 详细设置页面}}
 
+{{! 用于设置刷新后左侧分类的默认选中状态}}
+{{input type="hidden" value=model.id id="selectedTodoId"}}
+
 <div id="pcTodoItemId">
 
     <div class="inner">

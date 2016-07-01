@@ -10,6 +10,15 @@ export default Ember.Component.extend({
     },
     didInsertElement() {
         // Ember.$("#appMainRightId .todo-list .pc-main-completed-todo-list-tip").css('marginBottom', '100px');
+        // 设置选中的todo状态，在todo-item-detail-page.js里设置刷新后选中的todo状态
+        Ember.$("#appMainRightId .todo-list .list-group .list-group-item").click(function() {
+            // 先重置所有todo的状态为未选中
+            Ember.$("#appMainRightId .todo-list .list-group .a-selector .list-group-item").each(function() {
+                Ember.$(this).removeClass('todo-item-selected-status');
+            });
+            // 设置被点击的todo状态
+            Ember.$(this).addClass('todo-item-selected-status');
+        });
     },
     actions: {
         // 设置star状态

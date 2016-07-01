@@ -241,3 +241,7 @@
 #appMainRightId .todo-list .hidden-completed-todo-list {
     display: none;;
 }
+// ===================== 设置todo的选中状态 -----
+.todo-item-selected-status {
+    background-color: #dedede;
+}

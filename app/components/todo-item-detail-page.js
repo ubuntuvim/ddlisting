@@ -14,6 +14,9 @@ export default Ember.Component.extend({
             Ember.$(this).children("p").children('.glyphicon').hide();
         });
         Ember.$("#middleOverflowId").attr('overflow', 'auto');
+        // 设置刷新后选中的todo，设置其背景色,，在todo-item-page.js里设置点击时的选中状态
+        let ids = "#"+Ember.$("#selectedTodoId").val();  //选中的todo id值
+        Ember.$(ids).addClass('todo-item-selected-status');
     },
     didInsertElement() {
         // 展开右侧详细设置页面的同时缩小中间部分

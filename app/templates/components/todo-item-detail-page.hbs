@@ -7,8 +7,6 @@
         <div class="todo-item-top">
             <form class="form-inline">
                 <div class="todo-checkbox form-group">
-                    <!-- <input type="checkbox" class="form-control" checked> -->
-                    <!-- <span class="glyphicon glyphicon-unchecked"></span> -->
                     {{#if model.checked}}
                    <i class="iconfont check-icon-25"  {{action 'doChecked' model.id model.checked}}>&#xe62f;</i>
                    {{else}}
@@ -19,8 +17,6 @@
                 <div class="form-group form-textarea">
                     <!-- <div contentEditable="true" id="pc_update_todo_title_id" class="pc-todo-item-title"
                         title="{{model.title}}" onblur={{action "updateTitle" model.id}}>{{model.title}}</div> -->
-                    {{! action通过隐藏域获取数据}}
-                    <!-- {{input type="hidden" value=model.title id="todoTitleId"}} -->
                     <textarea class="form-control pc-todo-item-title" id="pc_update_todo_title_id"
                         onblur={{action 'updateTitle' model.id}}>{{model.title}}</textarea>
 
@@ -87,7 +83,7 @@
                     {{/if}}
                     {{/each}}
 
-                </div> <!-- 子任务列表 -->
+                </div>  {{! 子任务列表}}
 
                 <div class="form-group">
                     <textarea name="" class="form-control todo-remark" id="todoRemarkId"
@@ -97,11 +93,6 @@
         </div>  <!-- //auto-overflow-x-->
 
         <div class="todo-item-bottom">
-            <!-- {{#link-to 'pc.category.todos' class="btn btn-default btn-xs"}} -->
-            <!-- <button type="button" name="button" {{action 'closeDetailWin'}} class="btn btn-default btn-xs"> -->
-                <!-- 关闭面板<span class="glyphicon glyphicon-menu-right"></span> -->
-                <!-- </button> -->
-            <!-- {{/link-to}} -->
             <a class="btn btn-default btn-xs" href="/#/pc/projects/{{model.project.id}}"
                 onclick="javascript: $('#appMainRightId').css('marginRight', '0');">
                 关闭面板<span class="glyphicon glyphicon-menu-right"></span>
@@ -116,10 +107,6 @@
                  <span class="glyphicon glyphicon-trash"></span>
                  删除本任务
              {{/button-with-confirmation}}
-
-            <!-- <button type="button" class="btn btn-danger btn-xs" {{action 'delParentTodo' model.id model.project.id}}>
-                <span class="glyphicon glyphicon-trash"></span>
-                删除本任务</button> -->
         </div>
 
     </div>

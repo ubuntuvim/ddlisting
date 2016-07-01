@@ -12,9 +12,9 @@
 
 
     <div class="pc-main-completed-todo-list">
-        {{! 已经完成todo列表}}
+    {{! 已经完成todo列表}}
     {{#if isShowCompletedTodoList}}
-        {{#each model.todos as |todoItem|}}
+        {{#each sortedModel as |todoItem|}}
             {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
             {{#if (filter-todo-by-status todoItem.recordStatus todoItem.title queryTodoValueCptVal '__COMPLETED_NOT_DEL__')}}
                 {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}

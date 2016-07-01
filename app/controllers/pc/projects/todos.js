@@ -19,6 +19,7 @@ export default Ember.Controller.extend({
     // 排序  完美解决了动态排序问题
     sortedModel: Ember.computed.sort('model.todos', 'sortDefinition'),
     reverseSort: true, // 默认降序
+    // 排序属性和排序方式（升序、降序）
     sortDefinition: Ember.computed('sortKeyValue', 'reverseSort', function() {
         let sortOrder = this.get('reverseSort') ? 'desc' : 'asc';
         let sortField = this.get('sortKeyValue');

@@ -12,6 +12,12 @@ export default Ember.Component.extend({
         // Ember.$("#appMainRightId .todo-list .pc-main-completed-todo-list-tip").css('marginBottom', '100px');
         // 设置选中的todo状态，在todo-item-detail-page.js里设置刷新后选中的todo状态
         Ember.$("#appMainRightId .todo-list .list-group .list-group-item").click(function() {
+
+            // 显示todo详细设置页面
+            Ember.$("#pcTodoItemId").show();
+            // 显示todo详细设置页面的时候收缩列表
+            Ember.$('#appMainRightId').css('marginRight', '390px');
+            
             // 先重置所有todo的状态为未选中
             Ember.$("#appMainRightId .todo-list .list-group .a-selector .list-group-item").each(function() {
                 Ember.$(this).removeClass('todo-item-selected-status');

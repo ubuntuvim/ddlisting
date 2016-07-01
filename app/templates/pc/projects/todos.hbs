@@ -30,7 +30,8 @@
 {{! 右下角工具栏}}
 <div class="pc-main-page-tools">
     <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default" id="pcMainTodoToolsId" {{action 'showCompletedTodoList'}}>显示已经完成任务({{completedCount}})</button>
+      <button type="button" class="btn btn-default" id="pcMainTodoToolsId" {{action 'showCompletedTodoList'}}
+      onclick="javascript: if ($(this).hasClass('todo-item-selected-status')) { $(this).removeClass('todo-item-selected-status'); } else { $(this).addClass('todo-item-selected-status'); }">显示已经完成任务({{completedCount}})</button>
       <!-- <button type="button" class="btn btn-default">排序</button> -->
       <div class="btn-group dropup">
           <button type="button" class="btn btn-default dropdown-toggle"

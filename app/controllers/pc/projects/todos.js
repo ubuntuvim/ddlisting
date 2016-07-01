@@ -35,12 +35,8 @@ export default Ember.Controller.extend({
     completedCount: Ember.computed('model.todos.@each.recordStatus',
                                         'model.todos.@each.isChildOrParent', function() {
 
-        var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
-        var projectId = this.get('projectId');  //调用组件时候传递过来
-
         return this.get('model.todos').filter(function(td) {
-            return td.get('recordStatus') === 2
-                    && td.get('isChildOrParent') === 3;
+            return td.get('recordStatus') === 2 && td.get('isChildOrParent') === 3;
         }).get('length');
         // return 10;
     }),
@@ -49,7 +45,7 @@ export default Ember.Controller.extend({
         resetSortProperty(sortKey) {
             this.set('sortKey', sortKey);
             //首先重置所有
-            Ember.$('#appMainRightId .pc-main-page-tools .btn-group .btn-group .dropdown-menu > li').each(function(item) {
+            Ember.$('#appMainRightId .pc-main-page-tools .btn-group .btn-group .dropdown-menu > li').each(function() {
                 Ember.$(this).removeClass('active');
             });
             // 设置排序按钮的选中状态

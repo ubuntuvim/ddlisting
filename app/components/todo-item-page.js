@@ -1,9 +1,12 @@
-// app/components/todo-page.js
+// app/components/todo-item-page.js
 import Ember from 'ember';
 
 export default Ember.Component.extend({
     didUpdate() {
-        // Ember.$("#appMainRightId .todo-list .list-group:last").css('marginBottom', '100px');
+        // 设置左侧分类默认选中，根据URL的分类id判断是哪个分类
+        // 但是还需要在project-list-item.js设置点击的时候选中状态
+        let ids = "#"+Ember.$("#selectedProjectType").val();
+        Ember.$(ids).addClass('pc-category-list-item-active');
     },
     didInsertElement() {
         // Ember.$("#appMainRightId .todo-list .pc-main-completed-todo-list-tip").css('marginBottom', '100px');

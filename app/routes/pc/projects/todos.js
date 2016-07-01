@@ -15,6 +15,7 @@ export default Ember.Route.extend({
     // 排序放在 app/controllers/projects/todos.js
     model: function(params) {
         let projectId = params.project_id;
+        
         Ember.Logger.debug("进入路由todos，project类型为：" + projectId);
         // let tds = this.store.peekRecord('project', projectId).get('todoItems');
         // this.store.findAll('project');

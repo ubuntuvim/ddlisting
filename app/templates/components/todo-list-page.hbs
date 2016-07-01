@@ -1,4 +1,7 @@
 {{! app/templates/components/todo-list-page.hbs 中间主题部分todo列表}}
+
+{{input type="hidden" value=model.project id="selectedProjectType"}}
+
 <div class="todo-list">
     {{! input type="hidden" value=model.project id="projecId"}}
     {{! 显示排序后的列表，默认是id升序}}
@@ -12,16 +15,15 @@
 
 
     {{! 已经完成todo列表}}
-
-        <div class="pc-main-completed-todo-list {{if isShowCompletedTodoList 'show-completed-todo-list' 'hidden-completed-todo-list'}}"
-            id="pc-main-completed-todo-list-id">
-        {{#each sortedModel as |todoItem|}}
-            {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
-            {{#if (filter-todo-by-status todoItem.recordStatus todoItem.title queryTodoValueCptVal '__COMPLETED_NOT_DEL__')}}
-                {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
-            {{/if}}
-        {{/each}}
-        </div>
+    <div class="pc-main-completed-todo-list {{if isShowCompletedTodoList 'show-completed-todo-list' 'hidden-completed-todo-list'}}"
+        id="pc-main-completed-todo-list-id">
+    {{#each sortedModel as |todoItem|}}
+        {{! queryTodoValueCptVal通过组件调用传递过来，用于查询}}
+        {{#if (filter-todo-by-status todoItem.recordStatus todoItem.title queryTodoValueCptVal '__COMPLETED_NOT_DEL__')}}
+            {{todo-item-page todoItem=todoItem model=model store=store projecId=model.project}}
+        {{/if}}
+    {{/each}}
+    </div>
 
 
 

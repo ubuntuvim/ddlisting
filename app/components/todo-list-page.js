@@ -4,6 +4,20 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+	didUpdate() {
+        // Ember.$("#appMainRightId .todo-list .list-group:last").css('marginBottom', '100px');
+        let ids = "#"+Ember.$("#selectedProjectType").val();
+        console.log('ids ======== ' + ids);
+        // Ember.$('#appMainLeftId .panel-body .list-group .pc-category-list-item-selector').each(function() {
+        //     Ember.$(this).removeClass('pc-category-list-item-active');
+        // });
+        Ember.$(ids).addClass('pc-category-list-item-active');
+
+    },
+    didInsertElement() {
+        // Ember.$("#appMainRightId .todo-list .pc-main-completed-todo-list-tip").css('marginBottom', '100px');
+    },
+	
     // projecId: Ember.computed(function() {
     //     return this.get('projecId');
     // }),
@@ -24,5 +38,5 @@ export default Ember.Component.extend({
     //         	&& (td.get('recordStatus') === 1 || td.get('recordStatus') === 2);
     //     });
     // })
-	
+
 });

@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
     // 排序属性
     sortKey:'',
     sortKeyValue: Ember.computed('sortKey', function() {
-        console.log("this.get('sortKey') = " + this.get('sortKey'));
+        // console.log("this.get('sortKey') = " + this.get('sortKey'));
         return this.get('sortKey');
     }),
     // 排序  完美解决了动态排序问题

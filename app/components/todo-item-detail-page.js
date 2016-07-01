@@ -75,6 +75,17 @@ export default Ember.Component.extend({
                 td.save();
             });
         },
+        // 设置todo是否公开
+        doPublic(id, isPublish) {
+            this.store.findRecord('todo-item', id).then((td) => {
+                if (isPublish) {
+                    td.set('isPublish', 0);
+                } else {  //公开
+                    td.set('isPublish', 1);
+                }
+                td.save();
+            });
+        },
         // 删除子任务
         delSubTodo(id) {
             //设置为删除状态

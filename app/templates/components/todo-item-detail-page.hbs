@@ -32,7 +32,18 @@
 
         <div class="todo-item-middle">
             <div style="overflow: auto;" id="middleOverflowId">
-
+                <div class="pc-todo-item-detail-ispublic">
+                   {{#if model.isPublish}}
+                    <i class="iconfont" {{action 'doPublic' model.id model.isPublish}}>&#xe62f;</i>
+                   {{else}}
+                    <i class="iconfont" {{action 'doPublic' model.id model.isPublish}}>&#xe622;</i>
+                   {{/if}}
+                   &nbsp;&nbsp;是否公开到清单广场
+                   <a data-toggle="tooltip" data-placement="top" title="公开后本todo会在清单广场展示，任何人都可以查看、评论、点赞。"
+                    onmouseover="javascript:$(this).tooltip('toggle');" class="pull-right">
+                       <i class="iconfont question">&#xe61e;</i>
+                   </a>
+                </div>
                 <div class="due-time">
                     <div class="panel panel-default">
                       <div class="panel-body">

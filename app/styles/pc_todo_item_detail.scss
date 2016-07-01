@@ -101,6 +101,27 @@
 // #pcTodoItemId .form-textarea {
 //     margin-left: 20px;
 // }
+// 是否公开
+#pcTodoItemId .todo-item-middle .pc-todo-item-detail-ispublic {
+    padding: 10px;
+    border: 1px solid #dedede;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+#pcTodoItemId .todo-item-middle .pc-todo-item-detail-ispublic a {
+    color: #333;
+    text-decoration: none;
+}
+#pcTodoItemId .todo-item-middle .pc-todo-item-detail-ispublic .iconfont {
+    cursor: pointer;
+}
+#pcTodoItemId .todo-item-middle .pc-todo-item-detail-ispublic .iconfont15 {
+    font-size: 15px;
+}
+#pcTodoItemId .todo-item-middle .pc-todo-item-detail-ispublic .question {
+    font-size: 20px;
+    margin-left: 159px;
+}
 #pcTodoItemId .todo-item-gy {
     cursor: pointer;
     position: absolute;

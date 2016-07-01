@@ -235,3 +235,9 @@
     margin-bottom: 100px;
     color: #666;
 }
+#appMainRightId .todo-list .show-completed-todo-list {
+    display: block;
+}
+#appMainRightId .todo-list .hidden-completed-todo-list {
+    display: none;;
+}

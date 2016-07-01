@@ -59,6 +59,12 @@ export default Ember.Controller.extend({
         // 设置是否显示已经完成的todo列表
         showCompletedTodoList() {
             this.toggleProperty('isShowCompletedTodoList');
+            // 显示完成todo列表时候增加一个展开、收缩的效果
+            if (this.get('isShowCompletedTodoList')) {
+                Ember.$("#pc-main-completed-todo-list-id").slideDown();
+            } else {
+                Ember.$("#pc-main-completed-todo-list-id").slideUp();
+            }
         }
     }
 });

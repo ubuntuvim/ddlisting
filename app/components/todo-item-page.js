@@ -1,5 +1,7 @@
 // app/components/todo-item-page.js
 import Ember from 'ember';
+import completedTodo from '../utils/completed-todo';
+import setStarStatus from '../utils/set-star-status';
 
 export default Ember.Component.extend({
     didUpdate() {
@@ -17,7 +19,7 @@ export default Ember.Component.extend({
             Ember.$("#pcTodoItemId").show();
             // 显示todo详细设置页面的时候收缩列表
             Ember.$('#appMainRightId').css('marginRight', '390px');
-            
+
             // 先重置所有todo的状态为未选中
             Ember.$("#appMainRightId .todo-list .list-group .a-selector .list-group-item").each(function() {
                 Ember.$(this).removeClass('todo-item-selected-status');
@@ -29,27 +31,11 @@ export default Ember.Component.extend({
     actions: {
         // 设置star状态
         doStar(id, star) {
-            this.store.findRecord('todo-item', id).then((td) => {
-                if (star) {
-                    td.set('star', false);
-                } else {
-                    td.set('star', true);
-                }
-                td.save();
-            });
+            setStarStatus(id, star, this.store);
         },
         // 设置完成状态
         doChecked(id, check) {
-            this.store.findRecord('todo-item', id).then((td) => {
-                if (check) {
-                    td.set('recordStatus', 1);
-                    td.set('checked', false);
-                } else {  //完成状态
-                    td.set('checked', true);
-                    td.set('recordStatus', 2);
-                }
-                td.save();
-            });
+            completedTodo(id, check, this.store);
         }
     }
 });

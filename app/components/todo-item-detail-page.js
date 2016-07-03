@@ -1,5 +1,7 @@
 import Ember from 'ember';
 import dateUtil from '../utils/date-util';
+import completedTodo from '../utils/completed-todo';
+import setStarStatus from '../utils/set-star-status';
 
 export default Ember.Component.extend({
     defaultProjectId: sessionStorage.getItem('__DEFAULT_PROJECT_ID__'),
@@ -26,16 +28,21 @@ export default Ember.Component.extend({
         Ember.$("#middleOverflowId").attr('overflow', 'auto');
     },
     actions: {
-        // 保存子任务
+        // 保存子任务，如果父todo是完成状态那么添加的子任务也是完成状态
         saveSubTodo() {
-            var parentTodoId = Ember.$("#parentTodoId").val();
-            var title = this.get('subTodoTitle');
+            let parentTodoId = Ember.$("#parentTodoId").val();
+            let title = this.get('subTodoTitle');
+            let parentTodoCheckedId = Ember.$("#parentTodoCheckedId").val();
+            let checked = false;
+            if ('true' === parentTodoCheckedId) {
+                checked = true;
+            }
             if (title) {
                 let parentTodo = this.store.peekRecord('todo-item', parentTodoId);
                 let todo = this.store.createRecord('todo-item', {
                     userId: parentTodo.get('userId'),
                     title: title,
-                    checked: false,
+                    checked: checked,
                     timestamp: new Date().getTime(),
                     // star: star,
                     recordStatus: 1,
@@ -56,27 +63,11 @@ export default Ember.Component.extend({
         },
         // 设置star状态
         doStar(id, star) {
-            this.store.findRecord('todo-item', id).then((td) => {
-                if (star) {
-                    td.set('star', false);
-                } else {
-                    td.set('star', true);
-                }
-                td.save();
-            });
+            setStarStatus(id, star, this.store);
         },
         // 设置完成状态
         doChecked(id, check) {
-            this.store.findRecord('todo-item', id).then((td) => {
-                if (check) {
-                    td.set('recordStatus', 1);
-                    td.set('checked', false);
-                } else {  //完成状态
-                    td.set('checked', true);
-                    td.set('recordStatus', 2);
-                }
-                td.save();
-            });
+            completedTodo(id, check, this.store);
         },
         // 设置todo是否公开
         doPublic(id, isPublish) {
@@ -133,9 +124,10 @@ export default Ember.Component.extend({
             this.store.findRecord('todo-item', id).then((td) => {
                 //删除关联的子todo
                 td.get('childTodos').forEach(function(item) {
-                    // item.destroyRecord();
-                    item.set('recordStatus', 3);
-                    item.save();
+                    store.findRecord('todo-item', item.id).then(function(td) {
+                        td.set('recordStatus', 3);
+                        td.save();
+                    });
                 });
                 // td.destroyRecord();
                 td.set('recordStatus', 3);

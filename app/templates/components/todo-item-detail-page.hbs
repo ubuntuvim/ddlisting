@@ -74,6 +74,7 @@
                 <div class="subtodo-list">
                     <div class="form-group has-feedback">
                         {{input type="hidden" value=model.id id="parentTodoId"}}
+                        {{input type="hidden" value=model.checked id="parentTodoCheckedId"}}
                         {{input type="text" class="form-control opacity09"
                             id="newSubTodoId" placeholder="请输入子任务项" value=subTodoTitle enter="saveSubTodo"}}
                     </div>

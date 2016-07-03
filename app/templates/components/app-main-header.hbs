@@ -38,11 +38,12 @@
                   alt="头像" width="45px" height="45px" />
           </li>
 
-        <li class="dropdown">
+        <li class="1">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"
           role="button" aria-haspopup="true" aria-expanded="false">{{model.userEmail}} <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li>{{#link-to 'pc.projects.todos' model.defaultProjectId}}个人中心{{/link-to}}</li>
+            <!-- <li>{{#link-to 'pc.projects.todos' model.defaultProjectId}}个人中心{{/link-to}}</li> -->
+            <li><a data-toggle="modal" data-target=".pc-profile-modal-win">个人中心</a></li>
             <li>{{#link-to 'pc'}}清单广场{{/link-to}}</li>
             <li><a href="www.ddlisting.com">天天清单网站</a></li>
             <li role="separator" class="divider"></li>

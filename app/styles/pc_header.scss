@@ -1,0 +1,107 @@
+#app-main-header-collapse .nav .dropdown .dropdown-menu > li > a {
+    cursor: pointer;
+}
+.pc-profile-modal-win .modal-dialog .modal-content .panel {
+    margin-bottom: 0;
+}
+.pc-profile-modal-win .modal-dialog .modal-content .panel .panel-heading {
+    padding: 0;
+    padding-top: 10px;
+}
+.pc-profile-modal-win .modal-dialog .modal-content .panel .panel-heading .profile-name,
+.pc-profile-modal-win .modal-dialog .modal-content .panel .panel-heading .profile-img {
+    text-align: center;
+}
+.pc-profile-modal-win .modal-dialog .modal-content .panel .panel-heading .profile-name {
+    font-size: 20px;
+}
+.pc-profile-modal-win .modal-dialog .modal-content .panel .panel-heading .profile-img img {
+    height: 150px;
+    width: 150px;
+}
+.pc-profile-modal-win .modal-dialog .modal-content .panel .panel-body {
+    padding: 0;
+}
+
+
+.pc-profile-modal-win .panel .panel-body .nav-tabs > li {
+    width: 50%;
+}
+.pc-profile-modal-win .panel .panel-body .nav-tabs {
+    background-color: #337ab7;
+    border-radius: 0;
+    border: 0;
+}
+.pc-profile-modal-win .panel .panel-body .nav-tabs > li > a {
+    color: white;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    font-size: 18px;
+}
+.pc-profile-modal-win .panel .panel-body .nav-tabs > li > a:hover {
+    background-color: #337ab7;
+    border: 0;
+    border-radius: 0;
+}
+.pc-profile-modal-win .panel .panel-body .nav-tabs > li.active > a,
+.pc-profile-modal-win .panel .panel-body .nav-tabs > li.active > a:focus {
+    border: 0;
+    background-color: #337ab7;
+    color: white;
+    border-radius: 0;
+    margin-right: 0px;
+    border-bottom: 15px solid #FFF;
+}
+// 信息列表
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group > li {
+    border-radius: 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+    border-radius: 0;
+    // cursor: pointer;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .enable-click {
+    cursor: pointer;
+    color: #337ab7;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .nickname-li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .nickname-li .row .show-text  {
+    margin-top: 7px;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group > li:first-child {
+    border: 0;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .list-group-item .glyphicon {
+    margin-right: 10px;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .reset-password {
+    padding: 0;
+    // padding-left: 50px;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .reset-password .collapse {
+    // margin-top: 15px;
+}
+// .pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .reset-password-control {
+//     color: #337ab7;
+// }
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .reset-password .collapse form {
+    // padding-right: 15px;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .reset-password .collapse form .form-group .form-control {
+    // width: 97%;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .list-group-item .row .upgrade-user-grade-text {
+    cursor: pointer;
+    right: 40px;
+    position: absolute;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .list-group-item .row .question {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #337ab7;
+}

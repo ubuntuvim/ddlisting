@@ -16,7 +16,8 @@ Router.map(function() {
     });
     // this.route('todoitem', { path: '/:todo_id' });
     // this.route('newCategory');
-    this.route('login-register');
+    // this.route('login-register');
+    // this.route('profile');
   });
 
   // this.route('m', function() {

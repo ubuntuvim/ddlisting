@@ -1,0 +1,151 @@
+{{! app/templates/components/profile-setting.hbs pc端个人设置页面}}
+<div class="modal fade pc-profile-modal-win" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+              <!-- <div class="return-tools">
+                  <span class="glyphicon glyphicon-menu-left"></span>
+              </div> -->
+              <div class="profile-img">
+                  <img src="assets/images/profile/profile.jpg" alt="" class="img-circle" />
+              </div>
+              <div class="profile-name">
+                  ubuntuvim
+              </div>
+          </div>
+          <div class="panel-body">
+              <div class="">
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#account" aria-controls="account" role="tab" data-toggle="tab">账户</a></li>
+                    <li role="presentation"><a href="#setting" aria-controls="setting" role="tab" data-toggle="tab">设置</a></li>
+                  </ul>
+
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="account">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-3">
+                                        <span class="glyphicon glyphicon-envelope"></span>邮箱：
+                                    </div>
+                                    <div class="col-md-9 col-xs-9">
+                                        1527254027@qq.com
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item nickname-li">
+                                <div class="row">
+                                    <div class="show-text col-md-3 col-xs-3">
+                                        <span class="glyphicon glyphicon-magnet"></span>用户名：
+                                    </div>
+                                    <div class="col-md-9 col-xs-9">
+                                        <input type="text" value="ubuntuvim" name="nickname" class="form-control">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-3">
+                                        <span class="glyphicon glyphicon-magnet"></span>用户等级：
+                                    </div>
+                                    <div class="col-md-9 col-xs-9">
+                                        免费用户
+                                        <span class="upgrade-user-grade-text text-primary pull-right">升级至高级用户享受更多特权</span>
+                                        <a data-toggle="tooltip" data-placement="top"
+                                            title="高级用户享有更多特权：指派任务给您的组员、好友，创建一个小组任务，无限上传附件，无限主题背景。"
+                                            onmouseover="javascript:$(this).tooltip('toggle');" class="pull-right">
+                                            <i class="iconfont question">&#xe61e;</i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-3">
+                                    <span class="glyphicon glyphicon-calendar"></span>注册时间：
+                                    </div>
+                                    <div class="col-md-9 col-xs-9">
+                                        2016-07-04 09:32
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-3">
+                                        <span class="glyphicon glyphicon-home"></span>我的主页：
+                                    </div>
+                                    <div class="col-md-9 col-xs-9">
+                                        <a href="http://www.ddlisting.com">http://www.ddlisting.com</a>
+                                    </div>
+                                </div>
+                            </li> -->
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-3">
+                                    <span class="glyphicon glyphicon-yen"></span>我的积分：
+                                    </div>
+                                    <div class="col-md-9 col-xs-9">
+                                        88
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-3">
+                                        <span class="glyphicon glyphicon-th"></span>我的TODO数：
+                                    </div>
+                                    <div class="col-md-9 col-xs-9">
+                                        100
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item enable-click" data-toggle="collapse" data-target="#resetAccountPassword"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <span class="glyphicon glyphicon-lock"></span>修改密码
+                            </li>
+                            <li class="list-group-item reset-password">
+                                <div class="collapse" id="resetAccountPassword">
+                                    <div class="" style="margin-top:15px;">
+
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                          <label for="newPwd" class="col-sm-2 control-label">新密码</label>
+                                          <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="newPwd" placeholder="请输入新密码" style="width:97%;">
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="comNewPwd" class="col-sm-2 control-label">Email</label>
+                                          <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="comNewPwd" placeholder="请输入确认密码" style="width:97%;">
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                           <div class="col-sm-offset-2 col-sm-10">
+                                             <button type="button" class="btn btn-default" onclick="javascript: $('#resetAccountPassword').collapse('hide');">取消</button>
+                                             <button type="button" class="btn btn-primary">修改</button>
+                                           </div>
+                                         </div>
+                                    </form>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item enable-click">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                                退出
+                            </li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="setting">.setting</div>
+                  </div>
+
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

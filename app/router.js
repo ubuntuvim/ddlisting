@@ -26,10 +26,10 @@ Router.map(function() {
   // });
   // 手机端路由
   this.route('m', function() {
-    this.route('category');
-    this.route('todos', { path: '/category/:category_id/todos' });
-    this.route('todoitem', { path: '/category/:category_id/todos/:todo_id' });
-    this.route('search', { path: '/category/:category_id' });
+    this.route('projects');
+    this.route('todos', { path: '/projects/:project_id/todos' });
+    this.route('todoitem', { path: '/projects/:project_id/todos/:todo_id' });
+    this.route('search', { path: '/projects/:project_id' });
     this.route('profile');
     this.route('accountDetail');
     this.route('passwordSetting');

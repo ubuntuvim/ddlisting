@@ -43,6 +43,8 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "emberfire": "git://github.com/firebase/emberfire.git#ec3b9112691d5f1f8f7ed9e0eeaf53cf5c1cd692",
-    "loader.js": "^4.0.1"
+    "glob": "^4.5.3",
+    "loader.js": "^4.0.1",
+    "morgan": "^1.7.0"
   }
 }

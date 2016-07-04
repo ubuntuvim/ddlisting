@@ -39,5 +39,11 @@ Router.map(function() {
   });
 
   this.route('updateFirebaseData');
+
+  // app的管理后台
+  this.route('admin', function() {
+    this.route('bgImgLibs');
+    this.route('login');
+  });
 });
 export default Router;

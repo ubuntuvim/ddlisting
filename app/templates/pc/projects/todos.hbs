@@ -32,7 +32,7 @@
     <div class="btn-group" role="group" aria-label="...">
       <button type="button" class="btn btn-default" id="pcMainTodoToolsId" {{action 'showCompletedTodoList'}}
       onclick="javascript: if ($(this).hasClass('todo-item-selected-status')) { $(this).removeClass('todo-item-selected-status'); } else { $(this).addClass('todo-item-selected-status'); }">显示已经完成任务({{completedCount}})</button>
-      <!-- <button type="button" class="btn btn-default">排序</button> -->
+
       <div class="btn-group dropup">
           <button type="button" class="btn btn-default dropdown-toggle"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="pcMainTodoToolsSort">
@@ -48,6 +48,7 @@
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
         </div>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeBackground">更换背景</button>
     </div>
 </div>
 

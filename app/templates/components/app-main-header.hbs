@@ -33,17 +33,18 @@
 
       <!-- 分辨率小于768px不显示 -->
       <ul class="nav navbar-nav navbar-right min-width-768">
-          <li>
-              <img src="http://list.ddlisting.com/assets/images/profile-photo-bd164e6840de7dcf3fb823c789237075.jpg"
-                  alt="头像" width="45px" height="45px" />
-          </li>
-
         <li class="1">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-          role="button" aria-haspopup="true" aria-expanded="false">{{model.userEmail}} <span class="caret"></span></a>
+          <a href="#" class="header-pic dropdown-toggle" data-toggle="dropdown"
+            role="button" aria-haspopup="true" aria-expanded="false">
+              <img src="http://list.ddlisting.com/assets/images/profile-photo-bd164e6840de7dcf3fb823c789237075.jpg"
+                  alt="头像" width="45px" height="45px" class="img-circle" />
+              <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
+            <li><a>{{model.userEmail}}</a></li>
             <!-- <li>{{#link-to 'pc.projects.todos' model.defaultProjectId}}个人中心{{/link-to}}</li> -->
             <li><a data-toggle="modal" data-target=".pc-profile-modal-win">个人中心</a></li>
+            <li><a data-toggle="modal" data-target="#changeBackground">更换背景</a></li>
             <li>{{#link-to 'pc'}}清单广场{{/link-to}}</li>
             <li><a href="www.ddlisting.com">天天清单网站</a></li>
             <li role="separator" class="divider"></li>
@@ -55,6 +56,7 @@
       <!-- 分辨率小于768px显示 -->
       <ul class="nav navbar-nav navbar-right max-width-768-menu">
         <li>{{#link-to 'pc.projects.todos' model.defaultProjectId}}个人中心{{/link-to}}</li>
+        <li><a data-toggle="modal" data-target="#changeBackground">更换背景</a></li>
         <li>{{#link-to 'pc'}}清单广场{{/link-to}}</li>
         <li><a href="www.ddlisting.com">天天清单网站</a></li>
         <li role="separator" class="divider"></li>

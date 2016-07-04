@@ -1,4 +1,8 @@
-#app-main-header-collapse .nav .dropdown .dropdown-menu > li > a {
+// 顶部导航样式
+.navbar .container-fluid .collapse .nav .header-pic {
+    padding: 0;
+}
+.navbar .container-fluid .collapse .nav .dropdown-menu > li > a {
     cursor: pointer;
 }
 .pc-profile-modal-win .modal-dialog .modal-content .panel {
@@ -104,4 +108,21 @@
     right: 15px;
     cursor: pointer;
     color: #337ab7;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .list-group-img {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .list-group-item .row .bg-img-text {
+    margin-top: 12px;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .list-group-item .row .bg-img {
+    cursor: pointer;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .list-group-item .row .bg-img img {
+    height: 40px;
+    width: 40px;
+}
+.pc-profile-modal-win .panel .panel-body .tab-content .tab-pane .list-group .list-group-item input[type="checkbox"] {
+    font-size: 24px;
 }

@@ -1,0 +1,100 @@
+{{! app/templates/admin/bg-img-libs.hbs 后台背景图片设置列表}}
+<nav class="navbar navbar-default opacity09" style="border-radius: 0; z-index: 1100;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-main-header-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'admin.bgImgLibs' class="navbar-brand"}}
+      DDLISTING
+      {{/link-to}}
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <!-- 分辨率小于768px不显示 -->
+      <ul class="nav navbar-nav navbar-right min-width-768">
+        <li><a>退出</a></li>
+      </ul>
+
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container-fluid admin-img-list">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#newBgImg">新&nbsp;增</button>
+      </div>
+      <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>图片介绍</th>
+                <th>图片路径</th>
+                <th>上传日期</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>
+                    <a data-toggle="modal" data-target="#editBgImg">编辑</a> |
+                    <a>删除</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>
+                    <a data-toggle="modal" data-target="#editBgImg">编辑</a> |
+                    <a>删除</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+
+    
+</div>
+
+{{! 新增背景图片}}
+{{admin/new-bg-img store=store model=model}}
+
+{{! 修改背景图片}}
+<div class="modal fade" id="editBgImg" tabindex="-1" role="dialog" aria-labelledby="editBgImgLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editBgImgLabel">编辑背景图片</h4>
+      </div>
+      <div class="modal-body">
+          <form action="/upload" enctype="multipart/form-data" method="post" id="uploadBgImg">
+            <div class="form-group">
+              <input type="text" class="form-control" id="imgTitle" placeholder="图片说明">
+            </div>
+            <div class="form-group">
+              <input type="file" class="form-control" id="imgUrl"
+                placeholder="点击上传图片"  name="upload" multiple="multiple">
+            </div>
+            <button type="button" class="btn btn-primary">保存</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

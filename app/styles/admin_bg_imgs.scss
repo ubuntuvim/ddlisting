@@ -1,0 +1,19 @@
+.admin-img-list {
+    position: absolute;
+    width: 98%;
+    margin-left: 1%;
+    background: #f8f8f8;
+    border-radius: 4px;
+    padding: 0;
+}
+.admin-img-list .panel {
+    margin: 0;
+}
+.admin-img-list .panel .panel-heading {
+    text-align: right;
+    padding: 5px;
+    padding-right: 20px;
+}
+.admin-img-list .panel .panel-heading button {
+    padding: 5px;
+}

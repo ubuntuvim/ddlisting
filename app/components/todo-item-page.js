@@ -31,6 +31,14 @@ export default Ember.Component.extend({
     actions: {
         // 设置star状态
         doStar(id, star) {
+            let ids = "#"+id;
+            // 在todo列表上点击star时加背景标注出被点击的是哪个todo：先重置所有todo的状态为未选中
+            Ember.$("#appMainRightId .todo-list .list-group .a-selector .list-group-item").each(function() {
+                Ember.$(this).removeClass('todo-item-selected-status');
+            });
+            // 设置被点击的todo状态
+            Ember.$(ids).addClass('todo-item-selected-status');
+
             setStarStatus(id, star, this.store);
         },
         // 设置完成状态

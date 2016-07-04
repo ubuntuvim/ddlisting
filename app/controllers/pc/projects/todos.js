@@ -23,9 +23,9 @@ export default Ember.Controller.extend({
     sortDefinition: Ember.computed('sortKeyValue', 'reverseSort', function() {
         let sortOrder = this.get('reverseSort') ? 'desc' : 'asc';
         let sortField = this.get('sortKeyValue');
-        if (!sortField) {  //默认以id属性排序:升序
-            sortField = "id";
-            sortOrder = "asc";
+        if (!sortField) {  //默认以star属性排序:降序序
+            sortField = "star";
+            // sortOrder = "asc";
         }
         return [ `${sortField}:${sortOrder}` ];
     }),

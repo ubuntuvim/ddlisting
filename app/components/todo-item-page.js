@@ -38,7 +38,6 @@ export default Ember.Component.extend({
             });
             // 设置被点击的todo状态
             Ember.$(ids).addClass('todo-item-selected-status');
-
             setStarStatus(id, star, this.store);
         },
         // 设置完成状态

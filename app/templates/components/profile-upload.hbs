@@ -1,2 +1,33 @@
 
-<input type="file" hidden="true" class="form-control">
+<!-- <input type="file" hidden="true" class="form-control"> -->
+
+<!-- <button type="button" class="profile-upload__btn">Upload</button> -->
+
+<!-- <input type="file" hidden="true" class="form-control"
+    onclick={{action stopPropagation}} {{action getFileFromInput on="change"}}>
+     -->
+<form id="newBgImgForm">
+  <div class="form-group" id="introText">
+    <input type="text" class="form-control" id="imgTitle" placeholder="图片说明">
+    <input type="hidden" id="imgId">
+  </div>
+  <div class="form-group" id="fileInputGroup">
+
+      <input type="file" hidden="true" id="bgImgFile1" class="form-control"
+          onclick={{action stopPropagation}}>
+
+      <input type="file" hidden="true" id="bgImgFile2" class="form-control"
+          onclick={{action stopPropagation}}>
+
+      <input type="file" hidden="true" id="bgImgFile3" class="form-control"
+          onclick={{action stopPropagation}}>
+
+  </div>
+  <button type="button" class="btn btn-primary" id="uploadNewBgImgBtn" {{action uploadFiles}}>保存</button>
+  <div class="pull-right" id="uploadLoading" style="display:none;">
+      <img src="/assets/images/loading/loading.gif" />
+  </div>
+  <div class="pull-right" id="uploadLoadingText" style="display:none;">
+      <p class="text-success">图片上传完毕</p>
+  </div>
+</form>

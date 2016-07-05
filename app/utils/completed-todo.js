@@ -1,3 +1,6 @@
+// app/utils/completed-todo.js
+import Ember from 'ember';
+
 // 公共部分：设置todo为完成状态，并且同步设置所属的子todo的状态
 export default function completedTodo(id, check, store) {
     let ids = "#"+id;

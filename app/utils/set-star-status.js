@@ -1,3 +1,6 @@
+// app/utils/set-star-status.js
+import Ember from 'ember';
+
 // 设置todo的star状态
 export default function setStarStatus(id, star, store) {
 

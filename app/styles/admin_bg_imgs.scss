@@ -5,6 +5,9 @@
     background: #f8f8f8;
     border-radius: 4px;
     padding: 0;
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 100px;
 }
 .admin-img-list .panel {
     margin: 0;
@@ -16,4 +19,7 @@
 }
 .admin-img-list .panel .panel-heading button {
     padding: 5px;
+}
+#newBgImgForm .form-group input[type="file"] {
+    margin-bottom: 5px;
 }

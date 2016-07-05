@@ -43,26 +43,18 @@
               </tr>
             </thead>
             <tbody>
+                {{#each model as |bg|}}
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row">{{bg.id}}</th>
+                <td>{{bg.imgTitle}}</td>
+                <td>{{bg.imgUrl}}</td>
+                <td>{{bg.imgUploadTime}}</td>
                 <td>
-                    <a data-toggle="modal" data-target="#editBgImg">编辑</a> |
-                    <a>删除</a>
+                    <span {{action 'edit' bg.id}}>编辑</span>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>
-                    <a data-toggle="modal" data-target="#editBgImg">编辑</a> |
-                    <a>删除</a>
-                </td>
-              </tr>
+              {{/each}}
+
             </tbody>
           </table>
       </div>
@@ -71,28 +63,19 @@
 </div>
 
 {{! 新增背景图片}}
-{{admin/new-bg-img store=store model=model}}
+{{admin/new-edit-bg-img store=store model=model}}
 
 {{! 修改背景图片}}
-<div class="modal fade" id="editBgImg" tabindex="-1" role="dialog" aria-labelledby="editBgImgLabel">
+<!-- <div class="modal fade" id="editBgImg" tabindex="-1" role="dialog" aria-labelledby="editBgImgLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editBgImgLabel">编辑背景图片</h4>
+        <h4 class="modal-title" id="editBgImgLabel">编辑背景图片={{title}}</h4>
       </div>
       <div class="modal-body">
-          <form action="/upload" enctype="multipart/form-data" method="post" id="uploadBgImg">
-            <div class="form-group">
-              <input type="text" class="form-control" id="imgTitle" placeholder="图片说明">
-            </div>
-            <div class="form-group">
-              <input type="file" class="form-control" id="imgUrl"
-                placeholder="点击上传图片"  name="upload" multiple="multiple">
-            </div>
-            <button type="button" class="btn btn-primary">保存</button>
-          </form>
+          {{profile-upload title=title}}
       </div>
     </div>
   </div>
-</div>
+</div> -->

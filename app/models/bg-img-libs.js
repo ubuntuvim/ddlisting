@@ -6,5 +6,7 @@ export default Model.extend({
     // profile: DS.belongTo('profile'),
     imgTitle: DS.attr('string'),
     imgUrl: DS.attr('string'),  //图片地址
+    imgThumb: DS.attr('string'),  //缩略图图片地址
+    imgThumb2x: DS.attr('string'),  //2倍缩略图图片地址，
     imgUploadTime: DS.attr('number') //时间戳
 });

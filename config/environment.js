@@ -30,6 +30,10 @@ module.exports = function(environment) {
         databaseURL: "https://ddlisting-49d6e.firebaseio.com",
         storageBucket: "ddlisting-49d6e.appspot.com"
     },
+    cloudinary: {
+      cloudName: `ddlisting`,
+      uploadPreset: `oo021mf7`,
+    },
     // 权限控制
     // torii: {
     //     sessionServiceName: 'session'

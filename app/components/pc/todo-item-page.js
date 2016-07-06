@@ -1,7 +1,13 @@
-// app/components/todo-item-page.js
+/**
+* todo列表处理 app/components/pc/todo-item-page.js
+* @Author: ubuntuvim
+* @Date:   2016-06-25T00:24:36+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-07T01:42:48+08:00
+*/
 import Ember from 'ember';
-import completedTodo from '../utils/completed-todo';
-import setStarStatus from '../utils/set-star-status';
+import completedTodo from '../../utils/completed-todo';
+import setStarStatus from '../../utils/set-star-status';
 
 export default Ember.Component.extend({
     didUpdate() {

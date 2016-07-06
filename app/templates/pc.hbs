@@ -1,14 +1,20 @@
-{{! app/templates/pc.hbs}}
-<!-- pc端的子模板渲染到这里 -->
+<!--
+pc端的首页
+@Author: ubuntuvim
+@Date:   2016-07-04T22:09:51+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-07T01:45:24+08:00
+-->
+{{! pc端的子模板渲染到这里 app/templates/pc.hbs }}
 {{outlet}}
 
 <!-- 新增分类 -->
-{{new-project store=store}}
+{{pc/new-project store=store}}
 <!-- 修改分类 -->
-{{edit-project store=store}}
+{{pc/edit-project store=store}}
 
 {{! 个人设置页面}}
-{{profile-setting store=store}}
+{{pc/profile-setting store=store}}
 
 {{! 更换背景图片}}
-{{change-background-img store=store model=model}}
+{{pc/change-background-img store=store model=model}}

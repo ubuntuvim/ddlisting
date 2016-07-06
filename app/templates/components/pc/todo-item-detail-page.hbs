@@ -1,3 +1,12 @@
+<!--
+@Author: ubuntuvim
+@Date:   2016-06-29T21:13:18+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-07T01:35:35+08:00
+-->
+
+
+
 {{! app/templates/components/todo-item-detail-page.hbs 详细设置页面}}
 
 {{! 用于设置刷新后左侧分类的默认选中状态}}
@@ -116,12 +125,12 @@
                 {{model.startDate}}
             </span>
 
-            {{#button-with-confirmation type="button" class="btn btn-danger btn-xs"
+            {{#pc/button-with-confirmation type="button" class="btn btn-danger btn-xs"
              text="删除此分类会把所属的子任务也删除，请确认？"
              onConfirm=(action 'delParentTodo' model.id model.project.id)}}
                  <span class="glyphicon glyphicon-trash"></span>
                  删除本任务
-             {{/button-with-confirmation}}
+             {{/pc/button-with-confirmation}}
         </div>
 
     </div>

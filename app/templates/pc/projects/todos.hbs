@@ -1,4 +1,9 @@
-{{! app/templates/pc/projects/todos.hbs 首页右侧主要内容显示区}}
+{{! app/templates/pc/projects/todos.hbs 首页右侧主要内容显示区}
+@Author: ubuntuvim
+@Date:   2016-06-28T21:08:17+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-07T01:39:51+08:00
+}}
 
 <div class="form-grouphas-feedback">
     <div class="input-group">
@@ -16,10 +21,10 @@
 {{input type="hidden" value=model.project id="projecId"}}
 
 {{! 新建todo}}
-{{create-todo-input store=store model=model}}
+{{pc/create-todo-input store=store model=model}}
 
 {{! 显示完成的任务列表}}
-{{todo-list-page store=store
+{{pc/todo-list-page store=store
     model=model
     queryTodoValueCptVal=queryTodoValueCpt
     sortKeyValue=sortKeyValue

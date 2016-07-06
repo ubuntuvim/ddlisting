@@ -1,7 +1,13 @@
-// app/components/create-todo-input.js
+/**
+* 新建todo处理 app/components/create-todo-input.js
+* @Author: ubuntuvim
+* @Date:   2016-06-29T21:13:17+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-07T01:40:53+08:00
+*/
 
 import Ember from 'ember';
-import dateUtil from '../utils/date-util';
+import dateUtil from '../../utils/date-util';
 
 export default Ember.Component.extend({
     classNames: ['form-group', 'has-feedback'],

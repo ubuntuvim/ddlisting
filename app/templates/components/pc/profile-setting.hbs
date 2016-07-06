@@ -1,13 +1,9 @@
-<!--
+{{! app/templates/components/profile-setting.hbs pc端个人设置页面
 @Author: ubuntuvim
 @Date:   2016-07-03T15:54:11+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-07T01:19:04+08:00
--->
-
-
-
-{{! app/templates/components/profile-setting.hbs pc端个人设置页面}}
+@Last modified time: 2016-07-07T01:34:13+08:00
+}}
 <div class="modal fade pc-profile-modal-win" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -67,7 +63,7 @@
                                         <div class="form-group">
                                           <label for="newPwd" class="col-sm-2 control-label">上传新头像</label>
                                           <div class="col-sm-10">
-                                            {{profile-img-upload}}
+                                            {{pc/profile-img-upload}}
                                           </div>
                                           <div class="" id="uploadProfileImgLoading" style="display:none; text-align: center;">
                                               <img src="/assets/images/loading/loading.gif" />

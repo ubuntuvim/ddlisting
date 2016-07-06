@@ -1,7 +1,14 @@
+/**
+* todo详细设置页面 app/components/pc/todo-item-detail-page.js
+* @Author: ubuntuvim
+* @Date:   2016-06-29T21:13:17+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-07T01:41:55+08:00
+*/
 import Ember from 'ember';
-import dateUtil from '../utils/date-util';
-import completedTodo from '../utils/completed-todo';
-import setStarStatus from '../utils/set-star-status';
+import dateUtil from '../../utils/date-util';
+import completedTodo from '../../utils/completed-todo';
+import setStarStatus from '../../utils/set-star-status';
 
 export default Ember.Component.extend({
     defaultProjectId: sessionStorage.getItem('__DEFAULT_PROJECT_ID__'),

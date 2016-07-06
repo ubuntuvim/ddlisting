@@ -3,10 +3,10 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-07T00:53:49+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-07T01:26:59+08:00
+* @Last modified time: 2016-07-07T01:47:32+08:00
 */
 import Ember from 'ember';
-import layout from '../templates/components/profile-img-upload';
+import layout from '../../templates/components/pc/profile-img-upload';
 export default Ember.Component.extend({
   layout,
   classNameBindings: [`active`],

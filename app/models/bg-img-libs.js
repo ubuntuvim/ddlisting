@@ -1,4 +1,11 @@
-// app/models/bg-img-libs.js
+/**
+* 背景图片库模型类 app/models/bg-img-libs.js
+* @Author: ubuntuvim
+* @Date:   2016-07-05T22:30:05+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-07T01:24:03+08:00
+*/
+app/models/bg-img-libs.js
 import Model from 'ember-data/model';
 
 // 背景图片库

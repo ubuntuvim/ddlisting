@@ -1,14 +1,12 @@
 /**
+* 上传图片并把图片存放的URL地址保存到firebase
 * @Author: ubuntuvim
 * @Date:   2016-07-05T22:30:05+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-06T23:42:04+08:00
+* @Last modified time: 2016-07-07T00:02:16+08:00
 */
-
-
-
 import Ember from 'ember';
-import layout from '../templates/components/profile-upload';
+import layout from '../templates/components/bg-img-upload';
 
 export default Ember.Component.extend({
     layout,

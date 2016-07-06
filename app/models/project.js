@@ -1,3 +1,10 @@
+/**
+* 项目模型类 app/models/project.js
+* @Author: ubuntuvim
+* @Date:   2016-06-25T00:24:36+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-07T01:25:03+08:00
+*/
 import DS from 'ember-data';
 
 /**

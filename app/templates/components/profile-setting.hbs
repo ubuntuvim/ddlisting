@@ -1,3 +1,12 @@
+<!--
+@Author: ubuntuvim
+@Date:   2016-07-03T15:54:11+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-07T01:19:04+08:00
+-->
+
+
+
 {{! app/templates/components/profile-setting.hbs pc端个人设置页面}}
 <div class="modal fade pc-profile-modal-win" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
@@ -45,6 +54,32 @@
                                     </div>
                                 </div>
                             </li>
+
+                            <li class="list-group-item enable-click" data-toggle="collapse" data-target="#resetUserProfileImg"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <span class="glyphicon glyphicon-lock"></span>修改头像
+                            </li>
+                            <li class="list-group-item reset-password">
+                                <div class="collapse" id="resetUserProfileImg">
+                                    <div class="" style="margin-top:15px;">
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                          <label for="newPwd" class="col-sm-2 control-label">上传新头像</label>
+                                          <div class="col-sm-10">
+                                            {{profile-img-upload}}
+                                          </div>
+                                          <div class="" id="uploadProfileImgLoading" style="display:none; text-align: center;">
+                                              <img src="/assets/images/loading/loading.gif" />
+                                          </div>
+                                          <div class="" id="uploadProfileImgLoadingText" style="display:none; text-align: center;">
+                                              <p class="text-success">图片上传完毕</p>
+                                          </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-md-3 col-xs-3">

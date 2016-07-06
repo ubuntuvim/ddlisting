@@ -1,3 +1,12 @@
+<!--
+@Author: ubuntuvim
+@Date:   2016-05-27T21:28:39+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-06T23:57:57+08:00
+-->
+
+
+
 # Ddlisting
 
 This README outlines the details of collaborating on this Ember application.
@@ -10,8 +19,10 @@ A short introduction of this app could easily go here.
 3. [bootstrap-sass](https://github.com/twbs/bootstrap-sass)
 4. [ember-bootstrap-sass](https://github.com/MiracleBlue/ember-bootstrap-sass)
 5. [emberfire](https://www.firebase.com/docs/web/libraries/ember/guide.html)
-6. [jsonapi-serializer](https://github.com/SeyZ/jsonapi-serializer) 自定义返回jsonapi
+6. [jsonapi-serializer](https://github.com/SeyZ/jsonapi-serializer) 自定义返回jsonapi，使用自定义后端适配器的时候使用
 7. [jquery-validation](https://github.com/ikajou/jquery-validation.git) 表单校验
+8. [ember-profile-upload](https://github.com/rtablada/ember-profile-upload) 图片上传
+9. [Cloudinary](https://cloudinary.com/)  图片后端存储库
 
 
 ## 界面原型
@@ -80,6 +91,15 @@ PC版的路由、模型、模板都放在`app/pc`目录下；
 #### 2016年5月27日 00：13 `1.0.0`
 
 完成PC版、手机版基本功能页面。可以撒花了~~~ =^=
+
+#### 2016年7月7日 `1.1.0`
+
+完成PC版常规功能开发。基本可以使用！不过还有细节待处理……
+
+#### 2016年7月8日 `1.1.1`
+
+完成PC版头像上传功能。
+
 
 
 ## 软件依赖

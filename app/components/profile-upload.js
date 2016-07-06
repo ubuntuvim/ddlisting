@@ -1,3 +1,12 @@
+/**
+* @Author: ubuntuvim
+* @Date:   2016-07-05T22:30:05+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-06T23:42:04+08:00
+*/
+
+
+
 import Ember from 'ember';
 import layout from '../templates/components/profile-upload';
 
@@ -51,12 +60,15 @@ export default Ember.Component.extend({
         const file1 = this.$(`input`).get(2).files[0];
         const oldFile1 = this.get(`fileUrl`);
         console.log(Ember.$.trim(Ember.$("#bgImgFile1").val()));
+        var url1 = null;
+        var url2 = null;
+        var url3 = null;
         if (Ember.$.trim(Ember.$("#bgImgFile1").val()) !== '' && file1.type.indexOf(`image`) > -1) {
             if (destroyImage && oldFile1) {
                 destroyImage(this.get(`fileUrl`));
             }
             Ember.RSVP.resolve(upload(file1)).then((response) => {
-                    const url1 = deserializeResponse(response);
+                    url1 = deserializeResponse(response);
                     // this.onchange(url1);
                     console.log('第一张图片 = ' + url1);
 
@@ -70,7 +82,7 @@ export default Ember.Component.extend({
                         }
 
                         Ember.RSVP.resolve(upload(file2)).then((response) => {
-                                const url2 = deserializeResponse(response);
+                                url2 = deserializeResponse(response);
                                 // this.onchange(url2);
                                 console.log('第二张图片 = ' + url2);
                                 // 第三张图片
@@ -83,11 +95,11 @@ export default Ember.Component.extend({
                                     }
 
                                     Ember.RSVP.resolve(upload(file3)).then((response) => {
-                                            const url3 = deserializeResponse(response);
+                                            url3 = deserializeResponse(response);
                                             // this.onchange(url3);
                                             console.log('第三张图片 = ' + url3);
                                             // 判断是修改还是新增
-                                            if (objId) { //新增
+                                            if (!objId) { //新增
                                                 this.addBgImg(url1, url2, url3);
                                             } else {  //修改
                                                 this.updateBgImg(objId, url1, url2, url3)
@@ -101,19 +113,7 @@ export default Ember.Component.extend({
                                 } else {  //第三个为空，则只保存前2张图片
 
                                     // 判断是修改还是新增
-                                    if (objId) { //新增
-                                        // this.get('store').createRecord('bg-img-libs', {
-                                        //     imgTitle: Ember.$("#imgTitle").val(),
-                                        //     imgUrl: url1,  //图片地址
-                                        //     imgThumb: url2,  //缩略图图片地址
-                                        //     imgUploadTime: new Date().getTime() //时间戳
-                                        // }).save().then(() => {
-                                        //     Ember.$("#uploadLoading").hide();
-                                        //     Ember.$("#uploadLoadingText").show();
-                                        //     // 清空文件上传框
-                                        //     Ember.$("#bgImgFile1").val();
-                                        //     Ember.$("#bgImgFile2").val();
-                                        // });
+                                    if (!objId) { //新增
                                         this.addBgImg(url1, url2, null);
                                     } else {  //修改
                                         this.updateBgImg(objId, url1, url2, url3)
@@ -127,17 +127,7 @@ export default Ember.Component.extend({
                         });
                     } else {  //第二个为空，则只保存前1张图片
                         // 判断是修改还是新增
-                        if (objId) { //新增
-                            // this.get('store').createRecord('bg-img-libs', {
-                            //     imgTitle: Ember.$("#imgTitle").val(),
-                            //     imgUrl: url1,  //图片地址
-                            //     imgUploadTime: new Date().getTime() //时间戳
-                            // }).save().then(() => {
-                            //     Ember.$("#uploadLoading").hide();
-                            //     Ember.$("#uploadLoadingText").show();
-                            //     // 清空文件上传框
-                            //     Ember.$("#bgImgFile1").val();
-                            // });
+                        if (!objId) { //新增
                             this.addBgImg(url1, null, null);
                         } else {  //修改
                             this.updateBgImg(objId, url1, url2, url3)
@@ -197,7 +187,17 @@ export default Ember.Component.extend({
             if (Ember.$.trim(Ember.$("#bgImgFile3").val()) !== '') {
                 obj.set('imgThumb2x', url3);
             }
-            obj.save();
+            obj.save().then(() => {
+                Ember.$("#uploadLoading").hide();
+                Ember.$("#uploadLoadingText").show();
+                // 清空文件上传框
+                Ember.$("#bgImgFile1").after(Ember.$("#bgImgFile1").clone().val(""));
+                Ember.$("#bgImgFile1").remove();
+                Ember.$("#bgImgFile2").after(Ember.$("#bgImgFile2").clone().val(""));
+                Ember.$("#bgImgFile2").remove();
+                Ember.$("#bgImgFile3").after(Ember.$("#bgImgFile3").clone().val(""));
+                Ember.$("#bgImgFile3").remove();
+            });
         });
     }
 });

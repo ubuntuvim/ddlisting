@@ -3,9 +3,10 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-05T22:30:05+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-07T01:24:03+08:00
+* @Last modified time: 2016-07-07T21:59:56+08:00
 */
 import Model from 'ember-data/model';
+import DS from 'ember-data';
 
 // 背景图片库
 export default Model.extend({

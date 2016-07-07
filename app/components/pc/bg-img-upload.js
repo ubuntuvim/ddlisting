@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-05T22:30:05+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-07T00:02:16+08:00
+* @Last modified time: 2016-07-07T22:40:34+08:00
 */
 import Ember from 'ember';
 import layout from '../../templates/components/pc/bg-img-upload';
@@ -25,11 +25,13 @@ export default Ember.Component.extend({
     // },
 
     uploadFiles() {
+        Ember.$("#uploadNewBgImgBtn").attr("disabled", true);
         if (!Ember.$("#imgTitle").val()) {
             Ember.$("#imgTitle")[0].focus();
             Ember.$("#introText").addClass('has-error');
             Ember.$("#uploadLoadingText").show();
             Ember.$("#uploadLoadingText").html('<p class="text-danger">请选择输入图片说明</p>');
+            Ember.$("#uploadNewBgImgBtn").attr("disabled", false);
             return;
         }
         Ember.$("#introText").removeClass('has-error');
@@ -48,6 +50,7 @@ export default Ember.Component.extend({
                 Ember.$("#uploadLoading").hide();
                 Ember.$("#uploadLoadingText").show();
                 Ember.$("#uploadLoadingText").html('<p class="text-success">修改成功</p>');
+                Ember.$("#uploadNewBgImgBtn").attr("disabled", false);
 
                 return true;
             }
@@ -100,7 +103,7 @@ export default Ember.Component.extend({
                                             if (!objId) { //新增
                                                 this.addBgImg(url1, url2, url3);
                                             } else {  //修改
-                                                this.updateBgImg(objId, url1, url2, url3)
+                                                this.updateBgImg(objId, url1, url2, url3);
                                             }
 
                                         }, (err) => {
@@ -114,7 +117,7 @@ export default Ember.Component.extend({
                                     if (!objId) { //新增
                                         this.addBgImg(url1, url2, null);
                                     } else {  //修改
-                                        this.updateBgImg(objId, url1, url2, url3)
+                                        this.updateBgImg(objId, url1, url2, url3);
                                     }
 
                                 }
@@ -128,7 +131,7 @@ export default Ember.Component.extend({
                         if (!objId) { //新增
                             this.addBgImg(url1, null, null);
                         } else {  //修改
-                            this.updateBgImg(objId, url1, url2, url3)
+                            this.updateBgImg(objId, url1, url2, url3);
                         }
                     }
                 }, (err) => {
@@ -142,6 +145,7 @@ export default Ember.Component.extend({
             Ember.$("#uploadLoading").hide();
             Ember.$("#uploadLoadingText").show();
             Ember.$("#uploadLoadingText").html('<p class="text-danger">请选择要上传的图片</p>');
+            Ember.$("#uploadNewBgImgBtn").attr("disabled", false);
         }
 
     },  // upload
@@ -150,13 +154,14 @@ export default Ember.Component.extend({
         ev.stopPropagation();
     },
     addBgImg(url1, url2, url3) {
+
         var data = {
             imgTitle: Ember.$("#imgTitle").val(),
             imgUploadTime: new Date().getTime() //时间戳
         };
 
         if (url1) {
-            data.imgUrl = url1  //图片地址
+            data.imgUrl = url1;  //图片地址
         }
         if (url2) {
             data.imgThumb = url2;
@@ -172,6 +177,7 @@ export default Ember.Component.extend({
             Ember.$("#bgImgFile2").val();
             Ember.$("#bgImgFile3").val();
             Ember.$("#newBgImg").modal('toggle');
+            Ember.$("#uploadNewBgImgBtn").attr("disabled", false);
         });
     },
     updateBgImg(id, url1, url2, url3) {
@@ -197,6 +203,7 @@ export default Ember.Component.extend({
                 Ember.$("#bgImgFile3").after(Ember.$("#bgImgFile3").clone().val(""));
                 Ember.$("#bgImgFile3").remove();
 				Ember.$("#newBgImg").modal('toggle');
+                Ember.$("#uploadNewBgImgBtn").attr("disabled", false);
             });
         });
     }

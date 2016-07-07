@@ -171,6 +171,7 @@ export default Ember.Component.extend({
             Ember.$("#bgImgFile1").val();
             Ember.$("#bgImgFile2").val();
             Ember.$("#bgImgFile3").val();
+            Ember.$("#newBgImg").modal('toggle');
         });
     },
     updateBgImg(id, url1, url2, url3) {
@@ -195,6 +196,7 @@ export default Ember.Component.extend({
                 Ember.$("#bgImgFile2").remove();
                 Ember.$("#bgImgFile3").after(Ember.$("#bgImgFile3").clone().val(""));
                 Ember.$("#bgImgFile3").remove();
+				Ember.$("#newBgImg").modal('toggle');
             });
         });
     }

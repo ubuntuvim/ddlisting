@@ -13,6 +13,12 @@ export default Ember.Route.extend({
         return this.store.findAll('bg-img-libs');
     },
     actions: {
+        addBgImg() {
+            //显示编辑框，同样是使用新增的输入框
+            Ember.$("#newBgImg").modal('toggle');
+            Ember.$("#imgId").val();
+            Ember.$("#imgTitle").val();
+        },
         edit(id) {
             //显示编辑框，同样是使用新增的输入框
             Ember.$("#newBgImg").modal('toggle');

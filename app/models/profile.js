@@ -6,6 +6,7 @@
 * @Last modified time: 2016-07-07T01:24:34+08:00
 */
 import Model from 'ember-data/model';
+import DS from 'ember-data';
 
 export default Model.extend({
     // bgImg: DS.belongTo('bgImgLibs'),

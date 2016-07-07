@@ -1,5 +1,11 @@
+/**
+* 用户登录，登录成功后用户ID设置到session中
+* @Author: ubuntuvim
+* @Date:   2016-06-28T21:08:17+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-08T01:09:54+08:00
+*/
 import Ember from 'ember';
-import config from '../config/environment';
 
 export default Ember.Component.extend({
 
@@ -39,47 +45,80 @@ export default Ember.Component.extend({
     },
 
     actions: {
+        clearTipInfo() {
+            this.set('errorMsg', "");
+        },
         login() {
-            //  初始化firebase对象
-            // var loginFirebase = firebase.initializeApp(config.firebase, "LoginFirebase");
+            //清空提示信息
+            this.set('errorMsg', "");
+            //显示loading
+            Ember.$("#loginLoading").show();
+            // 按钮不可用
+            Ember.$("#loginBtn").attr('disabled', true);
 
             let email = this.get('email');
-            // let password = this.get('password');
-            var password = md5(this.get('password')); //加密
-            firebase.auth().signInWithEmailAndPassword(email, password).then((data) => {
-                let userId = data.uid;
-                sessionStorage.setItem("__LOGIN_USER_EMAIL__", data.email);
-                sessionStorage.setItem("__LOGIN_USER_ID__", userId);
-                // 查询出当前用户的默认分类
-                this.store.query('project', { userId: userId, projStatus: 1, isDefaultProj: true }).then((proj) => {
-
-                    proj.forEach((item) => {
-                        if (item.get('userId') === userId
-                            && !!item.get('isDefaultProj')
-                            && item.get('projStatus') === 1) {
-                            Ember.Logger.debug("默认分类ID：" + item.get('id'));
-                            //设置默认分类id到session
-                            sessionStorage.setItem("__DEFAULT_PROJECT_ID__", item.get('id'));
-                            // 强制刷新页面
-                            location.reload();
-                        }
-                    });
+            let password = hex_sha1(this.get('password')); //加密
+            // 后续可能需要重新实现query方法，直接在query查询中过滤数据，而不遍历判断
+            this.store.query('user', { email: email, password: password }).then(function(users) {
+                let retUser = null;
+                users.forEach((user) => {
+                    if (email === user.get('email') && password === user.get('password')) {
+                        retUser = user;
+                    }
                 });
+                return retUser;
+            }).then((user) => {
+                if (user) {
+                    sessionStorage.setItem("__LOGIN_USER_NICKNAME__", user.get('nickname'));
+                    sessionStorage.setItem("__LOGIN_USER_EMAIL__", user.get('email'));
+                    let userId = user.get('id');
+                    Ember.Logger.debug("用户ID：" + userId);
+                    sessionStorage.setItem("__LOGIN_USER_ID__", userId);
+                    // 强制刷新页面
+                    location.reload();
 
-            }, (err) => {
-                if (err.code === "auth/user-disabled") {
-                    this.set('errorMsg', "用户被禁用了，请联系管理员！");
-                } else if (err.code === "auth/invalid-email") {
-                    this.set('errorMsg', "邮箱格式不正确！");
-                } else if (err.code === "auth/user-not-found") {
-                    this.set('errorMsg', "登录用户不存在，请先注册再登录！");
-                } else if (err.code === "auth/wrong-password") {
-                    this.set('errorMsg', "密码错误！");
                 } else {
-                    this.set('errorMsg', "网络异常，请确认您的电脑是否联网正常……！");
+                    this.set('errorMsg', "用户名或密码有误，请确认在登录。");
+                    Ember.$("#loginLoading").hide();
+                    Ember.$("#loginBtn").attr('disabled', false);
                 }
-
             });
+
+
+            // firebase.auth().signInWithEmailAndPassword(email, password).then((data) => {
+            //     let userId = data.uid;
+            //     sessionStorage.setItem("__LOGIN_USER_EMAIL__", data.email);
+            //     sessionStorage.setItem("__LOGIN_USER_ID__", userId);
+            //     // 查询出当前用户的默认分类
+            //     this.store.query('project', { userId: userId, projStatus: 1, isDefaultProj: true }).then((proj) => {
+            //
+            //         proj.forEach((item) => {
+            //             if (item.get('userId') === userId
+            //                 && !!item.get('isDefaultProj')
+            //                 && item.get('projStatus') === 1) {
+            //                 Ember.Logger.debug("默认分类ID：" + item.get('id'));
+            //                 //设置默认分类id到session
+            //                 sessionStorage.setItem("__DEFAULT_PROJECT_ID__", item.get('id'));
+            //                 // 强制刷新页面
+            //                 location.reload();
+            //             }
+            //         });
+            //     });
+            //
+            // }, (err) => {
+            //     if (err.code === "auth/user-disabled") {
+            //         this.set('errorMsg', "用户被禁用了，请联系管理员！");
+            //     } else if (err.code === "auth/invalid-email") {
+            //         this.set('errorMsg', "邮箱格式不正确！");
+            //     } else if (err.code === "auth/user-not-found") {
+            //         this.set('errorMsg', "登录用户不存在，请先注册再登录！");
+            //     } else if (err.code === "auth/wrong-password") {
+            //         this.set('errorMsg', "密码错误！");
+            //     } else {
+            //         this.set('errorMsg', "网络异常，请确认您的电脑是否联网正常……！");
+            //     }
+            //
+            // });
         }  // end login
 
 

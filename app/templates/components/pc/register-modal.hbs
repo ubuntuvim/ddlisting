@@ -1,3 +1,12 @@
+<!--
+@Author: ubuntuvim
+@Date:   2016-06-10T00:17:41+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-08T01:12:18+08:00
+-->
+
+
+
 {{! app/templates/components/register-modal.hbs 注册}}
 <form {{action 'register' on='submit'}} id="register-modal-form">
 <div class="modal fade" id="register-modal-win" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -15,7 +24,7 @@
           </div>
           <div class="form-group">
             <label for="registerEmail">注册邮箱</label>
-            {{input type="text" class="form-control" id="registerEmail" name="registerEmail" placeholder="1527254027@qq.com" value=email}}
+            {{input type="text" class="form-control" id="registerEmail" name="registerEmail" placeholder="1527254027@qq.com" value=email focus-in="clearTipInfo"}}
           </div>
           <div class="form-group">
             <label for="registerPassword">密码</label>
@@ -30,7 +39,11 @@
 
       </div>
       <div class="modal-footer">
-          <button type="submit" class="btn btn-success">注册</button>
+          <div class="pull-left" id="registerLoading" style="display:none;">
+              <img src="/assets/images/loading/loading.gif" />
+          </div>
+
+          <button type="submit" class="btn btn-success" id="registerBtn">注册</button>
       </div>
     </div>
   </div>

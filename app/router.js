@@ -45,5 +45,6 @@ Router.map(function() {
     this.route('bgImgLibs');
     this.route('login');
   });
+  this.route('test');
 });
 export default Router;

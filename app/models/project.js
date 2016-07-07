@@ -17,5 +17,6 @@ export default DS.Model.extend({
     timestamp: DS.attr('number'),  //项目创建时间
     projStatus: DS.attr('number'), // 项目状态：1-正常；2-删除；3-过期
     isDefaultProj: DS.attr('boolean'), //true-默认分类（默认分类一个用户只有一个）
-    todoItems: DS.hasMany('todo-item')  //关联todo
+    todoItems: DS.hasMany('todo-item'),  //关联todo
+    user: DS.belongsTo('user')  //关联user表
 });

@@ -6,7 +6,7 @@
 * @Last modified time: 2016-07-07T00:02:16+08:00
 */
 import Ember from 'ember';
-import layout from '../templates/components/bg-img-upload';
+import layout from '../../templates/components/pc/bg-img-upload';
 
 export default Ember.Component.extend({
     layout,

@@ -1,8 +1,8 @@
-{{! todo广场，显示所有的公开的todo  app/templates/pc/index.hbs 
+{{! todo广场，显示所有的公开的todo  app/templates/pc/index.hbs
 @Author: ubuntuvim
 @Date:   2016-06-28T00:11:26+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-07T01:37:44+08:00
+@Last modified time: 2016-07-09T15:53:11+08:00
 todo广场，显示所有的公开的todo}}
 
 <nav class="navbar navbar-default opacity09" style="border-radius: 0; z-index: 1100;">
@@ -42,30 +42,29 @@ todo广场，显示所有的公开的todo}}
         </li>
     </ul>
 
-      <!-- 分辨率小于768px不显示 -->
-      <ul class="nav navbar-nav navbar-right">
-          {{#if model.loginUser}}
-            <li>
-              {{#link-to 'pc.projects.todos' model.defaultProjectId}}
-                  我的列表
-              {{/link-to}}
-            </li>
-            <li>
-              <a href ="#" {{action 'logout'}}>退出</a>
-            </li>
-        {{else}}
-            <li>
-              <a href="#" data-toggle="modal" data-target="#register-modal-win">
-                  注册{{model.loginUser}}
-              </a>
-            </li>
-            <li>
-              <a href="#" data-toggle="modal" data-target="#login-modal-win">
-                  登录
-              </a>
-            </li>
-        {{/if}}
-      </ul>
+    <ul class="nav navbar-nav navbar-right">
+        {{#if model.loginUser}}
+          <li>
+            {{#link-to 'pc.projects.todos' model.defaultProjectId}}
+                <font color="black">我的列表</font>
+            {{/link-to}}
+          </li>
+          <li>
+            <a href ="#" {{action 'logout'}}>退出</a>
+          </li>
+      {{else}}
+          <li>
+            <a href="#" data-toggle="modal" data-target="#register-modal-win">
+                注册{{model.loginUser}}
+            </a>
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#login-modal-win">
+                登录
+            </a>
+          </li>
+      {{/if}}
+    </ul>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

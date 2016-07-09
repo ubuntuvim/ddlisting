@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-07T01:40:53+08:00
+* @Last modified time: 2016-07-09T14:38:40+08:00
 */
 
 import Ember from 'ember';
@@ -29,7 +29,9 @@ export default Ember.Component.extend({
     actions: {
         //保存todo
         saveTodoItem() {
-
+            // 设置为readonly，防止未保存完成再次提交
+            var newTodoId = Ember.$("#newTodoId");
+            newTodoId.attr('readonly', true);
             var title = this.get('title');
             if (title) {
                 var star = false;
@@ -64,7 +66,9 @@ export default Ember.Component.extend({
                 let proj = this.store.peekRecord('project', defaultProjectId);
                 proj.get('todoItems').pushObject(todo);
                 todo.save().then(function () {
-                    proj.save();
+                    proj.save().then(() => {
+                        newTodoId.attr('readonly', false);
+                    });
                 });
                 //清空title
                 this.set('title', '');

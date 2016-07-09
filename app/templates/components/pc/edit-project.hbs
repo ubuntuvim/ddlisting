@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-29T21:13:18+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-07T01:33:01+08:00
+@Last modified time: 2016-07-09T14:22:08+08:00
 -->
 
 
@@ -25,13 +25,13 @@
           </div>
       </div>
       <div class="modal-footer" style="padding: 10px 15px;">
-          {{#pc/button-with-confirmation type="button" class="btn btn-sm btn-danger pull-left"
+          {{#pc/button-with-confirmation type="button" class="btn btn-sm btn-danger pull-left" id="delProjectBtn"
            text="删除此分类会把所属的所有TODO也删除，请确认？" onConfirm=(action 'delCategory')}}
            删除
            {{/pc/button-with-confirmation}}
 
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
-        <button type="submit" class="btn btn-sm btn-success" {{action 'editCategory'}}>保存</button>
+        <button type="submit" class="btn btn-sm btn-success" {{action 'editCategory'}} id="submitBtn2">保存</button>
       </div>
     </div>
   </div>

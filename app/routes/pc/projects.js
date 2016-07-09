@@ -1,6 +1,12 @@
-// app/routes/project.js
-
+/**
+* 获取user后再逐步关联user的对象  app/routes/project.js
+* @Author: ubuntuvim
+* @Date:   2016-06-28T21:08:17+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-09T13:49:48+08:00
+*/
 import Ember from 'ember';
+import getUserFromSession from '../../utils/get-user-from-session';
 
 export default Ember.Route.extend({
 
@@ -15,27 +21,11 @@ export default Ember.Route.extend({
     // },
 
     model() {
-
-        // console.log("\n\n---------------");
-        // console.log(this.get('queryValue'));
-
         let userId = sessionStorage.getItem("__LOGIN_USER_ID__");
+
         return Ember.RSVP.hash({
-            // 不会在模板中获取这个数据，这里只是为了查询一次数据，是的后面再使用project的时候可以从缓存中获取
-            projects: this.store.findAll('project'),
-
-            // this.store.query('person', { orderBy: 'name', equalTo: 'Peter' });
-            // projects: this.store.query('project', { orderBy: 'userId', equalTo: userId }),
-
-            // projects: this.store.query('project', { userId: userId, projStatus: 1 }).then((proj) => {
-            //     return proj.filter((c) => {
-            //         return (c.get('userId') === userId)
-            //             && (c.get('projStatus') === 1);
-            //     });
-            // }),
-            // todos: this.store.query('todo-item', { userid: userId}).then(function(todos) {
-            //     return todos;
-            // }),
+            // project根据user获取
+            user: this.store.peekRecord('user', userId),
             userEmail: sessionStorage.getItem("__LOGIN_USER_EMAIL__")
         });
     }

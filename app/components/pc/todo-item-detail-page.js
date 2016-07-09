@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-07T01:41:55+08:00
+* @Last modified time: 2016-07-09T14:35:11+08:00
 */
 import Ember from 'ember';
 import dateUtil from '../../utils/date-util';
@@ -37,6 +37,10 @@ export default Ember.Component.extend({
     actions: {
         // 保存子任务，如果父todo是完成状态那么添加的子任务也是完成状态
         saveSubTodo() {
+            // 设置为readonly，防止没保存完成就再次输入
+            let inputId = Ember.$("#newSubTodoId");
+            inputId.attr('readonly', true);
+            // 父todo
             let parentTodoId = Ember.$("#parentTodoId").val();
             let title = this.get('subTodoTitle');
             let parentTodoCheckedId = Ember.$("#parentTodoCheckedId").val();
@@ -63,9 +67,11 @@ export default Ember.Component.extend({
                 // 设置model双向关联
                 parentTodo.get('childTodos').pushObject(todo);
                 todo.save().then(() => {
-                    parentTodo.save();
-                    this.set('subTodoTitle', '');
+                    parentTodo.save().then(() => {
+                        inputId.attr('readonly', false);
+                    });
                 });
+                this.set('subTodoTitle', '');
             }
         },
         // 设置star状态

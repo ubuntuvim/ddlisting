@@ -1,4 +1,10 @@
-// app/controllers/pc/projects/todos.js
+/**
+* 排序、过滤todo app/controllers/pc/projects/todos.js
+* @Author: ubuntuvim
+* @Date:   2016-06-29T22:22:03+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-09T13:34:23+08:00
+*/
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
@@ -17,7 +23,8 @@ export default Ember.Controller.extend({
         return this.get('sortKey');
     }),
     // 排序  完美解决了动态排序问题
-    sortedModel: Ember.computed.sort('model.todos', 'sortDefinition'),
+    // sortedModel: Ember.computed.sort('model.todos', 'sortDefinition'),
+    sortedModel: Ember.computed.sort('model.project.todoItems', 'sortDefinition'),
     reverseSort: true, // 默认降序
     // 排序属性和排序方式（升序、降序）
     sortDefinition: Ember.computed('sortKeyValue', 'reverseSort', function() {
@@ -32,10 +39,10 @@ export default Ember.Controller.extend({
 
     // 多重过滤：1，状态为1；4，不显示子todo
     // model.todos已经是根据用户id和project过滤了
-    completedCount: Ember.computed('model.todos.@each.recordStatus',
-                                        'model.todos.@each.isChildOrParent', function() {
+    completedCount: Ember.computed('sortedModel.@each.recordStatus',
+                                        'sortedModel.@each.isChildOrParent', function() {
 
-        return this.get('model.todos').filter(function(td) {
+        return this.get('sortedModel').filter(function(td) {
             return td.get('recordStatus') === 2 && td.get('isChildOrParent') === 3;
         }).get('length');
         // return 10;

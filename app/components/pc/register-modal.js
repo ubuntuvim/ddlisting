@@ -42,7 +42,7 @@ export default Ember.Component.extend({
             },
     	    registerPassword2: {
     		    required: true,
-    		    minlength: 6,
+    		    // minlength: 6,
     		    equalTo: "#registerPassword"
     	    }
           },

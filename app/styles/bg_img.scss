@@ -1,0 +1,21 @@
+// 背景图片设置样式
+// @Author: ubuntuvim
+// @Date:   2016-07-09T16:29:22+08:00
+// @Last modified by:   ubuntuvim
+// @Last modified time: 2016-07-09T16:44:38+08:00
+#changeBackground .modal-dialog .modal-content .modal-body .row .glyphicon-ok {
+    position: absolute;
+    top: 20px;
+    left: 41px;
+    font-size: 20px;
+    color: white;
+    display: none;
+}
+#changeBackground .modal-dialog .modal-content .modal-body .row a {
+    cursor: pointer;
+}
+#changeBackground .modal-dialog .modal-content .modal-body .row a.thumbnail:hover,
+#changeBackground .modal-dialog .modal-content .modal-body .row a.thumbnail:focus,
+#changeBackground .modal-dialog .modal-content .modal-body .row a.thumbnail.active {
+    background: #ddd;
+}

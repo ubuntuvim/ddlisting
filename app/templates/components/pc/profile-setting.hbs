@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-07-03T15:54:11+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-07T01:34:13+08:00
+@Last modified time: 2016-07-12T01:41:10+08:00
 }}
 <div class="modal fade pc-profile-modal-win" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
@@ -13,10 +13,10 @@
                   <span class="glyphicon glyphicon-menu-left"></span>
               </div> -->
               <div class="profile-img">
-                  <img src="assets/images/profile/profile.jpg" alt="" class="img-circle" />
+                  <img src={{model.user.userProfile}} alt="" class="img-circle" />
               </div>
               <div class="profile-name">
-                  ubuntuvim
+                  {{model.user.nickname}}
               </div>
           </div>
           <div class="panel-body">
@@ -36,7 +36,7 @@
                                         <span class="glyphicon glyphicon-envelope"></span>邮箱：
                                     </div>
                                     <div class="col-md-9 col-xs-9">
-                                        1527254027@qq.com
+                                        {{model.user.email}}
                                     </div>
                                 </div>
                             </li>
@@ -46,7 +46,8 @@
                                         <span class="glyphicon glyphicon-magnet"></span>用户名：
                                     </div>
                                     <div class="col-md-9 col-xs-9">
-                                        <input type="text" value="ubuntuvim" name="nickname" class="form-control">
+                                        {{input type="text" value=model.user.nickname
+                                        name="nickname" class="form-control" onblur=(action 'updateNickname' (mut model.value))}}
                                     </div>
                                 </div>
                             </li>
@@ -63,7 +64,7 @@
                                         <div class="form-group">
                                           <label for="newPwd" class="col-sm-2 control-label">上传新头像</label>
                                           <div class="col-sm-10">
-                                            {{pc/profile-img-upload}}
+                                            {{pc/profile-img-upload model=model}}
                                           </div>
                                           <div class="" id="uploadProfileImgLoading" style="display:none; text-align: center;">
                                               <img src="/assets/images/loading/loading.gif" />
@@ -98,7 +99,7 @@
                                     <span class="glyphicon glyphicon-calendar"></span>注册时间：
                                     </div>
                                     <div class="col-md-9 col-xs-9">
-                                        2016-07-04 09:32
+                                        {{format-date model.user.createDate}}
                                     </div>
                                 </div>
                             </li>
@@ -142,30 +143,37 @@
                                     <div class="" style="margin-top:15px;">
 
                                     </div>
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" id="resetPasswordForm" {{action 'resetPassword' model.user.id on='submit'}} >
                                         <div class="form-group">
                                           <label for="newPwd" class="col-sm-2 control-label">新密码</label>
                                           <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="newPwd" placeholder="请输入新密码" style="width:97%;">
+                                            {{input type="password" class="form-control" id="newPwd" name="newPwd" value=model.user.password placeholder="请输入新密码" style="width:97%;"}}
                                           </div>
                                         </div>
                                         <div class="form-group">
-                                          <label for="comNewPwd" class="col-sm-2 control-label">Email</label>
+                                          <label for="comNewPwd" class="col-sm-2 control-label">确认密码</label>
                                           <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="comNewPwd" placeholder="请输入确认密码" style="width:97%;">
+                                            {{input type="password" class="form-control" id="comNewPwd" name="comNewPwd" placeholder="请输入确认密码" style="width:97%;"}}
                                           </div>
                                         </div>
                                         <div class="form-group">
                                            <div class="col-sm-offset-2 col-sm-10">
                                              <button type="button" class="btn btn-default" onclick="javascript: $('#resetAccountPassword').collapse('hide');">取消</button>
-                                             <button type="button" class="btn btn-primary">修改</button>
+                                             <button type="submit" class="btn btn-primary">修改</button>
+
+                                             <span class="col-sm-offset-2 col-md-offset-2 text-default" id="tipInfoId">
+                                                 {{#if msg}}
+                                                 {{msg}}
+                                                 {{/if}}
+                                             </span>
                                            </div>
+
                                          </div>
                                     </form>
                                 </div>
                             </li>
 
-                            <li class="list-group-item enable-click">
+                            <li class="list-group-item enable-click" {{action 'logout'}}>
                                 <span class="glyphicon glyphicon-log-out"></span>
                                 退出
                             </li>
@@ -179,7 +187,13 @@
                                         <span class="glyphicon glyphicon-bell"></span>消息邮件通知：
                                     </div>
                                     <div class="col-md-9 col-xs-9">
-                                        <input type="checkbox" value="1" name="">
+                                        {{#if model.user.profile.isOpenEmailNotification}}
+                                        <input type="checkbox" name="isOpenEmailNotification" checked value="1"
+                                        {{action 'resetEmailNotification' model.user.profile.id model.user.profile.isOpenEmailNotification}}>
+                                        {{else}}
+                                        <input type="checkbox" name="isOpenEmailNotification" value="0"
+                                        {{action 'resetEmailNotification' model.user.profile.id model.user.profile.isOpenEmailNotification}}>
+                                        {{/if}}
                                     </div>
                                 </div>
                             </li>
@@ -189,7 +203,13 @@
                                         <span class="glyphicon glyphicon-volume-up"></span>提示音：
                                     </div>
                                     <div class="col-md-9 col-xs-9">
-                                        <input type="checkbox" value="1" name="">
+                                        {{#if model.user.profile.isOpenPromptTone}}
+                                        <input type="checkbox" name="isOpenPromptTone" checked value="1"
+                                        {{action 'resetPromptTone' model.user.profile.id model.user.profile.isOpenPromptTone}}>
+                                        {{else}}
+                                        <input type="checkbox" name="isOpenPromptTone" value="0"
+                                        {{action 'resetPromptTone' model.user.profile.id model.user.profile.isOpenPromptTone}}>
+                                        {{/if}}
                                     </div>
                                 </div>
                             </li>

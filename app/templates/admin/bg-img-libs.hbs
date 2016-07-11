@@ -1,4 +1,10 @@
 {{! app/templates/admin/bg-img-libs.hbs 后台背景图片设置列表}}
+@Author: ubuntuvim
+@Date:   2016-07-07T21:59:20+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-09T16:20:29+08:00
+}}
+
 <nav class="navbar navbar-default opacity09" style="border-radius: 0; z-index: 1100;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -50,7 +56,12 @@
                 <td>{{bg.imgUrl}}</td>
                 <td>{{bg.imgUploadTime}}</td>
                 <td>
-                    <span {{action 'edit' bg.id}}>编辑</span>
+                    <span {{action 'edit' bg.id}}>编辑</span> &nbsp;|&nbsp;
+                    {{#pc/button-with-confirmation type="button" class="btn btn-danger btn-xs"
+                     text="确定要删除此背景图片吗？"
+                     onConfirm=(action 'del' bg.id)}}
+                        删除
+                     {{/pc/button-with-confirmation}}
                 </td>
               </tr>
               {{/each}}

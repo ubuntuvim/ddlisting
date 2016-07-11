@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-07T00:53:49+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-07T01:47:32+08:00
+* @Last modified time: 2016-07-12T01:33:48+08:00
 */
 import Ember from 'ember';
 import layout from '../../templates/components/pc/profile-img-upload';
@@ -47,6 +47,13 @@ export default Ember.Component.extend({
             user.save().then(() => {
                 Ember.$("#uploadProfileImgLoading").hide();
                 Ember.$("#uploadProfileImgLoadingText").show();
+                // 清空input
+                Ember.$("#uploadProfileImgInputId").after(Ember.$("#uploadProfileImgInputId").clone().val(""));
+                Ember.$("#uploadProfileImgInputId").remove();
+
+                setTimeout(function() {
+                    Ember.$("#uploadProfileImgLoadingText").hide();
+                }, 3000);
             });
         });
 

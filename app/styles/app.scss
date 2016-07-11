@@ -1,3 +1,9 @@
+// 项目所有自定义样式
+// @Author: ubuntuvim
+// @Date:   2016-06-25T00:24:36+08:00
+// @Last modified by:   ubuntuvim
+// @Last modified time: 2016-07-09T16:32:36+08:00
+
 @import "bootstrap";  /* 导入bootstrap */
 // 导入pc端todo主页面
 @import "todos";
@@ -5,6 +11,8 @@
 @import "pc_todo_item_detail";
 // 导入pc端header详细设置界面样式
 @import "pc_header";
+// 背景图片样式
+@import "bg_img";
 
 // 导入管理后台更换背景图片功能样式
 @import "admin_bg_imgs";

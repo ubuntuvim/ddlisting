@@ -1,4 +1,9 @@
-{{! app/templates/components/change-background-img.hbs 更改背景图片}}
+{{! app/templates/components/change-background-img.hbs 更改背景图片
+@Author: ubuntuvim
+@Date:   2016-07-04T21:28:54+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-09T16:07:39+08:00
+}}
 <!-- Modal -->
 <div class="modal fade" id="changeBackground" tabindex="-1" role="dialog" aria-labelledby="changeBackgroundImgLabel">
   <div class="modal-dialog" role="document">
@@ -9,26 +14,14 @@
       </div>
       <div class="modal-body">
           <div class="row">
-            <div class="col-xs-6 col-md-3">
-              <a class="thumbnail">
-                <img src="https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg" alt="...">
-              </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-              <a class="thumbnail">
-                <img src="https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg" alt="...">
-              </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-              <a class="thumbnail">
-                <img src="https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg" alt="...">
-              </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-              <a class="thumbnail">
-                <img src="https://static.wunderlist.com/5aaca85e30b556b7d189cb20be1bcb4862f7220b/images/backgrounds/2048/05.jpg" alt="...">
-              </a>
-            </div>
+              {{#each model.bgImgList as |bg|}}
+                <div class="col-xs-4 col-md-2" {{action 'resetBgImg' bg.imgUrl bg.id}}>
+                    <span class="glyphicon glyphicon-ok" id="span{{bg.id}}"></span>
+                  <a class="thumbnail" id={{bg.id}}>
+                    <img src={{bg.imgThumb}} alt={{bg.imgTitle}}>
+                  </a>
+                </div>
+              {{/each}}
           </div>
       </div>
     </div>

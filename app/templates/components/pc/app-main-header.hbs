@@ -1,5 +1,9 @@
-{{! 首页顶部工具栏}}
-{{!yield}}
+{{! 首页顶部工具栏 app/templates/components/pc/app-main-header.hbs
+@Author: ubuntuvim
+@Date:   2016-06-29T21:13:18+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-12T01:26:40+08:00
+}}
 <nav class="navbar navbar-default opacity09" style="border-radius: 0; z-index: 1100;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,7 +40,7 @@
         <li class="1">
           <a href="#" class="header-pic dropdown-toggle" data-toggle="dropdown"
             role="button" aria-haspopup="true" aria-expanded="false">
-              <img src="http://list.ddlisting.com/assets/images/profile-photo-bd164e6840de7dcf3fb823c789237075.jpg"
+              <img src={{model.user.userProfile}}
                   alt="头像" width="45px" height="45px" class="img-circle" />
               <span class="caret"></span>
           </a>

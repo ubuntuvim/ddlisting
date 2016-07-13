@@ -1,4 +1,9 @@
-// todos.hbs 页面样式
+// 中间主体部分样式  主要是用在todos.hbs
+// @Author: ubuntuvim
+// @Date:   2016-06-29T23:31:19+08:00
+// @Last modified by:   ubuntuvim
+// @Last modified time: 2016-07-13T23:47:12+08:00
+
 /* ========================= 右侧面板 =========================  */
 #appMainRightId {
     margin-left: 230px;
@@ -156,6 +161,7 @@
     z-index: 1100;
     width: 250px;
     margin-left: -10px;
+    // left: 0;
 }
 #appMainRightId .form-grouphas-feedback .input-group-addon {
     border: 0;
@@ -168,9 +174,10 @@
     opacity: 0.3;
     /* padding-top: 2px; */
     border: 0;
+    border-radius: 4px;
 }
 #appMainRightId .form-grouphas-feedback input:hover {
-    width: 350px;
+    // width: 350px;
 }
 /* 设置输入框的placeholder属性颜色 */
 #appMainRightId .form-grouphas-feedback input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
@@ -195,6 +202,7 @@
     // margin-right: 20px;
     left: 400px;
     border-radius: 4px;
+    opacity: 0.8;
 }
 
 #appMainRightId .pc-main-page-tools .btn-group {
@@ -244,4 +252,26 @@
 // ===================== 设置todo的选中状态 -----
 .todo-item-selected-status {
     background-color: #dedede;
+}
+#appMainRightId .form-grouphas-feedback .input-group .input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    color: #555555;
+    text-align: center;
+    opacity: 0.6;
+    // background-color: #eeeeee;
+    // border: 1px solid #ccc;
+    // border-radius: 4px;
+}
+#appMainRightId .form-grouphas-feedback .input-group .glyphicon-search {
+    font-size: 16px;
+    /* font-weight: normal; */
+    /* line-height: 1; */
+    /* color: #555555; */
+    /* position: absolute; */
+    top: 4px;
+    /* left: 0; */
+    color: #aaa;
 }

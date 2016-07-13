@@ -1,4 +1,37 @@
 // 顶部导航样式
+// @Author: ubuntuvim
+// @Date:   2016-07-03T15:57:31+08:00
+// @Last modified by:   ubuntuvim
+// @Last modified time: 2016-07-13T23:44:47+08:00
+/* ========================== 顶部工具栏样式 ==========================  */
+#appMainHeaderId .search-input  {
+    font-family: "Ubuntu Mono", sans-serif;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.4);
+    background: none;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-appearance: none !important;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    min-height: 28px;
+}
+
+#app-main-header-collapse .input-group-addon {
+    border: 0;
+    // border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+#app-main-header-collapse img {
+    margin-top: 2px;
+}
+
+.navbar .container-fluid .navbar-header a {
+    color: #444;
+}
 .navbar .container-fluid .collapse .nav .header-pic {
     padding: 0;
 }

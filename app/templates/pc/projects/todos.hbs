@@ -2,18 +2,21 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T21:08:17+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-09T13:40:44+08:00
+@Last modified time: 2016-07-13T22:39:26+08:00
 }}
 
 <div class="form-grouphas-feedback">
     <div class="input-group">
-      <span class="input-group-addon">
+      <!-- <span class="input-group-addon">
           <span class="glyphicon glyphicon-search"></span>
-      </span>
+      </span> -->
       <!-- <input type="text" value={{favoriteBand}} onblur={{action "bandDidChange" value="target.value"}} /> -->
       {{input type="text" class="form-control search-input" placeholder="任务搜索……"
           id="todoSearchInputId" aria-describedby="searchAriaDescribedby" value=queryTodoValue}}
           {{!input type="hidden" value=sortDefinition}}
+
+      <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+      <span id="searchAriaDescribedby" class="sr-only">(success)</span>
     </div>
 </div>
 

@@ -1,5 +1,13 @@
-// app/components/app-main-header.js
+/**
+* 顶部导航栏处理类  app/components/app-main-header.js
+* @Author: ubuntuvim
+* @Date:   2016-07-09T15:21:32+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-14T23:57:02+08:00
+*/
+
 import Ember from 'ember';
+import logout from '../../utils/logout';
 // import config from '../config/environment';
 
 // 顶部导航栏
@@ -14,13 +22,7 @@ export default Ember.Component.extend({
 
     actions: {
         logout() {
-            //退出，删除保存到sessionStorage里的信息
-            sessionStorage.removeItem("__LOGIN_USER_ID__");
-            //  初始化firebase对象
-            // var logoutFirebase = firebase.initializeApp(config.firebase, "LogoutFirebase");
-            // firebase.auth().signOut();
-            // 强制刷新页面
-            location.reload();
+            logout();
         }
     }
 });

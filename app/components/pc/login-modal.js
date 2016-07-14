@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-28T21:08:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-08T01:09:54+08:00
+* @Last modified time: 2016-07-15T00:01:25+08:00
 */
 import Ember from 'ember';
 
@@ -74,8 +74,15 @@ export default Ember.Component.extend({
                     let userId = user.get('id');
                     Ember.Logger.debug("用户ID：" + userId);
                     sessionStorage.setItem("__LOGIN_USER_ID__", userId);
-                    // 强制刷新页面
-                    location.reload();
+                    //获取默认的分类
+                    user.get('projects').forEach((item) => {
+                        if (item.get('isDefaultProj')) {  //默认分类
+                            sessionStorage.setItem("__DEFAULT_PROJECT_ID__", item.get('id'));
+                            // debugger;
+                            // 强制刷新页面
+                            location.reload();
+                        }
+                    });
 
                 } else {
                     this.set('errorMsg', "用户名或密码有误，请确认在登录。");

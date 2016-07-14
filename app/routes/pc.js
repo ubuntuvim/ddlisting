@@ -11,6 +11,7 @@ export default Ember.Route.extend({
 
     model() {
         let userId = sessionStorage.getItem("__LOGIN_USER_ID__");
+        let defaultProjectId = sessionStorage.getItem('__DEFAULT_PROJECT_ID__')
         let user = this.store.peekRecord('user', userId);
         // let profile = null;
         // if (user) {
@@ -26,9 +27,11 @@ export default Ember.Route.extend({
         // });
         // console.log(profile.get('isOpenPromptTone'));
 
+        // sessionStorage.setItem("__LOGIN_USER_ID__", userId);
+
         return Ember.RSVP.hash({
-            loginUser: sessionStorage.getItem("__LOGIN_USER_ID__"),
-            defaultProjectId: sessionStorage.getItem('__DEFAULT_PROJECT_ID__'),
+            loginUser: userId,
+            defaultProjectId: defaultProjectId,
             user: user,
             bgImgList: this.store.findAll('bg-img-libs')
         });

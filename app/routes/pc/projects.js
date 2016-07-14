@@ -18,6 +18,7 @@ export default Ember.Route.extend({
         let userId = sessionStorage.getItem("__LOGIN_USER_ID__");
 
         return Ember.RSVP.hash({
+            loginUser: userId,
             // project根据user获取
             user: this.store.peekRecord('user', userId),
             userEmail: sessionStorage.getItem("__LOGIN_USER_EMAIL__")

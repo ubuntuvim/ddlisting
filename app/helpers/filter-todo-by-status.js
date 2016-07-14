@@ -1,4 +1,11 @@
-// app/Helpers/filter-todo-by-status.js
+/**
+* 根据todo的状态过滤   app/Helpers/filter-todo-by-status.js
+* @Author: ubuntuvim
+* @Date:   2016-06-30T23:02:41+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-14T23:19:20+08:00
+*/
+
 import Ember from 'ember';
 
 // 根据todo的状态过滤
@@ -11,13 +18,13 @@ export function filterTodoByStatus(params/*, hash*/) {
     if (type) {
         if ('__COMPLETED_NOT_DEL__' === type) {  //显示完成的、非删除状态的todo
             if (queryTitle && srcTitle) {
-                return status === 2 && srcTitle.indexOf(queryTitle) != -1;
+                return status === 2 && srcTitle.indexOf(queryTitle) !== -1;
             } else {
                 return status === 2;  //只显示未完整状态todo
             }
         } else if ('__NOT_COMPLETED_NOT_DEL__' === type) {  //未完成的、非删除状态
             if (queryTitle && srcTitle) {
-                return status === 1 && srcTitle.indexOf(queryTitle) != -1;
+                return status === 1 && srcTitle.indexOf(queryTitle) !== -1;
             } else {
                 return status === 1;  //只显示未完整状态todo
             }

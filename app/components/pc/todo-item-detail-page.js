@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-09T14:35:11+08:00
+* @Last modified time: 2016-07-14T22:23:34+08:00
 */
 import Ember from 'ember';
 import dateUtil from '../../utils/date-util';
@@ -14,6 +14,14 @@ export default Ember.Component.extend({
     defaultProjectId: sessionStorage.getItem('__DEFAULT_PROJECT_ID__'),
 
     didUpdate() {
+
+    },
+    didInsertElement() {
+        // 展开右侧详细设置页面的同时缩小中间部分
+        Ember.$('#appMainRightId').css("marginRight", '390px');
+        // 引入textarea根据内容自适应插件
+        // Ember.$('textarea').flexText();
+        Ember.$("#middleOverflowId").attr('overflow', 'auto');
         //鼠标移动到子任务列表显示右侧的删除按钮
         Ember.$("#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group").mousemove(function() {
             Ember.$(this).children("p").children('.glyphicon').show();
@@ -22,17 +30,12 @@ export default Ember.Component.extend({
         Ember.$("#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group").mouseout(function() {
             Ember.$(this).children("p").children('.glyphicon').hide();
         });
-        Ember.$("#middleOverflowId").attr('overflow', 'auto');
+        // Ember.$("#middleOverflowId").attr('overflow', 'auto');
         // 设置刷新后选中的todo，设置其背景色,，在todo-item-page.js里设置点击时的选中状态
         let ids = "#"+Ember.$("#selectedTodoId").val();  //选中的todo id值
+        Ember.Logger.debug("设置刷新后选中的todo id为: " + ids);
         Ember.$(ids).addClass('todo-item-selected-status');
-    },
-    didInsertElement() {
-        // 展开右侧详细设置页面的同时缩小中间部分
-        Ember.$('#appMainRightId').css("marginRight", '390px');
-        // 引入textarea根据内容自适应插件
-        // Ember.$('textarea').flexText();
-        Ember.$("#middleOverflowId").attr('overflow', 'auto');
+
     },
     actions: {
         // 保存子任务，如果父todo是完成状态那么添加的子任务也是完成状态

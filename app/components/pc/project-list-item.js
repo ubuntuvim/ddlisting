@@ -1,4 +1,10 @@
-// app/components/project-list-item.js
+/**
+* 每个分类处理  app/components/project-list-item.js
+* @Author: ubuntuvim
+* @Date:   2016-06-28T21:08:17+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-14T22:27:13+08:00
+*/
 
 import Ember from 'ember';
 
@@ -14,7 +20,8 @@ export default Ember.Component.extend({
                 Ember.$(Ember.$(this).children('span')[0]).removeClass('glyphicon-edit');
             });
             // 设置选中者的状态，并设置列表前的图标为编辑
-            // 选中的状态在app/components/todo-item-page.js设置，这里只设置点击时候的选中状态
+            // 刷新后的选中状态在app/components/todo-item-page.js设置，这里只设置点击时候的选中状态
+            Ember.$(this).addClass('pc-category-list-item-active');
             // $($(this).children('span')[0]).removeClass('glyphicon-list');
             Ember.$(Ember.$(this).children('span')[0]).addClass('glyphicon-edit');
         });

@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-28T21:08:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-09T16:00:09+08:00
+* @Last modified time: 2016-07-15T00:30:00+08:00
 */
 import Ember from 'ember';
 
@@ -11,7 +11,7 @@ export default Ember.Route.extend({
     // 判断用户是否登录了，没有登录不允许进入
     redirect(model, transition) {
         if (!sessionStorage.getItem("__LOGIN_USER_ID__")) {
-            this.transitionTo('pc');
+            this.transitionTo('help');
         }
     },
     model() {

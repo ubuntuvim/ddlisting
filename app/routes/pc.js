@@ -1,13 +1,21 @@
 /**
 * PC端主模板路由入口 app/routes/pc.js
+* 如果用户未登录则直接转到help页面
 * @Author: ubuntuvim
 * @Date:   2016-05-27T00:48:14+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-12T01:44:09+08:00
+* @Last modified time: 2016-07-15T00:22:38+08:00
 */
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+
+    // 判断用户是否登录了，没有登录不允许进入
+    redirect(model, transition) {
+        if (!sessionStorage.getItem("__LOGIN_USER_ID__")) {
+            this.transitionTo('help');
+        }
+    },
 
     model() {
         let userId = sessionStorage.getItem("__LOGIN_USER_ID__");

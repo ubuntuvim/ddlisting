@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-25T00:24:36+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-09T15:48:43+08:00
+* @Last modified time: 2016-07-15T00:52:19+08:00
 */
 import Ember from 'ember';
 import config from './config/environment';
@@ -24,7 +24,6 @@ Router.map(function() {
     // this.route('todoitem', { path: '/:todo_id' });
     // this.route('newCategory');
     // this.route('login-register');
-    // this.route('profile');
   });
 
   // this.route('m', function() {
@@ -46,6 +45,8 @@ Router.map(function() {
   });
 
   this.route('updateFirebaseData');
+  // 项目介绍页面
+  this.route('help');
 
   // app的管理后台
   this.route('admin', function() {

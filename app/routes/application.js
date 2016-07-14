@@ -4,7 +4,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-05-26T22:15:56+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-12T01:55:30+08:00
+* @Last modified time: 2016-07-15T00:22:32+08:00
 */
 import Ember from 'ember';
 

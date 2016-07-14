@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-14T22:23:34+08:00
+* @Last modified time: 2016-07-14T22:33:32+08:00
 */
 import Ember from 'ember';
 import dateUtil from '../../utils/date-util';
@@ -83,7 +83,34 @@ export default Ember.Component.extend({
         },
         // 设置完成状态
         doChecked(id, check) {
-            completedTodo(id, check, this.store);
+            // completedTodo(id, check, this.store);
+            this.store.findRecord('todo-item', id).then((td) => {
+                if (check) {
+                    // 未完成
+                    td.set('recordStatus', 1);
+                    td.set('checked', false);
+                    // 设置所有的子todo为非完成状态
+                    td.get('childTodos').forEach((std) => {
+                        this.store.findRecord('todo-item', std.id).then(function(subtd) {
+                            subtd.set('recordStatus', 1);
+                            subtd.set('checked', false);
+                            subtd.save();
+                        });
+                    });
+                } else {  //完成状态
+                    td.set('checked', true);
+                    td.set('recordStatus', 2);
+                    // 设置所有的子todo为完成状态
+                    td.get('childTodos').forEach((std) => {
+                        this.store.findRecord('todo-item', std.id).then(function(subtd) {
+                            subtd.set('recordStatus', 2);
+                            subtd.set('checked', true);
+                            subtd.save();
+                        });
+                    });
+                }
+                td.save();
+            });
         },
         // 设置todo是否公开
         doPublic(id, isPublish) {

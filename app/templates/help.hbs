@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-07-15T00:18:51+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-17T13:34:51+08:00
+@Last modified time: 2016-07-17T22:18:01+08:00
 }}
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -35,9 +35,13 @@
       <ul class="nav navbar-nav navbar-right">
           {{#if model.loginUser}}
             <li>
-              {{#link-to 'pc.projects.todos' model.defaultProjectId}}
-                  <font color="black">我的列表</font>
-              {{/link-to}}
+                {{#each model.user.projects as |proj|}}
+                    {{#if proj.isDefaultProj}}
+                      {{#link-to 'pc.projects.todos' proj.id}}
+                          <font color="black">我的列表</font>
+                      {{/link-to}}
+                    {{/if}}
+                {{/each}}
             </li>
             <li>
               <a href ="#" {{action 'logout'}}>退出</a>
@@ -60,6 +64,164 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+{{! APP介绍}}
+<div class="container-fluid help-container-fluid">
+    <div class="row index-intro">
+        <div class="col-md-12 col-sm-12" style="text-align:center;">
+            <h1>优美、简洁、实用的主页</h1>
+            <br>
+            <p>
+                秉承当下流行的设计趋势，减少不必要的设计，让用户用的舒服、用的爽是我们的目标。
+            </p>
+            <p>
+                    天天清单采用采用APP页面结构，顶部是logo和工具栏，左侧是清单分类。
+            </p>
+            <p>
+                右侧主体部分是我们最重要的一块，用户的清单全部可以在这里查看到，并且对列表项操作。
+            </p>
+            <br><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <img src="/assets/images/help/help-index.png" alt="" class="img-responsive"/>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 help-show-text">
+            <h1>清单列表</h1>
+            <br>
+            <p>
+                中间的清单列表是整个APP的主体，
+            </p>
+            <p>
+                我们新增的任务都会在这里显示。
+            </p>
+            <p>
+                已经完成的任务会以暗色、中划线标注，强调不同的视觉效果。
+            </p>
+        </div>
+        <div class="col-md-8 col-sm-8">
+            <img src="/assets/images/help/help-list.png" alt="" class="img-responsive"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            <img src="/assets/images/help/help-detail.png" alt="" class="img-responsive"/>
+        </div>
+        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 300px;">
+            <h1>详细设置清单项</h1>
+            <br>
+            <p>
+                点击列表清单项后会在界面右侧展开清单详细设置页面，
+            </p>
+            <p>
+                你可以修改标题、设置到期时间、还可以给清单项增加子任务。
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 200px;">
+            <h1>快速、智能搜索</h1>
+            <br>
+            <p>
+                天天清单是基于Ember.js构建的，
+            </p>
+            <p>
+                数据双向绑定，能即刻响应数据的变化。
+            </p>
+            <p>
+                即搜即得，快速响应。
+            </p>
+        </div>
+        <div class="col-md-8 col-sm-8">
+            <img src="/assets/images/help/help-search.png" alt="" class="img-responsive"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            <img src="/assets/images/help/help-sort.png" alt="" class="img-responsive"/>
+        </div>
+        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 200px;">
+            <h1>简单、快速排序</h1>
+            <br>
+            <p>
+                点击排序样式即刻排序，完全不需要担心页面刷新问题。
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 200px;">
+            <h1>背景图片随时换</h1>
+            <br>
+            <p>
+                背景图片想换就换，点击即刻换装，
+            </p>
+            <p>
+                满足您的个性化需求。
+            </p>
+            <p>
+                年轻就是要我行我素。
+            </p>
+        </div>
+        <div class="col-md-8 col-sm-8">
+            <img src="/assets/images/help/help-chang-bg-img.png" alt="" class="img-responsive"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            <img src="/assets/images/help/help-profile.png" alt="" class="img-responsive"/>
+        </div>
+        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 200px;">
+            <h1>自定义设置</h1>
+            <br>
+            <p>
+                我们的清单绝不止一个模样。
+            </p>
+        </div>
+    </div>
+
+
+    <div id="footer">
+      <div class="">
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+            <span class="glyphicon glyphicon-envelope"></span>
+            <h3 style="margin-top: 30px;">联系我们</h3>
+            1527254027@qq.com
+            <br>
+            chendequanroob@gmail.com
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <span class="glyphicon glyphicon-globe"></span>
+            <h3 style="margin-top: 30px;">加入天天家庭</h3>
+            <a href="https://github.com/ubuntuvim">Github DDListing</a>
+            <br>
+            QQ 群: <span style="font-size:14px;">242650456</span>
+          </div>
+          <div class="col-md-4 col-sm-4" style="margin-top: -10px;">
+            <i class="iconfont" style="font-size: 35px;">&#xe600;</i>
+            <h3 style="">微博</h3>
+            <a href="http://weibo.com/ubuntuvim">
+              ubuntuvim
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-leanote">Copyright © 2016-2017 | 本站由<a href="http://www.ddlisting.com" target="_blank">天天科技</a>发布，
+          <a href="http://www.ddlisting.com/#ddfeedback" target="_blank">欢迎留言</a> | 粤ICP备15111600号</div>
+    </div>
+</div>
 
 
 <!-- 登录 -->

@@ -2,7 +2,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-06-25T00:24:36+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-07-13T23:37:07+08:00
+// @Last modified time: 2016-07-17T23:53:33+08:00
 
 @import "bootstrap";  /* 导入bootstrap */
 @import "left";  //左侧分类列表
@@ -14,6 +14,8 @@
 @import "pc_header";
 // 背景图片样式
 @import "bg_img";
+// help页面
+@import "help";
 
 // 导入管理后台更换背景图片功能样式
 @import "admin_bg_imgs";
@@ -22,7 +24,11 @@ body {
   overflow: hidden;
   font-family: "Lato","Microsoft Yahei","微软雅黑","STXihei","Meiryo UI","Meiryo","メイリオ","ＭＳ Ｐゴシック","MS PGothic","Hiragino Kaku Gothic Pro","Arial Unicode MS","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
-
+// loading样式
+.loading-text {
+    margin-top: 20px;
+    color: green;
+}
 // app的背景图片
 .app-bg-img {
     position:absolute;

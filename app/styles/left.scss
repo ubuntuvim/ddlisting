@@ -1,14 +1,15 @@
 // @Author: ubuntuvim
 // @Date:   2016-07-13T23:14:11+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-07-13T23:15:41+08:00
+// @Last modified time: 2016-07-17T23:51:55+08:00
 /* ========================== 左侧面板 ==========================  */
+// ::-webkit-scrollbar{width:1px;}
 #appMainLeftId {
     top: -21px;
     position:absolute;
     width: 220px !important;
-    height: 100%;
-    overflow: auto;
+    height: 100vh;
+    // overflow: auto;
     opacity: 0.8;
 }
 // 当字数超过匡杜时使用省略号替代
@@ -50,6 +51,9 @@
 }
 #appMainLeftId .panel .panel-body .list-group a {
     text-decoration: none;
+}
+#appMainLeftId .panel .panel-body .inner {
+    height: 100vh;
 }
 #appMainLeftId .my-list-group-item {
     border-radius: 0 !important;

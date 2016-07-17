@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T00:11:26+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-15T00:09:44+08:00
+@Last modified time: 2016-07-17T14:49:23+08:00
 todo广场，显示所有的公开的todo}}
 
 <nav class="navbar navbar-default opacity09" style="border-radius: 0; z-index: 1100;">
@@ -43,27 +43,19 @@ todo广场，显示所有的公开的todo}}
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-        {{#if model.loginUser}}
-          <li>
-            {{#link-to 'pc.projects.todos' model.defaultProjectId}}
-                <font color="black">我的列表</font>
-            {{/link-to}}
-          </li>
-          <li>
-            <a href ="#" {{action 'logout'}}>退出</a>
-          </li>
-      {{else}}
-          <li>
-            <a href="#" data-toggle="modal" data-target="#register-modal-win">
-                注册
-            </a>
-          </li>
-          <li>
-            <a href="#" data-toggle="modal" data-target="#login-modal-win">
-                登录
-            </a>
-          </li>
-      {{/if}}
+      <li>
+          {{! 显示默认的分类}}
+          {{#each model.user.projects as |proj|}}
+              {{#if proj.isDefaultProj}}
+                {{#link-to 'pc.projects.todos' proj.id}}
+                    <font color="black">我的列表</font>
+                {{/link-to}}
+              {{/if}}
+          {{/each}}
+      </li>
+      <li>
+        <a href ="#" {{action 'logout'}}>退出</a>
+      </li>
     </ul>
 
     </div><!-- /.navbar-collapse -->
@@ -172,10 +164,3 @@ todo广场，显示所有的公开的todo}}
     </div>
 
 </div><!-- container-fluid -->
-
-
-<!-- 登录 -->
-{{pc/login-modal store=store}}
-
-<!-- 注册 -->
-{{pc/register-modal store=store}}

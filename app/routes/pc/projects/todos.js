@@ -1,22 +1,20 @@
 /**
+* app/routes/pc/projects/todos.js todo主路由
 * @Author: ubuntuvim
 * @Date:   2016-06-28T21:08:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-09T13:17:05+08:00
+* @Last modified time: 2016-07-17T16:44:09+08:00
 */
 
-
-
-// app/routes/pc/projects/todos.js
-
 import Ember from 'ember';
+import getUserId from '../../../utils/get-user-id';
 
 export default Ember.Route.extend({
 
     // categoryCtrl: Ember.inject.controller('category'),
     redirect(model, transition) {
         // 判断用户是否登录了，没有登录不允许进入
-        if (!sessionStorage.getItem("__LOGIN_USER_ID__")) {
+        if (!getUserId()) {
             this.transitionTo('help');
         }
     },

@@ -7,10 +7,11 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-10T00:17:41+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-08T00:38:19+08:00
+* @Last modified time: 2016-07-17T16:53:43+08:00
 */
 import Ember from 'ember';
 import randomUserAvatar from '../../utils/random-user-avatar';
+import config from '../../config/environment';
 
 export default Ember.Component.extend({
 
@@ -25,7 +26,7 @@ export default Ember.Component.extend({
         //   databaseURL: "https://luminous-heat-9079.firebaseio.com",
         //   storageBucket: "luminous-heat-9079.appspot.com",
         // };
-        // firebase.initializeApp(config.firebase);
+        // firebase.initializeApp(config.APP.firebase);
 
         //表单校验
         Ember.$("#register-modal-form").validate({
@@ -85,10 +86,10 @@ export default Ember.Component.extend({
             //     // console.log('data.email == ' + data.email);
             //     // console.log('data.photoUrl == ' + data.current.photoUrl);
             //     // console.log('data.displayName == ' + data.displayName);
-            //     // sessionStorage.setItem("__LOGIN_USER_NICKNAME__", data.displayName);
+            //     // sessionStorage.setItem(config.APP.__LOGIN_USER_NICKNAME__, data.displayName);
             //     let userId = data.uid;
-            //     sessionStorage.setItem("__LOGIN_USER_EMAIL__", data.email);
-            //     sessionStorage.setItem("__LOGIN_USER_ID__", userId);
+            //     sessionStorage.setItem(config.APP.__LOGIN_USER_EMAIL__, data.email);
+            //     sessionStorage.setItem(config.APP.__LOGIN_USER_ID__, userId);
             //     // 注册成功初始化一个分类，并设置分类id到session中
             //     this.store.createRecord('project', {
             //         userId: userId,
@@ -99,7 +100,7 @@ export default Ember.Component.extend({
             //     }).save().then((proj) => {
             //         let projId = proj.get('id');
             //         Ember.Logger.debug("默认分类ID：" + projId);
-            //         sessionStorage.setItem("__DEFAULT_PROJECT_ID__", projId);
+            //         sessionStorage.setItem(config.APP.__DEFAULT_PROJECT_ID__, projId);
             //         // 强制刷新页面
             //         location.reload();
             //     }, () => {
@@ -176,20 +177,25 @@ export default Ember.Component.extend({
                     project.save().then((proj) => {
                         profile.save().then((prof) => {
                             user.save().then((u) => {
-                                sessionStorage.setItem("__LOGIN_USER_NICKNAME__",u.get('nickname'));
-                                sessionStorage.setItem("__LOGIN_USER_EMAIL__",u.get('email'));
+                                // sessionStorage.setItem(config.APP.__LOGIN_USER_NICKNAME__, u.get('nickname'));
+                                // sessionStorage.setItem(config.APP.__LOGIN_USER_EMAIL__, u.get('email'));
                                 let userId = u.get('id');
                                 Ember.Logger.debug("用户ID：" + userId);
-                                sessionStorage.setItem("__LOGIN_USER_ID__", userId);
+                                sessionStorage.setItem(config.APP.__LOGIN_USER_ID__, userId);
+                                Ember.$.cookie(config.APP.__LOGIN_USER_ID__, userId, { expires: 7 });
 
                                 let projId = proj.get('id');
                                 Ember.Logger.debug("默认分类ID：" + projId);
-                                sessionStorage.setItem("__DEFAULT_PROJECT_ID__", projId);
+                                // sessionStorage.setItem(config.APP.__DEFAULT_PROJECT_ID__, projId);
 
                                 Ember.Logger.debug("profile ID：" + prof.get('id'));
-                                sessionStorage.setItem("__DEFAULT_PROFILE_ID__", prof.get('id'));
+                                // sessionStorage.setItem(config.APP.__DEFAULT_PROFILE_ID__, prof.get('id'));
                                 // 强制刷新页面
-                                location.reload();
+                                // location.reload();
+                                // 关闭modal
+                                Ember.$("#register-modal-win").modal('toggle');
+                                location.href = "/#/pc";
+
                             }, (err) => {
                                 Ember.Logger.debug("保存user失败！\n" + err);
                                 this.set('errorMsg', "保存user失败！\n" + err);

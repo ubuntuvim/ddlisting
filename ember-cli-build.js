@@ -1,3 +1,10 @@
+/**
+* 引入全局模块、导入第三方库，通常是使用bower安装的库
+* @Author: ubuntuvim
+* @Date:   2016-05-15T15:09:11+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-17T14:59:25+08:00
+*/
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
@@ -23,6 +30,7 @@ module.exports = function(defaults) {
   // app.import('bower_components/firebase/firebase.js');
   // 表单校验
   app.import("bower_components/jquery-validation/dist/jquery.validate.js");
+  app.import("bower_components/jquery.cookie/jquery.cookie.js");
 
   return app.toTree();
 };

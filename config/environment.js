@@ -3,7 +3,6 @@
 module.exports = function(environment) {
 
     // var firebaseAppUrl = 'https://luminous-heat-9079.firebaseio.com/';
-
   var ENV = {
     modulePrefix: 'ddlisting',
     environment: environment,
@@ -52,7 +51,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      API_HOST: 'http://localhost:8080'
+      API_HOST: 'http://localhost:8080',
+
+      // 项目中使用的常量名
+      __LOGIN_USER_NICKNAME__: "__LOGIN_USER_NICKNAME__",
+      __LOGIN_USER_EMAIL__: "__LOGIN_USER_EMAIL__",
+      __LOGIN_USER_ID__: "__LOGIN_USER_ID__",
+      __DEFAULT_PROJECT_ID__: "__DEFAULT_PROJECT_ID__",
+      __DEFAULT_PROJECT_ID__: "__DEFAULT_PROJECT_ID__",
+      __DEFAULT_PROFILE_ID__: "__DEFAULT_PROFILE_ID__"
+
     }
   };
 

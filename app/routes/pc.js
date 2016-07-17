@@ -4,23 +4,26 @@
 * @Author: ubuntuvim
 * @Date:   2016-05-27T00:48:14+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-15T00:22:38+08:00
+* @Last modified time: 2016-07-17T17:00:07+08:00
 */
 import Ember from 'ember';
+import getUserId from '../utils/get-user-id';
 
 export default Ember.Route.extend({
 
     // 判断用户是否登录了，没有登录不允许进入
     redirect(model, transition) {
-        if (!sessionStorage.getItem("__LOGIN_USER_ID__")) {
+        if (!getUserId()) {
             this.transitionTo('help');
         }
     },
 
     model() {
-        let userId = sessionStorage.getItem("__LOGIN_USER_ID__");
-        let defaultProjectId = sessionStorage.getItem('__DEFAULT_PROJECT_ID__')
+        let userId = getUserId();
         let user = this.store.peekRecord('user', userId);
+        // let defaultProjectId = user.get('projects').forEach((item) => {
+        //     if ()
+        // });
         // let profile = null;
         // if (user) {
         //     profile = this.store.peekRecord('profile', user.get('profile').get('id'))
@@ -36,10 +39,12 @@ export default Ember.Route.extend({
         // console.log(profile.get('isOpenPromptTone'));
 
         // sessionStorage.setItem("__LOGIN_USER_ID__", userId);
+        // 从服务器获取所有数据，会自动设置到缓存store里
+        this.store.findAll('project');
 
         return Ember.RSVP.hash({
-            loginUser: userId,
-            defaultProjectId: defaultProjectId,
+            // loginUser: userId,
+            // defaultProjectId: defaultProjectId,  //在页面遍历查找
             user: user,
             bgImgList: this.store.findAll('bg-img-libs')
         });

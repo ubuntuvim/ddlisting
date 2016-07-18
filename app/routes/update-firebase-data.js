@@ -1,3 +1,10 @@
+/**
+* 用于修复数据问题
+* @Author: ubuntuvim
+* @Date:   2016-06-28T21:08:17+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-19T01:08:37+08:00
+*/
 import Ember from 'ember';
 
 // 更新旧数据
@@ -19,14 +26,19 @@ export default Ember.Route.extend({
 				tds.forEach((item) => {
 					console.log("------------todos-------------");
 
-					if (item.get('project') === 'myTodos' 
-						|| item.get('project') === 'ZiRenWuCeShi'
-						|| item.get('project') === '-KHs2s4761rphE5wPfr2'
-						|| item.get('project') === 'CeShiShanChu') {
-						console.log(item.get('title') + ",  " + item.get('user'));
-						item.set('project', '-K7I7tTkqTQnxlr33w61');
-						item.save();
-					}
+					// 设置为0
+					// item.set('likeCount', 0);
+					item.set('isPublish', 1);
+					item.save();
+
+					// if (item.get('project') === 'myTodos'
+					// 	|| item.get('project') === 'ZiRenWuCeShi'
+					// 	|| item.get('project') === '-KHs2s4761rphE5wPfr2'
+					// 	|| item.get('project') === 'CeShiShanChu') {
+					// 	console.log(item.get('title') + ",  " + item.get('user'));
+					// 	item.set('project', '-K7I7tTkqTQnxlr33w61');
+					// 	item.save();
+					// }
 
 					//更新project字段，把原来的Pro就Code改为project的id，并在todo-item对象中增加一个属性userId
 					// projects.then((projs) => {
@@ -50,7 +62,7 @@ export default Ember.Route.extend({
 					// item.save();
 
 
-					// 32da5e53-f8cb-4cc7-8da3-cad624f209a0  
+					// 32da5e53-f8cb-4cc7-8da3-cad624f209a0
 					// if (item.get('user') === '32da5e53-f8cb-4cc7-8da3-cad624f209a0') {
 					// 	item.set('project', '-KHs2s4761rphE5wPfr2');
 					// 	item.set('userId', '32da5e53-f8cb-4cc7-8da3-cad624f209a0');
@@ -66,7 +78,7 @@ export default Ember.Route.extend({
 					// }
 
 				});
-				
+
 			});
 		}
 	}

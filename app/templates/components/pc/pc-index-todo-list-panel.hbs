@@ -1,0 +1,46 @@
+{{! 清单广场，显示所有公开的todo清单项  app/components/pc/pc-index-todo-list-panel.hbs
+@Author: ubuntuvim
+@Date:   2016-07-18T23:33:26+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-19T00:42:09+08:00
+}}
+<!-- Nav tabs -->
+<ul class="nav nav-tabs latestPopularTabs" role="tablist">
+    <li role="presentation" class="active">
+        <a href="#latest" aria-controls="latest" role="tab" data-toggle="tab">
+            最新的
+        </a>
+    </li>
+    <li role="presentation">
+        <a href="#mostPopular" aria-controls="mostPopular" role="tab" data-toggle="tab">
+            最热门的
+        </a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="latest">
+        <div class="todo-list">
+            {{#each latestTodos as |todoItem|}}
+              <div class="list-group">
+                  <div class="list-group-item">
+                      {{todoItem.title}}
+                  </div>
+              </div>
+          {{/each}}
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="mostPopular">
+        <div class="todo-list">
+            {{#each mostPopularTodos as |todoItem|}}
+              <div class="list-group">
+                  <div class="list-group-item">
+                      {{todoItem.title}}
+                  </div>
+              </div>
+          {{/each}}
+
+        </div>
+    </div>
+</div>

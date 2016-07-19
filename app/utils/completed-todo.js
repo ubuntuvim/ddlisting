@@ -1,5 +1,13 @@
-// app/utils/completed-todo.js
+/**
+* 公共方法：设置todo为完成状态  app/utils/completed-todo.js
+* @Author: ubuntuvim
+* @Date:   2016-07-03T12:57:37+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-07-19T21:22:12+08:00
+*/
+
 import Ember from 'ember';
+import getUserId from '../utils/get-user-id';
 
 // 公共部分：设置todo为完成状态，并且同步设置所属的子todo的状态
 export default function completedTodo(id, check, store) {
@@ -16,7 +24,13 @@ export default function completedTodo(id, check, store) {
                     store.findRecord('todo-item', std.id).then(function(td) {
                         td.set('recordStatus', 1);
                         td.set('checked', false);
-                        td.save();
+                        td.save().then(() => {
+                            // star todo积分加1
+                            store.findRecord('user', getUserId()).then((u) => {
+                                u.set('myIntegral', u.get('myIntegral')-1);
+                                u.save();
+                            });
+                        });
                     });
                 });
 
@@ -31,11 +45,33 @@ export default function completedTodo(id, check, store) {
                     store.findRecord('todo-item', std.id).then(function(td) {
                         td.set('recordStatus', 2);
                         td.set('checked', true);
-                        td.save();
+                        td.save().then(() => {
+                            // star todo积分加1
+                            store.findRecord('user', getUserId()).then((u) => {
+                                u.set('myIntegral', u.get('myIntegral')+1);
+                                u.save();
+                            });
+                        });
                     });
                 });
             });
         }
-        td.save();
+        if (check) {
+            td.save().then(() => {
+                // star todo积分加1
+                store.findRecord('user', getUserId()).then((u) => {
+                    u.set('myIntegral', u.get('myIntegral')+1);
+                    u.save();
+                });
+            });
+        } else {
+            td.save().then(() => {
+                // star todo积分加1
+                store.findRecord('user', getUserId()).then((u) => {
+                    u.set('myIntegral', u.get('myIntegral')-1);
+                    u.save();
+                });
+            });
+        }
     });
 }

@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-07-03T15:54:11+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-12T01:41:10+08:00
+@Last modified time: 2016-07-19T21:03:43+08:00
 }}
 <div class="modal fade pc-profile-modal-win" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
@@ -119,7 +119,7 @@
                                     <span class="glyphicon glyphicon-yen"></span>我的积分：
                                     </div>
                                     <div class="col-md-9 col-xs-9">
-                                        88
+                                        {{model.user.myIntegral}}
                                     </div>
                                 </div>
                             </li>
@@ -129,7 +129,7 @@
                                         <span class="glyphicon glyphicon-th"></span>我的TODO数：
                                     </div>
                                     <div class="col-md-9 col-xs-9">
-                                        100
+                                        {{model.user.myTodoCount}}
                                     </div>
                                 </div>
                             </li>

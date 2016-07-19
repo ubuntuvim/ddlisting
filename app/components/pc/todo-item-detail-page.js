@@ -3,12 +3,13 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-14T22:33:32+08:00
+* @Last modified time: 2016-07-19T23:48:29+08:00
 */
 import Ember from 'ember';
 import dateUtil from '../../utils/date-util';
 import completedTodo from '../../utils/completed-todo';
 import setStarStatus from '../../utils/set-star-status';
+import getUserId from '../../utils/get-user-id';
 
 export default Ember.Component.extend({
     defaultProjectId: sessionStorage.getItem('__DEFAULT_PROJECT_ID__'),
@@ -53,8 +54,9 @@ export default Ember.Component.extend({
             }
             if (title) {
                 let parentTodo = this.store.peekRecord('todo-item', parentTodoId);
+                let userId = parentTodo.get('userId');
                 let todo = this.store.createRecord('todo-item', {
-                    userId: parentTodo.get('userId'),
+                    userId: userId,
                     title: title,
                     checked: checked,
                     timestamp: new Date().getTime(),
@@ -64,6 +66,9 @@ export default Ember.Component.extend({
                     isPublish: 0,
                     isChildOrParent: 3,
                     parentTodo: parentTodo,
+                    greatCount: 0,  //点赞数
+                    likeCount: 0,  //like数
+                    commentCount: 0,  //评论数
                     user: this.store.peekRecord('user', parentTodo.get('userId'))
                     // project: this.store.peekRecord('project', parentTodo.get('project').get('id'))
                 });
@@ -71,6 +76,12 @@ export default Ember.Component.extend({
                 parentTodo.get('childTodos').pushObject(todo);
                 todo.save().then(() => {
                     parentTodo.save().then(() => {
+                        // 更新用户的myTodoCount
+                        this.store.findRecord('user', getUserId()).then((u) => {
+                            u.set('myTodoCount', (u.get('myTodoCount')+1));
+                            u.set('myIntegral', (u.get('myIntegral')+1));  //新建todo积分+1
+                            u.save();
+                        });
                         inputId.attr('readonly', false);
                     });
                 });
@@ -94,7 +105,14 @@ export default Ember.Component.extend({
                         this.store.findRecord('todo-item', std.id).then(function(subtd) {
                             subtd.set('recordStatus', 1);
                             subtd.set('checked', false);
-                            subtd.save();
+                            u.set('myIntegral', (u.get('myIntegral')+2));  //完成一个todo积分+2
+                            subtd.save().then(() => {
+                                // 更新用户的myTodoCount
+                                this.store.findRecord('user', getUserId()).then((u) => {
+                                    u.set('myIntegral', (u.get('myIntegral')-1));  //设置为未完成todo积分-1
+                                    u.save();
+                                });
+                            });
                         });
                     });
                 } else {  //完成状态
@@ -105,22 +123,43 @@ export default Ember.Component.extend({
                         this.store.findRecord('todo-item', std.id).then(function(subtd) {
                             subtd.set('recordStatus', 2);
                             subtd.set('checked', true);
-                            subtd.save();
+                            subtd.save().then(() => {
+                                // 更新用户的myTodoCount
+                                this.store.findRecord('user', getUserId()).then((u) => {
+                                    u.set('myIntegral', (u.get('myIntegral')+2));  //完成todo积分+2
+                                    u.save();
+                                });
+                            });
                         });
                     });
                 }
-                td.save();
+                td.save().then(() => {
+                    // 更新用户的myTodoCount
+                    this.store.findRecord('user', getUserId()).then((u) => {
+                        u.set('myIntegral', (u.get('myIntegral')+1));  //完成todo积分+2
+                        u.save();
+                    });
+                });
             });
         },
         // 设置todo是否公开
         doPublic(id, isPublish) {
             this.store.findRecord('todo-item', id).then((td) => {
+                let integral = 0;
                 if (isPublish) {
                     td.set('isPublish', 0);
+                    integral = -3;
                 } else {  //公开
                     td.set('isPublish', 1);
+                    integral = 3;
                 }
-                td.save();
+                td.save().then(() => {
+                    // 更新用户的myTodoCount
+                    this.store.findRecord('user', getUserId()).then((u) => {
+                        u.set('myIntegral', (u.get('myIntegral')+integral));  //设置publictodo积分+3
+                        u.save();
+                    });
+                });
             });
         },
         // 删除子任务
@@ -169,12 +208,24 @@ export default Ember.Component.extend({
                 td.get('childTodos').forEach(function(item) {
                     this.store.findRecord('todo-item', item.id).then(function(td) {
                         td.set('recordStatus', 3);
-                        td.save();
+                        td.save().then(() => {
+                            // 更新用户的myTodoCount
+                            this.store.findRecord('user', getUserId()).then((u) => {
+                                u.set('myTodoCount', (u.get('myTodoCount')-1));
+                                u.save();
+                            });
+                        });
                     });
                 });
                 // td.destroyRecord();
                 td.set('recordStatus', 3);
-                td.save();
+                td.save().then(() => {
+                    // 更新用户的myTodoCount
+                    this.store.findRecord('user', getUserId()).then((u) => {
+                        u.set('myTodoCount', (u.get('myTodoCount')-1));
+                        u.save();
+                    });
+                });
             });
         },
         // 更新备注信息

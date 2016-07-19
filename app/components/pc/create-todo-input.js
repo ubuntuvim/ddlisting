@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-09T14:38:40+08:00
+* @Last modified time: 2016-07-19T21:16:05+08:00
 */
 
 import Ember from 'ember';
@@ -56,6 +56,9 @@ export default Ember.Component.extend({
                     startDate: dateUtil(),
                     isPublish: 0,
                     isChildOrParent: 3,
+                    greatCount: 0,  //点赞数
+                    likeCount: 0,  //like数
+                    commentCount: 0,  //评论数
                     user: this.store.peekRecord('user', userId)
                     // project: this.store.peekRecord('project', defaultProjectId)
                     // 为了兼容旧数据，撤销关联
@@ -64,8 +67,14 @@ export default Ember.Component.extend({
                 // 设置model双向关联
                 let proj = this.store.peekRecord('project', defaultProjectId);
                 proj.get('todoItems').pushObject(todo);
-                todo.save().then(function () {
+                todo.save().then(() => {
                     proj.save().then(() => {
+                        // 更新用户的myTodoCount
+                        this.store.findRecord('user', userId).then((u) => {
+                            u.set('myTodoCount', (u.get('myTodoCount')+1));
+                            u.set('myIntegral', (u.get('myIntegral')+1));
+                            u.save();
+                        });
                         newTodoId.attr('readonly', false);
                     });
                 });

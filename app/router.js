@@ -24,6 +24,7 @@ Router.map(function() {
     // this.route('todoitem', { path: '/:todo_id' });
     // this.route('newCategory');
     // this.route('login-register');
+    this.route('publicTodoDetail');
   });
 
   // this.route('m', function() {

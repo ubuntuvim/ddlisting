@@ -1,10 +1,16 @@
+{{! 清单广场页面，单个任务组件 app/templates/components/pc/pc-index-todo-item.hbs
+@Author: ubuntuvim
+@Date:   2016-07-19T20:17:40+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-07-19T23:25:01+08:00
+}}
 <div class="list-group">
     <div class="list-group-item" {{action 'showDetail' todoItem.id}}>
         <p class="author-create-date">
             {{todoItem.user.email}}&nbsp;&nbsp;
-            userId={{userId}}=={{todoItem.project.userId}}
+            <span class="glyphicon glyphicon-triangle-right"></span>
             {{! 如果是当前用户的分类可以点击进入APP列表页面}}
-            {{#if (eq todoItem.project.userId userId)}}
+            {{#if (eq todoItem.userId userId)}}
                 {{#link-to 'pc.projects.todos' todoItem.project.id}}
                   {{todoItem.project.projName}}&nbsp;&nbsp;
                 {{/link-to}}
@@ -12,6 +18,18 @@
               {{todoItem.project.projName}}&nbsp;&nbsp;
             {{/if}}
             {{format-date todoItem.timestamp}}
+            <span class="pull-right">
+                {{! 大于0才显示}}
+                {{#if todoItem.greatCount}}
+                <span class="glyphicon glyphicon-thumbs-up"></span>({{todoItem.greatCount}})
+                {{/if}}
+                {{#if todoItem.likeCount}}
+                <span class="glyphicon glyphicon-heart"></span>({{todoItem.likeCount}})
+                {{/if}}
+                {{#if todoItem.commentCount}}
+                <span class="glyphicon glyphicon-comment"></span>({{todoItem.commentCount}})
+                {{/if}}
+            </span>
         </p>
         <p class="title">
             {{todoItem.title}}

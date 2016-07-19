@@ -43,6 +43,10 @@ export default Ember.Component.extend({
                         Ember.$("#loginLoading").hide();
                         // 按钮变为可用
                         Ember.$("#submitBtn").attr('disabled', false);
+                        this.store.findRecord('user', getUserId()).then((u) => {
+                            u.set('myIntegral', (u.get('myIntegral')+5));  //创建分类积分加5
+                            u.save();
+                        });
                     });
                 });
 

@@ -3,9 +3,10 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-09T14:25:28+08:00
+* @Last modified time: 2016-07-19T21:25:38+08:00
 */
 import Ember from 'ember';
+import getUserId from '../../utils/get-user-id';
 
 export default Ember.Component.extend({
     actions: {
@@ -54,6 +55,10 @@ export default Ember.Component.extend({
                     // 按钮变为可用
                     Ember.$("#delProjectBtn").attr('disabled', false);
                     Ember.$("#editCategoryId").modal('toggle');
+                    this.store.findRecord('user', getUserId()).then((u) => {
+                        u.set('myIntegral', (u.get('myIntegral')-4));  //创建分类积分-4
+                        u.save();
+                    });
                 });
             });
         }

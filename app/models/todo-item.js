@@ -19,9 +19,10 @@ export default DS.Model.extend({
     parentTodo: DS.belongsTo('todo-item', { inverse: 'childTodos' }),  //如果当前todo是子todo则这个属性指向自己的父todo
     remark: DS.attr('string'),
     comments: DS.hasMany('comment'),  // 关系放在多的一方
-    likeCount: DS.attr('number'),  //被点赞数量
+    likeCount: DS.attr('number'),  //like数量
+    greatCount: DS.attr('number'),  //点赞数量
     commentCount: DS.attr('number'),  //被评论数量
-    user: DS.belongsTo('user'),  
+    user: DS.belongsTo('user'),
     // project: DS.attr('string')  //所属项目编号
     project: DS.belongsTo('project')  //所属项目编号
 });

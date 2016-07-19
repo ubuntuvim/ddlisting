@@ -23,22 +23,16 @@
     <div role="tabpanel" class="tab-pane active" id="latest">
         <div class="todo-list">
             {{#each latestTodos as |todoItem|}}
-              <div class="list-group">
-                  <div class="list-group-item">
-                      {{todoItem.title}}
-                  </div>
-              </div>
-          {{/each}}
+              {{pc-index-todo-item store=store model=model todoItem=todoItem}}
+            {{/each}}
         </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="mostPopular">
         <div class="todo-list">
             {{#each mostPopularTodos as |todoItem|}}
-              <div class="list-group">
-                  <div class="list-group-item">
-                      {{todoItem.title}}
-                  </div>
-              </div>
+                {{#each latestTodos as |todoItem|}}
+                  {{pc-index-todo-item store=store model=model todoItem=todoItem}}
+                {{/each}}
           {{/each}}
 
         </div>

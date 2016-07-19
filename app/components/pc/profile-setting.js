@@ -6,6 +6,7 @@
 * @Last modified time: 2016-07-14T23:19:51+08:00
 */
 import Ember from 'ember';
+import logout from '../../utils/logout';
 
 export default Ember.Component.extend({
 
@@ -66,8 +67,7 @@ export default Ember.Component.extend({
             });
         },
         resetPassword(userId) {
-            console.log('userId = ' + userId);
-            console.log(this.get('model.user.password'));
+
             this.store.findRecord('user', userId).then((user) => {
                 user.set('password', hex_sha1(this.get('model.user.password')));
                 user.save().then(() => {
@@ -83,9 +83,7 @@ export default Ember.Component.extend({
             });
         },
         logout() {
-            sessionStorage.removeItem("__LOGIN_USER_ID__");
-            // 强制刷新页面
-            location.reload();
+            logout();
         },
         updateNickname(id) {
             this.store.findRecord('user', id).then((u) => {

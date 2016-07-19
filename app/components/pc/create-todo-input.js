@@ -8,6 +8,7 @@
 
 import Ember from 'ember';
 import dateUtil from '../../utils/date-util';
+import getUserId from '../../utils/get-user-id';
 
 export default Ember.Component.extend({
     classNames: ['form-group', 'has-feedback'],
@@ -39,11 +40,9 @@ export default Ember.Component.extend({
                     star = true;
                 }
                 Ember.Logger.debug("保存todo star: " + star);
-                var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
+                var userId = getUserId();
                 Ember.Logger.debug("保存todo userId: " + userId);
-                if (!userId) {
-                    location.reload(); //获取不到userid退出，让用户再次登录
-                }
+
                 // 获取默认分类id
                 let defaultProjectId = Ember.$("#projecId").val();
                 Ember.Logger.debug("保存todo 分类id: " + defaultProjectId);
@@ -56,8 +55,8 @@ export default Ember.Component.extend({
                     recordStatus: 1,
                     startDate: dateUtil(),
                     isPublish: 0,
-                    isChildOrParent: 3
-                    // user: this.store.peekRecord('user', userId),
+                    isChildOrParent: 3,
+                    user: this.store.peekRecord('user', userId)
                     // project: this.store.peekRecord('project', defaultProjectId)
                     // 为了兼容旧数据，撤销关联
                     // project: defaultProjectId

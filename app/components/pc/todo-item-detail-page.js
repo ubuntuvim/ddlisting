@@ -63,8 +63,8 @@ export default Ember.Component.extend({
                     startDate: dateUtil(),
                     isPublish: 0,
                     isChildOrParent: 3,
-                    parentTodo: parentTodo
-                    // user: this.store.peekRecord('user', parentTodo.get('userId')),
+                    parentTodo: parentTodo,
+                    user: this.store.peekRecord('user', parentTodo.get('userId'))
                     // project: this.store.peekRecord('project', parentTodo.get('project').get('id'))
                 });
                 // 设置model双向关联
@@ -167,7 +167,7 @@ export default Ember.Component.extend({
             this.store.findRecord('todo-item', id).then((td) => {
                 //删除关联的子todo
                 td.get('childTodos').forEach(function(item) {
-                    store.findRecord('todo-item', item.id).then(function(td) {
+                    this.store.findRecord('todo-item', item.id).then(function(td) {
                         td.set('recordStatus', 3);
                         td.save();
                     });

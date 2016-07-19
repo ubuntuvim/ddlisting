@@ -7,6 +7,7 @@
 */
 
 import Ember from 'ember';
+import getUserId from '../../utils/get-user-id';
 
 export default Ember.Component.extend({
     category: null,
@@ -49,11 +50,11 @@ export default Ember.Component.extend({
                                        'todosForTotla.@each.project',
                                        'todosForTotla.@each.isChildOrParent', function() {
 
-       var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
+    //    var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
        var projectId = this.get('projectId');  //调用组件时候传递过来
 
        return this.get('todosForTotla').filter(function(td) {
-           return td.get('userId') === userId
+           return td.get('userId') === getUserId()
                    && td.get('recordStatus') === 1
                    && td.get('project').get('id') === projectId
                    && td.get('isChildOrParent') === 3;
@@ -65,7 +66,7 @@ export default Ember.Component.extend({
         showEditWin(proj) {
             Ember.$("#editCategoryId").modal('toggle');
             // this.set('category', category);
-            console.log('projName = ' + proj.get('id'))
+            console.log('projName = ' + proj.get('id'));
             Ember.$("#projNameId1").val(proj.get('projName'));
             Ember.$("#projId1").val(proj.get('id'));
         }

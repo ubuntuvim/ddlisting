@@ -1,0 +1,20 @@
+<div class="list-group">
+    <div class="list-group-item" {{action 'showDetail' todoItem.id}}>
+        <p class="author-create-date">
+            {{todoItem.user.email}}&nbsp;&nbsp;
+            userId={{userId}}=={{todoItem.project.userId}}
+            {{! 如果是当前用户的分类可以点击进入APP列表页面}}
+            {{#if (eq todoItem.project.userId userId)}}
+                {{#link-to 'pc.projects.todos' todoItem.project.id}}
+                  {{todoItem.project.projName}}&nbsp;&nbsp;
+                {{/link-to}}
+            {{else}}
+              {{todoItem.project.projName}}&nbsp;&nbsp;
+            {{/if}}
+            {{format-date todoItem.timestamp}}
+        </p>
+        <p class="title">
+            {{todoItem.title}}
+        </p>
+    </div>
+</div>

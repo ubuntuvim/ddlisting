@@ -6,6 +6,7 @@
 * @Last modified time: 2016-07-09T14:08:51+08:00
 */
 import Ember from 'ember';
+import getUserId from '../../utils/get-user-id';
 
 export default Ember.Component.extend({
     //校验
@@ -22,11 +23,7 @@ export default Ember.Component.extend({
             var projName = this.get('projName');
             // console.log("projName --- " + projName);
             if (projName) {
-                var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
-                Ember.Logger.debug("保存category userId: " + userId);
-                if (!userId) {
-                    location.reload(); //获取不到userid退出，让用户再次登录
-                }
+                var userId = getUserId();
                 let user = this.store.peekRecord('user', userId);
                 var project = this.store.createRecord("project", {
                     userId: userId,

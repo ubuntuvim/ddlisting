@@ -7,8 +7,11 @@
 * @Last modified time: 2016-07-19T01:46:27+08:00
 */
 import Ember from 'ember';
+import getUserId from '../../utils/get-user-id';
 
 export default Ember.Component.extend({
+
+    userId: getUserId(),
 
     didInsertElement() {
     },
@@ -33,4 +36,5 @@ export default Ember.Component.extend({
     sortLikeTodos: Ember.computed.sort('publicAndNotChildTodoList', 'sortLikeCount'),
     sortCommentCount: ['commentCount:desc'],
     mostPopularTodos: Ember.computed.sort('sortLikeTodos', 'sortCommentCount')
+
 });

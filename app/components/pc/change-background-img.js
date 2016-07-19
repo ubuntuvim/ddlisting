@@ -6,6 +6,7 @@
 * @Last modified time: 2016-07-09T16:52:07+08:00
 */
 import Ember from 'ember';
+import getUserId from '../../utils/get-user-id';
 
 export default Ember.Component.extend({
     actions: {
@@ -13,8 +14,7 @@ export default Ember.Component.extend({
         resetBgImg(url, id) {
             let ids = "#" + id;
             let spanIds = "#span" + id;
-            let userId = sessionStorage.getItem('__LOGIN_USER_ID__');
-            let profile = this.store.peekRecord('user', userId).get('profile');
+            let profile = this.store.peekRecord('user', getUserId()).get('profile');
             if (profile) {
                 this.store.findRecord('profile', profile.get('id')).then((prof) => {
                     prof.set('bgImg', url);

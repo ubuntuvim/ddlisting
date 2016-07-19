@@ -13,6 +13,7 @@ export default function getUserId() {
     if (!userId) {
         userId = Ember.$.cookie('__LOGIN_USER_ID__'); // 读取 cookie
     }
+    Ember.Logger.debug("获取用户ID：" + userId);
     if (userId) {
         return userId;
     } else {

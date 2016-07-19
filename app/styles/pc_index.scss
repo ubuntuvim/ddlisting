@@ -2,6 +2,9 @@
 // @Date:   2016-07-18T23:06:38+08:00
 // @Last modified by:   ubuntuvim
 // @Last modified time: 2016-07-19T02:12:47+08:00
+.margin-right15 {
+    margin-right: 15px;
+}
 .pc-todo-list-square {
     // position: absolute;
     // width: 100%;
@@ -20,8 +23,10 @@
     // margin-bottom: 40px;
 }
 .pc-todo-list-square .nav > li > a {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
     // border: 0;
     border-bottom: 4px solid #f5f5f5 !important;
 }
@@ -59,8 +64,16 @@
     border: 0;
     border-bottom: 1px solid #eee;
     border-radius: 0px;
-    padding: 10px 15px;
+    padding: 10px 15px 0 15px;
     cursor: pointer;
+}
+.pc-todo-list-square .tab-content .list-group .list-group-item .author-create-date {
+    font-size: 10px;
+    color: #888;
+}
+.pc-todo-list-square .tab-content .list-group .list-group-item .title {
+    font-size: 16px;
+    color: #111;
 }
 .pc-todo-list-square .tab-content .list-group .list-group-item:hover {
     background-color: #eee;

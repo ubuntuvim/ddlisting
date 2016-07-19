@@ -11,7 +11,7 @@ import getUserId from '../../utils/get-user-id';
 export default Ember.Route.extend({
     // 判断用户是否登录了，没有登录不允许进入
     redirect(model, transition) {
-        if (!sessionStorage.getItem("__LOGIN_USER_ID__")) {
+        if (!getUserId()) {
             this.transitionTo('help');
         }
     },

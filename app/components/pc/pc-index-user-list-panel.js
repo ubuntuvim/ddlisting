@@ -14,7 +14,6 @@ export default Ember.Component.extend({
     }),
     enabledUserList: Ember.computed('users.@each.status', function() {
         return this.get('users').filter((u) => {
-            console.log("u.get('status') == " + u.get('status'));
             return u.get('status') === 1;
         });
     })

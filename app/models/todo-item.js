@@ -4,8 +4,7 @@ import DS from 'ember-data';
  * todo项:项目入口model，路由m.todoitem，pc.todoitem
  */
 export default DS.Model.extend({
-    user: DS.attr('string'),  // 登录用户id
-    userId: DS.attr('string'),
+    userId: DS.attr('string'),// 登录用户id
     title: DS.attr('string'),
     checked: DS.attr('boolean'),  // 是否勾选了todo列表前面的完成按钮
     timestamp: DS.attr('number'),
@@ -22,6 +21,7 @@ export default DS.Model.extend({
     comments: DS.hasMany('comment'),  // 关系放在多的一方
     likeCount: DS.attr('number'),  //被点赞数量
     commentCount: DS.attr('number'),  //被评论数量
+    user: DS.belongsTo('user'),  
     // project: DS.attr('string')  //所属项目编号
     project: DS.belongsTo('project')  //所属项目编号
 });

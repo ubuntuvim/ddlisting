@@ -1,7 +1,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-07-18T23:06:38+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-07-20T00:36:51+08:00
+// @Last modified time: 2016-07-21T01:52:36+08:00
 .margin-right15 {
     margin-right: 15px;
 }
@@ -110,40 +110,74 @@
 }
 
 //  ==================== 清单广场，todo详细页面 ------------
+// 点击评论按钮时候变为激活状态
+.comment-active {
+    color: #5cb85c !important;
+}
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-header {
+    padding-bottom: 0;
+    border-bottom: 1px solid #ccc;
+}
+// 点击评论按钮展示评论输入框
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .comment-input .well {
+    padding: 10px;
+}
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .comment-input .comment-input-div {
+    display: inline-block !important;
+    padding: 5px !important;
+    height: auto;
+}
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .comment-input {
+    margin-bottom: 0;
+}
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .comment-input .btn-defautl {
+    background-color: #ddd;
+}
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .comment-input .btn-defautl:hover {
+    background-color: #ccc;
+}
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-header p {
+    font-size: 13px;
+    color: #777;
+    margin-top: 5px;
+}
 #pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .title-text {
     font-size: 16px;
     color: #555;
 }
 #pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .sub-todo-list .sub-todo-title {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ccc;
 }
 #subTodoListId {
     color: #777;
 }
-// 点击才显示工具栏
-#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .show-like-gread-comment-tools {
-    position: fixed;
-    top: 60px;
-    height: 30px;
-    width: 170px;
-    background-color: #5cb85c;
-    border-radius: 100px 0 0 100px;
-    padding-top: 4px;
-    padding-left: 20px;
-    right: 1px;
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-header .parent-like-gread-comment-tools {
+    float: right;
+    display: inline-block;
+    // background-color: #5cb85c;
 }
-#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .show-like-gread-comment-tools .glyphicon-share {
-    font-size: 20px;
-    display: none;
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .parent-like-gread-comment-tools .glyphicon {
+    font-size: 13px;
+    margin-left: 10px;
+    color: #777;
+    cursor: pointer;
 }
-#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .like-gread-comment-tools {
-    // border-bottom: 1px solid #eee;
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .todo-comment-list p {
+    // margin-top: 10px;
+    color: #777;
+    border-bottom: 1px solid #eee;
+}
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .todo-comment-list .todo-comment-list-title {
+    border-bottom: 1px solid #ccc;
+    margin-top: 20px;
+    color: #555;
+}
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .todo-comment-list .todo-comment-list-tools {
     display: inline-block;
 }
-#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .like-gread-comment-tools .glyphicon {
-    font-size: 20px;
-    margin-left: 20px;
-}
-#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .todo-star-end-date {
-    border-bottom: 1px solid #eee;
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .todo-comment-list .todo-comment-list-tools .glyphicon {
+    color: #777;
+    margin-left: 5px;
+    font-size: 12px;
+    cursor: pointer;
 }

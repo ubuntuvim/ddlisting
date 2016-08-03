@@ -7,7 +7,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-10T00:17:41+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-17T16:53:43+08:00
+* @Last modified time: 2016-08-04T03:45:56+08:00
 */
 import Ember from 'ember';
 import randomUserAvatar from '../../utils/random-user-avatar';
@@ -194,7 +194,7 @@ export default Ember.Component.extend({
                                 // location.reload();
                                 // 关闭modal
                                 Ember.$("#register-modal-win").modal('toggle');
-                                location.href = "/#/pc";
+                                location.href = "/#/pc/publicTodos";
 
                             }, (err) => {
                                 Ember.Logger.debug("保存user失败！\n" + err);

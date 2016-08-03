@@ -1,0 +1,78 @@
+<!--
+@清单广场某个清单项的详细页面 app/templates/pc/public-todos/detail.hbs
+@Author: ubuntuvim
+@Date:   2016-08-04T01:03:24+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-08-04T03:42:59+08:00
+-->
+<!-- Modal -->
+<div class="modal fade in" id="pcIndexTodoDetailModalWin" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+        {{#link-to 'pc.publicTodos' class="close" data-dismiss="modal" aria-label="Close"}}<span aria-hidden="true">&times;</span>{{/link-to}}
+        <h4 class="modal-title" id="myModalLabel">
+            {{model.title}}
+        </h4>
+        {{! 创建时间，新建评论}}
+        {{pc/public-todos/new-comment store=store model=model}}
+      </div>
+      <div class="modal-body">
+
+          <div class="sub-todo-list">
+              <p class="sub-todo-title title-text">
+                  子任务
+              </p>
+              {{#each model.childTodos as |subTodoItme|}}
+                  <p>
+                      {{subTodoItme.title}}
+                  </p>
+              {{else}}
+                无子任务。
+              {{/each}}
+          </div>
+
+          <div class="todo-comment-list">
+              <p class="todo-comment-list-title title-text">
+                  评论列表
+              </p>
+
+              <div class="comment-media-list">
+                  <ul class="media-list">
+                      {{#if model.comments}}
+                          <input type="hidden" name="todo" id="selectedTodoId">
+                          {{pc/public-todos/comment-media-item model=model store=store commentList=model.comments}}
+                      {{else}}
+                          暂无评论。
+                      {{/if}}
+                  </ul>
+              </div>
+
+              <!-- <p>
+                  评论信息1
+                  <div class="todo-comment-list-tools pull-right">
+                      <span class="glyphicon glyphicon-thumbs-up"></span>
+                      <span class="glyphicon glyphicon-heart"></span>
+                      <span class="glyphicon glyphicon-comment"
+                          data-toggle="collapse" href="#commentInputBoxId1"
+                          aria-expanded="false" aria-controls="commentInputBoxId1"></span>
+                  </div>
+              </p>
+              <div class="comment-input collapse" id="commentInputBoxId1">
+                  <div class="well">
+                      <div class="form-control comment-input-div" contentEditable="true" placeholder="我的评论信息">
+
+                      </div>
+                  </div>
+              </div>
+               -->
+          </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>

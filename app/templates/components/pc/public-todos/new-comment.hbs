@@ -1,0 +1,36 @@
+<!--
+@Author: ubuntuvim
+@Date:   2016-08-04T02:04:54+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-08-04T03:23:24+08:00
+-->
+<p>
+    起止时间：{{format-date model.startDate}} ~ {{format-date model.endDate}}
+    <div class="parent-like-gread-comment-tools">
+        <span class="glyphicon glyphicon-thumbs-up"></span>({{model.greatCount}})
+        <span class="glyphicon glyphicon-heart"></span>({{model.likeCount}})
+        <span class="glyphicon glyphicon-comment"
+            data-toggle="collapse" href="#parentCommentInputBoxId"
+            aria-expanded="false" aria-controls="parentCommentInputBoxId"></span>({{model.commentCount}})
+    </div>
+</p>
+<div class="comment-input collapse" id="parentCommentInputBoxId">
+    <div class="well">
+        <!-- <input class="form-control" name="" placeholder="我的评论信息"> -->
+        <div class="form-control comment-input-div"
+            contentEditable="true" placeholder="我的评论信息" id="parentCommentInputId">
+
+        </div>
+        <!-- <p class="text-warning">按<code>ctrl</code>+<code>enter</code>(<code>command</code>+<code>return</code>)提交评论。</p> -->
+        {{! 这个按钮起占位符的作用，不可删除}}
+        <button class="btn btn-success btn-xs" style="background-color: #f5f5f5;" disabled></button>
+        <button class="btn btn-defautl btn-xs" style="margin-top: 10px; float:right;"
+            onclick="javascript: $('#parentCommentInputBoxId').collapse('toggle');">
+            取 消
+        </button>
+        <button class="btn btn-success btn-xs" {{action 'saveComment' model.id}}
+            style="margin-top: 10px; float:right; margin-right: 10px;" id="parentCommentBtnId">
+            提交评论
+        </button>
+    </div>
+</div>

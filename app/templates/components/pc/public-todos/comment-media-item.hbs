@@ -1,0 +1,52 @@
+<!--
+@递归显示所有的评论  app/components/pc/comment-media-item.hbs
+@Author: ubuntuvim
+@Date:   2016-08-04T00:26:39+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-08-04T03:40:58+08:00
+-->
+{{#each commentList as |comItem|}}
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+          <img class="media-object img-circle" height="40px" alt="头像" src="http://res.cloudinary.com/ddlisting/image/upload/v1468932070/iwqx0b5zd6o5ylq8uymg.ico" >
+        </a>
+      </div>
+      <div class="media-body">
+        <p class="media-heading">
+            {{comItem.userEmail}}&nbsp;&nbsp;{{format-date comItem.createDate}}
+
+          <div class="todo-comment-list-tools pull-right">
+              <span class="glyphicon glyphicon-thumbs-up"></span>({{comItem.greatCount}})
+              <span class="glyphicon glyphicon-heart"></span>({{comItem.likeCount}})
+              <span class="glyphicon glyphicon-comment"
+                  data-toggle="collapse" href="#subCommentInputBoxId_{{comItem.id}}"
+                  aria-expanded="false" aria-controls="subCommentInputBoxId_{{comItem.id}}"></span>({{comItem.commentCount}})
+          </div>
+        </p>
+        <p class="title-text">
+            {{make-html-tag comItem.title}}
+        </p>
+        <div class="comment-input collapse subCommentBox" id="subCommentInputBoxId_{{comItem.id}}">
+            <div class="well">
+                <div class="form-control comment-input-div" contentEditable="true" placeholder="我的评论信息" id="subCommentInputId_{{comItem.id}}">
+
+                </div>
+                {{! 这个按钮起占位符的作用，不可删除}}
+                <button class="btn btn-success btn-xs" style="background-color: #f5f5f5;" disabled></button>
+                <button class="btn btn-defautl btn-xs cancelComment" style="margin-top: 10px; float:right;">
+                    取 消
+                </button>
+                <button class="btn btn-success btn-xs" {{action 'saveSubComment' comItem.id}}
+                    style="margin-top: 10px; float:right; margin-right: 10px;" id="submitCommentBtnId_{{comItem.id}}">
+                    提交评论
+                </button>
+            </div>
+        </div>
+        <!-- 递归调用，如果有子评论继续显示 -->
+        {{#if comItem.childComments}}
+            {{pc/public-todos/comment-media-item model=model store=store commentList=comItem.childComments}}
+        {{/if}}
+      </div>
+    </li>
+{{/each}}

@@ -1,7 +1,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-07-18T23:06:38+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-07-21T01:52:36+08:00
+// @Last modified time: 2016-08-04T03:13:43+08:00
 .margin-right15 {
     margin-right: 15px;
 }
@@ -67,6 +67,10 @@
     padding: 10px 15px 0 15px;
     cursor: pointer;
 }
+// 点击公开列表的某个todo设置为激活状态
+.pc-todo-list-square .tab-content .list-group .list-group-item.active {
+    background-color: #ddd;
+}
 .pc-todo-list-square .tab-content .list-group .list-group-item .author-create-date {
     font-size: 10px;
     color: #888;
@@ -114,6 +118,12 @@
 .comment-active {
     color: #5cb85c !important;
 }
+#pcIndexTodoDetailModalWin {
+    margin-top: 50px;
+    display: block;
+    padding-left: 17px;
+}
+
 #pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-header {
     padding-bottom: 0;
     border-bottom: 1px solid #ccc;
@@ -121,6 +131,7 @@
 // 点击评论按钮展示评论输入框
 #pcIndexTodoDetailModalWin .modal-dialog .modal-content .comment-input .well {
     padding: 10px;
+    padding-bottom: 20px;
 }
 #pcIndexTodoDetailModalWin .modal-dialog .modal-content .comment-input .comment-input-div {
     display: inline-block !important;
@@ -180,4 +191,7 @@
     margin-left: 5px;
     font-size: 12px;
     cursor: pointer;
+}
+#pcIndexTodoDetailModalWin .modal-dialog .modal-content .modal-body .comment-media-list .media .media-heading {
+    font-size: 12px;
 }

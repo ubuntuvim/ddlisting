@@ -91,7 +91,7 @@ export default Ember.Component.extend({
                             // location.reload();
                             // 关闭modal
                             Ember.$("#login-modal-win").modal('toggle');
-                            location.href = "/#/pc";
+                            location.href = "/#/pc/publicTodos";
                         }
                     });
 

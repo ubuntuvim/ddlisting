@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-25T00:24:36+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-15T00:52:19+08:00
+* @Last modified time: 2016-08-04T01:05:51+08:00
 */
 import Ember from 'ember';
 import config from './config/environment';
@@ -24,7 +24,11 @@ Router.map(function() {
     // this.route('todoitem', { path: '/:todo_id' });
     // this.route('newCategory');
     // this.route('login-register');
-    this.route('publicTodoDetail');
+    // 清单广场
+    this.route('publicTodos', function() {
+        // 公开清单项详细信息页面
+        this.route('detail', { path: '/detail/:todo_id' });
+    });
   });
 
   // this.route('m', function() {

@@ -2,13 +2,18 @@
 @Author: ubuntuvim
 @Date:   2016-08-04T02:04:54+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-04T03:23:24+08:00
+@Last modified time: 2016-08-05T01:59:14+08:00
 -->
 <p>
-    起止时间：{{format-date model.startDate}} ~ {{format-date model.endDate}}
+    起止时间：{{format-date model.startDate}} ~
+    {{#if model.endDate}}
+        {{format-date model.endDate}}
+    {{else}}
+        至今
+    {{/if}}
     <div class="parent-like-gread-comment-tools">
-        <span class="glyphicon glyphicon-thumbs-up"></span>({{model.greatCount}})
-        <span class="glyphicon glyphicon-heart"></span>({{model.likeCount}})
+        <span class="glyphicon glyphicon-thumbs-up" id="thumbsUpId_{{model.id}}" {{action 'thumbsUp' model.id '#thumbsUpId_'}}></span>({{model.greatCount}})
+        <span class="glyphicon glyphicon-heart" id="likedId_{{model.id}}" {{action 'liked' model.id '#likedId_'}}></span>({{model.likeCount}})
         <span class="glyphicon glyphicon-comment"
             data-toggle="collapse" href="#parentCommentInputBoxId"
             aria-expanded="false" aria-controls="parentCommentInputBoxId"></span>({{model.commentCount}})

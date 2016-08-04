@@ -3,10 +3,11 @@
 * @Author: ubuntuvim
 * @Date:   2016-08-04T00:26:39+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-04T03:34:38+08:00
+* @Last modified time: 2016-08-05T02:00:58+08:00
 */
 import Ember from 'ember';
 import getUserId from '../../../utils/get-user-id';
+import setGreatedLiked from '../../../utils/set-greated-liked';
 
 export default Ember.Component.extend({
 
@@ -20,7 +21,7 @@ export default Ember.Component.extend({
 
     actions: {
         saveSubComment(parentCommentId) {
-            
+
             // 设置保存按钮不可用
             let btnId = "#submitCommentBtnId_"+parentCommentId;
             Ember.$(btnId).attr('disabled', true);
@@ -65,6 +66,14 @@ export default Ember.Component.extend({
                     Ember.$(btnId).attr('disabled', false);
                 });
             });
+        },
+        // 点赞
+        thumbsUp(id, elemId) {
+            setGreatedLiked(this.store, 'comment', 'greatCount', id, elemId);
+        },
+        // 喜欢
+        liked(id, elemId) {
+            setGreatedLiked(this.store, 'comment', 'likeCount', id, elemId);
         }
     }
 });

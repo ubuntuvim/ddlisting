@@ -3,19 +3,20 @@
 * @Author: ubuntuvim
 * @Date:   2016-08-04T02:04:54+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-04T02:37:10+08:00
+* @Last modified time: 2016-08-05T01:57:04+08:00
 */
 
 import Ember from 'ember';
 import getUserId from '../../../utils/get-user-id';
+import setGreatedLiked from '../../../utils/set-greated-liked';
 
 export default Ember.Component.extend({
     didInsertElement() {
         Ember.$("#pcIndexTodoDetailModalWin .modal-dialog .modal-content .glyphicon-comment").click(function() {
-            if ($(this).hasClass('comment-active')) {
-                $(this).removeClass('comment-active');
+            if (Ember.$(this).hasClass('comment-active')) {
+                Ember.$(this).removeClass('comment-active');
             } else {
-                $(this).addClass('comment-active');
+                Ember.$(this).addClass('comment-active');
             }
         });
     },
@@ -57,6 +58,15 @@ export default Ember.Component.extend({
                     Ember.$("#parentCommentBtnId").attr('disabled', false);
                 });
             });
+        },  //saveSubComment
+        // 点赞
+        thumbsUp(id, elemId) {
+            // setGreatedLiked(store, modelName, fieldName, id, elemId)
+            setGreatedLiked(this.store, 'todo-item', 'greatCount', id, elemId);
+        },
+        // 喜欢
+        liked(id, elemId) {
+            setGreatedLiked(this.store, 'todo-item', 'likeCount', id, elemId);
         }
     }
 });

@@ -18,9 +18,10 @@
 @import "help";
 // pc_index页面样式
 @import "pc_index";
-
 // 导入管理后台更换背景图片功能样式
 @import "admin_bg_imgs";
+// 清单广场 todo详细界面样式
+@import "public_todos_detail";
 
 body {
   overflow: hidden;

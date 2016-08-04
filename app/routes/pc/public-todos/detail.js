@@ -3,10 +3,10 @@
 * @Author: ubuntuvim
 * @Date:   2016-08-04T01:03:24+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-04T02:02:03+08:00
+* @Last modified time: 2016-08-05T01:24:01+08:00
 */
 import Ember from 'ember';
-import getUserId from '../../../utils/get-user-id';
+// import getUserId from '../../../utils/get-user-id';
 
 export default Ember.Route.extend({
     model(params) {

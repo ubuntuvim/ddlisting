@@ -1,7 +1,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-07-18T23:06:38+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-08-04T03:13:43+08:00
+// @Last modified time: 2016-08-05T02:52:11+08:00
 .margin-right15 {
     margin-right: 15px;
 }
@@ -42,14 +42,15 @@
     border: 0;
     cursor: pointer;
 }
-.pc-todo-list-square .nav > li > a:hover {
-    color: #111;
-    border-bottom: 4px solid #009a61 !important;
-}
-.pc-todo-list-square .nav > li > a:focus {
-    color: #23527c;
-    border-bottom: 4px solid #009a61 !important;
-}
+// 放在public_todos.scss设置
+// .pc-todo-list-square .nav > li > a:hover {
+//     color: #111;
+//     border-bottom: 4px solid #009a61 !important;
+// }
+// .pc-todo-list-square .nav > li > a:focus {
+//     color: #23527c;
+//     border-bottom: 4px solid #009a61 !important;
+// }
 .pc-todo-list-square .nav-tabs > li > a:hover {
     border: 0;
 }

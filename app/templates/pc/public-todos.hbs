@@ -2,9 +2,9 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T00:11:26+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-04T01:02:04+08:00
+@Last modified time: 2016-08-05T02:51:37+08:00
 todo广场，显示所有的公开的todo}}
-<div style="overflow: auto; height: 100vh; position: absolute; width: 100%;">
+<div style="overflow: auto; height: 100vh; position: absolute; width: 100%;" id="publicTodosListPageId">
 
 <nav class="navbar navbar-default navbar-fixed-top opacity09" style="border-radius: 0; z-index: 1100;">
   <div class="container-fluid">
@@ -25,24 +25,23 @@ todo广场，显示所有的公开的todo}}
       <form class="navbar-form navbar-left" role="search">
         <div class="form-grouphas-feedback">
           <div class="input-group">
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-search"></span>
-            </span>
-            <input type="text" class="form-control search-input" placeholder="Search……"
-                id="" aria-describedby="inputGroupSuccess4Status">
+            {{input type="text" class="form-control search-input" placeholder="任务搜索……"
+                id="publicTodosSearchInputId" aria-describedby="searchAriaDescribedby2" value=queryPublicTodoValue}}
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+            <span id="searchAriaDescribedby2" class="sr-only">(success)</span>
           </div>
         </div>
         <!-- <button type="submit" class="btn btn-default">Submit</button> -->
       </form>
 
-    <ul class="nav navbar-nav">
+    <!-- <ul class="nav navbar-nav">
         <li>
             {{#link-to 'pc.projects'}}开放列表{{/link-to}}
         </li>
         <li>
             {{#link-to 'pc.projects'}}清单用户{{/link-to}}
         </li>
-    </ul>
+    </ul> -->
 
     <ul class="nav navbar-nav navbar-right margin-right15">
       <li>
@@ -71,7 +70,8 @@ todo广场，显示所有的公开的todo}}
 
         <div class="col-md-8 col-xs-8">
             <div class="inner">
-                {{pc/pc-index-todo-list-panel store=store model=model}}
+                {{! queryPublicTodoValue是顶部查询输入框的查询值}}
+                {{pc/pc-index-todo-list-panel store=store model=model queryPublicTodoValue=queryPublicTodoValueCmt}}
             </div>
 
         </div>

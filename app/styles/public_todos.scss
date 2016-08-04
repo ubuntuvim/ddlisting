@@ -1,0 +1,24 @@
+// 清单广场样式
+// @Author: ubuntuvim
+// @Date:   2016-08-05T02:04:54+08:00
+// @Last modified by:   ubuntuvim
+// @Last modified time: 2016-08-05T02:51:12+08:00
+#publicTodosListPageId .navbar .collapse .navbar-form .input-group input {
+    border-radius: 4px;
+}
+// 激活状态增大输入框宽度
+#publicTodosListPageId .navbar .collapse .navbar-form .input-group input:focus {
+    width: 300px;
+}
+#publicTodosListPageId .navbar .collapse .navbar-form .input-group .glyphicon-search {
+    z-index: 1100;
+    color: #aaa;
+}
+// 最新、最热门列表样式
+#publicTodosListPageId .pc-todo-list-square .nav .active {
+    border-bottom: 4px solid #009a61;
+}
+#publicTodosListPageId .pc-todo-list-square .nav .active a {
+    color: #23527c;
+    font-weight: 600;
+}

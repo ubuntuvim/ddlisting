@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-07-18T23:33:26+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-19T20:19:29+08:00
+@Last modified time: 2016-08-05T02:59:25+08:00
 }}
 <!-- Nav tabs -->
 <ul class="nav nav-tabs latestPopularTabs" role="tablist">
@@ -30,11 +30,8 @@
     <div role="tabpanel" class="tab-pane" id="mostPopular">
         <div class="todo-list">
             {{#each mostPopularTodos as |todoItem|}}
-                {{#each latestTodos as |todoItem|}}
                   {{pc/pc-index-todo-item store=store model=model todoItem=todoItem}}
-                {{/each}}
-          {{/each}}
-
+            {{/each}}
         </div>
     </div>
 </div>

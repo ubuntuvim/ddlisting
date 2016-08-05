@@ -4,11 +4,15 @@
 * @Author: ubuntuvim
 * @Date:   2016-05-26T22:15:56+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-15T00:22:32+08:00
+* @Last modified time: 2016-08-05T03:08:40+08:00
 */
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+
+    redirect(model, transition) {
+        this.transitionTo('pc.publicTodos');
+    },
 
     model() {
         return Ember.RSVP.hash({

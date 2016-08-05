@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-03T12:57:37+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-19T21:22:12+08:00
+* @Last modified time: 2016-08-06T02:19:35+08:00
 */
 
 import Ember from 'ember';
@@ -21,13 +21,13 @@ export default function completedTodo(id, check, store) {
                 td.set('checked', false);
                 // 设置所有的子todo为非完成状态
                 td.get('childTodos').forEach((std) => {
-                    store.findRecord('todo-item', std.id).then(function(td) {
-                        td.set('recordStatus', 1);
-                        td.set('checked', false);
-                        td.save().then(() => {
+                    store.findRecord('todo-item', std.id).then((td2) => {
+                        td2.set('recordStatus', 1);
+                        td2.set('checked', false);
+                        td2.save().then(() => {
                             // star todo积分加1
                             store.findRecord('user', getUserId()).then((u) => {
-                                u.set('myIntegral', u.get('myIntegral')-1);
+                                u.set('myIntegral', (u.get('myIntegral')-1));
                                 u.save();
                             });
                         });
@@ -36,42 +36,39 @@ export default function completedTodo(id, check, store) {
 
             });
             Ember.$(ids).slideUp("normal");
+            td.save().then(() => {
+                // star todo积分加1
+                store.findRecord('user', getUserId()).then((u) => {
+                    u.set('myIntegral', (u.get('myIntegral')+1));
+                    u.save();
+                });
+            });
         } else {  //完成状态
             Ember.$(ids).slideUp("normal", () => {
                 td.set('checked', true);
                 td.set('recordStatus', 2);
                 // 设置所有的子todo为完成状态
                 td.get('childTodos').forEach((std) => {
-                    store.findRecord('todo-item', std.id).then(function(td) {
-                        td.set('recordStatus', 2);
-                        td.set('checked', true);
-                        td.save().then(() => {
+                    store.findRecord('todo-item', std.id).then((td2) => {
+                        td2.set('recordStatus', 2);
+                        td2.set('checked', true);
+                        td2.save().then(() => {
                             // star todo积分加1
                             store.findRecord('user', getUserId()).then((u) => {
-                                u.set('myIntegral', u.get('myIntegral')+1);
+                                u.set('myIntegral', (u.get('myIntegral')+1));
                                 u.save();
                             });
                         });
                     });
                 });
             });
-        }
-        if (check) {
             td.save().then(() => {
                 // star todo积分加1
                 store.findRecord('user', getUserId()).then((u) => {
-                    u.set('myIntegral', u.get('myIntegral')+1);
+                    u.set('myIntegral', (u.get('myIntegral')-1));
                     u.save();
                 });
             });
-        } else {
-            td.save().then(() => {
-                // star todo积分加1
-                store.findRecord('user', getUserId()).then((u) => {
-                    u.set('myIntegral', u.get('myIntegral')-1);
-                    u.save();
-                });
-            });
-        }
+        }  //else
     });
 }

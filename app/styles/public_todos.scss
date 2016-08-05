@@ -2,15 +2,27 @@
 // @Author: ubuntuvim
 // @Date:   2016-08-05T02:04:54+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-08-05T02:51:12+08:00
-#publicTodosListPageId .navbar .collapse .navbar-form .input-group input {
+// @Last modified time: 2016-08-06T03:17:54+08:00
+#publicTodosListPageId .navbar .collapse .navbar-form .form-group {
+    // width: 100%;
+}
+#publicTodosListPageId .navbar .collapse .navbar-form .form-group input {
     border-radius: 4px;
 }
 // 激活状态增大输入框宽度
-#publicTodosListPageId .navbar .collapse .navbar-form .input-group input:focus {
+#publicTodosListPageId .navbar .collapse .navbar-form .form-group input:focus {
     width: 300px;
 }
-#publicTodosListPageId .navbar .collapse .navbar-form .input-group .glyphicon-search {
+// ---  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 屏幕小于768px
+@media screen and (max-width: 768px) {
+    #publicTodosListPageId .navbar .collapse .navbar-form .form-group input {
+        width: 100%;
+    }
+    #publicTodosListPageId .navbar .collapse .navbar-form .form-group input:focus {
+        width: 100%;
+    }
+}
+#publicTodosListPageId .navbar .collapse .navbar-form .form-group .glyphicon-search {
     z-index: 1100;
     color: #aaa;
 }

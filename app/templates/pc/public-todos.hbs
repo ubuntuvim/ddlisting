@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T00:11:26+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-05T02:51:37+08:00
+@Last modified time: 2016-08-06T03:35:16+08:00
 todo广场，显示所有的公开的todo}}
 <div style="overflow: auto; height: 100vh; position: absolute; width: 100%;" id="publicTodosListPageId">
 
@@ -17,21 +17,18 @@ todo广场，显示所有的公开的todo}}
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#link-to 'pc' class="navbar-brand"}}DDLISTING{{/link-to}}
+      {{#link-to 'pc.publicTodos' class="navbar-brand"}}DDLISTING{{/link-to}}
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="app-main-header-collapse">
       <form class="navbar-form navbar-left" role="search">
-        <div class="form-grouphas-feedback">
-          <div class="input-group">
+          <div class="form-group has-feedback">
             {{input type="text" class="form-control search-input" placeholder="任务搜索……"
                 id="publicTodosSearchInputId" aria-describedby="searchAriaDescribedby2" value=queryPublicTodoValue}}
             <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
             <span id="searchAriaDescribedby2" class="sr-only">(success)</span>
           </div>
-        </div>
-        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
       </form>
 
     <!-- <ul class="nav navbar-nav">
@@ -54,6 +51,7 @@ todo广场，显示所有的公开的todo}}
               {{/if}}
           {{/each}}
       </li>
+      <li>{{#link-to 'help'}}清单简介{{/link-to}}</li>
       <li>
         <a href ="#" {{action 'logout'}}>退出</a>
       </li>

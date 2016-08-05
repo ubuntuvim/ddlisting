@@ -2,7 +2,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-07-17T18:12:11+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-07-18T23:06:21+08:00
+// @Last modified time: 2016-08-06T03:35:14+08:00
 
 .help-container-fluid {
     margin-top: 50px;
@@ -27,10 +27,19 @@
     // background-color: #fff;
     // color: #555;
     vertical-align: middle;
-    display: table-cell;
-    vertical-align: middle;
 }
-
+.help-container-fluid .help-show-text-top200 {
+    margin-top: 200px;
+}
+// ---  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 屏幕小于768px
+@media screen and (max-width: 768px) {
+    .help-container-fluid .divider-border {
+        border-top: 10px solid #fff;
+    }
+    .help-container-fluid .help-show-text-top200 {
+        margin-top: 0 !important;
+    }
+}
 #footer {
   // background-color: #1b252e;
   // color: #9db1c5;

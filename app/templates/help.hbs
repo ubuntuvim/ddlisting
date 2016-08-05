@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-07-15T00:18:51+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-20T22:51:11+08:00
+@Last modified time: 2016-08-06T03:07:19+08:00
 }}
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -21,7 +21,7 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <!-- <ul class="nav navbar-nav">
         <li>{{#link-to 'help'}}简介{{/link-to}}</li>
         <li>{{#link-to 'help'}}意见反馈{{/link-to}}</li>
@@ -43,6 +43,8 @@
                     {{/if}}
                 {{/each}}
             </li>
+            <li>{{#link-to 'pc.publicTodos'}}清单广场{{/link-to}}</li>
+            
             <li>
               <a href ="#" {{action 'logout'}}>退出</a>
             </li>
@@ -69,13 +71,13 @@
 <div class="container-fluid help-container-fluid">
     <div class="row index-intro">
         <div class="col-md-12 col-sm-12" style="text-align:center;">
-            <h1>优美、简洁、实用的主页</h1>
+            <h1>优美、简洁、实用</h1>
             <br>
             <p>
                 秉承当下流行的设计趋势，减少不必要的设计，让用户用的舒服、用的爽是我们的目标。
             </p>
             <p>
-                    天天清单采用采用APP页面结构，顶部是logo和工具栏，左侧是清单分类。
+                    天天清单采用常见的APP页面结构，顶部是logo和工具栏，左侧是清单分类。
             </p>
             <p>
                 右侧主体部分是我们最重要的一块，用户的清单全部可以在这里查看到，并且对列表项操作。
@@ -86,12 +88,12 @@
 
     <div class="row">
         <div class="col-md-12 col-sm-12">
-            <img src="/assets/images/help/help-index.png" alt="" class="img-responsive"/>
+            <img src="http://blog.ddlisting.com/content/images/2016/08/help-index.png" alt="" class="img-responsive"/>
         </div>
     </div>
 
 
-    <div class="row">
+    <div class="row divider-border">
         <div class="col-md-4 col-sm-4 help-show-text">
             <h1>清单列表</h1>
             <br>
@@ -106,15 +108,15 @@
             </p>
         </div>
         <div class="col-md-8 col-sm-8">
-            <img src="/assets/images/help/help-list.png" alt="" class="img-responsive"/>
+            <img src="http://blog.ddlisting.com/content/images/2016/08/help-list.png" alt="" class="img-responsive"/>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row divider-border">
         <div class="col-md-8 col-sm-8">
-            <img src="/assets/images/help/help-detail.png" alt="" class="img-responsive"/>
+            <img src="http://blog.ddlisting.com/content/images/2016/08/help-detail.png" alt="" class="img-responsive"/>
         </div>
-        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 300px;">
+        <div class="col-md-4 col-sm-4 help-show-text help-show-text-top200">
             <h1>详细设置清单项</h1>
             <br>
             <p>
@@ -126,8 +128,8 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 200px;">
+    <div class="row divider-border">
+        <div class="col-md-4 col-sm-4 help-show-text help-show-text-top200">
             <h1>快速、智能搜索</h1>
             <br>
             <p>
@@ -141,15 +143,15 @@
             </p>
         </div>
         <div class="col-md-8 col-sm-8">
-            <img src="/assets/images/help/help-search.png" alt="" class="img-responsive"/>
+            <img src="http://blog.ddlisting.com/content/images/2016/08/help-search-1.png" alt="" class="img-responsive"/>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row divider-border">
         <div class="col-md-8 col-sm-8">
-            <img src="/assets/images/help/help-sort.png" alt="" class="img-responsive"/>
+            <img src="http://blog.ddlisting.com/content/images/2016/08/help-sort-2.png" alt="" class="img-responsive"/>
         </div>
-        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 200px;">
+        <div class="col-md-4 col-sm-4 help-show-text help-show-text-top200">
             <h1>简单、快速排序</h1>
             <br>
             <p>
@@ -158,8 +160,8 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 200px;">
+    <div class="row divider-border">
+        <div class="col-md-4 col-sm-4 help-show-text help-show-text-top200">
             <h1>背景图片随时换</h1>
             <br>
             <p>
@@ -173,15 +175,15 @@
             </p>
         </div>
         <div class="col-md-8 col-sm-8">
-            <img src="/assets/images/help/help-chang-bg-img.png" alt="" class="img-responsive"/>
+            <img src="http://blog.ddlisting.com/content/images/2016/08/help-chang-bg-img-1.png" alt="" class="img-responsive"/>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row divider-border">
         <div class="col-md-8 col-sm-8">
-            <img src="/assets/images/help/help-profile.png" alt="" class="img-responsive"/>
+            <img src="http://blog.ddlisting.com/content/images/2016/08/help-profile-2.png" alt="" class="img-responsive"/>
         </div>
-        <div class="col-md-4 col-sm-4 help-show-text" style="margin-top: 200px;">
+        <div class="col-md-4 col-sm-4 help-show-text help-show-text-top200">
             <h1>自定义设置</h1>
             <br>
             <p>

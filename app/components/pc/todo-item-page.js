@@ -3,11 +3,12 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-25T00:24:36+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-07T01:42:48+08:00
+* @Last modified time: 2016-08-06T02:43:02+08:00
 */
 import Ember from 'ember';
 import completedTodo from '../../utils/completed-todo';
 import setStarStatus from '../../utils/set-star-status';
+import getUserId from '../../utils/get-user-id';
 
 export default Ember.Component.extend({
     didUpdate() {
@@ -48,7 +49,67 @@ export default Ember.Component.extend({
         },
         // 设置完成状态
         doChecked(id, check) {
-            completedTodo(id, check, this.store);
+            // completedTodo(id, check, this.store);
+            let ids = "#"+id;
+            this.store.findRecord('todo-item', id).then((td) => {
+                if (check) {
+                    Ember.$(ids).slideUp("normal", () => {
+                        // 未完成
+                        td.set('recordStatus', 1);
+                        td.set('checked', false);
+                        // 设置所有的子todo为非完成状态
+                        td.get('childTodos').forEach((std) => {
+                            this.store.findRecord('todo-item', std.id).then((td2) => {
+                                td2.set('recordStatus', 1);
+                                td2.set('checked', false);
+                                td2.save().then(() => {
+                                    // star todo积分加1
+                                    this.store.findRecord('user', getUserId()).then((u) => {
+                                        u.set('myIntegral', (u.get('myIntegral')-1));
+                                        u.save();
+                                    });
+                                });
+                            });
+                        });
+                        td.save().then(() => {
+                            // star todo积分加1
+                            this.store.findRecord('user', getUserId()).then((u) => {
+                                u.set('myIntegral', (u.get('myIntegral')+1));
+                                u.save();
+                            });
+                        });
+                    });
+                    Ember.$(ids).slideUp("normal");
+                } else {  //完成状态
+                    Ember.$(ids).slideUp("normal", () => {
+                        td.set('checked', true);
+                        td.set('recordStatus', 2);
+                        // 设置所有的子todo为完成状态
+                        td.get('childTodos').forEach((std) => {
+                            this.store.findRecord('todo-item', std.id).then((td2) => {
+                                td2.set('recordStatus', 2);
+                                td2.set('checked', true);
+                                td2.save().then(() => {
+                                    // star todo积分加1
+                                    this.store.findRecord('user', getUserId()).then((u) => {
+                                        u.set('myIntegral', (u.get('myIntegral')+1));
+                                        u.save();
+                                    });
+                                });
+                            });
+                        });
+                        // td.save();
+                        td.save().then(() => {
+                            // star todo积分加1
+                            this.store.findRecord('user', getUserId()).then((u) => {
+                                u.set('myIntegral', (u.get('myIntegral')-1));
+                                u.save();
+                            });
+                        });
+                    });
+
+                }  //else
+            });
         }
     }
 });

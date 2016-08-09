@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-10T00:16:07+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-06T01:51:41+08:00
+@Last modified time: 2016-08-09T23:26:19+08:00
 }}
 <form id="login-modal-form" {{action 'login' on='submit'}}>
 <div class="modal fade" id="login-modal-win" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -20,7 +20,7 @@
           </div>
           <div class="form-group">
             <label for="loginEmail">邮箱</label>
-            {{input type="text" class="form-control" id="loginEmail" name="loginEmail" placeholder="1527254027@qq.com" value=email focus-in="clearTipInfo"}}
+            {{input type="text" class="form-control" id="loginEmail" name="loginEmail" placeholder="邮箱" value=email focus-in="clearTipInfo"}}
           </div>
           <div class="form-group">
             <label for="loginPassword">密码</label>
@@ -62,7 +62,7 @@
 
       </div>
       <div class="modal-footer">
-          {{#link-to 'pc' class="pull-left"}}忘记密码{{/link-to}}
+          {{#link-to 'help' class="pull-left"}}忘记密码{{/link-to}}
           <button type="submit" class="btn btn-success" id="loginBtn">登录</button>
         <!-- <button type="button" class="btn btn-default" data-dismiss="modal">取消</button> -->
       </div>

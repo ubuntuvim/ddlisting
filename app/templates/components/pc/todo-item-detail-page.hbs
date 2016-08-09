@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-29T21:13:18+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-07T01:35:35+08:00
+@Last modified time: 2016-08-10T00:33:09+08:00
 -->
 
 
@@ -62,7 +62,7 @@
                           <div class="form-group has-feedback mgbt0">
                               <input type="text" class="form-control" id="startTimeId" aria-describedby="startTimeId1"
                                placeholder="开始时间" readonly value={{model.startDate}}
-                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true,highLineWeekDay:true})"
+                               onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true,highLineWeekDay:true})"
                                onblur={{action 'setStartTimeById' model.id}}>
                               <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
                               <span id="startTimeId1" class="sr-only">(success)</span>
@@ -70,7 +70,7 @@
                           <div class="form-group has-feedback mgbt0">
                               <input type="text" class="form-control" id="endTimeId" aria-describedby="DueTime2"
                                placeholder="结束时间" readonly value={{model.endDate}}
-                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true})"
+                               onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm', autoclose:true})"
                                onblur={{action 'setEndTimeById' model.id}}>
                               <span class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
                               <span id="DueTime2" class="sr-only">(success)</span>

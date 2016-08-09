@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-07-15T00:18:51+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-06T03:07:19+08:00
+@Last modified time: 2016-08-09T23:24:23+08:00
 }}
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -44,7 +44,7 @@
                 {{/each}}
             </li>
             <li>{{#link-to 'pc.publicTodos'}}清单广场{{/link-to}}</li>
-            
+
             <li>
               <a href ="#" {{action 'logout'}}>退出</a>
             </li>
@@ -82,6 +82,16 @@
             <p>
                 右侧主体部分是我们最重要的一块，用户的清单全部可以在这里查看到，并且对列表项操作。
             </p>
+            <br>
+            <p>
+              <a href="#" data-toggle="modal" data-target="#login-modal-win" class="btn btn-success">
+                  登&nbsp;&nbsp;录
+              </a>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#" data-toggle="modal" data-target="#register-modal-win" class="btn btn-default">
+                  注册免费账户
+              </a>
+          </p>
             <br><br>
         </div>
     </div>

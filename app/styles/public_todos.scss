@@ -2,7 +2,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-08-05T02:04:54+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-08-06T03:17:54+08:00
+// @Last modified time: 2016-08-09T23:43:44+08:00
 #publicTodosListPageId .navbar .collapse .navbar-form .form-group {
     // width: 100%;
 }
@@ -33,4 +33,13 @@
 #publicTodosListPageId .pc-todo-list-square .nav .active a {
     color: #23527c;
     font-weight: 600;
+}
+#publicTodosListPageId .container-fluid .inner .tab-content .todo-list .public-todos-item-list-glc-tools {
+    position: absolute;
+    right: 10px;
+    width: 200px;
+    text-align: right;
+}
+#publicTodosListPageId .container-fluid .inner .tab-content .todo-list .public-todos-item-list-glc-tools .glyphicon {
+    margin-left: 5px;
 }

@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-07-19T20:17:40+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-04T01:13:00+08:00
+@Last modified time: 2016-08-09T23:34:47+08:00
 }}
 <div class="list-group">
     {{#link-to 'pc.publicTodos.detail' todoItem class="list-group-item"}}
@@ -19,7 +19,7 @@
             {{/if}}
             {{format-date todoItem.timestamp}}
             发布任务
-            <span class="pull-right">
+            <span class="public-todos-item-list-glc-tools">
                 {{! 大于0才显示}}
                 {{#if todoItem.greatCount}}
                 <span class="glyphicon glyphicon-thumbs-up"></span>({{todoItem.greatCount}})

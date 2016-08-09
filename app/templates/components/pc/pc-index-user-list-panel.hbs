@@ -1,14 +1,17 @@
-{{!  清单广场用户列表  app/templates/pc/pc-index-user-list-panel.hbs
+{{!  清单广场用户列表  app/templates/comonents/pc/pc-index-user-list-panel.hbs
 @Author: ubuntuvim
 @Date:   2016-07-19T01:49:32+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-05T01:22:16+08:00
+@Last modified time: 2016-08-10T00:10:48+08:00
 }}
 <div class="panel panel-default">
-  <div class="panel-heading">排行榜</div>
+  <div class="panel-heading" style="color: #23527c;font-weight:600;">
+      排行榜
+      <span class="pull-right" style="margin-top: 5px;color:#555;font-size:11px;">清单数 / 积分</span>
+  </div>
   <div class="panel-body">
       <ul class="list-group">
-          {{#each enabledUserList as |user|}}
+          {{#each userListSortByTodosCount as |user|}}
             <li class="list-group-item">
                 <img src={{user.userProfile}} alt="" class="img-circle" height="30px" />
                 {{#if (eq user.email model.user.email)}}
@@ -22,6 +25,7 @@
                     {{user.email}}
                 {{/if}}
                 <span class="grade">{{user.myTodoCount}}</span>
+                <span class="grade">{{user.myIntegral}}&nbsp;/&nbsp;</span>
             </li>
           {{/each}}
       </ul>

@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T00:11:26+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-06T03:35:16+08:00
+@Last modified time: 2016-08-11T00:38:27+08:00
 todo广场，显示所有的公开的todo}}
 <div style="overflow: auto; height: 100vh; position: absolute; width: 100%;" id="publicTodosListPageId">
 
@@ -17,7 +17,10 @@ todo广场，显示所有的公开的todo}}
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#link-to 'pc.publicTodos' class="navbar-brand"}}DDLISTING{{/link-to}}
+      {{#link-to 'pc.publicTodos' class="navbar-brand"}}
+      <img src="/assets/images/bookmark/logo.png" alt="logo" height="40px" style="display: inline; border: 0; margin-top: -10px;"/>
+      天天清单
+      {{/link-to}}
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

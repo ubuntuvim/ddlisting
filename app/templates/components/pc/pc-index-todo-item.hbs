@@ -2,20 +2,30 @@
 @Author: ubuntuvim
 @Date:   2016-07-19T20:17:40+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-09T23:34:47+08:00
+@Last modified time: 2016-08-11T00:18:55+08:00
 }}
 <div class="list-group">
     {{#link-to 'pc.publicTodos.detail' todoItem class="list-group-item"}}
         <p class="author-create-date">
-            {{todoItem.user.email}}&nbsp;&nbsp;
-            <span class="glyphicon glyphicon-triangle-right"></span>
             {{! 如果是当前用户的分类可以点击进入APP列表页面}}
             {{#if (eq todoItem.userId userId)}}
+                {{! 如果是当前用户可以进入到默认列表}}
+                {{#each model.user.projects as |proj|}}
+                    {{#if proj.isDefaultProj}}
+                        {{#link-to 'pc.projects.todos' proj.id}}{{todoItem.user.email}}&nbsp;&nbsp;{{/link-to}}
+                    {{/if}}
+                {{/each}}
+                <span class="glyphicon glyphicon-triangle-right"></span>
+                {{! 分类链接}}
                 {{#link-to 'pc.projects.todos' todoItem.project.id}}
                   {{todoItem.project.projName}}&nbsp;&nbsp;
                 {{/link-to}}
             {{else}}
-              {{todoItem.project.projName}}&nbsp;&nbsp;
+
+                {{todoItem.user.email}}&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-triangle-right"></span>
+                {{todoItem.project.projName}}&nbsp;&nbsp;
+
             {{/if}}
             {{format-date todoItem.timestamp}}
             发布任务

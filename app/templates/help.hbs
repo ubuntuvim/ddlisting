@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-07-15T00:18:51+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-09T23:24:23+08:00
+@Last modified time: 2016-08-11T00:44:04+08:00
 }}
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -15,7 +15,7 @@
         <span class="icon-bar"></span>
       </button>
       {{#link-to 'help' class="navbar-brand"}}
-          <!-- <img src="/assets/images/bookmark/logo.png" alt="logo" height="40px"/> -->
+          <img src="/assets/images/bookmark/logo.png" alt="logo" height="40px" style="display: inline; border: 0; margin-top: -10px;"/>
           天天清单
       {{/link-to}}
     </div>
@@ -71,16 +71,16 @@
 <div class="container-fluid help-container-fluid">
     <div class="row index-intro">
         <div class="col-md-12 col-sm-12" style="text-align:center;">
-            <h1>优美、简洁、实用</h1>
+            <h1>天天清单与你同在</h1>
             <br>
             <p>
-                秉承当下流行的设计趋势，减少不必要的设计，让用户用的舒服、用的爽是我们的目标。
+                每个伟大的计划都是有一个个小事情组成的。
             </p>
             <p>
-                    天天清单采用常见的APP页面结构，顶部是logo和工具栏，左侧是清单分类。
+                天天清单可以帮助你快速完成你的计划、你的目标，
             </p>
             <p>
-                右侧主体部分是我们最重要的一块，用户的清单全部可以在这里查看到，并且对列表项操作。
+                无论是项目计划、安排度假、学习计划，天天清单会帮你快速分解、完成你的所有的待办事项。
             </p>
             <br>
             <p>
@@ -134,6 +134,14 @@
             </p>
             <p>
                 你可以修改标题、设置到期时间、还可以给清单项增加子任务。
+            </p>
+
+            <h3>公开清单</h3>
+            <p>
+                设置为公开的清单项任何注册用户都可以在{{#link-to 'pc.publicTodos'}}清单广场{{/link-to}}查看，别让好点子埋没了！
+            </p>
+            <p>
+                好的清单项是经得起洗礼的！
             </p>
         </div>
     </div>

@@ -1,7 +1,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-07-13T23:14:11+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-07-17T23:51:55+08:00
+// @Last modified time: 2016-08-11T00:42:40+08:00
 /* ========================== 左侧面板 ==========================  */
 // ::-webkit-scrollbar{width:1px;}
 #appMainLeftId {
@@ -38,7 +38,7 @@
     //position: fixed;
     //top: 51px;
     //z-index: 1100;
-    // border: 0;
+    border-right: 1px solid #ddd;
     background-color: #fff;
     width: 219px;
 }

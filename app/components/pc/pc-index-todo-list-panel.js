@@ -4,7 +4,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-18T23:33:26+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-05T02:53:17+08:00
+* @Last modified time: 2016-08-10T23:52:20+08:00
 */
 import Ember from 'ember';
 import getUserId from '../../utils/get-user-id';
@@ -20,22 +20,23 @@ export default Ember.Component.extend({
     allTodos: Ember.computed(function() {
         return this.store.findAll('todo-item');
     }),
-    // 公开，非子todo数据
-    publicAndNotChildTodoList: Ember.computed('allTodos.@each.isPublish',
-                                                'allTodos.@each.isChildOrParent', function() {
+    // 公开，非子、非删除状态todo数据
+    publicNotChildNotDeleteTodoList: Ember.computed('allTodos.@each.isPublish',
+                                                'allTodos.@each.isChildOrParent',
+                                                'allTodos.@each.recordStatus', function() {
         return this.get('allTodos').filter((td) => {
-            return td.get('isPublish') === 1 && td.get('isChildOrParent') !== 1;
+            return td.get('isPublish') === 1 && td.get('isChildOrParent') !== 1 && td.get('recordStatus') !== 3;
         });
     }),
     // 根据查询值queryPublicTodoValue过滤,queryPublicTodoValue从public-toods.hbs传递过来
-    publicTodosListFilterByTitle: Ember.computed('publicAndNotChildTodoList', 'queryPublicTodoValue', function() {
+    publicTodosListFilterByTitle: Ember.computed('publicNotChildNotDeleteTodoList', 'queryPublicTodoValue', function() {
         let queryValue = this.get('queryPublicTodoValue');
         if (queryValue) {
-            return this.get('publicAndNotChildTodoList').filter((td) => {
+            return this.get('publicNotChildNotDeleteTodoList').filter((td) => {
                 return td.get('title').indexOf(queryValue) !== -1;
             });
         } else {
-            return this.get('publicAndNotChildTodoList');
+            return this.get('publicNotChildNotDeleteTodoList');
         }
     }),
     // 排序：创建时间逆序，新增的排在前面

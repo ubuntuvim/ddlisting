@@ -1,8 +1,13 @@
-{{! app/templates/components/create-todo-input.hbs 新增todo输入框}}
+{{! app/templates/components/create-todo-input.hbs 新增todo输入框
+@Author: ubuntuvim
+@Date:   2016-06-10T18:29:35+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-08-11T01:37:26+08:00
+}}
 
-  {{input type="text" class="form-control opacity09" id="newTodoId"
-    aria-describedby="newTodo" placeholder="请输入任务项" value=title enter="saveTodoItem"}}
-  <!-- <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> -->
-  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-  {{! 点击star时候设置它的值，后台用于判断是否是star状态}}
-  {{input type="hidden" name="star" id="star" value="0"}}
+{{input type="text" class="form-control opacity09" id="newTodoId"
+    aria-describedby="newTodo" placeholder="新增清单项" value=title enter="saveTodoItem"}}
+<!-- <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> -->
+<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+{{! 点击star时候设置它的值，后台用于判断是否是star状态}}
+{{input type="hidden" name="star" id="star" value="0"}}

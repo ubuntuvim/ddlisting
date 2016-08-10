@@ -3,13 +3,14 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-19T23:48:29+08:00
+* @Last modified time: 2016-08-11T01:25:31+08:00
 */
 import Ember from 'ember';
 import dateUtil from '../../utils/date-util';
 import completedTodo from '../../utils/completed-todo';
 import setStarStatus from '../../utils/set-star-status';
 import getUserId from '../../utils/get-user-id';
+import playCompletedBGM from '../../utils/play-completed-bgm';
 
 export default Ember.Component.extend({
     defaultProjectId: sessionStorage.getItem('__DEFAULT_PROJECT_ID__'),
@@ -116,6 +117,11 @@ export default Ember.Component.extend({
                         });
                     });
                 } else {  //完成状态
+
+                    // 如果用户开启了音效
+                    let isOpenPromptTone = this.store.peekRecord('user', getUserId()).get('profile').get('isOpenPromptTone');
+                    playCompletedBGM(isOpenPromptTone); //播放完成提示音效
+
                     td.set('checked', true);
                     td.set('recordStatus', 2);
                     // 设置所有的子todo为完成状态

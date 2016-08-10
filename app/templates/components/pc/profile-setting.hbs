@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-07-03T15:54:11+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-06T03:31:49+08:00
+@Last modified time: 2016-08-11T01:21:59+08:00
 }}
 <div class="modal fade pc-profile-modal-win" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
@@ -205,15 +205,13 @@
                                         <span class="glyphicon glyphicon-volume-up"></span>提示音：
                                     </div>
                                     <div class="col-md-9 col-xs-9">
-                                        <input type="checkbox" name="isOpenPromptTone" disabled>
-                                        <span class="pull-right text-primary">(正在通宵开发，敬请期待……)</span>
-                                        <!-- {{#if model.user.profile.isOpenPromptTone}}
+                                        {{#if model.user.profile.isOpenPromptTone}}
                                         <input type="checkbox" name="isOpenPromptTone" checked value="1"
                                         {{action 'resetPromptTone' model.user.profile.id model.user.profile.isOpenPromptTone}}>
                                         {{else}}
                                         <input type="checkbox" name="isOpenPromptTone" value="0"
                                         {{action 'resetPromptTone' model.user.profile.id model.user.profile.isOpenPromptTone}}>
-                                        {{/if}} -->
+                                        {{/if}}
                                     </div>
                                 </div>
                             </li>

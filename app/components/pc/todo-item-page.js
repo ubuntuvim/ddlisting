@@ -3,12 +3,13 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-25T00:24:36+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-06T02:43:02+08:00
+* @Last modified time: 2016-08-11T01:26:30+08:00
 */
 import Ember from 'ember';
 import completedTodo from '../../utils/completed-todo';
 import setStarStatus from '../../utils/set-star-status';
 import getUserId from '../../utils/get-user-id';
+import playCompletedBGM from '../../utils/play-completed-bgm';
 
 export default Ember.Component.extend({
     didUpdate() {
@@ -81,6 +82,10 @@ export default Ember.Component.extend({
                     });
                     Ember.$(ids).slideUp("normal");
                 } else {  //完成状态
+                    // 如果用户开启了音效
+                    let isOpenPromptTone = this.store.peekRecord('user', getUserId()).get('profile').get('isOpenPromptTone');
+                    playCompletedBGM(isOpenPromptTone); //播放完成提示音效
+
                     Ember.$(ids).slideUp("normal", () => {
                         td.set('checked', true);
                         td.set('recordStatus', 2);

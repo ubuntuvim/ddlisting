@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-03T12:57:37+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-06T02:19:35+08:00
+* @Last modified time: 2016-08-11T01:08:42+08:00
 */
 
 import Ember from 'ember';
@@ -44,6 +44,7 @@ export default function completedTodo(id, check, store) {
                 });
             });
         } else {  //完成状态
+
             Ember.$(ids).slideUp("normal", () => {
                 td.set('checked', true);
                 td.set('recordStatus', 2);

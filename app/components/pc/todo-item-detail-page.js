@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-11T01:25:31+08:00
+* @Last modified time: 2016-08-16T01:09:55+08:00
 */
 import Ember from 'ember';
 import dateUtil from '../../utils/date-util';
@@ -103,7 +103,7 @@ export default Ember.Component.extend({
                     td.set('checked', false);
                     // 设置所有的子todo为非完成状态
                     td.get('childTodos').forEach((std) => {
-                        this.store.findRecord('todo-item', std.id).then(function(subtd) {
+                        this.store.findRecord('todo-item', std.id).then((subtd) => {
                             subtd.set('recordStatus', 1);
                             subtd.set('checked', false);
                             u.set('myIntegral', (u.get('myIntegral')+2));  //完成一个todo积分+2
@@ -126,7 +126,7 @@ export default Ember.Component.extend({
                     td.set('recordStatus', 2);
                     // 设置所有的子todo为完成状态
                     td.get('childTodos').forEach((std) => {
-                        this.store.findRecord('todo-item', std.id).then(function(subtd) {
+                        this.store.findRecord('todo-item', std.id).then((subtd) => {
                             subtd.set('recordStatus', 2);
                             subtd.set('checked', true);
                             subtd.save().then(() => {
@@ -211,8 +211,8 @@ export default Ember.Component.extend({
             // Ember.$("#pcTodoItemId").hide();
             this.store.findRecord('todo-item', id).then((td) => {
                 //删除关联的子todo
-                td.get('childTodos').forEach(function(item) {
-                    this.store.findRecord('todo-item', item.id).then(function(td) {
+                td.get('childTodos').forEach((item) => {
+                    this.store.findRecord('todo-item', item.id).then((td) => {
                         td.set('recordStatus', 3);
                         td.save().then(() => {
                             // 更新用户的myTodoCount

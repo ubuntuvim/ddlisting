@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T21:08:17+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-13T22:39:26+08:00
+@Last modified time: 2016-08-11T02:18:44+08:00
 }}
 
 <div class="form-grouphas-feedback">
@@ -39,13 +39,17 @@
 <div class="pc-main-page-tools">
     <div class="btn-group" role="group" aria-label="...">
       <button type="button" class="btn btn-default" id="pcMainTodoToolsId" {{action 'showCompletedTodoList'}}
-      onclick="javascript: if ($(this).hasClass('todo-item-selected-status')) { $(this).removeClass('todo-item-selected-status'); } else { $(this).addClass('todo-item-selected-status'); }">显示已经完成任务({{completedCount}})</button>
+      onclick="javascript: if ($(this).hasClass('todo-item-selected-status')) { $(this).removeClass('todo-item-selected-status'); } else { $(this).addClass('todo-item-selected-status'); }">
+          <span class="glyphicon glyphicon-ok-sign"></span>
+          显示已经完成任务({{completedCount}})
+      </button>
 
       <div class="btn-group dropup">
           <button type="button" class="btn btn-default dropdown-toggle"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="pcMainTodoToolsSort">
-            排序&nbsp;<span class="caret"></span>
-            <span class="sr-only">Toggle Dropdown</span>
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="pcMainTodoToolsSort">
+              <span class="glyphicon glyphicon-sort"></span>
+              排序&nbsp;<span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-right">
               <li {{action 'resetSortProperty' 'timestamp'}} class="active" id="timestamp"><a><span class="glyphicon glyphicon-dashboard"></span>&nbsp;按创建时间排序</a></li>
@@ -56,7 +60,13 @@
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
         </div>
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeBackground">更换背景</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeBackground">
+            <span class="glyphicon glyphicon-picture"></span>
+            更换背景
+        </button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#pcProfileSettingModalWin">
+            <span class="glyphicon glyphicon-user"></span>{{model.user.email}}
+        </button>
     </div>
 </div>
 

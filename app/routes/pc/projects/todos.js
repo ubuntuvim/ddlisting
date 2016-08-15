@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-28T21:08:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-11T02:09:23+08:00
+* @Last modified time: 2016-07-17T16:44:09+08:00
 */
 
 import Ember from 'ember';
@@ -30,8 +30,7 @@ export default Ember.Route.extend({
             // 通过关联获取project下的todo
             // todos: this.store.peekRecord('project', projectId).get('todoItems'),
             project: this.store.peekRecord('project', projectId),
-            projectId: projectId,
-            user: this.store.peekRecord('user', getUserId())
+            projectId: projectId
         });
     }
 });

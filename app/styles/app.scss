@@ -2,10 +2,11 @@
 // @Author: ubuntuvim
 // @Date:   2016-06-25T00:24:36+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-08-05T02:05:12+08:00
+// @Last modified time: 2016-08-16T01:17:41+08:00
 
 @import "bootstrap";  /* 导入bootstrap */
-@import "left";  //左侧分类列表
+//左侧分类列表
+@import "left";
 // 导入pc端todo主页面
 @import "todos";
 // 导入pc端todo详细设置界面样式

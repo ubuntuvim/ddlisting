@@ -15,12 +15,12 @@ export default function setGreatedLiked(store, modelName, fieldName, id, elemId)
             td.set(fieldName, (td.get(fieldName)-1));
             td.save();
         });
-        Ember.$(elemId).removeClass('gread-like-active')
+        Ember.$(elemId).removeClass('gread-like-active');
     } else {
         store.findRecord(modelName, id).then((td) => {
             td.set(fieldName, (td.get(fieldName)+1));
             td.save();
         });
-        Ember.$(elemId).addClass('gread-like-active')
+        Ember.$(elemId).addClass('gread-like-active');
     }
 }

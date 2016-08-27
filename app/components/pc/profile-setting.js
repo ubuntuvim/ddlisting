@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-03T15:54:11+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-14T23:19:51+08:00
+* @Last modified time: 2016-08-16T01:50:11+08:00
 */
 import Ember from 'ember';
 import logout from '../../utils/logout';
@@ -75,7 +75,10 @@ export default Ember.Component.extend({
                     //清空输入框
                     Ember.$("#newPwd").val('');
                     Ember.$("#comNewPwd").val('');
-                    setTimeout(function() { Ember.$("#tipInfoId").html(""); }, 3000);
+                    // setTimeout(function() { Ember.$("#tipInfoId").html(""); }, 3000);
+                    Ember.run.later((function() {
+                        Ember.$("#tipInfoId").html("");
+                    }), 3000);
                 }, (err) => {
                     Ember.Logger.debug("修改失败: " + err);
                     this.set('msg', "修改失败，请刷新页面后重试。");

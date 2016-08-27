@@ -73,27 +73,43 @@ export default Ember.Component.extend({
                 return retUser;
             }).then((user) => {
                 if (user) {
+                    // 默认分类在模板上遍历，这里就不需要再遍历出来了
+                    let userId = user.get('id');
+                    Ember.Logger.debug("用户ID：" + userId);
+                    sessionStorage.setItem(config.APP.__LOGIN_USER_ID__, userId);
+                    // sessionStorage.setItem(config.APP.__DEFAULT_PROJECT_ID__, item.get('id'));
+                    if (rememberme) {  //  记住我7天
+                        // 存储一个带7天期限的 cookie
+                        Ember.$.cookie(config.APP.__LOGIN_USER_ID__, userId, { expires: 7 });
+                    }
+                    // debugger;
+                    // 强制刷新页面
+                    // location.reload();
+                    // 关闭modal
+                    Ember.$("#login-modal-win").modal('toggle');
+                    location.href = "/#/pc/publicTodos";
+
                     //获取默认的分类
-                    user.get('projects').forEach((item) => {
-                        if (item.get('isDefaultProj')) {  //默认分类
-                            // sessionStorage.setItem(config.APP.__LOGIN_USER_NICKNAME__, user.get('nickname'));
-                            // sessionStorage.setItem(config.APP.__LOGIN_USER_EMAIL__, user.get('email'));
-                            let userId = user.get('id');
-                            Ember.Logger.debug("用户ID：" + userId);
-                            sessionStorage.setItem(config.APP.__LOGIN_USER_ID__, userId);
-                            // sessionStorage.setItem(config.APP.__DEFAULT_PROJECT_ID__, item.get('id'));
-                            if (rememberme) {  //  记住我7天
-                                // 存储一个带7天期限的 cookie
-                                Ember.$.cookie(config.APP.__LOGIN_USER_ID__, userId, { expires: 7 });
-                            }
-                            // debugger;
-                            // 强制刷新页面
-                            // location.reload();
-                            // 关闭modal
-                            Ember.$("#login-modal-win").modal('toggle');
-                            location.href = "/#/pc/publicTodos";
-                        }
-                    });
+                    // user.get('projects').forEach((item) => {
+                    //     if (item.get('isDefaultProj')) {  //默认分类
+                    //         // sessionStorage.setItem(config.APP.__LOGIN_USER_NICKNAME__, user.get('nickname'));
+                    //         // sessionStorage.setItem(config.APP.__LOGIN_USER_EMAIL__, user.get('email'));
+                    //         let userId = user.get('id');
+                    //         Ember.Logger.debug("用户ID：" + userId);
+                    //         sessionStorage.setItem(config.APP.__LOGIN_USER_ID__, userId);
+                    //         // sessionStorage.setItem(config.APP.__DEFAULT_PROJECT_ID__, item.get('id'));
+                    //         if (rememberme) {  //  记住我7天
+                    //             // 存储一个带7天期限的 cookie
+                    //             Ember.$.cookie(config.APP.__LOGIN_USER_ID__, userId, { expires: 7 });
+                    //         }
+                    //         // debugger;
+                    //         // 强制刷新页面
+                    //         // location.reload();
+                    //         // 关闭modal
+                    //         Ember.$("#login-modal-win").modal('toggle');
+                    //         location.href = "/#/pc/publicTodos";
+                    //     }
+                    // });
 
                 } else {
                     this.set('errorMsg', "用户名或密码有误，请确认在登录。");

@@ -3,7 +3,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T21:08:17+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-10T00:27:49+08:00
+@Last modified time: 2016-08-28T23:49:52+08:00
 -->
 <!DOCTYPE html>
 <html>
@@ -37,6 +37,8 @@
 
     <!-- 引入textarea根据内容自适应插件 -->
     <link href="/assets/jquery-flextext/style.css" rel="stylesheet">
+    <!-- 用户引导 -->
+    <!-- <link href="http://iamdanfox.github.io/anno.js/anno.css" rel="stylesheet" type="text/css" /> -->
 
     {{content-for "head-footer"}}
   </head>
@@ -63,6 +65,9 @@
     <!-- 引入textarea根据内容自适应插件 -->
     <script src="/assets/jquery-flextext/jquery.flexText.min.js"></script>
 
+    <!-- <script src="http://iamdanfox.github.io/anno.js/anno.js" type="text/javascript"></script>
+    <script src="http://iamdanfox.github.io/anno.js/scrollintoview/jquery.scrollintoview.min.js" type="text/javascript"></script> -->
+
     <!-- <script src="//cdn.bootcss.com/blueimp-md5/2.1.0/js/md5.min.js"></script> -->
 
     <!-- <script src="//www.gstatic.com/firebasejs/live/3.0/firebase.js"></script> -->
@@ -75,6 +80,45 @@
         storageBucket: "ddlisting-49d6e.appspot.com",
       };
       firebase.initializeApp(config);
+      // 用户使用引导，在user-guides.js和app-main-header.hbs调用
+      var intro = introJs();
+    //   intro.setOption('tooltipPosition', 'auto');
+      // intro.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top']);
+      intro.setOption('nextLabel', '下一步');
+      intro.setOption('prevLabel', '上一步');
+      intro.setOption('skipLabel', '跳过');
+      intro.setOption('doneLabel', '完成');
+      intro.setOption('showStepNumbers', false);
+      intro.setOption('overlayOpacity', 0.2);
+      intro.setOptions({
+          steps: [
+            {
+              element: '#userGuideStep1',  // project-list-page.hbs
+              intro: "点击<code><span class='glyphicon glyphicon-plus'><span></code>新增项目!",
+              position: 'right'
+            },
+            {
+              element: '#userGuideStep2',  // project-list-page.hbs
+              intro: "选中项目，在右侧输入框输入项目下的任务项。",
+              position: 'right'
+            },
+            {
+              element: '#newTodoId', // create-todo-input.hbs
+              intro: '输入任务项，按回车键(<code>Enter</code>、<code>return</code>)即可保存。',
+              position: 'bottom'
+            },
+            {
+              element: '#userGuideStep3', // create-todo-input.hbs
+              intro: "点击<code><span class='glyphicon glyphicon-star'></span></code>创建任务时直接标记为重要任务项。",
+              position: 'bottom'
+            },
+            {
+              element: '#userGuideStep4',  // 搜索任务 todos.hbs
+              intro: '快速搜索任务项，任务在再多也不怕了。',
+              position: 'bottom'
+            }
+      ]
+      });
     </script>
 
     {{content-for "body-footer"}}

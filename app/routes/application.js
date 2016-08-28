@@ -4,7 +4,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-05-26T22:15:56+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-10T01:56:04+08:00
+* @Last modified time: 2016-08-28T04:05:42+08:00
 */
 import Ember from 'ember';
 
@@ -17,7 +17,7 @@ export default Ember.Route.extend({
     beforeModel() {
         let hostname = "http://" + window.location.host + "/";
         // 首次访问时候判断是手机还是PC端分别进入不同的处理页面
-        if (hostname == window.location.href || (hostname + "#/") == window.location.href) {  //当前窗口的URL与首页一致（http://localhost:4200)
+        if (hostname === window.location.href || (hostname + "#/") === window.location.href) {  //当前窗口的URL与首页一致（http://localhost:4200)
             if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
                 Ember.Logger.debug("移动设备");
                 this.transitionTo('m.projects');

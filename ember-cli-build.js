@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-05-15T15:09:11+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-19T01:45:35+08:00
+* @Last modified time: 2016-08-28T23:35:49+08:00
 */
 /*jshint node:true*/
 /* global require, module */
@@ -31,6 +31,12 @@ module.exports = function(defaults) {
   // 表单校验
   app.import("bower_components/jquery-validation/dist/jquery.validate.js");
   app.import("bower_components/jquery.cookie/jquery.cookie.js");
+  // app.import("bower_components/guides/dist/guides.css");
+  // app.import("bower_components/guides/dist/guides.min.js");
+
+  app.import("bower_components/bower_components/intro.js/minified/intro.min.js");
+  app.import("bower_components/bower_components/intro.js/minified/intro.min.css");
+  // app.import("bower_components/bower_components/intro.js/themes/introjs-nazanin.css");
 
   return app.toTree();
 };

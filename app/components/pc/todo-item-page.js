@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-25T00:24:36+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-11T01:26:30+08:00
+* @Last modified time: 2016-08-28T04:33:21+08:00
 */
 import Ember from 'ember';
 import completedTodo from '../../utils/completed-todo';
@@ -34,7 +34,8 @@ export default Ember.Component.extend({
             });
             // 设置被点击的todo状态
             Ember.$(this).addClass('todo-item-selected-status');
-        });
+        });  // end click
+
     },
     actions: {
         // 设置star状态

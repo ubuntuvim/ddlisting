@@ -59,7 +59,8 @@ module.exports = function(environment) {
       __LOGIN_USER_ID__: "__LOGIN_USER_ID__",
       __DEFAULT_PROJECT_ID__: "__DEFAULT_PROJECT_ID__",
       __DEFAULT_PROJECT_ID__: "__DEFAULT_PROJECT_ID__",
-      __DEFAULT_PROFILE_ID__: "__DEFAULT_PROFILE_ID__"
+      __DEFAULT_PROFILE_ID__: "__DEFAULT_PROFILE_ID__",
+      __SHOW_USER_GUIDE_FLAG__: "__SHOW_USER_GUIDE_FLAG__"  //用户引导标记
 
     }
   };

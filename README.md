@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-05-27T21:28:39+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-11T00:48:57+08:00
+@Last modified time: 2016-08-28T23:30:03+08:00
 -->
 
 
@@ -23,6 +23,7 @@ A short introduction of this app could easily go here.
 7. [jquery-validation](https://github.com/ikajou/jquery-validation.git) 表单校验
 8. [ember-profile-upload](https://github.com/rtablada/ember-profile-upload) 图片上传
 9. [Cloudinary](https://cloudinary.com/)  图片后端存储库
+10. [intro](https://github.com/usablica/intro.js) 用户使用引导
 
 
 ## 界面原型

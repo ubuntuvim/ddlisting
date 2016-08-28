@@ -2,10 +2,10 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T21:08:17+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-11T02:18:44+08:00
+@Last modified time: 2016-08-28T22:46:54+08:00
 }}
 
-<div class="form-grouphas-feedback">
+<div class="form-grouphas-feedback" id="userGuideStep4">
     <div class="input-group">
       <!-- <span class="input-group-addon">
           <span class="glyphicon glyphicon-search"></span>
@@ -38,6 +38,7 @@
 {{! 右下角工具栏}}
 <div class="pc-main-page-tools">
     <div class="btn-group" role="group" aria-label="...">
+        <!--  data-step="5" data-intro="点击查看已经完成的任务项。" data-position='top' -->
       <button type="button" class="btn btn-default" id="pcMainTodoToolsId" {{action 'showCompletedTodoList'}}
       onclick="javascript: if ($(this).hasClass('todo-item-selected-status')) { $(this).removeClass('todo-item-selected-status'); } else { $(this).addClass('todo-item-selected-status'); }">
           <span class="glyphicon glyphicon-ok-sign"></span>
@@ -60,7 +61,9 @@
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
         </div>
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeBackground">
+        <!-- data-step="6" data-intro="快速更换应用背景图片，让你的清单与众不同。" data-position='top' -->
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeBackground" id="userUserGuideChangeBgImgId"
+            >
             <span class="glyphicon glyphicon-picture"></span>
             更换背景
         </button>
@@ -69,7 +72,6 @@
         </button>
     </div>
 </div>
-
 
 {{! todo详细设置页面渲染到此}}
 {{outlet}}

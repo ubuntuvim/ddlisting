@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-14T23:56:31+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-17T15:42:28+08:00
+* @Last modified time: 2016-08-29T00:43:52+08:00
 */
 
 import Ember from 'ember';
@@ -13,6 +13,7 @@ export default function logout() {
     //退出，删除保存到sessionStorage里的信息
     sessionStorage.removeItem(config.APP.__LOGIN_USER_ID__);
     Ember.$.cookie(config.APP.__LOGIN_USER_ID__, '', { expires: -1 }); // 删除 cookie
+    // Ember.$.cookie(config.APP.__SHOW_USER_GUIDE_FLAG__, '', { expires: -1 }); // 删除 cookie
     // sessionStorage.removeItem("__LOGIN_USER_EMAIL__");
     // sessionStorage.removeItem("__LOGIN_USER_NICKNAME__");
     // sessionStorage.removeItem("__DEFAULT_PROJECT_ID__");

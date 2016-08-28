@@ -2,9 +2,9 @@
 @Author: ubuntuvim
 @Date:   2016-06-29T21:13:18+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-16T01:06:42+08:00
+@Last modified time: 2016-08-28T23:23:03+08:00
 }}
-<nav class="navbar navbar-default opacity09" style="border-radius: 0; z-index: 1100;">
+<nav class="navbar navbar-default opacity09" style="border-radius: 0; z-index: 1100;"  data-step="5" data-intro="设置菜单栏。" data-position='right'>
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -40,7 +40,7 @@
         <li class="1">
           <a href="#" class="header-pic dropdown-toggle" data-toggle="dropdown"
             role="button" aria-haspopup="true" aria-expanded="false">
-              <img src={{model.user.userProfile}}
+              <img src={{model.user.userProfile}} id="userGuideStep5"
                   alt="头像" width="45px" height="45px" class="img-circle" />
               <span class="caret"></span>
           </a>
@@ -49,6 +49,7 @@
             <!-- <li>{{#link-to 'pc.projects.todos' model.defaultProjectId}}个人中心{{/link-to}}</li> -->
             <li><a data-toggle="modal" data-target="#pcProfileSettingModalWin">个人中心</a></li>
             <li><a data-toggle="modal" data-target="#changeBackground">更换背景</a></li>
+            <li><a onclick="javascript: intro.start();">使用引导</a></li>
             <li>{{#link-to 'pc.publicTodos'}}清单广场{{/link-to}}</li>
             <li>{{#link-to 'help'}}天天清单简介{{/link-to}}</li>
             <li><a href="http://www.ddlisting.com">天天清单网站</a></li>

@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T21:08:17+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-17T23:53:42+08:00
+@Last modified time: 2016-08-28T22:58:15+08:00
 app/templates/components/project-list-page.hbs 分类列表}}
 <div class="container-fluid my-container-fluid" style="z-index:1;">
     <div class="my-row">
@@ -10,8 +10,8 @@ app/templates/components/project-list-page.hbs 分类列表}}
             {{! 首页左侧分类栏}}
             {{!yield}}
             <div class="panel panel-default h100ps opacity09">
-              <div class="panel-heading">
-                <h3 class="panel-title">清单类别</h3>
+              <div class="panel-heading" id="userGuideStep1" data-step="1" data-intro="" data-position='right'>
+                <h3 class="panel-title">项目列表</h3>
                 <a data-toggle="modal" data-target="#newCategoryId">
                     <span class="glyphicon glyphicon-plus" data-whatever="@新增分类" title="新增分类">
                     </span>
@@ -19,7 +19,7 @@ app/templates/components/project-list-page.hbs 分类列表}}
               </div>
               <div class="panel-body padding0">
                   <div class="inner">
-                      <ul class="list-group">
+                      <ul class="list-group" id="userGuideStep2">
                           {{! projects是组件类中的计算属性，并不是路由的回调}}
                           {{#each model.user.projects as |proj|}}
                               {{#if (filter-project-by-status proj.projStatus '__NOT_DEL__')}}

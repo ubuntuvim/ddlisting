@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-07-15T00:52:03+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-28T03:30:38+08:00
+* @Last modified time: 2016-08-29T00:51:31+08:00
 */
 import Ember from 'ember';
 import getUserId from '../utils/get-user-id';
@@ -40,7 +40,7 @@ export default Ember.Route.extend({
             // 存储一个带7天期限的 cookie
             Ember.$.cookie(config.APP.__LOGIN_USER_ID__, userId, { expires: 7 });
 
-            location.href = "/#/pc/projects/-KPEBjb5DL79QoY7jqPe/";
+            location.href = "/#/pc/projects/-KPEBjbDho9Q_HDJFg_q";
         }
     }
 });

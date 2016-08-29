@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-28T04:21:44+08:00
+* @Last modified time: 2016-08-29T23:27:23+08:00
 */
 import Ember from 'ember';
 import dateUtil from '../../../utils/date-util';
@@ -179,8 +179,8 @@ export default Ember.Component.extend({
 
         // 更新title
         updateTitle(id) {
-            // console.log("id == " + id);
-            let title = Ember.$("#pc_update_todo_title_id").val();
+            // let title = Ember.$("#pc_update_todo_title_id").val();
+            let title = Ember.$("#pc_update_todo_title_id").html();
             // console.log("model.title == " + title);
             this.store.findRecord('todo-item', id).then((td) => {
                 td.set('title', title);

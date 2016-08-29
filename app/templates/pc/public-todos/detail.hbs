@@ -3,7 +3,7 @@
 @Author: ubuntuvim
 @Date:   2016-08-04T01:03:24+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-04T03:42:59+08:00
+@Last modified time: 2016-08-29T23:30:50+08:00
 -->
 <!-- Modal -->
 <div class="modal fade in" id="pcIndexTodoDetailModalWin" tabindex="-1"
@@ -14,7 +14,7 @@
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
         {{#link-to 'pc.publicTodos' class="close" data-dismiss="modal" aria-label="Close"}}<span aria-hidden="true">&times;</span>{{/link-to}}
         <h4 class="modal-title" id="myModalLabel">
-            {{model.title}}
+            {{make-html-tag model.title}}
         </h4>
         {{! 创建时间，新建评论}}
         {{pc/public-todos/new-comment store=store model=model}}

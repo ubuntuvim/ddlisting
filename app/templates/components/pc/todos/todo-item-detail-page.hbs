@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-29T21:13:18+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-28T23:20:12+08:00
+@Last modified time: 2016-08-29T23:26:08+08:00
 }}
 
 {{! 用于设置刷新后左侧分类的默认选中状态}}
@@ -23,10 +23,12 @@
                 </div>
 
                 <div class="form-group form-textarea">
-                    <!-- <div contentEditable="true" id="pc_update_todo_title_id" class="pc-todo-item-title"
-                        title="{{model.title}}" onblur={{action "updateTitle" model.id}}>{{model.title}}</div> -->
-                    <textarea class="form-control pc-todo-item-title" id="pc_update_todo_title_id"
-                        onblur={{action 'updateTitle' model.id}}>{{model.title}}</textarea>
+                    <div contentEditable="true" id="pc_update_todo_title_id" class="pc-todo-item-title"
+                        title="{{model.title}}" onblur={{action "updateTitle" model.id}}
+                        onkeydown="if(event.keyCode === 13) return false;">{{make-html-tag model.title}}</div>
+
+                    <!-- <textarea class="form-control pc-todo-item-title" id="pc_update_todo_title_id"
+                        onblur={{action 'updateTitle' model.id}}>{{model.title}}</textarea> -->
 
                     <div class="todo-item-gy" {{action 'doStar' model.id model.star}}>
                         <i class="iconfont {{if model.star 'opacity1'}}">&#xe6bc;</i>

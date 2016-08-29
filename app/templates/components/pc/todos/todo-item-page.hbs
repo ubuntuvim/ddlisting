@@ -1,3 +1,12 @@
+<!--
+@Author: ubuntuvim
+@Date:   2016-06-28T21:08:17+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-08-29T23:25:24+08:00
+-->
+
+
+
 {{! app/templates/components/todo-page.hbs todo列表元素}}
 <div class="list-group my-list-group">
     <div style="position: relative;">
@@ -9,7 +18,7 @@
             {{/if}}
         </div>
         {{#link-to 'pc.projects.todos.todoitem' todoItem.id class="a-selector"}}
-            <p class="bg-info list-group-item {{if todoItem.checked 'complete-todo-item'}}" id="{{todoItem.id}}">{{todoItem.title}}</p>
+            <p class="bg-info list-group-item {{if todoItem.checked 'complete-todo-item'}}" id="{{todoItem.id}}">{{make-html-tag todoItem.title}}</p>
         {{/link-to}}
 
         <div class="todo-create-date">

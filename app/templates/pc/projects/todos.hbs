@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-28T21:08:17+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-28T22:46:54+08:00
+@Last modified time: 2016-08-29T22:07:11+08:00
 }}
 
 <div class="form-grouphas-feedback" id="userGuideStep4">
@@ -24,10 +24,10 @@
 {{input type="hidden" value=model.projectId id="projecId"}}
 
 {{! 新建todo}}
-{{pc/create-todo-input store=store model=model}}
+{{pc/todos/create-todo-input store=store model=model}}
 
 {{! 显示完成的任务列表}}
-{{pc/todo-list-page store=store
+{{pc/todos/todo-list-page store=store
     model=model
     queryTodoValueCptVal=queryTodoValueCpt
     sortKeyValue=sortKeyValue
@@ -62,8 +62,7 @@
             </ul>
         </div>
         <!-- data-step="6" data-intro="快速更换应用背景图片，让你的清单与众不同。" data-position='top' -->
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeBackground" id="userUserGuideChangeBgImgId"
-            >
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeBackground" id="userUserGuideChangeBgImgId">
             <span class="glyphicon glyphicon-picture"></span>
             更换背景
         </button>

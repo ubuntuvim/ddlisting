@@ -6,11 +6,11 @@
 * @Last modified time: 2016-08-28T04:21:44+08:00
 */
 import Ember from 'ember';
-import dateUtil from '../../utils/date-util';
-import completedTodo from '../../utils/completed-todo';
-import setStarStatus from '../../utils/set-star-status';
-import getUserId from '../../utils/get-user-id';
-import playCompletedBGM from '../../utils/play-completed-bgm';
+import dateUtil from '../../../utils/date-util';
+import completedTodo from '../../../utils/completed-todo';
+import setStarStatus from '../../../utils/set-star-status';
+import getUserId from '../../../utils/get-user-id';
+import playCompletedBGM from '../../../utils/play-completed-bgm';
 
 export default Ember.Component.extend({
     defaultProjectId: sessionStorage.getItem('__DEFAULT_PROJECT_ID__'),

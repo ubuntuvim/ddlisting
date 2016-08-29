@@ -7,7 +7,7 @@
 */
 
 import Ember from 'ember';
-import getUserId from '../../utils/get-user-id';
+import getUserId from '../../../utils/get-user-id';
 
 export default Ember.Component.extend({
     category: null,

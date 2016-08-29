@@ -3,13 +3,13 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-25T00:24:36+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-28T04:33:21+08:00
+* @Last modified time: 2016-08-29T22:09:33+08:00
 */
 import Ember from 'ember';
-import completedTodo from '../../utils/completed-todo';
-import setStarStatus from '../../utils/set-star-status';
-import getUserId from '../../utils/get-user-id';
-import playCompletedBGM from '../../utils/play-completed-bgm';
+import completedTodo from '../../../utils/completed-todo';
+import setStarStatus from '../../../utils/set-star-status';
+import getUserId from '../../../utils/get-user-id';
+import playCompletedBGM from '../../../utils/play-completed-bgm';
 
 export default Ember.Component.extend({
     didUpdate() {

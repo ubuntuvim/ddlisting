@@ -1,21 +1,21 @@
-{{! app/templates/components/pc/new-category.hbs 新增分类
+{{! app/templates/components/pc/new-category.hbs 新增项目
 @Author: ubuntuvim
 @Date:   2016-06-25T00:24:36+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-07-09T14:09:05+08:00
-app/templates/components/pc/new-category.hbs 新增分类}}
+@Last modified time: 2016-08-29T22:34:52+08:00
+}}
 
 <div class="modal fade" id="newCategoryId" tabindex="9999" role="dialog" aria-labelledby="addModalLabel">
   <form id="addCategoryForm">
   <div class="modal-dialog modal-sm pc-neworedie-category-form" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="addModalLabel" style="text-align: center; font-weight: bold;">新增分类</h4>
+        <h4 class="modal-title" id="addModalLabel" style="text-align: center; font-weight: bold;">新增项目</h4>
       </div>
       <div class="modal-body" style="padding: 0 15px;">
           <div class="form-group {{if projNameValidate '' 'has-error'}}">
             {{input type="text" class="form-control" id="projNameId"
-                value=projName placeholder="分类名称"}}
+                value=projName placeholder="项目名称"}}
           </div>
       </div>
       <div class="modal-footer" style="padding: 10px 15px;">

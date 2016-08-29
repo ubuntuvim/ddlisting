@@ -3,7 +3,7 @@ pc端的首页
 @Author: ubuntuvim
 @Date:   2016-07-04T22:09:51+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-28T22:09:07+08:00
+@Last modified time: 2016-08-29T22:31:03+08:00
 pc端的子模板渲染到这里 app/templates/pc.hbs }}
 
 {{! 背景图片设置}}
@@ -20,9 +20,9 @@ pc端的子模板渲染到这里 app/templates/pc.hbs }}
 
 
 <!-- 新增分类 -->
-{{pc/new-project store=store model=model}}
+{{pc/projects/new-project store=store model=model}}
 <!-- 修改分类 -->
-{{pc/edit-project store=store model=model}}
+{{pc/projects/edit-project store=store model=model}}
 
 {{! 个人设置页面}}
 {{pc/profile-setting store=store model=model}}

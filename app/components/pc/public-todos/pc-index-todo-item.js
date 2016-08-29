@@ -6,13 +6,13 @@
 * @Last modified time: 2016-08-04T01:16:46+08:00
 */
 import Ember from 'ember';
-import getUserId from '../../utils/get-user-id';
+import getUserId from '../../../utils/get-user-id';
 
 export default Ember.Component.extend({
 
     userId: getUserId(),
 
     actions: {
-        
+
     }
 });

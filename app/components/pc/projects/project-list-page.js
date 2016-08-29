@@ -3,11 +3,11 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-28T21:08:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-07-17T23:39:41+08:00
+* @Last modified time: 2016-08-29T22:08:48+08:00
 */
 
 import Ember from 'ember';
-import getUserId from '../../utils/get-user-id';
+import getUserId from '../../../utils/get-user-id';
 
 // 左侧项目分类列表
 export default Ember.Component.extend({

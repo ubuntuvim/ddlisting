@@ -7,8 +7,8 @@
 */
 
 import Ember from 'ember';
-import dateUtil from '../../utils/date-util';
-import getUserId from '../../utils/get-user-id';
+import dateUtil from '../../../utils/date-util';
+import getUserId from '../../../utils/get-user-id';
 
 export default Ember.Component.extend({
     classNames: ['form-group', 'has-feedback'],

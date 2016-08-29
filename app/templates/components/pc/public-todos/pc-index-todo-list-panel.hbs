@@ -23,14 +23,14 @@
     <div role="tabpanel" class="tab-pane active" id="latest">
         <div class="todo-list">
             {{#each latestTodos as |todoItem|}}
-              {{pc/pc-index-todo-item store=store model=model todoItem=todoItem}}
+              {{pc/public-todos/pc-index-todo-item store=store model=model todoItem=todoItem}}
             {{/each}}
         </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="mostPopular">
         <div class="todo-list">
             {{#each mostPopularTodos as |todoItem|}}
-                  {{pc/pc-index-todo-item store=store model=model todoItem=todoItem}}
+                  {{pc/public-todos/pc-index-todo-item store=store model=model todoItem=todoItem}}
             {{/each}}
         </div>
     </div>

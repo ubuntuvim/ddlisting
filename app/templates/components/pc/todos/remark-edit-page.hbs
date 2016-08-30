@@ -1,0 +1,31 @@
+{{!app/templates/components/pc/todos/remark-edit-page.hbs
+@Author: ubuntuvim
+@Date:   2016-08-30T02:08:55+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-08-30T23:51:01+08:00
+}}
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <div class="form-group">
+            {{input type="hidden" value=model.id id="remarkEdit_todoId"}}
+            <!-- {{textarea class="form-control" id="remarkEditId" value=model.remark key-press=(action 'updateRemark')}} -->
+          <!-- <div contentEditable="true" id="todoitmeRemardEditid" class="todoitem-remark-edit"
+               onblur={{action "updateRemark" model.id}}>{{make-html-tag model.remark}}</div> -->
+
+            <textarea class="form-control" id="todoitmeRemardEditid" wrap="hard" onblur={{action 'updateRemark'}}
+                onkeypress={{action 'updateRemark'}} placeholder="备注信息（支持Markdown）">{{#if model.remark}}{{model.remark}}{{/if}}</textarea>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="show-remark-info-in-edit-page">
+            {{#if model.remark}}
+                {{markdown-to-html
+                    markdown=model.remark
+                    omitExtraWLInCodeBlocks=true
+                    strikethrough=true
+                    literalMidWordUnderscores=true
+                    simplifiedAutoLink=true}}
+            {{/if}}
+        </div>
+    </div>
+</div>

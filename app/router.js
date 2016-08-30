@@ -18,8 +18,13 @@ Router.map(function() {
     this.route('projects', function() {
         // pc.category.todos
       this.route('todos', { path: '/:project_id' }, function() {
-          this.route('todoitem', { path: '/:todo_id' });
+          this.route('todoitem', { path: '/:todo_id' }, function() {
+            //   pc.projects.todos.todoitem.remark
+             this.route('remark', { path: '/remark/edit/:remark_todo_id' }); 
+          });
       });
+      //   pc.projects.remark
+    //   this.route('remark', { path: '/todos/todoitem/remark/edit/:todo_id' });
     });
     // this.route('todoitem', { path: '/:todo_id' });
     // this.route('newCategory');

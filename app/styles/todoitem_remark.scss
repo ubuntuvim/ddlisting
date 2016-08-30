@@ -1,0 +1,39 @@
+// @Author: ubuntuvim
+// @Date:   2016-08-30T01:38:57+08:00
+// @Last modified by:   ubuntuvim
+// @Last modified time: 2016-08-30T22:16:23+08:00
+
+/* ===================== 备注信息输入框 ==================== */
+#todoRemarkModalId {
+    display: block;
+    // margin-top: 40px;
+    color: #b29559;
+    overflow: auto;
+    // height: 600px;
+    z-index: 1100;
+}
+#todoRemarkModalId .modal-content {
+    background-color: #fbf9e3;
+}
+#todoRemarkModalId .modal-body {
+    margin-top: 20px;
+    padding-bottom: 0;
+}
+#todoRemarkModalId .modal-body textarea {
+    // height: 200px;
+    border: 1px solid #ddd;
+    background-color: floralwhite;
+    min-height: 500px;
+    white-space: nowrap;
+}
+#todoRemarkModalId .modal-body .show-remark-info-in-edit-page {
+    margin-top: -25px;
+}
+#todoRemarkModalId .modal-body .todoitem-remark-edit {
+    min-width: 300px;
+    min-height: 400px;
+}
+#todoRemarkModalId .modal-footer a {
+    background-color: wheat;
+    border: 0;
+}

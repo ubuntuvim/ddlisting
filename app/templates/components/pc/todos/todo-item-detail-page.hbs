@@ -2,7 +2,7 @@
 @Author: ubuntuvim
 @Date:   2016-06-29T21:13:18+08:00
 @Last modified by:   ubuntuvim
-@Last modified time: 2016-08-29T23:26:08+08:00
+@Last modified time: 2016-08-31T00:12:06+08:00
 }}
 
 {{! 用于设置刷新后左侧分类的默认选中状态}}
@@ -26,10 +26,6 @@
                     <div contentEditable="true" id="pc_update_todo_title_id" class="pc-todo-item-title"
                         title="{{model.title}}" onblur={{action "updateTitle" model.id}}
                         onkeydown="if(event.keyCode === 13) return false;">{{make-html-tag model.title}}</div>
-
-                    <!-- <textarea class="form-control pc-todo-item-title" id="pc_update_todo_title_id"
-                        onblur={{action 'updateTitle' model.id}}>{{model.title}}</textarea> -->
-
                     <div class="todo-item-gy" {{action 'doStar' model.id model.star}}>
                         <i class="iconfont {{if model.star 'opacity1'}}">&#xe6bc;</i>
                     </div>
@@ -79,7 +75,7 @@
 
 
                 <div class="subtodo-list">
-                    <div class="form-group has-feedback">
+                    <div class="form-group has-feedback subtodo-input">
                         {{input type="hidden" value=model.id id="parentTodoId"}}
                         {{input type="hidden" value=model.checked id="parentTodoCheckedId"}}
                         {{input type="text" class="form-control opacity09"
@@ -108,8 +104,22 @@
                 </div>  {{! 子任务列表}}
 
                 <div class="form-group">
-                    <textarea name="" class="form-control todo-remark" id="todoRemarkId"
-                        placeholder="添加备注……" value=remark onblur={{action 'updateRemarkById' model.id}}>{{model.remark}}</textarea>
+                    <div class="show-remark-info">
+                        {{#if model.remark}}
+                            {{markdown-to-html model.remark}}
+                        {{else}}
+                            <font style="font-size: 12px; color: #aaa;">点击右边的编辑按钮输入备注（亲，支持Markdown哦！）</font>
+                        {{/if}}
+                        <!--  data-toggle="modal" data-target="#todoRemarkModalId" data-whatever="@getbootstrap" -->
+                        {{#link-to 'pc.projects.todos.todoitem.remark' model.project.id model.id model.id}}
+                            <span class="glyphicon glyphicon-edit"></span>
+                        {{/link-to}}
+                    </div>
+                    <!-- <textarea name="" class="form-control todo-remark" id="todoRemarkId"
+                        placeholder="添加备注……" value=remark onblur={{action 'updateRemarkById' model.id}}>
+
+                        {{markdown-to-html model.remark}}
+                    </textarea> -->
                 </div>
             </div>
         </div>  <!-- //auto-overflow-x-->

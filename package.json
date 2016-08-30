@@ -35,6 +35,7 @@
     "ember-cli-qunit": "^1.4.0",
     "ember-cli-release": "0.2.8",
     "ember-cli-sass": "5.3.1",
+    "ember-cli-showdown": "2.7.2",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.5.0",
@@ -49,6 +50,7 @@
     "emberfire": "git://github.com/firebase/emberfire.git#ec3b9112691d5f1f8f7ed9e0eeaf53cf5c1cd692",
     "glob": "^4.5.3",
     "loader.js": "^4.0.1",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "showdown": "1.4.3"
   }
 }

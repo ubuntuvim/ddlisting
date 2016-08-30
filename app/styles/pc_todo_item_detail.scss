@@ -1,7 +1,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-06-29T21:13:18+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-08-29T23:22:55+08:00
+// @Last modified time: 2016-08-31T00:06:57+08:00
 
 /* ===================== todo详细设置页面 ==================== */
 #pcTodoItemId {
@@ -23,9 +23,8 @@
 #pcTodoItemId .inner {
     // border: 1px solid green;
     border-radius: 3px;
-    position: relative;
+    // position: relative;
     background: #fff;
-    overflow: hidden;
     display: -webkit-box;
     display: -moz-box;
     display: -webkit-flex;
@@ -100,6 +99,7 @@
     // border: 1px solid blue;
     padding: 10px;
     // margin-top: -40px;
+    position: relative;
 }
 #pcTodoItemId .todo-item-middle textarea {
     // padding: 0;
@@ -128,6 +128,7 @@
     font-size: 20px;
     margin-left: 159px;
 }
+
 #pcTodoItemId .todo-item-gy {
     cursor: pointer;
     position: absolute;
@@ -166,6 +167,22 @@
     border: 0;
     border-bottom: 1px solid #ccc;
     border-radius: 0;
+}
+// 备注信息
+#pcTodoItemId .todo-item-middle .form-group .show-remark-info {
+    position: absolute;
+    padding: 10px;
+    width: 360px;
+    padding-top: 0;
+    margin-top: 10px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    min-height: 60px;
+}
+#pcTodoItemId .todo-item-middle .form-group .show-remark-info .glyphicon-edit {
+    font-size: 16px;
+    color: #555;
+    right: 5px;
 }
 // 子任务输入框
 #pcTodoItemId .list-group {
@@ -254,10 +271,16 @@
 }
 
 // ---------------------
+#pcTodoItemId .inner .todo-item-middle .subtodo-list {
+    margin-top: -10px;
+}
 #pcTodoItemId .inner .todo-item-middle .subtodo-list input {
     background-color: white !important;
     color: #555555;
     padding-top: 6px;
+}
+#pcTodoItemId .inner .todo-item-middle .subtodo-list .subtodo-input {
+    margin-bottom: 0;
 }
 #pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group {
     // padding-left: 5px !important;
@@ -316,12 +339,3 @@
 #pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body .form-group .glyphicon-calendar {
     margin-right: 0 !important;
 }
-#pcTodoItemId .inner .todo-item-middle .due-time .panel .panel-body .form-group .glyphicon-star {
-    // font-size: 17px;
-    // top:13px;
-}
-#pcTodoItemId .inner .todo-item-top .form-group .pc-todo-item-title {
-
-}
-
-/* =====================  ==================== */

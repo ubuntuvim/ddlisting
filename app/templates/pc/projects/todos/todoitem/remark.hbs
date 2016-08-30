@@ -1,0 +1,27 @@
+{{! 备注信息输入框 app/templates/pc/projects/todos/todoitem/remark.hbs
+@Author: ubuntuvim
+@Date:   2016-08-30T01:19:15+08:00
+@Last modified by:   ubuntuvim
+@Last modified time: 2016-08-30T22:00:03+08:00
+}}
+{{! }}
+<div class="modal fade in" id="todoRemarkModalId" tabindex="-1" role="dialog"
+    aria-labelledby="todoRemarkModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+        <h4 class="modal-title">{{make-html-tag model.title}}</h4>
+      </div>
+      <div class="modal-body">
+          {{pc/todos/remark-edit-page model=model store=store}}
+      </div>
+      <div class="modal-footer">
+          <span class="text-success pull-left">
+              支持<code>markdown</code>语法。
+          </span>
+        {{#link-to 'pc.projects.todos.todoitem' model.project.id model.id class="btn btn-default"}}关闭{{/link-to}}
+      </div>
+    </div>
+  </div>
+</div>

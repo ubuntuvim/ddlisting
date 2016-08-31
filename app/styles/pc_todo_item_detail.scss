@@ -1,7 +1,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-06-29T21:13:18+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-08-31T00:06:57+08:00
+// @Last modified time: 2016-08-31T22:59:46+08:00
 
 /* ===================== todo详细设置页面 ==================== */
 #pcTodoItemId {
@@ -173,7 +173,7 @@
     position: absolute;
     padding: 10px;
     width: 360px;
-    padding-top: 0;
+    // padding-top: 0;
     margin-top: 10px;
     border: 1px solid #dedede;
     border-radius: 4px;
@@ -216,7 +216,11 @@
     margin-top: 10px;
     padding: 10px;
 }
-// 底部区块
+#pcTodoItemId .todo-item-middle code {
+    white-space: pre-wrap !important;
+    background-color: inherit;
+}
+// ======================= 底部区块 =======================
 #pcTodoItemId .todo-item-bottom {
     // border: 1px solid black;
     position: relative;

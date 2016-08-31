@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-06-29T21:13:17+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-30T23:32:42+08:00
+* @Last modified time: 2016-08-31T23:00:12+08:00
 */
 import Ember from 'ember';
 import dateUtil from '../../../utils/date-util';
@@ -18,6 +18,7 @@ export default Ember.Component.extend({
     didRender() {
         // 给图片加bootstrap样式
         Ember.$("#pcTodoItemId").find("img").addClass('img-responsive');
+        this.$("#pcTodoItemId").find("code").parent('p').addClass('pre');
     },
     didInsertElement() {
         // 展开右侧详细设置页面的同时缩小中间部分

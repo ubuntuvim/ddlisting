@@ -1,7 +1,7 @@
 // @Author: ubuntuvim
 // @Date:   2016-08-30T01:38:57+08:00
 // @Last modified by:   ubuntuvim
-// @Last modified time: 2016-08-30T22:16:23+08:00
+// @Last modified time: 2016-08-31T23:03:58+08:00
 
 /* ===================== 备注信息输入框 ==================== */
 #todoRemarkModalId {
@@ -36,4 +36,15 @@
 #todoRemarkModalId .modal-footer a {
     background-color: wheat;
     border: 0;
+}
+#todoRemarkModalId .show-remark-info-in-edit-page code {
+    white-space: pre-wrap !important;
+    background-color: inherit;
+}
+.pre {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding-bottom: 10px;
+    border-radius: 4px;
+    word-break: break-all;
 }

@@ -3,7 +3,7 @@
 * @Author: ubuntuvim
 * @Date:   2016-08-30T02:08:55+08:00
 * @Last modified by:   ubuntuvim
-* @Last modified time: 2016-08-30T23:31:46+08:00
+* @Last modified time: 2016-08-31T22:57:40+08:00
 */
 import Ember from 'ember';
 
@@ -12,6 +12,7 @@ export default Ember.Component.extend({
     didRender() {
         // 给图片加bootstrap样式
         this.$(".show-remark-info-in-edit-page").find("img").addClass('img-responsive');
+        this.$(".show-remark-info-in-edit-page").find("code").parent('p').addClass('pre');
     },
     actions: {
         updateRemark() {

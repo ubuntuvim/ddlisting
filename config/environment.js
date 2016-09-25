@@ -1,3 +1,12 @@
+/**
+* @Author: ubuntuvim
+* @Date:   2016-07-05T22:30:05+08:00
+* @Last modified by:   ubuntuvim
+* @Last modified time: 2016-08-31T23:49:07+08:00
+*/
+
+
+
 /* jshint node: true */
 
 module.exports = function(environment) {
@@ -26,7 +35,8 @@ module.exports = function(environment) {
         // storageBucket: "luminous-heat-9079.appspot.com"
         apiKey: "AIzaSyALZOzYZbc3Rp7t5zvfW4JKbEwJIZQaAq0",
         authDomain: "ddlisting-49d6e.firebaseapp.com",
-        databaseURL: "https://ddlisting-49d6e.firebaseio.com",
+        // databaseURL: "https://ddlisting-49d6e.firebaseio.com",
+        databaseURL: "https://ddlisting.wilddogio.com",
         storageBucket: "ddlisting-49d6e.appspot.com"
     },
     cloudinary: {

@@ -45,6 +45,8 @@
   <body>
     {{content-for "body"}}
 
+    <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>
+
     <script src="assets/vendor.js"></script>
     <script src="assets/ddlisting.js"></script>
 
@@ -69,17 +71,7 @@
     <script src="http://iamdanfox.github.io/anno.js/scrollintoview/jquery.scrollintoview.min.js" type="text/javascript"></script> -->
 
     <!-- <script src="//cdn.bootcss.com/blueimp-md5/2.1.0/js/md5.min.js"></script> -->
-
-    <!-- <script src="//www.gstatic.com/firebasejs/live/3.0/firebase.js"></script> -->
     <script>
-     // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyALZOzYZbc3Rp7t5zvfW4JKbEwJIZQaAq0",
-        authDomain: "ddlisting-49d6e.firebaseapp.com",
-        databaseURL: "https://ddlisting-49d6e.firebaseio.com",
-        storageBucket: "ddlisting-49d6e.appspot.com",
-      };
-      firebase.initializeApp(config);
       // 用户使用引导，在user-guides.js和app-main-header.hbs调用
       var intro = introJs();
     //   intro.setOption('tooltipPosition', 'auto');

@@ -28,17 +28,17 @@ module.exports = function(environment) {
         // 'frame-src': ''self' https://*.firebaseapp.com',
         // 'connect-src': ''self' wss://*.firebaseio.com https://*.googleapis.com'
     },
-    firebase: {
-        // apiKey: "AIzaSyDqkMj_1Z6XKeUSZngy30bLVZvhrL7qBh8",
-        // authDomain: "luminous-heat-9079.firebaseapp.com",
-        // databaseURL: "https://luminous-heat-9079.firebaseio.com",
-        // storageBucket: "luminous-heat-9079.appspot.com"
-        apiKey: "AIzaSyALZOzYZbc3Rp7t5zvfW4JKbEwJIZQaAq0",
-        authDomain: "ddlisting-49d6e.firebaseapp.com",
-        // databaseURL: "https://ddlisting-49d6e.firebaseio.com",
-        databaseURL: "https://ddlisting.wilddogio.com",
-        storageBucket: "ddlisting-49d6e.appspot.com"
-    },
+    // firebase: {
+    //     // apiKey: "AIzaSyDqkMj_1Z6XKeUSZngy30bLVZvhrL7qBh8",
+    //     // authDomain: "luminous-heat-9079.firebaseapp.com",
+    //     // databaseURL: "https://luminous-heat-9079.firebaseio.com",
+    //     // storageBucket: "luminous-heat-9079.appspot.com"
+    //     apiKey: "AIzaSyALZOzYZbc3Rp7t5zvfW4JKbEwJIZQaAq0",
+    //     authDomain: "ddlisting-49d6e.firebaseapp.com",
+    //     // databaseURL: "https://ddlisting-49d6e.firebaseio.com",
+    //     databaseURL: "https://ddlisting.wilddogio.com",
+    //     storageBucket: "ddlisting-49d6e.appspot.com"
+    // },
     cloudinary: {
       cloudName: `ddlisting`,
       uploadPreset: `oo021mf7`,

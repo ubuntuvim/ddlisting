@@ -17,12 +17,20 @@ export default Ember.Route.extend({
     },
     model() {
         let userId = getUserId();
-        let userEmail = this.store.peekRecord('user', userId).get('email');
+        let user = this.store.findRecord('user', userId);
+
+        // let projects = this.store.query('project', { userId: userId }).then((ps) => {
+        //     return ps;
+        // });
 
         return Ember.RSVP.hash({
             loginUser: userId,
             // project根据user获取
-            user: this.store.peekRecord('user', userId)
+            // user: this.store.peekRecord('user', userId)
+            projects: this.store.query('project', { userId: userId }).then((ps) => {
+                return ps;
+            }),
+            user: user
             // userEmail: sessionStorage.getItem("__LOGIN_USER_EMAIL__")
         });
     }

@@ -14,8 +14,8 @@ export default Ember.Component.extend({
 	didInsertElement() {
         // Ember.$("#appMainLeftId .panel .panel-body .list-group").css("height", $(window).width());
 	},
-	allProject: Ember.computed(function() {
-        return this.store.findAll('project');
+	allProject: Ember.computed('model', function() {
+        return this.store.peekAll('model.project');
     }),
     projects: Ember.computed('allProject.@each.userId',
         					'allProject.@each.projStatus', function() {

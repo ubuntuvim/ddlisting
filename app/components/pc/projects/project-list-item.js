@@ -41,7 +41,9 @@ export default Ember.Component.extend({
     },
     // 统计每个分类未完成的todo数量
    todosForTotla: Ember.computed(function() {
-     return this.store.findAll('todo-item');
+    //  return this.store.findAll('todo-item');
+        let userId = getUserId();
+        return this.store.query('todo-item', { userId: userId });
    }),
 
    // 多重过滤：1，状态为1；2，登录用户id；3，所属分类；4，不显示子todo

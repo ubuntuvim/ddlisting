@@ -1,6 +1,6 @@
 {
   "name": "ddlisting",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "天天清单重新设计、开发，网站：http://list.ddlisting.com",
   "private": true,
   "directories": {
@@ -47,10 +47,10 @@
     "ember-network": "0.3.0",
     "ember-profile-upload": "1.3.0",
     "ember-resolver": "^2.0.3",
-    "emberfire": "git://github.com/firebase/emberfire.git#ec3b9112691d5f1f8f7ed9e0eeaf53cf5c1cd692",
     "glob": "^4.5.3",
     "loader.js": "^4.0.1",
     "morgan": "^1.7.0",
-    "showdown": "1.4.3"
+    "showdown": "1.4.3",
+    "wildember": "1.5.7"
   }
 }

@@ -20,7 +20,8 @@ export default Ember.Route.extend({
 
     model() {
         let userId = getUserId();
-        let user = this.store.peekRecord('user', userId);
+        let user = this.store.findRecord('user', userId);
+        Ember.debug('route:public-todos, user = '+user);
 
         return Ember.RSVP.hash({
             // loginUser: userId,

@@ -1,6 +1,10 @@
-import FirebaseAdapter from 'emberfire/adapters/firebase';
+import WildemberAdapter from 'wildember/adapters/wildember';
 
-export default FirebaseAdapter.extend({
+export default WildemberAdapter.extend({
+    wilddogConfig: {
+        syncDomain: "ddlisting3.wilddog.com",
+        syncURL: "https://ddlisting3.wilddogio.com" //输入节点 URL
+    }
 });
 
 // import JSONAPIAdapter from 'ember-data/adapters/json-api';

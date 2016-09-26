@@ -20,7 +20,8 @@ export default Ember.Route.extend({
 
     model() {
         let userId = getUserId();
-        let user = this.store.peekRecord('user', userId);
+        let user = this.store.findRecord('user', userId);
+        Ember.debug('route:pc, user = '+user);
         // let defaultProjectId = user.get('projects').forEach((item) => {
         //     if ()
         // });
@@ -40,12 +41,13 @@ export default Ember.Route.extend({
 
         // sessionStorage.setItem("__LOGIN_USER_ID__", userId);
         // 从服务器获取所有数据，会自动设置到缓存store里
-        this.store.findAll('project');
+        // this.store.findAll('project');
 
         return Ember.RSVP.hash({
             // loginUser: userId,
             // defaultProjectId: defaultProjectId,  //在页面遍历查找
             user: user,
+            // 数据少，可以直接一次性加载出来
             bgImgList: this.store.findAll('bg-img-libs')
         });
     }

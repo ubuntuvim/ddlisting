@@ -91,7 +91,7 @@
                                {{else}}
                                 <i class="iconfont" {{action 'doChecked' subTodo.id subTodo.checked}}>&#xe626;</i>
                                {{/if}}
-                               <span class="">
+                               <span class="sub-todo-title">
                                 <input type="text" value={{subTodo.title}} name="subTitle" id="{{subTodo.id}}"
                                     class="sub-todo-title {{if subTodo.checked 'complete-todo-item'}}" onblur={{action 'updateSubTodoTitle' subTodo.id}}>
                                </span>

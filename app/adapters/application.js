@@ -2,8 +2,8 @@ import WildemberAdapter from 'wildember/adapters/wildember';
 
 export default WildemberAdapter.extend({
     wilddogConfig: {
-        syncDomain: "<app-id>.wilddog.com",
-        syncURL: "https://<app-id>.wilddogio.com" //输入节点 URL
+        syncDomain: "ddlisting-final.wilddog.com",
+        syncURL: "https://ddlisting-final.wilddogio.com" //输入节点 URL
     }
 });
 

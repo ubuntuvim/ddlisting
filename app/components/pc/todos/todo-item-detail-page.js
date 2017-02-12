@@ -19,6 +19,14 @@ export default Ember.Component.extend({
         // 给图片加bootstrap样式
         Ember.$("#pcTodoItemId").find("img").addClass('img-responsive');
         this.$("#pcTodoItemId").find("code").parent('p').addClass('pre');
+        //鼠标移动到子任务列表显示右侧的删除按钮
+        Ember.$(".subtodo-list .list-group .list-group-item").mousemove(function() {
+            Ember.$(this).children('.glyphicon-remove').show();
+        });
+        //鼠标移开不显示
+        Ember.$(".subtodo-list .list-group .list-group-item").mouseout(function() {
+            Ember.$(this).children('.glyphicon-remove').hide();
+        });
     },
     didInsertElement() {
         // 展开右侧详细设置页面的同时缩小中间部分
@@ -26,14 +34,7 @@ export default Ember.Component.extend({
         // 引入textarea根据内容自适应插件
         // Ember.$('textarea').flexText();
         Ember.$("#middleOverflowId").attr('overflow', 'auto');
-        //鼠标移动到子任务列表显示右侧的删除按钮
-        Ember.$("#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group").mousemove(function() {
-            Ember.$(this).children("p").children('.glyphicon').show();
-        });
-        //鼠标移开不显示
-        Ember.$("#pcTodoItemId .inner .todo-item-middle .subtodo-list .list-group").mouseout(function() {
-            Ember.$(this).children("p").children('.glyphicon').hide();
-        });
+
         // Ember.$("#middleOverflowId").attr('overflow', 'auto');
         // 设置刷新后选中的todo，设置其背景色,，在todo-item-page.js里设置点击时的选中状态
         let ids = "#"+Ember.$("#selectedTodoId").val();  //选中的todo id值
@@ -121,7 +122,7 @@ export default Ember.Component.extend({
                 } else {  //完成状态
 
                     // 如果用户开启了音效
-                    let isOpenPromptTone = this.store.peekRecord('user', getUserId()).get('profile').get('isOpenPromptTone');
+                    let isOpenPromptTone = this.store.findRecord('user', getUserId()).get('profile').get('isOpenPromptTone');
                     playCompletedBGM(isOpenPromptTone); //播放完成提示音效
 
                     td.set('checked', true);

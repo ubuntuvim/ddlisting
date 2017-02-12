@@ -19,7 +19,7 @@ export default Ember.Component.extend({
             var projId = Ember.$("#projId1").val();
             var projName = Ember.$("#projNameId1").val();
             if (projId) {
-                this.store.peekRecord('project', projId).then((proj) => {
+                this.store.findRecord('project', projId).then((proj) => {
                   proj.set('projName', projName);
                   proj.save().then(() => {
                       // 隐藏loading图片
@@ -41,7 +41,7 @@ export default Ember.Component.extend({
             // 获取删除数据的id
             var id = Ember.$("#projId1").val();
             //  首先删除与此项目关联的所有TODO
-            this.store.peekRecord('project', id).then((proj) => {
+            this.store.findRecord('project', id).then((proj) => {
                 // var userId = sessionStorage.getItem("__LOGIN_USER_ID__");
                 proj.get('todoItems').forEach(function(item) {
                     item.set('recordStatus', 3);
@@ -55,7 +55,7 @@ export default Ember.Component.extend({
                     // 按钮变为可用
                     Ember.$("#delProjectBtn").attr('disabled', false);
                     Ember.$("#editCategoryId").modal('toggle');
-                    this.store.peekRecord('user', getUserId()).then((u) => {
+                    this.store.findRecord('user', getUserId()).then((u) => {
                         u.set('myIntegral', (u.get('myIntegral')-4));  //创建分类积分-4
                         u.save();
                     });

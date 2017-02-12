@@ -28,6 +28,7 @@ export default Ember.Route.extend({
             // defaultProjectId: defaultProjectId,  //在页面遍历查找
             user: user,
             projects: this.store.findAll('project'),
+            // todos: this.store.findAll('todo-item'),
             // 数据少，可以直接一次性加载出来
             bgImgList: this.store.findAll('bg-img-libs')
         });

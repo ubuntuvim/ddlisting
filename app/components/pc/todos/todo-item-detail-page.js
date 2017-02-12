@@ -122,7 +122,7 @@ export default Ember.Component.extend({
                 } else {  //完成状态
 
                     // 如果用户开启了音效
-                    let isOpenPromptTone = this.store.findRecord('user', getUserId()).get('profile').get('isOpenPromptTone');
+                    let isOpenPromptTone = this.store.peekRecord('user', getUserId()).get('profile').get('isOpenPromptTone');
                     playCompletedBGM(isOpenPromptTone); //播放完成提示音效
 
                     td.set('checked', true);

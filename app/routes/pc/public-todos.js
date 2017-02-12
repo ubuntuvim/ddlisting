@@ -20,14 +20,14 @@ export default Ember.Route.extend({
 
     model() {
         let userId = getUserId();
-        let user = this.store.findRecord('user', userId);
+        let user = this.store.peekRecord('user', userId);
         Ember.debug('route:public-todos, user = '+user);
 
         return Ember.RSVP.hash({
             // loginUser: userId,
             // defaultProjectId: defaultProjectId,  //在页面遍历查找
             user: user,
-            bgImgList: this.store.findAll('bg-img-libs')
+            bgImgList: this.store.peekAll('bg-img-libs')
         });
     },
     actions: {

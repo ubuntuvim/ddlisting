@@ -18,7 +18,7 @@ export default Ember.Component.extend({
 
     // 获取所以的todo
     allTodos: Ember.computed(function() {
-        return this.store.findAll('todo-item');
+        return this.store.peekAll('todo-item');
         // return this.store.query('todo-item', { userId: this.get('userId') });
     }),
     // 公开，非子、非删除状态todo数据

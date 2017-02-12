@@ -33,7 +33,7 @@ export default Ember.Route.extend({
 
     model() {
 
-        return Ember.RSVP.hash({
+        // return Ember.RSVP.hash({
             // 不会在模板中获取这个数据，这里只是为了查询一次数据，是的后面再使用project的时候可以从缓存中获取
             // 否则手动刷新后页面不显示数据
             // users: this.store.findAll('user'),
@@ -42,6 +42,6 @@ export default Ember.Route.extend({
             // todos: this.store.findAll('todo-item')
             // ,
             // user: this.store.peekRecord('user', sessionStorage.getItem("__LOGIN_USER_ID__"))
-        });
+        // });
     }
 });

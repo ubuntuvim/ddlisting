@@ -9,6 +9,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function(params) {
-        return this.store.findRecord('todo-item', params.remark_todo_id);
+        return this.store.peekRecord('todo-item', params.remark_todo_id);
     }
 });

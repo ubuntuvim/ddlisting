@@ -10,7 +10,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
     users: Ember.computed(function() {
-        return this.store.findAll('user');
+        return this.store.peekAll('user');
     }),
     enabledUserList: Ember.computed('users.@each.status', function() {
         return this.get('users').filter((u) => {

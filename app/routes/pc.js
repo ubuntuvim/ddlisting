@@ -22,31 +22,12 @@ export default Ember.Route.extend({
         let userId = getUserId();
         let user = this.store.findRecord('user', userId);
         Ember.debug('route:pc, user = '+user);
-        // let defaultProjectId = user.get('projects').forEach((item) => {
-        //     if ()
-        // });
-        // let profile = null;
-        // if (user) {
-        //     profile = this.store.peekRecord('profile', user.get('profile').get('id'))
-        // }
-        // let profile = this.store.peekRecord('profile', user.get('profile').get('id'));
-        // let profile = null;
-        // console.log(user.get('profile').get('id'));
-        // this.store.findRecord('profile', user.get('profile').get('id')).then((p) => {
-        //     console.log('p',p);
-        //     console.log('p',p.get('isOpenPromptTone'));
-        //     profile = p;
-        // });
-        // console.log(profile.get('isOpenPromptTone'));
-
-        // sessionStorage.setItem("__LOGIN_USER_ID__", userId);
-        // 从服务器获取所有数据，会自动设置到缓存store里
-        // this.store.findAll('project');
 
         return Ember.RSVP.hash({
             // loginUser: userId,
             // defaultProjectId: defaultProjectId,  //在页面遍历查找
             user: user,
+            projects: this.store.findAll('project'),
             // 数据少，可以直接一次性加载出来
             bgImgList: this.store.findAll('bg-img-libs')
         });

@@ -16,8 +16,9 @@ export default Ember.Route.extend({
         }
     },
     model() {
+
         let userId = getUserId();
-        let user = this.store.findRecord('user', userId);
+        let user = this.store.peekRecord('user', userId);
 
         // let projects = this.store.query('project', { userId: userId }).then((ps) => {
         //     return ps;
@@ -25,11 +26,14 @@ export default Ember.Route.extend({
 
         return Ember.RSVP.hash({
             loginUser: userId,
-            // project根据user获取
-            // user: this.store.peekRecord('user', userId)
-            projects: this.store.query('project', { userId: userId }).then((ps) => {
-                return ps;
+            projects: this.store.peekAll('project').filter((p) => {
+                return p.get('userId') === userId;
             }),
+            // .then((ps) => {
+            //     return ps.filter((p) => {
+            //         return p.get('userId') === userId;
+            //     });
+            // }),
             user: user
             // userEmail: sessionStorage.getItem("__LOGIN_USER_EMAIL__")
         });

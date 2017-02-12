@@ -51,6 +51,6 @@
     "loader.js": "^4.0.1",
     "morgan": "^1.7.0",
     "showdown": "1.4.3",
-    "wildember": "1.5.7"
+    "wildember": "2.1.1"
   }
 }

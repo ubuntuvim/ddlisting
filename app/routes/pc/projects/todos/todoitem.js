@@ -16,7 +16,7 @@ export default Ember.Route.extend({
         }
     },
     model: function(params) {
-        return this.store.findRecord('todo-item', params.todo_id);
+        return this.store.peekRecord('todo-item', params.todo_id);
     }
 
 });

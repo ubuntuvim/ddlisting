@@ -29,7 +29,7 @@ export default Ember.Route.extend({
         return Ember.RSVP.hash({
             // 通过关联获取project下的todo
             // todos: this.store.peekRecord('project', projectId).get('todoItems'),
-            project: this.store.findRecord('project', projectId),
+            project: this.store.peekRecord('project', projectId),
             projectId: projectId,
             user: this.store.peekRecord('user', getUserId())
         });

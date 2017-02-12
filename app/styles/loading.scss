@@ -1,0 +1,85 @@
+/*
+ * Baseline styles
+ */
+body {
+  background: #222;
+  // text-align: center;
+  // padding: 20%;
+}
+
+.ddlisting-loading {
+    position: fixed;
+    left: 45%;
+    top: 40%;
+}
+/*
+ * Loading Dots
+ * Can we use pseudo elements here instead :after?
+ */
+.ddlisting-loading span {
+  display: inline-block;
+  vertical-align: middle;
+  width: .6em;
+  height: .6em;
+  margin: .19em;
+  background: #007DB6;
+  border-radius: .6em;
+  -webkit-animation: loading 1s infinite alternate;
+          animation: loading 1s infinite alternate;
+}
+
+/*
+ * Dots Colors
+ * Smarter targeting vs nth-of-type?
+ */
+.ddlisting-loading span:nth-of-type(2) {
+  background: #008FB2;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.ddlisting-loading span:nth-of-type(3) {
+  background: #009B9E;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.ddlisting-loading span:nth-of-type(4) {
+  background: #00A77D;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.ddlisting-loading span:nth-of-type(5) {
+  background: #00B247;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.ddlisting-loading span:nth-of-type(6) {
+  background: #5AB027;
+  -webkit-animation-delay: 1.0s;
+          animation-delay: 1.0s;
+}
+.ddlisting-loading span:nth-of-type(7) {
+  background: #A0B61E;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+
+/*
+ * Animation keyframes
+ * Use transition opacity instead of keyframes?
+ */
+@-webkit-keyframes loading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes loading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

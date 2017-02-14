@@ -1,17 +1,3 @@
-<!--
-@Author: ubuntuvim
-@Date:   2016-05-27T21:28:39+08:00
-@Last modified by:   ubuntuvim
-@Last modified time: 2016-08-31T00:19:21+08:00
--->
-
-
-
-# Ddlisting
-
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
 # 使用到的资源、插件
 
 1. [jquery-flextext](https://github.com/alexdunphy/flexText)  div点击可编辑
@@ -102,6 +88,9 @@ A short introduction of this app could easily go here.
 
 有关命令介绍请看[Ember CLI命令介绍](http://ember-cli.com/user-guide/#using-ember-cli)。
 
+## 运行环境
+
+由于项目使用比较新的JS特性，所以需要运行在最新的浏览器上已获得最好的支持。支持的浏览器包括chrome、Firefox、IE10以上，以及这些浏览器的衍生版。
 
 ### 编译、打包项目
 

@@ -81,6 +81,12 @@
 * `npm install`  安装npm依赖
 * `bower install`  安装bower依赖库
 
+
+## 项目配置
+
+请参考[https://git.oschina.net/chendequan/wildember#安装wildember](https://git.oschina.net/chendequan/wildember#安装wildember)配置项目。如有疑问给我留言或者QQ联系。
+
+
 ## 运行项目
 
 * `ember server`  在项目目录下执行运行命令
